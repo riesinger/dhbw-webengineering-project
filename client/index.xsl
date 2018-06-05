@@ -6,16 +6,39 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template match="/">
   <html>
   <body>
-  <h2>My CD Collection</h2>
-  <table border="1">
-    <tr bgcolor="#9acd32">
-      <th>Title</th>
-      <th>Artist</th>
-    </tr>
-    <xsl:for-each select="catalog/cd">
+  <h2><xsl:value-of select="calendar/name"/></h2>
+  <h5>ID: <xsl:value-of select="calendar/ID"/></h5>
+  <table>
     <tr>
-      <td><xsl:value-of select="title"/></td>
-      <td><xsl:value-of select="artist"/></td>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>startDateDay</th>
+      <th>startDateMonth</th>
+      <th>startDateYear</th>
+      <th>startTimeHour</th>
+      <th>startTimeMinute</th>
+      <th>endDateDay</th>
+      <th>endDateMonth</th>
+      <th>endDateYear</th>
+      <th>endTimeHour</th>
+      <th>endTimeMinute</th>
+    </tr>
+    <xsl:for-each select="calendar/events/event">
+    <tr>
+      <td><xsl:value-of select="name"/></td>
+      <td><xsl:value-of select="description"/></td>
+      <td><xsl:value-of select="location"/></td>
+      <td><xsl:value-of select="startDateDay"/></td>
+      <td><xsl:value-of select="startDateMonth"/></td>
+      <td><xsl:value-of select="startDateYear"/></td>
+      <td><xsl:value-of select="startTimeHour"/></td>
+      <td><xsl:value-of select="startTimeMinute"/></td>
+      <td><xsl:value-of select="endDateDay"/></td>
+      <td><xsl:value-of select="endDateMonth"/></td>
+      <td><xsl:value-of select="endDateYear"/></td>
+      <td><xsl:value-of select="endTimeHour"/></td>
+      <td><xsl:value-of select="endTimeMinute"/></td>
     </tr>
     </xsl:for-each>
   </table>
