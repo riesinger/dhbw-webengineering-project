@@ -1,10 +1,20 @@
 const express = require("express");
+const basicAuth = require('express-basic-auth')
 const path = require("path");
 const convert = require('xml-js');
 
 const app = express();
 
-var xmlOptions = {compact: true, ignoreComment: true, spaces: 2};
+app.use(basicAuth({
+    users: {
+      "user1": "secret1",
+      "user2": "secret2"
+    },
+    challenge: true,
+    realm: 'j4#1z0TLu@81'
+}))
+
+const xmlOptions = {compact: true, ignoreComment: true, spaces: 2};
 
 const catalog = {
   _declaration: { _attributes: {version: "1.0", encoding: "UTF-8" } },
@@ -29,11 +39,11 @@ const catalog = {
       }
     ]
   }
-}
+};
 
 app.get("/", (req, res) => {
-  res.setHeader("Content-Type", "text/xml")
-  res.send(convert.json2xml(catalog, xmlOptions))
+  res.setHeader("Content-Type", "text/xml");
+  res.send(convert.js2xml(catalog, xmlOptions));
 });
 
 app.use("/xsl", express.static(path.join(__dirname, "client")));
