@@ -6,8 +6,8 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template match="/">
   <html>
   <body>
-  <h2><xsl:value-of select="calendar/name"/></h2>
-  <h5>ID: <xsl:value-of select="calendar/ID"/></h5>
+  <h5><xsl:value-of select="week/curDateDay"/></h5>
+  <h5><xsl:value-of select="week/curDateMonth"/></h5>
   <table>
     <tr>
       <th>Name</th>
@@ -24,7 +24,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       <th>endTimeHour</th>
       <th>endTimeMinute</th>
     </tr>
-    <xsl:for-each select="calendar/events/event">
+    <xsl:for-each select="week/events/event">
     <tr>
       <td><xsl:value-of select="name"/></td>
       <td><xsl:value-of select="description"/></td>
