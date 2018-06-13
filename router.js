@@ -7,6 +7,15 @@ const calendar = require("./calendar");
 
 const app = express();
 
+function injectXSLT(xml, xslt) {
+	if (xml.indexOf("<?xml version") >= 0) {
+		var slimXML = xml.substring(xml.indexOf("\n") + 1);
+	} else {
+		var slimXML = xml;
+	}
+	return "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<?xml-stylesheet type=\"text/xsl\" href=\"xsl/" + xslt + "\" ?>\n" + slimXML;
+}
+
 exports.setup = function () {
 
 	app.use(basicAuth({
@@ -20,7 +29,7 @@ exports.setup = function () {
 	app.get("/", (req, res) => {
 		console.log("Getting calendar for user", req.auth.user);
 		res.setHeader("Content-Type", "text/xml");
-		res.send(calendar.getCalendarFile(req.auth.user));
+		res.send(injectXSLT(calendar.getCurrentWeekEvents(req.auth.user), "index.xsl"));
 	});
 
 	app.post("/addEvent", (req, res) => {	

@@ -28,6 +28,14 @@ function writeCalendarFile(username, calendar) {
 	}
 }
 
+function addTimeToObj(obj, timeName, time) {
+	obj[timeName + "Day"] = time.getDate() + 1;
+	obj[timeName + "Month"] = time.getMonth() + 1;
+	obj[timeName + "Year"] = time.getFullYear();
+	obj[timeName + "Hour"] = time.getHours() + 1;
+	obj[timeName + "Minute"] = time.getMinutes() + 1;
+}
+
 exports.addEventToCalendar = (username, eventDetails) => {
 	xml.parseString(getCalendarFile(username), (err, result) => {
 		if (err != null) {
@@ -81,27 +89,11 @@ exports.getCurrentWeekEvents = (username) => {
 		}
 	});
 
-	let week = {
-		curDateDay: curday.getDate() + 1,
-		curDateMonth: curday.getMonth() + 1,
-		curDateYear: curday.getFullYear(),
-		curDateHour: curday.getHours() + 1,
-		curDateMinute: curday.getMinutes() + 1,
+	let week = {};
+	addTimeToObj(week, "curDate", curday);
+	addTimeToObj(week, "firstDate", firstday);
+	addTimeToObj(week, "lastDate", lastday);
+	week["events"] = { event: resArray};
 
-		firstDateDay: firstday.getDate() + 1,
-		firstDateMonth: firstday.getMonth() + 1,
-		firstDateYear: firstday.getFullYear(),
-		firstDateHour: firstday.getHours() + 1,
-		firstDateMinute: firstday.getMinutes() + 1,
-
-		lastDateDay: lastday.getDate() + 1,
-		lastDateMonth: lastday.getMonth() + 1,
-		lastDateYear: lastday.getFullYear(),
-		lastDateHour: lastday.getHours() + 1,
-		lastDateMinute: lastday.getMinutes() + 1,
-		
-		events: { event: resArray}
-	}
-
-	return xmlBuilder.buildObject(week);
+	return xmlBuilder.buildObject({ week });
 }
