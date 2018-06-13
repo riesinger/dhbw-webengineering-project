@@ -15,6 +15,14 @@ function getCalendarFile(username) {
 	return fs.readFileSync(getPath(username));
 };
 
+function getEventStartDate(event) {
+	return new Date(event.startDateYear[0], event.startDateMonth[0] - 1, event.startDateDay[0] - 1);
+}
+
+function getEventEndDate(event) {
+	return new Date(event.endDateYear[0], event.endDateMonth[0] - 1, event.endDateDay[0] - 1);
+}
+
 function writeCalendarFile(username, calendar) {
 	try {
 		const u = xmlBuilder.buildObject(calendar);
@@ -72,16 +80,16 @@ exports.getCurrentWeekEvents = (username) => {
 	let resArray = [];
 
 	xml.parseString(getCalendarFile(username), (err, result) => {
-		if (err != null) {
-			console.error(err);
+		if (err !== null || result === null) {
+			console.error("Error parsing calendar file: ", err);
 			return;
 		}
 
 		let eventArray = result.calendar.events[0].event;
 		for (var it = 0; it < eventArray.length; it++) {
 			let event = eventArray[it];
-			let startDate = new Date(event.startDateYear[0], event.startDateMonth[0] - 1, event.startDateDay[0] - 1);
-			let endDate = new Date(event.endDateYear[0], event.endDateMonth[0] - 1, event.endDateDay[0] - 1);
+			let startDate = getEventStartDate(event);
+			let endDate = getEventEndDate(event);
 
 			if ((startDate >= firstday && startDate <= lastday) || (endDate >= firstday && endDate <= lastday)) {
 				resArray.push(event);
