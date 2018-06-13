@@ -1,14 +1,11 @@
 const express = require("express");
 const basicAuth = require('express-basic-auth');
 const path = require("path");
-const xml = require("xml-js");
 
 const users = require("./users");
 const calendar = require("./calendar");
 
 const app = express();
-
-const xmlOptions = {compact: true, ignoreComment: true, spaces: 2};
 
 exports.setup = function () {
 
@@ -23,8 +20,11 @@ exports.setup = function () {
 	app.get("/", (req, res) => {
 		console.log("Getting calendar for user", req.auth.user);
 		res.setHeader("Content-Type", "text/xml");
-		res.send(calendar.getCalendarFileForUser(req.auth.user));
+		res.send(calendar.getCalendarFile(req.auth.user));
 	});
+
+	app.post("/addEvent", (req, res) => {	
+	})
 };
 
 exports.start = function () {
