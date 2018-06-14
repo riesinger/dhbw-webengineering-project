@@ -80,44 +80,32 @@ exports.addEventToCalendar = (username, eventDetails) => {
 	});
 };
 
-exports.getCurrentWeekEvents = (username) => {
+exports.getCurrentWeekEvents = username => {
+	let tmpDate = new Date();
+	let firstday = new Date(tmpDate.setDate(tmpDate.getDate() - tmpDate.getDay() + 1));
+	let lastday = new Date(tmpDate.setDate(firstday.getDate() + 6));
+	let curday = new Date();
+	
 	return new Promise((resolve, reject) => {
-		let tmpDate = new Date;
-		let firstday = new Date(tmpDate.setDate(tmpDate.getDate() - tmpDate.getDay() + 1));
-		let lastday = new Date(tmpDate.setDate(firstday.getDate() + 6));
-		let curday = new Date;
+		xml.parseString(getCalendarFile(username), (err, result) => {
+			if (err || result === null) {
+				reject("Error parsing calendar file: " + err);
+			}
+
+			let eventArray = result.calendar.events[0].event.filter(event => {
+        const startDate = getEventStartDate(event);
+        const endDate = getEventEndDate(event);
+
+				return ((startDate >= firstday && startDate <= lastday) || (endDate >= firstday && endDate <= lastday)); 
+      }).sort(eventDateComparator);
 	
-		new Promise((resolveXML, rejectXML) => {
-			xml.parseString(getCalendarFile(username), (err, result) => {
-				if (err !== null || result === null) {
-					rejectXML("Error parsing calendar file: " + err);
-				}
-	
-				let eventArray = result.calendar.events[0].event;
-				let resArray = [];
-				for (var it = 0; it < eventArray.length; it++) {
-					let event = eventArray[it];
-					let startDate = getEventStartDate(event);
-					let endDate = getEventEndDate(event);
-	
-					if ((startDate >= firstday && startDate <= lastday) || (endDate >= firstday && endDate <= lastday)) {
-						resArray.push(event);
-					}
-				}
-	
-				resolveXML(resArray);
-			});
-		}).then((res) => {
 			let week = {};
 			addTimeToObj(week, "curDate", curday);
 			addTimeToObj(week, "firstDate", firstday);
 			addTimeToObj(week, "lastDate", lastday);
-			res.sort(eventDateComparator);
-			week["events"] = { event: res };
+			week.events = { event: eventArray };
 		
 			resolve(xmlBuilder.buildObject({ week }));
-		}, (err) => {
-			reject(err);
-		});
-	});	
+    });	
+  });
 }
