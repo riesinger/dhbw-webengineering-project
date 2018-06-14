@@ -29,7 +29,11 @@ exports.setup = function () {
 	app.get("/", (req, res) => {
 		console.log("Getting calendar for user", req.auth.user);
 		res.setHeader("Content-Type", "text/xml");
-		res.send(injectXSLT(calendar.getCurrentWeekEvents(req.auth.user), "index.xsl"));
+		calendar.getCurrentWeekEvents(req.auth.user).then((week) => {
+			res.send(injectXSLT(week, "index.xsl"));
+		}, (err) => {
+			res.sendStatus(500);
+		})
 	});
 
 	app.post("/addEvent", (req, res) => {	

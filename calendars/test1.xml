@@ -5,6 +5,21 @@
   <remoteUrl>Wenn des n ical kalender ist. Events und so fällt weg und wird beim Aufruf gefüllt</remoteUrl>
   <events>
     <event>
+      <name>Einkaufen gewesen sein</name>
+      <description>Hab Hunger!</description>
+      <location>Lidl</location>
+      <startDateDay>12</startDateDay>
+      <startDateMonth>5</startDateMonth>
+      <startDateYear>2018</startDateYear>
+      <startTimeHour>13</startTimeHour>
+      <startTimeMinute>15</startTimeMinute>
+      <endDateDay>12</endDateDay>
+      <endDateMonth>5</endDateMonth>
+      <endDateYear>2018</endDateYear>
+      <endTimeHour>13</endTimeHour>
+      <endTimeMinute>45</endTimeMinute>
+    </event>
+    <event>
       <name>Kino</name>
       <description>PiPaPo</description>
       <location>ZKM</location>
@@ -20,19 +35,19 @@
       <endTimeMinute>0</endTimeMinute>
     </event>
     <event>
-      <name>Einkaufen gewesen sein</name>
-      <description>Hab Hunger!</description>
-      <location>Lidl</location>
-      <startDateDay>12</startDateDay>
-      <startDateMonth>5</startDateMonth>
+      <name>Party im AKK</name>
+      <description>partey hard</description>
+      <location>AKK</location>
+      <startDateDay>15</startDateDay>
+      <startDateMonth>6</startDateMonth>
       <startDateYear>2018</startDateYear>
-      <startTimeHour>13</startTimeHour>
-      <startTimeMinute>15</startTimeMinute>
-      <endDateDay>12</endDateDay>
-      <endDateMonth>5</endDateMonth>
+      <startTimeHour>21</startTimeHour>
+      <startTimeMinute>0</startTimeMinute>
+      <endDateDay>15</endDateDay>
+      <endDateMonth>6</endDateMonth>
       <endDateYear>2018</endDateYear>
-      <endTimeHour>13</endTimeHour>
-      <endTimeMinute>45</endTimeMinute>
+      <endTimeHour>23</endTimeHour>
+      <endTimeMinute>59</endTimeMinute>
     </event>
   </events>
 </calendar>

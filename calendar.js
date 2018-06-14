@@ -26,11 +26,7 @@ function getEventEndDate(event) {
 function writeCalendarFile(username, calendar) {
 	try {
 		const u = xmlBuilder.buildObject(calendar);
-		fs.writeFile(getPath(username), u, null, (err) => {
-			if (err) {
-				console.error(err);
-			}
-		});
+		fs.writeFileSync(getPath(username), u, null);
 	} catch (e) {
 		console.error(e);
 	}
@@ -44,64 +40,84 @@ function addTimeToObj(obj, timeName, time) {
 	obj[timeName + "Minute"] = time.getMinutes() + 1;
 }
 
+function eventDateComparator(a, b) {
+	if (getEventStartDate(a) < getEventStartDate(b)) {
+		return -1;
+	} else {
+		return 1;
+	}
+}
+
 exports.addEventToCalendar = (username, eventDetails) => {
-	xml.parseString(getCalendarFile(username), (err, result) => {
-		if (err != null) {
-			console.error(err);
-			return;
-		}
+	return new Promise((resolve, reject) => {
+		xml.parseString(getCalendarFile(username), (err, result) => {
+			if (err != null) {
+				reject("Error parsing calendar file: " + err);
+			}
+	
+			let eventArray = result.calendar.events[0].event;
+			eventArray.push({
+				name: [ eventDetails["name"] ],
+				description: [ eventDetails["description"] ],
+				location: [ eventDetails["location"] ],
+				startDateDay: [ eventDetails["startDateDay"] ],
+				startDateMonth: [ eventDetails["startDateMonth"] ],
+				startDateYear: [ eventDetails["startDateYear"] ],
+				startTimeHour: [ eventDetails["startTimeHour"] ],
+				startTimeMinute: [ eventDetails["startTimeMinute"] ],
+				endDateDay: [ eventDetails["endDateDay"] ],
+				endDateMonth: [ eventDetails["endDateMonth"] ],
+				endDateYear: [ eventDetails["endDateYear"] ],
+				endTimeHour: [ eventDetails["endTimeHour"] ],
+				endTimeMinute: [ eventDetails["endTimeMinute"] ]
+			});
+			eventArray.sort(eventDateComparator);
+	
+			writeCalendarFile(username, result);
 
-		let eventArray = result.calendar.events[0].event;
-		eventArray.push({
-			name: [ eventDetails["name"] ],
-			description: [ eventDetails["description"] ],
-			location: [ eventDetails["location"] ],
-			startDateDay: [ eventDetails["startDateDay"] ],
-			startDateMonth: [ eventDetails["startDateMonth"] ],
-			startDateYear: [ eventDetails["startDateYear"] ],
-			startTimeHour: [ eventDetails["startTimeHour"] ],
-			startTimeMinute: [ eventDetails["startTimeMinute"] ],
-			endDateDay: [ eventDetails["endDateDay"] ],
-			endDateMonth: [ eventDetails["endDateMonth"] ],
-			endDateYear: [ eventDetails["endDateYear"] ],
-			endTimeHour: [ eventDetails["endTimeHour"] ],
-			endTimeMinute: [ eventDetails["endTimeMinute"] ]
+			resolve();
 		});
-
-		writeCalendarFile(username, result);
 	});
 };
 
 exports.getCurrentWeekEvents = (username) => {
-	let tmpDate = new Date;
-	let firstday = new Date(tmpDate.setDate(tmpDate.getDate() - tmpDate.getDay() + 1));
-	let lastday = new Date(tmpDate.setDate(firstday.getDate() + 6));
-	let curday = new Date;
-	let resArray = [];
-
-	xml.parseString(getCalendarFile(username), (err, result) => {
-		if (err !== null || result === null) {
-			console.error("Error parsing calendar file: ", err);
-			return;
-		}
-
-		let eventArray = result.calendar.events[0].event;
-		for (var it = 0; it < eventArray.length; it++) {
-			let event = eventArray[it];
-			let startDate = getEventStartDate(event);
-			let endDate = getEventEndDate(event);
-
-			if ((startDate >= firstday && startDate <= lastday) || (endDate >= firstday && endDate <= lastday)) {
-				resArray.push(event);
-			}
-		}
-	});
-
-	let week = {};
-	addTimeToObj(week, "curDate", curday);
-	addTimeToObj(week, "firstDate", firstday);
-	addTimeToObj(week, "lastDate", lastday);
-	week["events"] = { event: resArray};
-
-	return xmlBuilder.buildObject({ week });
+	return new Promise((resolve, reject) => {
+		let tmpDate = new Date;
+		let firstday = new Date(tmpDate.setDate(tmpDate.getDate() - tmpDate.getDay() + 1));
+		let lastday = new Date(tmpDate.setDate(firstday.getDate() + 6));
+		let curday = new Date;
+	
+		new Promise((resolveXML, rejectXML) => {
+			xml.parseString(getCalendarFile(username), (err, result) => {
+				if (err !== null || result === null) {
+					rejectXML("Error parsing calendar file: " + err);
+				}
+	
+				let eventArray = result.calendar.events[0].event;
+				let resArray = [];
+				for (var it = 0; it < eventArray.length; it++) {
+					let event = eventArray[it];
+					let startDate = getEventStartDate(event);
+					let endDate = getEventEndDate(event);
+	
+					if ((startDate >= firstday && startDate <= lastday) || (endDate >= firstday && endDate <= lastday)) {
+						resArray.push(event);
+					}
+				}
+	
+				resolveXML(resArray);
+			});
+		}).then((res) => {
+			let week = {};
+			addTimeToObj(week, "curDate", curday);
+			addTimeToObj(week, "firstDate", firstday);
+			addTimeToObj(week, "lastDate", lastday);
+			res.sort(eventDateComparator);
+			week["events"] = { event: res };
+		
+			resolve(xmlBuilder.buildObject({ week }));
+		}, (err) => {
+			reject(err);
+		});
+	});	
 }

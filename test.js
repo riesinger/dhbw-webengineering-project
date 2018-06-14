@@ -1,7 +1,7 @@
 const fs = require("fs");
 const cal = require("./calendar");
 
-/*cal.addEventToCalendar("test1", {
+cal.addEventToCalendar("test1", {
 	name: "Party im AKK",
 	description: "partey hard",
 	location: "AKK",
@@ -15,6 +15,14 @@ const cal = require("./calendar");
 	endDateYear: 2018,
 	endTimeHour: 23,
 	endTimeMinute: 59
-});*/
+}).then((res) => {
+	console.log("Event successfully added!");
+}, (err) => {
+	console.error(err);
+});
 
-console.log(cal.getCurrentWeekEvents("test1"));
+cal.getCurrentWeekEvents("test1").then((res) => {
+	console.log(res);
+}, (err) => {
+	console.error(err);
+});

@@ -55,11 +55,7 @@ exports.addUser = function(user) {
 	users.push(user);
 	try {
 		const u = xmlBuilder.buildObject({ users });
-		fs.writeFile(USERS_FILE, u, null, (err) => {
-			if (err) {
-				console.error(err);
-			}
-		});
+		fs.writeFileSync(USERS_FILE, u, null);
 	} catch (e) {
 		console.error(e);
 	}
