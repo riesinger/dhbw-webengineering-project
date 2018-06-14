@@ -1,7 +1,7 @@
 const fs = require("fs");
 const cal = require("./calendar");
 
-cal.addEventToCalendar("test1", {
+/*cal.addEventToCalendar("test1", {
 	name: "Party im AKK",
 	description: "partey hard",
 	location: "AKK",
@@ -25,4 +25,14 @@ cal.getCurrentWeekEvents("test1").then((res) => {
 	console.log(res);
 }, (err) => {
 	console.error(err);
-});
+});*/
+
+cal.removeEventFromCalendar("test1", 3).then((res) => {
+	if (res === true) {
+		console.log("Event removed");
+	} else {
+		console.log("Event not removed");
+	}
+}, (err) => {
+	console.error(err);
+})

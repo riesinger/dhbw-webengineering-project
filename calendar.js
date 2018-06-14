@@ -84,7 +84,36 @@ exports.addEventToCalendar = (username, eventDetails) => {
 	});
 };
 
-exports.getCurrentWeekEvents = username => {
+exports.removeEventFromCalendar = (username, eventID) => {
+	return new Promise((resolve, reject) => {
+		xml.parseString(getCalendarFile(username), (err, result) => {
+			if (err || result === null) {
+				reject("Error parsing calendar file: " + err);
+			}
+
+			let eventArray = result.calendar.events[0].event;
+			let eventIt = null;
+			for (let it = 0; it < eventArray.length; it++) {
+				if (Number(eventArray[it].ID[0]) === eventID) {
+					eventIt = it;
+					break;
+				}
+			}
+
+			if (eventIt != null) {
+				eventArray.splice(eventIt, 1);
+			} else {
+				resolve(false);
+			}
+	
+			writeCalendarFile(username, result);
+
+			resolve(true);
+    });
+	});
+};
+
+exports.getCurrentWeekEvents = (username) => {
 	let tmpDate = new Date();
 	let firstday = new Date(tmpDate.setDate(tmpDate.getDate() - tmpDate.getDay() + 1));
 	let lastday = new Date(tmpDate.setDate(firstday.getDate() + 6));
@@ -110,6 +139,6 @@ exports.getCurrentWeekEvents = username => {
 			week.events = { event: eventArray };
 		
 			resolve(xmlBuilder.buildObject({ week }));
-    });	
+    });
   });
 }
