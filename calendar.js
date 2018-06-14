@@ -55,8 +55,12 @@ exports.addEventToCalendar = (username, eventDetails) => {
 				reject("Error parsing calendar file: " + err);
 			}
 	
+			let eventID = result.calendar.nextEventID[0];
+			result.calendar.nextEventID[0] = Number(result.calendar.nextEventID[0]) + 1;
+
 			let eventArray = result.calendar.events[0].event;
 			eventArray.push({
+				ID: [ eventID ],
 				name: [ eventDetails["name"] ],
 				description: [ eventDetails["description"] ],
 				location: [ eventDetails["location"] ],

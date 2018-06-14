@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <calendar>
-  <ID>1</ID>
   <name>Mein Kalender!</name>
-  <remoteUrl>Wenn des n ical kalender ist. Events und so fällt weg und wird beim Aufruf gefüllt</remoteUrl>
+  <nextEventID>4</nextEventID>
   <events>
     <event>
+      <ID>0</ID>
       <name>Einkaufen gewesen sein</name>
       <description>Hab Hunger!</description>
       <location>Lidl</location>
@@ -20,6 +20,7 @@
       <endTimeMinute>45</endTimeMinute>
     </event>
     <event>
+      <ID>1</ID>
       <name>Kino</name>
       <description>PiPaPo</description>
       <location>ZKM</location>
@@ -35,6 +36,23 @@
       <endTimeMinute>0</endTimeMinute>
     </event>
     <event>
+      <ID>3</ID>
+      <name>Party im AKK</name>
+      <description>partey hard</description>
+      <location>AKK</location>
+      <startDateDay>15</startDateDay>
+      <startDateMonth>6</startDateMonth>
+      <startDateYear>2018</startDateYear>
+      <startTimeHour>21</startTimeHour>
+      <startTimeMinute>0</startTimeMinute>
+      <endDateDay>15</endDateDay>
+      <endDateMonth>6</endDateMonth>
+      <endDateYear>2018</endDateYear>
+      <endTimeHour>23</endTimeHour>
+      <endTimeMinute>59</endTimeMinute>
+    </event>
+    <event>
+      <ID>2</ID>
       <name>Party im AKK</name>
       <description>partey hard</description>
       <location>AKK</location>
