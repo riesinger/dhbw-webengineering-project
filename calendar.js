@@ -16,11 +16,11 @@ function getCalendarFile(username) {
 };
 
 function getEventStartDate(event) {
-	return new Date(event.startDateYear[0], event.startDateMonth[0] - 1, event.startDateDay[0] - 1);
+	return new Date(event.startDateYear[0], event.startDateMonth[0] - 1, event.startDateDay[0]);
 }
 
 function getEventEndDate(event) {
-	return new Date(event.endDateYear[0], event.endDateMonth[0] - 1, event.endDateDay[0] - 1);
+	return new Date(event.endDateYear[0], event.endDateMonth[0] - 1, event.endDateDay[0]);
 }
 
 function writeCalendarFile(username, calendar) {
@@ -113,11 +113,8 @@ exports.removeEventFromCalendar = (username, eventID) => {
 	});
 };
 
-exports.getCurrentWeekEvents = (username) => {
-	let tmpDate = new Date();
-	let firstday = new Date(tmpDate.setDate(tmpDate.getDate() - tmpDate.getDay() + 1));
-	let lastday = new Date(tmpDate.setDate(firstday.getDate() + 6));
-	let curday = new Date();
+function getEvents(username, firstDate, lastDate) {
+	let curDate = new Date();
 	
 	return new Promise((resolve, reject) => {
 		xml.parseString(getCalendarFile(username), (err, result) => {
@@ -127,18 +124,33 @@ exports.getCurrentWeekEvents = (username) => {
 
 			let eventArray = result.calendar.events[0].event.filter(event => {
         const startDate = getEventStartDate(event);
-        const endDate = getEventEndDate(event);
+				const endDate = getEventEndDate(event);
 
-				return ((startDate >= firstday && startDate <= lastday) || (endDate >= firstday && endDate <= lastday)); 
+				return ((startDate >= firstDate && startDate <= lastDate) || (endDate >= firstDate && endDate <= lastDate)); 
       }).sort(eventDateComparator);
 	
 			let week = {};
-			addTimeToObj(week, "curDate", curday);
-			addTimeToObj(week, "firstDate", firstday);
-			addTimeToObj(week, "lastDate", lastday);
+			addTimeToObj(week, "curDate", curDate);
+			addTimeToObj(week, "firstDate", firstDate);
+			addTimeToObj(week, "lastDate", lastDate);
 			week.events = { event: eventArray };
 		
 			resolve(xmlBuilder.buildObject({ week }));
     });
   });
+}
+exports.getEvents = getEvents;
+
+function getWeekEvents(username, date) {
+	let firstDate = new Date(date.setDate(date.getDate() - date.getDay() + 1));
+	firstDate.setUTCHours(0, 0, 0, 0);
+	let lastDate = new Date(date.setDate(firstDate.getDate() + 6));
+	lastDate.setUTCHours(23, 59, 59, 0);
+
+	return getEvents(username, firstDate, lastDate);
+}
+exports.getWeekEvents = getWeekEvents;
+
+exports.getCurrentWeekEvents = (username) => {
+	return getWeekEvents(username, new Date());
 }
