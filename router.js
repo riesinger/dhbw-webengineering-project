@@ -25,6 +25,7 @@ exports.setup = function () {
 	}));
 
 	app.use("/xsl", express.static(path.join(__dirname, "client")));
+	app.use("/css", express.static(path.join(__dirname, "client", "css")));
 
 	app.get("/", (req, res) => {
 		console.log("Getting calendar for user", req.auth.user);

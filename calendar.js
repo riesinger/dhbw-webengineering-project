@@ -13,7 +13,7 @@ function getPath(username) {
 
 function getCalendarFile(username) {
 	return fs.readFileSync(getPath(username));
-};
+}
 
 function getEventStartDate(event) {
 	return new Date(event.startDateYear[0], event.startDateMonth[0] - 1, event.startDateDay[0]);
