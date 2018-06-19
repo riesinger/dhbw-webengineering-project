@@ -8,10 +8,11 @@ const calendar = require("./calendar");
 const app = express();
 
 function injectXSLT(xml, xslt) {
+	let slimXML = '';
 	if (xml.indexOf("<?xml version") >= 0) {
-		var slimXML = xml.substring(xml.indexOf("\n") + 1);
+		slimXML = xml.substring(xml.indexOf("\n") + 1);
 	} else {
-		var slimXML = xml;
+		slimXML = xml;
 	}
 	return "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<?xml-stylesheet type=\"text/xsl\" href=\"xsl/" + xslt + "\" ?>\n" + slimXML;
 }

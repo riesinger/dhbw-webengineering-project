@@ -1,0 +1,447 @@
+.calendar {
+	display: flex;
+	width: 100%;
+	position: relative;
+	align-items: flex-start;
+	margin-top: 2rem;
+	box-sizing: border-box;
+	padding: 0 2rem;
+	height: 90vh;
+}
+
+.calendar__days {
+	display: flex;
+	width: 100%;
+	position: relative;
+	flex: 1;
+}
+
+.calendar__legend {
+	width: 5ch;
+	margin-top: 3rem;
+	text-align: right;
+	padding-right: 1rem;
+}
+
+.calendar__legend div {
+	/* ¼ hour is 0.875vh high */
+	height: 3.5vh;
+	position: relative;
+}
+
+.calendar__legend div::after {
+	content: '';
+	display: block;
+	width: 97vw;
+	height: 1px;
+	background-color: rgba(0, 0, 0, 0.25);
+	bottom: 0;
+	position: absolute;
+
+}
+
+.calendar__day {
+	flex: 1;
+}
+
+.calendar__day h3 {
+	height: 3rem;
+	margin: 0;
+	text-align: center;
+	line-height: 3rem;
+}
+
+.calendar__event {
+	background: #54C6EB;
+	width: 100%;
+	overflow-x: hidden;
+	text-align: center;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+	position: relative;
+}
+
+.calendar__event.length_0_00 { height: 0vh; }
+
+.calendar__event.length_0_15 { height: 0.875vh; }
+
+.calendar__event.length_0_30 { height: 1.75vh; }
+
+.calendar__event.length_0_45 { height: 2.625vh; }
+
+.calendar__event.starts_0_00 { top: 0vh; }
+
+.calendar__event.starts_0_15 { top: 0.875vh; }
+
+.calendar__event.starts_0_30 { top: 1.75vh; }
+
+.calendar__event.starts_0_45 { top: 2.625vh; }
+
+.calendar__event.length_1_00 { height: 3.5vh; }
+
+.calendar__event.length_1_15 { height: 4.375vh; }
+
+.calendar__event.length_1_30 { height: 5.25vh; }
+
+.calendar__event.length_1_45 { height: 6.125vh; }
+
+.calendar__event.starts_1_00 { top: 3.5vh; }
+
+.calendar__event.starts_1_15 { top: 4.375vh; }
+
+.calendar__event.starts_1_30 { top: 5.25vh; }
+
+.calendar__event.starts_1_45 { top: 6.125vh; }
+
+.calendar__event.length_2_00 { height: 7vh; }
+
+.calendar__event.length_2_15 { height: 7.875vh; }
+
+.calendar__event.length_2_30 { height: 8.75vh; }
+
+.calendar__event.length_2_45 { height: 9.625vh; }
+
+.calendar__event.starts_2_00 { top: 7vh; }
+
+.calendar__event.starts_2_15 { top: 7.875vh; }
+
+.calendar__event.starts_2_30 { top: 8.75vh; }
+
+.calendar__event.starts_2_45 { top: 9.625vh; }
+
+.calendar__event.length_3_00 { height: 10.5vh; }
+
+.calendar__event.length_3_15 { height: 11.375vh; }
+
+.calendar__event.length_3_30 { height: 12.25vh; }
+
+.calendar__event.length_3_45 { height: 13.125vh; }
+
+.calendar__event.starts_3_00 { top: 10.5vh; }
+
+.calendar__event.starts_3_15 { top: 11.375vh; }
+
+.calendar__event.starts_3_30 { top: 12.25vh; }
+
+.calendar__event.starts_3_45 { top: 13.125vh; }
+
+.calendar__event.length_4_00 { height: 14vh; }
+
+.calendar__event.length_4_15 { height: 14.875vh; }
+
+.calendar__event.length_4_30 { height: 15.75vh; }
+
+.calendar__event.length_4_45 { height: 16.625vh; }
+
+.calendar__event.starts_4_00 { top: 14vh; }
+
+.calendar__event.starts_4_15 { top: 14.875vh; }
+
+.calendar__event.starts_4_30 { top: 15.75vh; }
+
+.calendar__event.starts_4_45 { top: 16.625vh; }
+
+.calendar__event.length_5_00 { height: 17.5vh; }
+
+.calendar__event.length_5_15 { height: 18.375vh; }
+
+.calendar__event.length_5_30 { height: 19.25vh; }
+
+.calendar__event.length_5_45 { height: 20.125vh; }
+
+.calendar__event.starts_5_00 { top: 17.5vh; }
+
+.calendar__event.starts_5_15 { top: 18.375vh; }
+
+.calendar__event.starts_5_30 { top: 19.25vh; }
+
+.calendar__event.starts_5_45 { top: 20.125vh; }
+
+.calendar__event.length_6_00 { height: 21vh; }
+
+.calendar__event.length_6_15 { height: 21.875vh; }
+
+.calendar__event.length_6_30 { height: 22.75vh; }
+
+.calendar__event.length_6_45 { height: 23.625vh; }
+
+.calendar__event.starts_6_00 { top: 21vh; }
+
+.calendar__event.starts_6_15 { top: 21.875vh; }
+
+.calendar__event.starts_6_30 { top: 22.75vh; }
+
+.calendar__event.starts_6_45 { top: 23.625vh; }
+
+.calendar__event.length_7_00 { height: 24.5vh; }
+
+.calendar__event.length_7_15 { height: 25.375vh; }
+
+.calendar__event.length_7_30 { height: 26.25vh; }
+
+.calendar__event.length_7_45 { height: 27.125vh; }
+
+.calendar__event.starts_7_00 { top: 24.5vh; }
+
+.calendar__event.starts_7_15 { top: 25.375vh; }
+
+.calendar__event.starts_7_30 { top: 26.25vh; }
+
+.calendar__event.starts_7_45 { top: 27.125vh; }
+
+.calendar__event.length_8_00 { height: 28vh; }
+
+.calendar__event.length_8_15 { height: 28.875vh; }
+
+.calendar__event.length_8_30 { height: 29.75vh; }
+
+.calendar__event.length_8_45 { height: 30.625vh; }
+
+.calendar__event.starts_8_00 { top: 28vh; }
+
+.calendar__event.starts_8_15 { top: 28.875vh; }
+
+.calendar__event.starts_8_30 { top: 29.75vh; }
+
+.calendar__event.starts_8_45 { top: 30.625vh; }
+
+.calendar__event.length_9_00 { height: 31.5vh; }
+
+.calendar__event.length_9_15 { height: 32.375vh; }
+
+.calendar__event.length_9_30 { height: 33.25vh; }
+
+.calendar__event.length_9_45 { height: 34.125vh; }
+
+.calendar__event.starts_9_00 { top: 31.5vh; }
+
+.calendar__event.starts_9_15 { top: 32.375vh; }
+
+.calendar__event.starts_9_30 { top: 33.25vh; }
+
+.calendar__event.starts_9_45 { top: 34.125vh; }
+
+.calendar__event.length_10_00 { height: 35vh; }
+
+.calendar__event.length_10_15 { height: 35.875vh; }
+
+.calendar__event.length_10_30 { height: 36.75vh; }
+
+.calendar__event.length_10_45 { height: 37.625vh; }
+
+.calendar__event.starts_10_00 { top: 35vh; }
+
+.calendar__event.starts_10_15 { top: 35.875vh; }
+
+.calendar__event.starts_10_30 { top: 36.75vh; }
+
+.calendar__event.starts_10_45 { top: 37.625vh; }
+
+.calendar__event.length_11_00 { height: 38.5vh; }
+
+.calendar__event.length_11_15 { height: 39.375vh; }
+
+.calendar__event.length_11_30 { height: 40.25vh; }
+
+.calendar__event.length_11_45 { height: 41.125vh; }
+
+.calendar__event.starts_11_00 { top: 38.5vh; }
+
+.calendar__event.starts_11_15 { top: 39.375vh; }
+
+.calendar__event.starts_11_30 { top: 40.25vh; }
+
+.calendar__event.starts_11_45 { top: 41.125vh; }
+
+.calendar__event.length_12_00 { height: 42vh; }
+
+.calendar__event.length_12_15 { height: 42.875vh; }
+
+.calendar__event.length_12_30 { height: 43.75vh; }
+
+.calendar__event.length_12_45 { height: 44.625vh; }
+
+.calendar__event.starts_12_00 { top: 42vh; }
+
+.calendar__event.starts_12_15 { top: 42.875vh; }
+
+.calendar__event.starts_12_30 { top: 43.75vh; }
+
+.calendar__event.starts_12_45 { top: 44.625vh; }
+
+.calendar__event.length_13_00 { height: 45.5vh; }
+
+.calendar__event.length_13_15 { height: 46.375vh; }
+
+.calendar__event.length_13_30 { height: 47.25vh; }
+
+.calendar__event.length_13_45 { height: 48.125vh; }
+
+.calendar__event.starts_13_00 { top: 45.5vh; }
+
+.calendar__event.starts_13_15 { top: 46.375vh; }
+
+.calendar__event.starts_13_30 { top: 47.25vh; }
+
+.calendar__event.starts_13_45 { top: 48.125vh; }
+
+.calendar__event.length_14_00 { height: 49vh; }
+
+.calendar__event.length_14_15 { height: 49.875vh; }
+
+.calendar__event.length_14_30 { height: 50.75vh; }
+
+.calendar__event.length_14_45 { height: 51.625vh; }
+
+.calendar__event.starts_14_00 { top: 49vh; }
+
+.calendar__event.starts_14_15 { top: 49.875vh; }
+
+.calendar__event.starts_14_30 { top: 50.75vh; }
+
+.calendar__event.starts_14_45 { top: 51.625vh; }
+
+.calendar__event.length_15_00 { height: 52.5vh; }
+
+.calendar__event.length_15_15 { height: 53.375vh; }
+
+.calendar__event.length_15_30 { height: 54.25vh; }
+
+.calendar__event.length_15_45 { height: 55.125vh; }
+
+.calendar__event.starts_15_00 { top: 52.5vh; }
+
+.calendar__event.starts_15_15 { top: 53.375vh; }
+
+.calendar__event.starts_15_30 { top: 54.25vh; }
+
+.calendar__event.starts_15_45 { top: 55.125vh; }
+
+.calendar__event.length_16_00 { height: 56vh; }
+
+.calendar__event.length_16_15 { height: 56.875vh; }
+
+.calendar__event.length_16_30 { height: 57.75vh; }
+
+.calendar__event.length_16_45 { height: 58.625vh; }
+
+.calendar__event.starts_16_00 { top: 56vh; }
+
+.calendar__event.starts_16_15 { top: 56.875vh; }
+
+.calendar__event.starts_16_30 { top: 57.75vh; }
+
+.calendar__event.starts_16_45 { top: 58.625vh; }
+
+.calendar__event.length_17_00 { height: 59.5vh; }
+
+.calendar__event.length_17_15 { height: 60.375vh; }
+
+.calendar__event.length_17_30 { height: 61.25vh; }
+
+.calendar__event.length_17_45 { height: 62.125vh; }
+
+.calendar__event.starts_17_00 { top: 59.5vh; }
+
+.calendar__event.starts_17_15 { top: 60.375vh; }
+
+.calendar__event.starts_17_30 { top: 61.25vh; }
+
+.calendar__event.starts_17_45 { top: 62.125vh; }
+
+.calendar__event.length_18_00 { height: 63vh; }
+
+.calendar__event.length_18_15 { height: 63.875vh; }
+
+.calendar__event.length_18_30 { height: 64.75vh; }
+
+.calendar__event.length_18_45 { height: 65.625vh; }
+
+.calendar__event.starts_18_00 { top: 63vh; }
+
+.calendar__event.starts_18_15 { top: 63.875vh; }
+
+.calendar__event.starts_18_30 { top: 64.75vh; }
+
+.calendar__event.starts_18_45 { top: 65.625vh; }
+
+.calendar__event.length_19_00 { height: 66.5vh; }
+
+.calendar__event.length_19_15 { height: 67.375vh; }
+
+.calendar__event.length_19_30 { height: 68.25vh; }
+
+.calendar__event.length_19_45 { height: 69.125vh; }
+
+.calendar__event.starts_19_00 { top: 66.5vh; }
+
+.calendar__event.starts_19_15 { top: 67.375vh; }
+
+.calendar__event.starts_19_30 { top: 68.25vh; }
+
+.calendar__event.starts_19_45 { top: 69.125vh; }
+
+.calendar__event.length_20_00 { height: 70vh; }
+
+.calendar__event.length_20_15 { height: 70.875vh; }
+
+.calendar__event.length_20_30 { height: 71.75vh; }
+
+.calendar__event.length_20_45 { height: 72.625vh; }
+
+.calendar__event.starts_20_00 { top: 70vh; }
+
+.calendar__event.starts_20_15 { top: 70.875vh; }
+
+.calendar__event.starts_20_30 { top: 71.75vh; }
+
+.calendar__event.starts_20_45 { top: 72.625vh; }
+
+.calendar__event.length_21_00 { height: 73.5vh; }
+
+.calendar__event.length_21_15 { height: 74.375vh; }
+
+.calendar__event.length_21_30 { height: 75.25vh; }
+
+.calendar__event.length_21_45 { height: 76.125vh; }
+
+.calendar__event.starts_21_00 { top: 73.5vh; }
+
+.calendar__event.starts_21_15 { top: 74.375vh; }
+
+.calendar__event.starts_21_30 { top: 75.25vh; }
+
+.calendar__event.starts_21_45 { top: 76.125vh; }
+
+.calendar__event.length_22_00 { height: 77vh; }
+
+.calendar__event.length_22_15 { height: 77.875vh; }
+
+.calendar__event.length_22_30 { height: 78.75vh; }
+
+.calendar__event.length_22_45 { height: 79.625vh; }
+
+.calendar__event.starts_22_00 { top: 77vh; }
+
+.calendar__event.starts_22_15 { top: 77.875vh; }
+
+.calendar__event.starts_22_30 { top: 78.75vh; }
+
+.calendar__event.starts_22_45 { top: 79.625vh; }
+
+.calendar__event.length_23_00 { height: 80.5vh; }
+
+.calendar__event.length_23_15 { height: 81.375vh; }
+
+.calendar__event.length_23_30 { height: 82.25vh; }
+
+.calendar__event.length_23_45 { height: 83.125vh; }
+
+.calendar__event.starts_23_00 { top: 80.5vh; }
+
+.calendar__event.starts_23_15 { top: 81.375vh; }
+
+.calendar__event.starts_23_30 { top: 82.25vh; }
+
+.calendar__event.starts_23_45 { top: 83.125vh; }
+

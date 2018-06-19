@@ -4,8 +4,7 @@ This is a web calendar using really outdated technologies to satisfy the needs f
 
 ## Installing
 
-Clone this repo, then either run `npm install` or `yarn`, depending on which package manager you
-prefer (you prefer `yarn`!).
+Clone this repo, then run `npm install`. 
 
 ## Building
 
