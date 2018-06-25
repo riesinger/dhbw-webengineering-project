@@ -50,6 +50,9 @@
 	text-align: center;
 	line-height: 3rem;
 }
+.calendar__events {
+	position: relative;
+}
 
 .calendar__event {
 	background: #54C6EB;
@@ -58,7 +61,7 @@
 	text-align: center;
 	border: 1px solid rgba(0, 0, 0, 0.5);
 	border-radius: 5px;
-	position: relative;
+	position: absolute;
 }
 
 .calendar__event.length_0_00 { height: 0vh; }
