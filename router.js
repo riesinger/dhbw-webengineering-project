@@ -25,20 +25,28 @@ exports.setup = function () {
 		realm: 'You need to login'
 	}));
 
-	app.use("/xsl", express.static(path.join(__dirname, "client")));
+	app.use("/xsl", express.static(path.join(__dirname, "client"), {
+		setHeaders: (res, path) => {
+			if (path.indexOf(".xsl") > -1) {
+				res.setHeader("Content-Type", "text/xsl");
+			}
+		}
+	}));
 	app.use("/css", express.static(path.join(__dirname, "client", "css")));
 
-	app.get("/", (req, res) => {
+	app.get("/", async (req, res) => {
 		console.log("Getting calendar for user", req.auth.user);
 		res.setHeader("Content-Type", "text/xml");
-		calendar.getCurrentWeekEvents(req.auth.user).then((week) => {
-			res.send(injectXSLT(week, "index.xsl"));
-		}, (err) => {
+		try {
+			const events = await calendar.getEventsInCurrentWeek(req.auth.user);
+			res.send(injectXSLT(events, "index.xsl"));
+		} catch (err) {
+			console.error(err);
 			res.sendStatus(500);
-		})
+		}
 	});
 
-	app.post("/addEvent", (req, res) => {	
+	app.post("/addEvent", (req, res) => {
 	})
 };
 

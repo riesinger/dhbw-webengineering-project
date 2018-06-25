@@ -8,13 +8,13 @@
       <name>Einkaufen gewesen sein</name>
       <description>Hab Hunger!</description>
       <location>Lidl</location>
-      <startDateDay>12</startDateDay>
-      <startDateMonth>5</startDateMonth>
+      <startDateDay>25</startDateDay>
+      <startDateMonth>6</startDateMonth>
       <startDateYear>2018</startDateYear>
       <startTimeHour>13</startTimeHour>
       <startTimeMinute>15</startTimeMinute>
-      <endDateDay>12</endDateDay>
-      <endDateMonth>5</endDateMonth>
+      <endDateDay>25</endDateDay>
+      <endDateMonth>6</endDateMonth>
       <endDateYear>2018</endDateYear>
       <endTimeHour>13</endTimeHour>
       <endTimeMinute>45</endTimeMinute>

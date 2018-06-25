@@ -16,12 +16,35 @@ function getCalendarFile(username) {
 }
 
 function getEventStartDate(event) {
-	return new Date(event.startDateYear[0], event.startDateMonth[0] - 1, event.startDateDay[0]);
+	return new Date(
+		parseInt(event.startDateYear[0]),
+		parseInt(event.startDateMonth[0]) - 1, // 0-based, but we add one later
+		parseInt(event.startDateDay[0]) + 1, // 0-based
+		parseInt(event.startTimeHour[0]) + 2, // 0-based
+		parseInt(event.startTimeMinute[0])
+	);
 }
 
 function getEventEndDate(event) {
-	return new Date(event.endDateYear[0], event.endDateMonth[0] - 1, event.endDateDay[0]);
+	return new Date(
+		parseInt(event.endDateYear[0]),
+		parseInt(event.endDateMonth[0]) - 1, // 0-based, but we add one later
+		parseInt(event.endDateDay[0]) + 1, // 0-based
+		parseInt(event.endTimeHour[0]) + 2, // 0-based
+		parseInt(event.endTimeMinute[0])
+	);
 }
+
+const parseCalendarFile = async (username) => {
+	return new Promise((resolve, reject) => {
+		xml.parseString(getCalendarFile(username), (err, data) => {
+			if (err) {
+				reject(err);
+			}
+			resolve(data);
+		})
+	});
+};
 
 function writeCalendarFile(username, calendar) {
 	try {
@@ -33,11 +56,11 @@ function writeCalendarFile(username, calendar) {
 }
 
 function addTimeToObj(obj, timeName, time) {
-	obj[timeName + "Day"] = time.getDate() + 1;
+	obj[timeName + "Day"] = time.getDate();
 	obj[timeName + "Month"] = time.getMonth() + 1;
 	obj[timeName + "Year"] = time.getFullYear();
-	obj[timeName + "Hour"] = time.getHours() + 1;
-	obj[timeName + "Minute"] = time.getMinutes() + 1;
+	obj[timeName + "Hour"] = time.getHours();
+	obj[timeName + "Minute"] = time.getMinutes();
 }
 
 function eventDateComparator(a, b) {
@@ -54,29 +77,30 @@ exports.addEventToCalendar = (username, eventDetails) => {
 			if (err != null) {
 				reject("Error parsing calendar file: " + err);
 			}
-	
+
 			let eventID = result.calendar.nextEventID[0];
 			result.calendar.nextEventID[0] = Number(result.calendar.nextEventID[0]) + 1;
 
 			let eventArray = result.calendar.events[0].event;
 			eventArray.push({
-				ID: [ eventID ],
-				name: [ eventDetails["name"] ],
-				description: [ eventDetails["description"] ],
-				location: [ eventDetails["location"] ],
-				startDateDay: [ eventDetails["startDateDay"] ],
-				startDateMonth: [ eventDetails["startDateMonth"] ],
-				startDateYear: [ eventDetails["startDateYear"] ],
-				startTimeHour: [ eventDetails["startTimeHour"] ],
-				startTimeMinute: [ eventDetails["startTimeMinute"] ],
-				endDateDay: [ eventDetails["endDateDay"] ],
-				endDateMonth: [ eventDetails["endDateMonth"] ],
-				endDateYear: [ eventDetails["endDateYear"] ],
-				endTimeHour: [ eventDetails["endTimeHour"] ],
-				endTimeMinute: [ eventDetails["endTimeMinute"] ]
+				ID: [eventID],
+				name: [eventDetails["name"]],
+				description: [eventDetails["description"]],
+				location: [eventDetails["location"]],
+				startDateDOW: [new Date().getDay()],
+				startDateDay: [eventDetails["startDateDay"]],
+				startDateMonth: [eventDetails["startDateMonth"]],
+				startDateYear: [eventDetails["startDateYear"]],
+				startTimeHour: [eventDetails["startTimeHour"]],
+				startTimeMinute: [eventDetails["startTimeMinute"]],
+				endDateDay: [eventDetails["endDateDay"]],
+				endDateMonth: [eventDetails["endDateMonth"]],
+				endDateYear: [eventDetails["endDateYear"]],
+				endTimeHour: [eventDetails["endTimeHour"]],
+				endTimeMinute: [eventDetails["endTimeMinute"]]
 			});
 			eventArray.sort(eventDateComparator);
-	
+
 			writeCalendarFile(username, result);
 
 			resolve();
@@ -105,17 +129,17 @@ exports.removeEventFromCalendar = (username, eventID) => {
 			} else {
 				resolve(false);
 			}
-	
+
 			writeCalendarFile(username, result);
 
 			resolve(true);
-    });
+		});
 	});
 };
 
 function getEvents(username, firstDate, lastDate) {
 	let curDate = new Date();
-	
+
 	return new Promise((resolve, reject) => {
 		xml.parseString(getCalendarFile(username), (err, result) => {
 			if (err || result === null) {
@@ -123,34 +147,59 @@ function getEvents(username, firstDate, lastDate) {
 			}
 
 			let eventArray = result.calendar.events[0].event.filter(event => {
-        const startDate = getEventStartDate(event);
+				const startDate = getEventStartDate(event);
 				const endDate = getEventEndDate(event);
+				return included;
+			}).sort(eventDateComparator);
 
-				return ((startDate >= firstDate && startDate <= lastDate) || (endDate >= firstDate && endDate <= lastDate)); 
-      }).sort(eventDateComparator);
-	
 			let week = {};
 			addTimeToObj(week, "curDate", curDate);
 			addTimeToObj(week, "firstDate", firstDate);
 			addTimeToObj(week, "lastDate", lastDate);
-			week.events = { event: eventArray };
-		
-			resolve(xmlBuilder.buildObject({ week }));
-    });
-  });
+			week.events = {event: eventArray};
+
+			resolve(xmlBuilder.buildObject({week}));
+		});
+	});
 }
+
 exports.getEvents = getEvents;
 
-function getWeekEvents(username, date) {
+const getEventsBetween = async (username, firstDate, lastDate) => {
+	try {
+		const calendar = await parseCalendarFile(username);
+		const events = calendar.calendar.events[0].event;
+		let filteredEvents = events.filter(event => {
+			const startDate = getEventStartDate(event);
+			const endDate = getEventEndDate(event);
+			const included = ((startDate >= firstDate && startDate <= lastDate) || (endDate >= firstDate && endDate <= lastDate));
+			// console.debug(`Event ${JSON.stringify(event)} is ${included ? 'included' : 'not included'}`);
+			return included;
+		});
+		console.debug(JSON.stringify(filteredEvents));
+		filteredEvents = filteredEvents.sort(eventDateComparator);
+		return filteredEvents;
+	} catch (err) {
+		console.error("Could not get events between dates: ", err);
+	}
+
+};
+
+exports.getEventsInCurrentWeek = async (username) => {
+	const date = new Date();
 	let firstDate = new Date(date.setDate(date.getDate() - date.getDay() + 1));
 	firstDate.setUTCHours(0, 0, 0, 0);
 	let lastDate = new Date(date.setDate(firstDate.getDate() + 6));
 	lastDate.setUTCHours(23, 59, 59, 0);
+	console.debug(`Getting events between ${firstDate.toISOString()} and ${lastDate.toISOString()}`);
+	const events = await getEventsBetween(username, firstDate, lastDate);
+	console.log(JSON.stringify(events));
+	let week = {};
+	addTimeToObj(week, "currentDate", new Date());
+	addTimeToObj(week, "firstDate", firstDate);
+	addTimeToObj(week, "lastDate", lastDate);
+	week.events = {event: events};
+	console.debug(JSON.stringify(events));
+	return xmlBuilder.buildObject({week});
+};
 
-	return getEvents(username, firstDate, lastDate);
-}
-exports.getWeekEvents = getWeekEvents;
-
-exports.getCurrentWeekEvents = (username) => {
-	return getWeekEvents(username, new Date());
-}
