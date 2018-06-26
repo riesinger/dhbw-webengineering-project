@@ -1,87 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <calendar>
-	<name>Mein Kalender!</name>
-	<nextEventID>5</nextEventID>
-	<events>
-		<event>
-			<ID>0</ID>
-			<name>Einkaufen gewesen sein</name>
-			<description>Hab Hunger!</description>
-			<location>Lidl</location>
-			<startDateDay>25</startDateDay>
-			<startDateMonth>6</startDateMonth>
-			<startDateYear>2018</startDateYear>
-			<startTimeHour>13</startTimeHour>
-			<startTimeMinute>15</startTimeMinute>
-			<endDateDay>25</endDateDay>
-			<endDateMonth>6</endDateMonth>
-			<endDateYear>2018</endDateYear>
-			<endTimeHour>13</endTimeHour>
-			<endTimeMinute>45</endTimeMinute>
-		</event>
-		<event>
-			<ID>1</ID>
-			<name>Noch ein Ereignis!</name>
-			<description>Hab Hunger!</description>
-			<location>Lidl</location>
-			<startDateDay>25</startDateDay>
-			<startDateMonth>6</startDateMonth>
-			<startDateYear>2018</startDateYear>
-			<startTimeHour>12</startTimeHour>
-			<startTimeMinute>15</startTimeMinute>
-			<endDateDay>25</endDateDay>
-			<endDateMonth>6</endDateMonth>
-			<endDateYear>2018</endDateYear>
-			<endTimeHour>16</endTimeHour>
-			<endTimeMinute>45</endTimeMinute>
-		</event>
-		<event>
-			<ID>2</ID>
-			<name>Kino</name>
-			<description>PiPaPo</description>
-			<location>ZKM</location>
-			<startDateDay>26</startDateDay>
-			<startDateMonth>6</startDateMonth>
-			<startDateYear>2018</startDateYear>
-			<startTimeHour>19</startTimeHour>
-			<startTimeMinute>15</startTimeMinute>
-			<endDateDay>26</endDateDay>
-			<endDateMonth>6</endDateMonth>
-			<endDateYear>2018</endDateYear>
-			<endTimeHour>22</endTimeHour>
-			<endTimeMinute>0</endTimeMinute>
-		</event>
-		<event>
-			<ID>3</ID>
-			<name>Den Film nochmal schauen</name>
-			<description>PiPaPo</description>
-			<location>ZKM</location>
-			<startDateDay>27</startDateDay>
-			<startDateMonth>6</startDateMonth>
-			<startDateYear>2018</startDateYear>
-			<startTimeHour>17</startTimeHour>
-			<startTimeMinute>15</startTimeMinute>
-			<endDateDay>27</endDateDay>
-			<endDateMonth>6</endDateMonth>
-			<endDateYear>2018</endDateYear>
-			<endTimeHour>20</endTimeHour>
-			<endTimeMinute>0</endTimeMinute>
-		</event>
-		<event>
-			<ID>4</ID>
-			<name>Enchilada Happy Hour</name>
-			<description>PiPaPo</description>
-			<location>ZKM</location>
-			<startDateDay>28</startDateDay>
-			<startDateMonth>6</startDateMonth>
-			<startDateYear>2018</startDateYear>
-			<startTimeHour>22</startTimeHour>
-			<startTimeMinute>30</startTimeMinute>
-			<endDateDay>28</endDateDay>
-			<endDateMonth>6</endDateMonth>
-			<endDateYear>2018</endDateYear>
-			<endTimeHour>23</endTimeHour>
-			<endTimeMinute>45</endTimeMinute>
-		</event>
-	</events>
+  <name>Mein Kalender!</name>
+  <nextEventID>5</nextEventID>
+  <events>
+    <event>
+      <ID>0</ID>
+      <name>Einkaufen gewesen sein</name>
+      <description>Hab Hunger!</description>
+      <location>Lidl</location>
+      <startDateDay>25</startDateDay>
+      <startDateMonth>6</startDateMonth>
+      <startDateYear>2018</startDateYear>
+      <startTimeHour>13</startTimeHour>
+      <startTimeMinute>15</startTimeMinute>
+      <endDateDay>25</endDateDay>
+      <endDateMonth>6</endDateMonth>
+      <endDateYear>2018</endDateYear>
+      <endTimeHour>13</endTimeHour>
+      <endTimeMinute>45</endTimeMinute>
+    </event>
+    <event>
+      <ID>1</ID>
+      <name>Noch ein Ereignis!</name>
+      <description>Hab Hunger!</description>
+      <location>Lidl</location>
+      <startDateDay>25</startDateDay>
+      <startDateMonth>6</startDateMonth>
+      <startDateYear>2018</startDateYear>
+      <startTimeHour>12</startTimeHour>
+      <startTimeMinute>15</startTimeMinute>
+      <endDateDay>25</endDateDay>
+      <endDateMonth>6</endDateMonth>
+      <endDateYear>2018</endDateYear>
+      <endTimeHour>16</endTimeHour>
+      <endTimeMinute>45</endTimeMinute>
+    </event>
+    <event>
+      <ID>2</ID>
+      <name>Kino</name>
+      <description>PiPaPo</description>
+      <location>ZKM</location>
+      <startDateDay>26</startDateDay>
+      <startDateMonth>6</startDateMonth>
+      <startDateYear>2018</startDateYear>
+      <startTimeHour>19</startTimeHour>
+      <startTimeMinute>15</startTimeMinute>
+      <endDateDay>26</endDateDay>
+      <endDateMonth>6</endDateMonth>
+      <endDateYear>2018</endDateYear>
+      <endTimeHour>22</endTimeHour>
+      <endTimeMinute>0</endTimeMinute>
+    </event>
+    <event>
+      <ID>3</ID>
+      <name>Den Film nochmal schauen</name>
+      <description>PiPaPo</description>
+      <location>ZKM</location>
+      <startDateDay>27</startDateDay>
+      <startDateMonth>6</startDateMonth>
+      <startDateYear>2018</startDateYear>
+      <startTimeHour>17</startTimeHour>
+      <startTimeMinute>15</startTimeMinute>
+      <endDateDay>27</endDateDay>
+      <endDateMonth>6</endDateMonth>
+      <endDateYear>2018</endDateYear>
+      <endTimeHour>20</endTimeHour>
+      <endTimeMinute>0</endTimeMinute>
+    </event>
+  </events>
 </calendar>
