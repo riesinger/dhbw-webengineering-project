@@ -19,6 +19,7 @@
 			<head>
 				<link rel="stylesheet" type="text/css" href="/css/main.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/calendar.css"/>
+				<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" />
 			</head>
 			<body>
 				<header>
@@ -54,57 +55,57 @@
 					</div>
 					<div class="calendar__days">
 						<div class="calendar__day">
-							<h3>Montag</h3>
+							<h3>Montag <xsl:value-of select="//week/firstDateDay"/>.</h3>
 							<div class="calendar__events">
-								<xsl:for-each select="//week/events/event/startDateDay[//week/firstDateDay]">
+								<xsl:for-each select="//week/events/event/startDateDay[ . = //week/firstDateDay]">
 									<xsl:apply-templates mode="calendar__event" select=".."/>
 								</xsl:for-each>
 							</div>
 						</div>
 						<div class="calendar__day">
-							<h3>Dienstag</h3>
+							<h3>Dienstag <xsl:value-of select="//week/firstDateDay + 1"/>.</h3>
 							<div class="calendar__events">
-								<xsl:for-each select="//week/events/event/startDateDay[//week/firstDateDay + 1]">
+								<xsl:for-each select="//week/events/event/startDateDay[ . = //week/firstDateDay + 1]">
 									<xsl:apply-templates mode="calendar__event" select=".."/>
 								</xsl:for-each>
 							</div>
 						</div>
 						<div class="calendar__day">
-							<h3>Mittwoch</h3>
+							<h3>Mittwoch <xsl:value-of select="//week/firstDateDay + 2"/>.</h3>
 							<div class="calendar__events">
-								<xsl:for-each select="//week/events/event/startDateDay[//week/firstDateDay + 2]">
+								<xsl:for-each select="//week/events/event/startDateDay[ . = //week/firstDateDay + 2]">
 									<xsl:apply-templates mode="calendar__event" select=".."/>
 								</xsl:for-each>
 							</div>
 						</div>
 						<div class="calendar__day">
-							<h3>Donnerstag</h3>
+							<h3>Donnerstag <xsl:value-of select="//week/firstDateDay + 3"/>.</h3>
 							<div class="calendar__events">
-								<xsl:for-each select="//week/events/event/startDateDay[//week/firstDateDay + 3]">
+								<xsl:for-each select="//week/events/event/startDateDay[ . = //week/firstDateDay + 3]">
 									<xsl:apply-templates mode="calendar__event" select=".."/>
 								</xsl:for-each>
 							</div>
 						</div>
 						<div class="calendar__day">
-							<h3>Freitag</h3>
+							<h3>Freitag <xsl:value-of select="//week/firstDateDay + 4"/>.</h3>
 							<div class="calendar__events">
-								<xsl:for-each select="//week/events/event/startDateDay[//week/firstDateDay + 4]">
+								<xsl:for-each select="//week/events/event/startDateDay[ . = //week/firstDateDay + 4]">
 									<xsl:apply-templates mode="calendar__event" select=".."/>
 								</xsl:for-each>
 							</div>
 						</div>
 						<div class="calendar__day">
-							<h3>Samstag</h3>
+							<h3>Samstag <xsl:value-of select="//week/firstDateDay + 5"/>.</h3>
 							<div class="calendar__events">
-								<xsl:for-each select="//week/events/event/startDateDay[//week/firstDateDay + 5]">
+								<xsl:for-each select="//week/events/event/startDateDay[ . = //week/firstDateDay + 5]">
 									<xsl:apply-templates mode="calendar__event" select=".."/>
 								</xsl:for-each>
 							</div>
 						</div>
 						<div class="calendar__day">
-							<h3>Sonntag</h3>
+							<h3>Sonntag <xsl:value-of select="//week/firstDateDay + 6"/>.</h3>
 							<div class="calendar__events">
-								<xsl:for-each select="//week/events/event/startDateDay[//week/firstDateDay + 6]">
+								<xsl:for-each select="//week/events/event/startDateDay[ . = //week/firstDateDay + 6]">
 									<xsl:apply-templates mode="calendar__event" select=".."/>
 								</xsl:for-each>
 							</div>

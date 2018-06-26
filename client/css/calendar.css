@@ -55,13 +55,18 @@
 }
 
 .calendar__event {
-	background: #54C6EB;
+	background: rgb(240, 147, 0);
 	width: 100%;
-	overflow-x: hidden;
+	overflow: hidden;
 	text-align: center;
-	border: 1px solid rgba(0, 0, 0, 0.5);
+	/* border: 1px solid rgba(0, 0, 0, 0.5); */
 	border-radius: 5px;
 	position: absolute;
+	color: white;
+	font-weight: 500;
+	font-size: .95rem;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+
 }
 
 .calendar__event.length_0_00 { height: 0vh; }

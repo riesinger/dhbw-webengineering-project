@@ -4,20 +4,24 @@ html, body {
 }
 
 body {
-	font-family: sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 header {
 	background-color: #54C6EB;
 	color: rgba(0, 0, 0, 0.87);
-	padding: 24px;
+	padding: 12px 24px;
 	box-shadow: 0 0 30px rgba(0, 0, 0, 0.16);
 	display: flex;
-	align-items: center;
+	align-items: baseline;
 }
+
 
 header h1, header h2 {
 	margin: 0;
 	font-weight: normal;
 }
 
+header h1 {
+	margin-right: .5ch;
+}
