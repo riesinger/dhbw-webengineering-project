@@ -24,7 +24,7 @@ exports.setup = function () {
 	app.use(cookieParser());
 
 	app.use((req, res, next) => {
-		if (req.path === "/login" || req.path === "/auth/login") return next();
+		if (req.path === "/login" || req.path.indexOf("css") > -1) return next();
 
 		let cookie = req.cookies.token;
 		if (cookie) {
@@ -70,7 +70,7 @@ exports.setup = function () {
 		res.sendFile(path.join(__dirname, "client", "login.html"))
 	});
 
-	app.post("/auth/login", async (req, res) => {
+	app.post("/login", async (req, res) => {
 		let token = users.checkCredentials(req.body.username, req.body.password);
 		console.log(token);
 		if (token === "") {

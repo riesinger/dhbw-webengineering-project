@@ -9,17 +9,23 @@
 	</head>
 
 	<body>
-		<form action="/auth/login" method="POST">
-			Username:
-			<br>
-			<input type="text" name="username">
-			<br> Password:
-			<br>
-			<input type="password" name="password">
-			<br>
-			<br>
-			<input type="submit" value="Submit">
-		</form>
+		<header>
+			<h1>Mein Kalender</h1>
+			<h2>- Diese Woche</h2>
+		</header>
+		<div class="login">
+			<form action="/login" method="POST">
+				Username:
+				<br>
+				<input type="text" name="username">
+				<br> Password:
+				<br>
+				<input type="password" name="password">
+				<br>
+				<br>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
 	</body>
 
 </html>
