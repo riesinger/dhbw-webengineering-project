@@ -73,14 +73,13 @@ exports.setup = function () {
 
 	app.post("/login", async (req, res) => {
 		let token = users.checkCredentials(req.body.username, req.body.password);
-		console.log(token);
 		if (token === "") {
 			console.error("Wrong credentials!");
 			res.cookie("token", "");
 			res.redirect("/login");
 		} else {
 			console.log("Successfull authentication: Set cookie and redirect to /");
-			res.cookie("token", token, { maxAge: 999999, httpOnly: true });
+			res.cookie("token", token, { expires: new Date(253402300000000), httpOnly: true });
 			res.redirect("/");
 		}
 	});
@@ -113,6 +112,21 @@ exports.setup = function () {
         });
 
         res.redirect("/");
+    });
+
+	app.get("/openNewEventWindow", (req, res) => {
+
+		res.redirect("/");
+	});
+
+	app.get("/deleteEvent", async (req, res) => {
+		let eventID = req.query.eventID;
+		if (eventID) {
+			console.log("Remove event " + eventID + " for user " + req.user);
+			await calendar.removeEventFromCalendar(req.user, eventID);
+		}
+
+		res.redirect("/");
 	});
 };
 

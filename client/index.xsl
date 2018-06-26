@@ -15,11 +15,15 @@
 				test="startTimeMinute > endTimeMinute"><xsl:value-of select="startTimeMinute - endTimeMinute"/></xsl:if>
 			</xsl:attribute>
 			<xsl:value-of select="name"/>
+			<a>
+				<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="ID"/></xsl:attribute>
+				<img class="eventTrash" src="/images/trash.svg"/>
+			</a>
 		</div>
 	</xsl:template>
 
 	<xsl:template match="/">
-		<html>
+		<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
 			<head>
 				<link rel="stylesheet" type="text/css" href="/css/main.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/calendar.css"/>
@@ -32,11 +36,10 @@
 				</title>
 			</head>
 			<body>
-				<header class="fixed">
+				<div class="header fixed">
 					<h1>Mein Kalender</h1>
 					<h2>- Diese Woche</h2>
-				</header>
-				
+				</div>
 				<div class="calendar">
 					<div class="calendar__header">
 						<div class="calendar__header__legend__padding"/>
@@ -121,32 +124,37 @@
 					</div>
 				</div>
 				<div>
-				 <button type="button" class="addButton">+</button> 
-				</div>
+                    <a href="/openNewEventWindow">
+				        <button type="button" class="addButton">+</button>
+                    </a>
+                </div>
+                <xsl:if test="0">
 				<div id="addNewEventView" class="newEventDiv">
 					<h3 class="centeredText">Neuer Termin</h3>
-					<div>
-						<form id="newEventForm" action="/addEvent" method="post">
-							 <div class="newEventFormDiv">
-                                 Termin Name: <input type="text" name="eventName"/> <br/>
-                                 <textarea form="newEventForm" style="margin-top: 5px; width: 80%; resize: none" name="eventDescription" rows="4">Beschreibung</textarea> <br/>
-                             </div>
-                            <hr style="width:90%; opacity:0.5;"/>
-                            <div class="newEventFormDiv">
-                                Von <input type="date" name="eventStartDate"/> <input type="time" name="eventStartTime"/> Uhr<br/>
-                                Bis <input type="date" name="eventEndDate"/> <input type="time" name="eventEndTime"/> Uhr<br/>
-                            </div>
-                            <hr style="width:90%; opacity:0.5;"/>
-                            <div class="newEventFormDiv">
-                                Ort: <input type="text" name="eventLocation"/>
-                            </div>
-							 <div class="newEventButtonsDiv">
-							 	<input type="reset" value="Zurücksetzen"/> 
-								<input type="submit" value="Zum Kalender hinzufügen"/>
-							 </div>
-						</form> 
-					</div>
-				</div>
+                        <div>
+                            <form id="newEventForm" action="/addEvent" method="post">
+                                 <div class="newEventFormDiv">
+                                     Termin Name:<br/>
+                                     <input type="text" name="eventName" style="width: 80%"/> <br/>
+                                     <textarea form="newEventForm" style="margin-top: 5px; width: 80%; resize: none" name="eventDescription" rows="4">Beschreibung</textarea> <br/>
+                                 </div>
+                                <hr style="width:90%; opacity:0.5;"/>
+                                <div class="newEventFormDiv">
+                                    Von <input type="date" name="eventStartDate"/> <input type="time" name="eventStartTime"/> Uhr<br/>
+                                    Bis <input type="date" name="eventEndDate"/> <input type="time" name="eventEndTime"/> Uhr<br/>
+                                </div>
+                                <hr style="width:90%; opacity:0.5;"/>
+                                <div class="newEventFormDiv">
+                                    Ort:<br/>
+                                    <input type="text" name="eventLocation" style="width: 80%"/>
+                                </div>
+                                 <div class="newEventButtonsDiv">
+                                    <input type="submit" value="Zum Kalender hinzufügen"/>
+                                 </div>
+                            </form>
+                        </div>
+                    </div>
+                </xsl:if>
 			</body>
 		</html>
 	</xsl:template>

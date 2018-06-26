@@ -20,37 +20,20 @@
       <endTimeMinute>45</endTimeMinute>
     </event>
     <event>
-      <ID>0</ID>
-      <name>Einkaufen gewesen sein</name>
-      <description>Hab Hunger!</description>
-      <location>Lidl</location>
-      <startDateDay>25</startDateDay>
+      <ID>5</ID>
+      <name>Test Event 2</name>
+      <description>Beschreibung</description>
+      <location>DHBW</location>
+      <startDateDay>26</startDateDay>
       <startDateMonth>6</startDateMonth>
       <startDateYear>2018</startDateYear>
-      <startTimeHour>13</startTimeHour>
-      <startTimeMinute>15</startTimeMinute>
-      <endDateDay>25</endDateDay>
-      <endDateMonth>6</endDateMonth>
-      <endDateYear>2018</endDateYear>
-      <endTimeHour>13</endTimeHour>
-      <endTimeMinute>45</endTimeMinute>
-    </event>
-    <event>
-      <ID>5</ID>
-      <name>Test Event 1</name>
-      <description>Beschreibung</description>
-      <location>DHBW - Karlsruhe</location>
-      <startDateDOW>2</startDateDOW>
-      <startDateDay>26</startDateDay>
-      <startDateMonth>06</startDateMonth>
-      <startDateYear>2018</startDateYear>
-      <startTimeHour>10</startTimeHour>
+      <startTimeHour>15</startTimeHour>
       <startTimeMinute>15</startTimeMinute>
       <endDateDay>26</endDateDay>
       <endDateMonth>06</endDateMonth>
       <endDateYear>2018</endDateYear>
-      <endTimeHour>11</endTimeHour>
-      <endTimeMinute>00</endTimeMinute>
+      <endTimeHour>22</endTimeHour>
+      <endTimeMinute>15</endTimeMinute>
     </event>
     <event>
       <ID>2</ID>
@@ -67,38 +50,6 @@
       <endDateYear>2018</endDateYear>
       <endTimeHour>22</endTimeHour>
       <endTimeMinute>0</endTimeMinute>
-    </event>
-    <event>
-      <ID>3</ID>
-      <name>Den Film nochmal schauen</name>
-      <description>PiPaPo</description>
-      <location>ZKM</location>
-      <startDateDay>27</startDateDay>
-      <startDateMonth>6</startDateMonth>
-      <startDateYear>2018</startDateYear>
-      <startTimeHour>17</startTimeHour>
-      <startTimeMinute>15</startTimeMinute>
-      <endDateDay>27</endDateDay>
-      <endDateMonth>6</endDateMonth>
-      <endDateYear>2018</endDateYear>
-      <endTimeHour>20</endTimeHour>
-      <endTimeMinute>0</endTimeMinute>
-    </event>
-    <event>
-      <ID>4</ID>
-      <name>Enchilada Happy Hour</name>
-      <description>PiPaPo</description>
-      <location>ZKM</location>
-      <startDateDay>28</startDateDay>
-      <startDateMonth>6</startDateMonth>
-      <startDateYear>2018</startDateYear>
-      <startTimeHour>22</startTimeHour>
-      <startTimeMinute>30</startTimeMinute>
-      <endDateDay>28</endDateDay>
-      <endDateMonth>6</endDateMonth>
-      <endDateYear>2018</endDateYear>
-      <endTimeHour>23</endTimeHour>
-      <endTimeMinute>45</endTimeMinute>
     </event>
   </events>
 </calendar>
