@@ -8,7 +8,7 @@ body {
 	overflow: hidden;
 }
 
-header {
+.header {
 	background-color: #54C6EB;
 	color: rgba(0, 0, 0, 0.87);
 	padding: 12px 24px;
@@ -19,7 +19,7 @@ header {
 	box-sizing: border-box;
 }
 
-header.fixed {
+.header.fixed {
 	position: fixed;
 	width: 100%;
 	top: 0;
@@ -27,17 +27,17 @@ header.fixed {
 	right: 0;
 }
 
-header h1 {
+.header h1 {
 	line-height: 32px;
 }
 
 
-header h1, header h2 {
+.header h1, .header h2 {
 	margin: 0;
 	font-weight: normal;
 }
 
-header h1 {
+.header h1 {
 	margin-right: .5ch;
 }
 
@@ -50,6 +50,7 @@ input[type=text], input[type=password] {
 	width: 100%;
 	margin: 10px;
 	padding: 5px;
+	box-sizing: border-box;
 }
 
 input[type=submit] {

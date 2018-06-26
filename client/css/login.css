@@ -2,18 +2,23 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: calc(100% - 56px);
+	height: calc(100vh - 56px);
 }
 
 #login {
 	text-align: center;
-	padding: 0 30px;
+	padding: 2rem;
 	border-radius: 10px;
-	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
 }
 
 #login form {
 	font-size: 2rem;
+}
+
+#login h3 {
+	font-size: 2rem;
+	margin-top: 0;
 }
 
 #login form h5 {
@@ -22,4 +27,8 @@
 
 #login form input[type=text], #login form input[type=password] {
 	margin-bottom: 20px;
+}
+
+#login h5, #login h3 {
+	font-weight: normal;
 }
