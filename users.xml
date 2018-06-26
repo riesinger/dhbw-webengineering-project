@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <users>
-    <user>
-        <username>test1</username>
-        <password>123456</password>
-    </user>
-    <user>
-        <username>test2</username>
-        <password>123456</password>
-    </user>
+  <user>
+    <username>test1</username>
+    <password>123456</password>
+    <token>6cbecgt9yc4b6hs5n17c9e</token>
+  </user>
+  <user>
+    <username>test2</username>
+    <password>123456</password>
+    <token/>
+  </user>
 </users>

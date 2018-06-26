@@ -1,5 +1,6 @@
 const express = require("express");
-const basicAuth = require('express-basic-auth');
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const path = require("path");
 
 const users = require("./users");
@@ -18,12 +19,29 @@ function injectXSLT(xml, xslt) {
 }
 
 exports.setup = function () {
+	app.use(bodyParser.urlencoded({ extended: false }));
+	app.use(bodyParser.json());
+	app.use(cookieParser());
 
-	app.use(basicAuth({
-		users: users.getUsersKV(),
-		challenge: true,
-		realm: 'You need to login'
-	}));
+	app.use((req, res, next) => {
+		if (req.path === "/login" || req.path.indexOf("css") > -1) return next();
+
+		let cookie = req.cookies.token;
+		if (cookie) {
+			let splitToken = cookie.split(":");
+
+			if (!users.checkToken(splitToken[0], splitToken[1])) {
+				res.cookie("token", "");
+				res.redirect("/login");
+				return;
+			}
+
+			req.user = splitToken[0];
+			next();
+		} else {
+			res.redirect("/login");
+		}
+	});
 
 	app.use("/xsl", express.static(path.join(__dirname, "client"), {
 		setHeaders: (res, path) => {
@@ -37,10 +55,10 @@ exports.setup = function () {
 	app.use("/images", express.static(path.join(__dirname, "client", "images")));
 
 	app.get("/", async (req, res) => {
-		console.log("Getting calendar for user", req.auth.user);
+		console.log("Getting calendar for user", req.user);
 		res.setHeader("Content-Type", "text/xml");
 		try {
-			const events = await calendar.getEventsInCurrentWeek(req.auth.user);
+			const events = await calendar.getEventsInCurrentWeek(req.user);
 			res.send(injectXSLT(events, "index.xsl"));
 		} catch (err) {
 			console.error(err);
@@ -48,8 +66,26 @@ exports.setup = function () {
 		}
 	});
 
+	app.get("/login", async (req, res) => {
+		res.sendFile(path.join(__dirname, "client", "login.html"))
+	});
+
+	app.post("/login", async (req, res) => {
+		let token = users.checkCredentials(req.body.username, req.body.password);
+		console.log(token);
+		if (token === "") {
+			console.error("Wrong credentials!");
+			res.cookie("token", "");
+			res.redirect("/login");
+		} else {
+			console.log("Successfull authentication: Set cookie and redirect to /");
+			res.cookie("token", token, { maxAge: 999999, httpOnly: true });
+			res.redirect("/");
+		}
+	});
+
 	app.post("/addEvent", (req, res) => {
-	})
+	});
 };
 
 exports.start = function () {

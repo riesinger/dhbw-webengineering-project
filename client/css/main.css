@@ -17,6 +17,9 @@ header {
 	align-items: baseline;
 	height: 56px;
 	box-sizing: border-box;
+}
+
+header.fixed {
 	position: fixed;
 	width: 100%;
 	top: 0;

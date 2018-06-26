@@ -31,7 +31,7 @@
 				</title>
 			</head>
 			<body>
-				<header>
+				<header class="fixed">
 					<h1>Mein Kalender</h1>
 					<h2>- Diese Woche</h2>
 				</header>
