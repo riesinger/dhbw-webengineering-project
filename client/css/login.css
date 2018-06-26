@@ -1,8 +1,25 @@
-.login {
+#loginBox {
 	display: flex;
-	align-items: center; 
+	align-items: center;
+	justify-content: center;
+	height: calc(100% - 56px);
 }
 
-.login form {
+#login {
+	text-align: center;
+	padding: 0 30px;
+	border-radius: 10px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
 
+#login form {
+	font-size: 2rem;
+}
+
+#login form h5 {
+	margin: 10px;
+}
+
+#login form input[type=text], #login form input[type=password] {
+	margin-bottom: 20px;
 }
