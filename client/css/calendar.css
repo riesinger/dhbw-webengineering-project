@@ -24,6 +24,7 @@
 	top: 56px;
 	height: 36px;
 	line-height: 36px;
+	width: calc(100vw - 4rem);
 }
 
 .calendar__header .calendar__header__legend__padding {
@@ -32,7 +33,7 @@
 }
 
 .calendar__header h3 {
-	flex: 1 0 33%;
+	flex: 1;
 	margin: 0;
 	text-align: center;
 
@@ -51,13 +52,13 @@
 	border-right: 1px solid #ccc;
 }
 
-
 .calendar__legend {
 	width: 5ch;
 	text-align: right;
 	padding-right: 1rem;
 	flex: 0;
 	border-right: 1px solid #ccc;
+	height: 96rem;
 }
 
 .calendar__legend div {
@@ -69,12 +70,11 @@
 .calendar__legend div::after {
 	content: '';
 	display: block;
-	width: 97vw;
+	width: calc(100vw - 4rem);
 	height: 1px;
 	background-color: rgba(0, 0, 0, 0.25);
 	bottom: 0;
 	position: absolute;
-
 }
 
 .calendar__day {

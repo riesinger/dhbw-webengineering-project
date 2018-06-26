@@ -23,7 +23,7 @@
 	</xsl:template>
 
 	<xsl:template match="/">
-		<html>
+		<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
 			<head>
 				<link rel="stylesheet" type="text/css" href="/css/main.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/calendar.css"/>
@@ -35,10 +35,10 @@
 				</title>
 			</head>
 			<body>
-				<header class="fixed">
+				<div class="header fixed">
 					<h1>Mein Kalender</h1>
 					<h2>- Diese Woche</h2>
-				</header>
+				</div>
 				<div class="calendar">
 					<div class="calendar__header">
 						<div class="calendar__header__legend__padding"/>
