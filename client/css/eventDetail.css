@@ -1,0 +1,46 @@
+
+.addButton {
+    position: absolute;
+    top: 90%;
+    left: 90%;
+
+    background-color:#54C6EB;
+    border: none;
+    color: white;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration:none;
+    font-size: 20px;
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    line-height:50%;
+}
+
+.newEventDiv{
+    background-color:white;
+    border-radius: 5px;
+    height: 80%;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    position: absolute;
+    top: 15%;
+    left: 30%;
+}
+
+.centeredText{
+    text-align: center;
+}
+
+.newEventButtonsDiv{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+}
+
+.newEventFormDiv{
+    position:relative;
+    left:10%;
+}

@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const path = require("path");
+const cal = require("./calendar");
 
 const users = require("./users");
 const calendar = require("./calendar");
@@ -85,6 +86,33 @@ exports.setup = function () {
 	});
 
 	app.post("/addEvent", (req, res) => {
+
+		var startDate = req.body.eventStartDate.split('-');
+		var endDate = req.body.eventEndDate.split('-');
+		var startTime = req.body.eventStartTime.split(':');
+		var endTime = req.body.eventEndTime.split(':');
+
+        cal.addEventToCalendar(req.user, {
+            name: req.body.eventName,
+            description: req.body.eventDescription,
+            location: req.body.eventLocation,
+            startDateDay: startDate[2],
+            startDateMonth: startDate[1],
+            startDateYear: startDate[0],
+            startTimeHour: startTime[0],
+            startTimeMinute: startTime[1],
+            endDateDay: endDate[2],
+            endDateMonth: endDate[1],
+            endDateYear: endDate[0],
+            endTimeHour: endTime[0],
+            endTimeMinute: endTime[1]
+        }).then((res) => {
+            console.log("Event successfully added!");
+        }, (err) => {
+            console.error(err);
+        });
+
+        res.redirect("/");
 	});
 };
 

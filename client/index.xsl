@@ -23,6 +23,7 @@
 			<head>
 				<link rel="stylesheet" type="text/css" href="/css/main.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/calendar.css"/>
+                <link rel="stylesheet" type="text/css" href="/css/eventDetail.css"/>
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
 				<link rel="shortcut icon" type="image/png" href="/images/icon.png"/>
 				<title>Kalender vom <xsl:value-of select="//week/firstDateDay"/>.<xsl:value-of select="//week/firstDateMonth"/>.
@@ -35,6 +36,7 @@
 					<h1>Mein Kalender</h1>
 					<h2>- Diese Woche</h2>
 				</header>
+				
 				<div class="calendar">
 					<div class="calendar__header">
 						<div class="calendar__header__legend__padding"/>
@@ -116,6 +118,33 @@
 								<xsl:apply-templates mode="calendar__event" select=".."/>
 							</xsl:for-each>
 						</div>
+					</div>
+				</div>
+				<div>
+				 <button type="button" class="addButton">+</button> 
+				</div>
+				<div id="addNewEventView" class="newEventDiv">
+					<h3 class="centeredText">Neuer Termin</h3>
+					<div>
+						<form id="newEventForm" action="/addEvent" method="post">
+							 <div class="newEventFormDiv">
+                                 Termin Name: <input type="text" name="eventName"/> <br/>
+                                 <textarea form="newEventForm" style="margin-top: 5px; width: 80%; resize: none" name="eventDescription" rows="4">Beschreibung</textarea> <br/>
+                             </div>
+                            <hr style="width:90%; opacity:0.5;"/>
+                            <div class="newEventFormDiv">
+                                Von <input type="date" name="eventStartDate"/> <input type="time" name="eventStartTime"/> Uhr<br/>
+                                Bis <input type="date" name="eventEndDate"/> <input type="time" name="eventEndTime"/> Uhr<br/>
+                            </div>
+                            <hr style="width:90%; opacity:0.5;"/>
+                            <div class="newEventFormDiv">
+                                Ort: <input type="text" name="eventLocation"/>
+                            </div>
+							 <div class="newEventButtonsDiv">
+							 	<input type="reset" value="Zurücksetzen"/> 
+								<input type="submit" value="Zum Kalender hinzufügen"/>
+							 </div>
+						</form> 
 					</div>
 				</div>
 			</body>
