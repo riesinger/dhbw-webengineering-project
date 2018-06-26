@@ -32,7 +32,9 @@ exports.setup = function () {
 			}
 		}
 	}));
+
 	app.use("/css", express.static(path.join(__dirname, "client", "css")));
+	app.use("/images", express.static(path.join(__dirname, "client", "images")));
 
 	app.get("/", async (req, res) => {
 		console.log("Getting calendar for user", req.auth.user);

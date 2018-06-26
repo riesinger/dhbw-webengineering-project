@@ -173,10 +173,9 @@ const getEventsBetween = async (username, firstDate, lastDate) => {
 			const startDate = getEventStartDate(event);
 			const endDate = getEventEndDate(event);
 			const included = ((startDate >= firstDate && startDate <= lastDate) || (endDate >= firstDate && endDate <= lastDate));
-			// console.debug(`Event ${JSON.stringify(event)} is ${included ? 'included' : 'not included'}`);
 			return included;
 		});
-		console.debug(JSON.stringify(filteredEvents));
+		
 		filteredEvents = filteredEvents.sort(eventDateComparator);
 		return filteredEvents;
 	} catch (err) {
@@ -189,17 +188,19 @@ exports.getEventsInCurrentWeek = async (username) => {
 	const date = new Date();
 	let firstDate = new Date(date.setDate(date.getDate() - date.getDay() + 1));
 	firstDate.setUTCHours(0, 0, 0, 0);
+
 	let lastDate = new Date(date.setDate(firstDate.getDate() + 6));
 	lastDate.setUTCHours(23, 59, 59, 0);
+
 	console.debug(`Getting events between ${firstDate.toISOString()} and ${lastDate.toISOString()}`);
 	const events = await getEventsBetween(username, firstDate, lastDate);
-	console.log(JSON.stringify(events));
+
 	let week = {};
 	addTimeToObj(week, "currentDate", new Date());
 	addTimeToObj(week, "firstDate", firstDate);
 	addTimeToObj(week, "lastDate", lastDate);
+
 	week.events = {event: events};
-	console.debug(JSON.stringify(events));
 	return xmlBuilder.buildObject({week});
 };
 

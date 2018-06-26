@@ -20,6 +20,7 @@
 				<link rel="stylesheet" type="text/css" href="/css/main.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/calendar.css"/>
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" />
+				<link rel="shortcut icon" type="image/png" href="/images/icon.png"/>
 			</head>
 			<body>
 				<header>
