@@ -38,7 +38,6 @@
 
 }
 
-
 .calendar__body {
 	position: relative;
 	top: 36px;
@@ -84,7 +83,6 @@
 	height: 96rem; /* 4rem * 24 */
 }
 
-
 .calendar__day h3 {
 	height: 3rem;
 	margin: 0;
@@ -110,6 +108,10 @@
 	font-size: .95rem;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 
+}
+
+.calendar__event .eventTrash {
+	width: 30px;
 }
 
 .calendar__event.length_0_0 { height: 0rem; }

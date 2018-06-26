@@ -15,6 +15,10 @@
 				test="startTimeMinute > endTimeMinute"><xsl:value-of select="startTimeMinute - endTimeMinute"/></xsl:if>
 			</xsl:attribute>
 			<xsl:value-of select="name"/>
+			<a>
+				<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="ID"/></xsl:attribute>
+				<img class="eventTrash" src="/images/trash.svg"/>
+			</a>
 		</div>
 	</xsl:template>
 

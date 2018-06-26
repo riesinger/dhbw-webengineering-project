@@ -118,7 +118,7 @@ exports.removeEventFromCalendar = (username, eventID) => {
 			let eventArray = result.calendar.events[0].event;
 			let eventIt = null;
 			for (let it = 0; it < eventArray.length; it++) {
-				if (Number(eventArray[it].ID[0]) === eventID) {
+				if (parseInt(eventArray[it].ID[0]) === parseInt(eventID)) {
 					eventIt = it;
 					break;
 				}
