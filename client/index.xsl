@@ -13,13 +13,19 @@
 			<xsl:attribute name="class">calendar__event starts_<xsl:value-of select="startTimeHour"/>_<xsl:value-of
 				select="startTimeMinute"/> length_<xsl:value-of select="endTimeHour - startTimeHour "/>_<xsl:if
 				test="endTimeMinute > startTimeMinute"><xsl:value-of select="endTimeMinute - startTimeMinute"/></xsl:if><xsl:if
-				test="startTimeMinute > endTimeMinute"><xsl:value-of select="startTimeMinute - endTimeMinute"/></xsl:if>
+				test="startTimeMinute > endTimeMinute"><xsl:value-of select="startTimeMinute - endTimeMinute"/></xsl:if><xsl:if
+				test="startTimeMinute = endTimeMinute">0</xsl:if>
 			</xsl:attribute>
 			<xsl:value-of select="name"/>
 			<a>
 				<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="ID"/></xsl:attribute>
 				<img class="eventTrash" src="/images/trash.svg"/>
 			</a>
+		</div>
+	</xsl:template>
+
+	<xsl:template match="addRemote">
+		<div class="card">
 		</div>
 	</xsl:template>
 
@@ -130,9 +136,7 @@
 				        <button type="button" class="addButton">+</button>
                     </a>
                 </div>
-                <xsl:if test="1">
-					<xsl:apply-templates mode="event_new" select="/"/>
-                </xsl:if>
+				<xsl:apply-templates select="//meta/*"/>
 			</body>
 		</html>
 	</xsl:template>

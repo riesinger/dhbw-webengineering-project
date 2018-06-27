@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <calendar>
-  <name>Mein Kalender!</name>
-  <nextEventID>6</nextEventID>
+  <nextEventID>5</nextEventID>
   <events>
     <event>
       <ID>1</ID>
@@ -49,6 +48,22 @@
       <endDateMonth>6</endDateMonth>
       <endDateYear>2018</endDateYear>
       <endTimeHour>22</endTimeHour>
+      <endTimeMinute>0</endTimeMinute>
+    </event>
+	  <event>
+      <ID>3</ID>
+      <name>Kino</name>
+      <description>PiPaPo</description>
+      <location>ZKM</location>
+      <startDateDay>26</startDateDay>
+      <startDateMonth>6</startDateMonth>
+      <startDateYear>2018</startDateYear>
+      <startTimeHour>8</startTimeHour>
+      <startTimeMinute>0</startTimeMinute>
+      <endDateDay>26</endDateDay>
+      <endDateMonth>6</endDateMonth>
+      <endDateYear>2018</endDateYear>
+      <endTimeHour>9</endTimeHour>
       <endTimeMinute>0</endTimeMinute>
     </event>
   </events>
