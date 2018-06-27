@@ -35,12 +35,12 @@
 				<input type="text" name="url" placeholder="URL"/><br/>
 				<div class="alignLeft">
 					<input type="checkbox" name="anwendungsprojekt"/>Anwendungsprojekt<br/>
-					<input type="checkbox" name="anwendungsprojekt"/>Medizin<br/>
-					<input type="checkbox" name="anwendungsprojekt"/>Web-Engineering<br/>
-					<input type="checkbox" name="anwendungsprojekt"/>Marketing<br/>
-					<input type="checkbox" name="anwendungsprojekt"/>CCNA<br/>
-					<input type="checkbox" name="anwendungsprojekt"/>Intercultural Communication I<br/>
-					<input type="checkbox" name="anwendungsprojekt"/>Intercultural Communication II<br/>
+					<input type="checkbox" name="medizin"/>Medizin<br/>
+					<input type="checkbox" name="webengineering"/>Web-Engineering<br/>
+					<input type="checkbox" name="marketing"/>Marketing<br/>
+					<input type="checkbox" name="ccna"/>CCNA<br/>
+					<input type="checkbox" name="interculturalComm1"/>Intercultural Communication I<br/>
+					<input type="checkbox" name="interculturalComm2"/>Intercultural Communication II<br/>
 				</div>
 				<input type="submit" value="Hinzufügen"/>
 			</form>
