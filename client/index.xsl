@@ -7,6 +7,7 @@
 	<xsl:output method="xml" doctype-public="-//W3C//DTD XHTML 1.1//EN"
 	            doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
 	<xsl:include href="newEvent.xsl"/>
+	<xsl:include href="addRemote.xsl"/>
 
 	<xsl:template match="event" mode="calendar__event">
 		<div>
@@ -21,30 +22,6 @@
 				<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="ID"/></xsl:attribute>
 				<img class="eventTrash" src="/images/trash.svg"/>
 			</a>
-		</div>
-	</xsl:template>
-
-	<xsl:template match="addRemote">
-		<div class="card addRemote">
-			<h1>Remote Kalender hinzufügen</h1>
-			<form action="/addRemote" method="POST">
-					<input type="text" name="url" placeholder="URL"/><br/>
-					<input type="submit" value="Hinzufügen"/>
-			</form>
-			<h1>RAPLA hinzufügen</h1>
-			<form action="/addRemote" method="POST">
-				<input type="text" name="url" placeholder="URL"/><br/>
-				<div class="alignLeft">
-					<input type="checkbox" name="anwendungsprojekt"/>Anwendungsprojekt<br/>
-					<input type="checkbox" name="medizin"/>Medizin<br/>
-					<input type="checkbox" name="webengineering"/>Web-Engineering<br/>
-					<input type="checkbox" name="marketing"/>Marketing<br/>
-					<input type="checkbox" name="ccna"/>CCNA<br/>
-					<input type="checkbox" name="interculturalComm1"/>Intercultural Communication I<br/>
-					<input type="checkbox" name="interculturalComm2"/>Intercultural Communication II<br/>
-				</div>
-				<input type="submit" value="Hinzufügen"/>
-			</form>
 		</div>
 	</xsl:template>
 
