@@ -20,13 +20,18 @@ function injectXSLT(xml, xslt) {
 	return "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<?xml-stylesheet type=\"text/xsl\" href=\"xsl/" + xslt + "\" ?>\n" + slimXML;
 }
 
-function sendCalendar(res, events, injectTags) {
+function sendCalendar(res, events, injectTags, selectedWeek) {
 	res.setHeader("Content-Type", "text/xml");
 	try {
-		let sendObject = { calendar: { week: events, meta: injectTags } };
-		const s = xmlBuilder.buildObject(sendObject)
-
+		if(selectedWeek == null){
+		let sendObject = { calendar: { week: events, meta: injectTags, weekSelected: 0 } };
+		const s = xmlBuilder.buildObject(sendObject);
 		res.send(injectXSLT(s, "index.xsl"));
+		} else {
+		let sendObject = { calendar: { week: events, meta: injectTags, weekSelected:  selectedWeek} };
+		const s = xmlBuilder.buildObject(sendObject);
+		res.send(injectXSLT(s, "index.xsl"));
+		}		
 	} catch (err) {
 		console.error(err);
 		res.sendStatus(500);
@@ -83,7 +88,7 @@ exports.setup = function () {
             console.log("Getting calendar for user", req.user);
             try {
                 const oEvents = await calendar.getEventsInWeek(req.user, Number(req.query.week));
-                sendCalendar(res, oEvents, []);
+                sendCalendar(res, oEvents, [], req.query.week);
             } catch (err) {
                 console.error(err);
                 res.statusCode(500);

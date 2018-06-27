@@ -139,12 +139,14 @@
                     </a>
                 </div>
 				<div class="leftPageScrollingDiv">
-					<a href="/">
+					<a>
+						<xsl:attribute name="href">\?week=<xsl:value-of select="//weekSelected - 1"/></xsl:attribute>
 						<button type="button" class="pageScrollButton"> &lt; </button>
 					</a>
 				</div>
 				<div class="rightPageScrollingDiv">
-					<a href="/">
+					<a>
+						<xsl:attribute name="href">\?week=<xsl:value-of select="//weekSelected + 1"/></xsl:attribute>
 						<button type="button" class="pageScrollButton"> &gt; </button>
 					</a>
 				</div>

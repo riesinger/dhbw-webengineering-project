@@ -178,21 +178,22 @@ exports.getEventsInCurrentWeek = async (username) => {
 
 exports.getEventsInWeek = async (username, week) => {
     const date = new Date();
-    let firstDate = new Date(date.setDate(date.getDate() - date.getDay() + 1)) + week * 7;
+	let firstDate = new Date(date.setDate(date.getDate() - date.getDay() + 1 + (week * 7)));
     firstDate.setUTCHours(0, 0, 0, 0);
 
-    let lastDate = new Date(date.setDate(firstDate.getDate() + 6)) + week * 7;
+	let lastDate = new Date(date.setDate(firstDate.getDate() + 6));
     lastDate.setUTCHours(23, 59, 59, 0);
 
     console.debug(`Getting events between ${firstDate.toISOString()} and ${lastDate.toISOString()}`);
     const events = await getEventsBetween(username, firstDate, lastDate);
 
     let returnWeek = {};
-    addTimeToObj(week, "currentDate", new Date());
-    addTimeToObj(week, "firstDate", firstDate);
-    addTimeToObj(week, "lastDate", lastDate);
+    addTimeToObj(returnWeek, "currentDate", new Date(Date.now() + (week * 7)));
+    addTimeToObj(returnWeek, "firstDate", firstDate);
+    addTimeToObj(returnWeek, "lastDate", lastDate);
 
-    week.events = {event: events};
+
+    returnWeek.events = {event: events};
     return returnWeek;
 };
 
