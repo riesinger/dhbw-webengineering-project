@@ -1,0 +1,16 @@
+.addRemote {
+	text-align: center;
+}
+
+.addRemote form {
+	font-size: 2rem;
+}
+
+.addRemote form h5 {
+	margin: 5px;
+	margin-top: 30px;
+}
+
+.addRemote form input[type=text] {
+	width: 80%;
+}
