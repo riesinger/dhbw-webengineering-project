@@ -133,8 +133,13 @@ exports.setup = function () {
     });
 
 	app.get("/openNewEventWindow", async (req, res) => {
-
-		res.redirect("/");
+		try {
+            const oEvents = await calendar.getEventsInCurrentWeek(req.user);
+            sendCalendar(res, oEvents, ["newEventWindow"]);
+        } catch (err){
+            console.error(err);
+            res.statusCode(500);
+		}
 	});
 
 	app.get("/deleteEvent", async (req, res) => {

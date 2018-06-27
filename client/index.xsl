@@ -29,6 +29,11 @@
 		</div>
 	</xsl:template>
 
+	<xsl:template match="newEventWindow">
+		<xsl:apply-templates mode="event_new" select="/"/>
+	</xsl:template>
+
+
 	<xsl:template match="/">
 		<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
 			<head>
