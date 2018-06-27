@@ -97,7 +97,42 @@ exports.setup = function () {
 		}
 	});
 
-	app.post("/addEvent", async (req, res) => {
+	app.post("/addEvent", (req, res) => {
+
+		var startDate = req.body.eventStartDate.split('-');
+		var endDate = req.body.eventEndDate.split('-');
+
+        calendar.addEventToCalendar(req.user, {
+            name: req.body.eventName,
+            description: req.body.eventDescription,
+            location: req.body.eventLocation,
+            startDateDay: Number(startDate[2]),
+            startDateMonth: Number(startDate[1]),
+            startDateYear: Number(startDate[0]),
+            startTimeHour: Number(req.body.eventStartTimeHour),
+            startTimeMinute: Number(req.body.eventStartTimeMinute),
+            endDateDay: Number(endDate[2]),
+            endDateMonth: Number(endDate[1]),
+            endDateYear: Number(endDate[0]),
+            endTimeHour: Number(req.body.eventEndTimeHour),
+            endTimeMinute: Number(req.body.eventEndTimeMinute)
+        }).then((res) => {
+            console.log("Event successfully added!");
+        }, (err) => {
+            console.error(err);
+        });
+
+        res.redirect("/");
+    });
+
+	app.get("/newEvent", async (req, res) => {
+		try {
+            const oEvents = await calendar.getEventsInCurrentWeek(req.user);
+            sendCalendar(res, oEvents, {"newEventWindow": {}});
+        } catch (err){
+            console.error(err);
+            res.statusCode(500);
+		}
 	});
 
 	app.get("/showEvent", async (req, res) => {

@@ -6,6 +6,7 @@
 
 	<xsl:output method="xml" doctype-public="-//W3C//DTD XHTML 1.1//EN"
 	            doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
+	<xsl:include href="newEvent.xsl"/>
 
 	<xsl:include href="details.xsl"/>
 
@@ -27,13 +28,25 @@
 
 	<xsl:template match="addRemote">
 		<div class="card addRemote">
-			<h1>Füge einen remote Kalender hinzu</h1>
-			<form action="/login" method="POST">
-					<h5>URL:</h5>
-					<input type="text" name="url"/>
-					<br/>
+			<h1>Remote Kalender hinzufügen</h1>
+			<form action="/addRemote" method="POST">
+					<input type="text" name="url" placeholder="URL"/><br/>
 					<input type="submit" value="Hinzufügen"/>
-				</form>
+			</form>
+			<h1>RAPLA hinzufügen</h1>
+			<form action="/addRemote" method="POST">
+				<input type="text" name="url" placeholder="URL"/><br/>
+				<div class="alignLeft">
+					<input type="checkbox" name="anwendungsprojekt"/>Anwendungsprojekt<br/>
+					<input type="checkbox" name="medizin"/>Medizin<br/>
+					<input type="checkbox" name="webengineering"/>Web-Engineering<br/>
+					<input type="checkbox" name="marketing"/>Marketing<br/>
+					<input type="checkbox" name="ccna"/>CCNA<br/>
+					<input type="checkbox" name="interculturalComm1"/>Intercultural Communication I<br/>
+					<input type="checkbox" name="interculturalComm2"/>Intercultural Communication II<br/>
+				</div>
+				<input type="submit" value="Hinzufügen"/>
+			</form>
 		</div>
 	</xsl:template>
 
@@ -50,6 +63,7 @@
 					bis <xsl:value-of select="//week/lastDateDay"/>.<xsl:value-of
 						select="//week/lastDateMonth"/>.
 				</title>
+
 			</head>
 			<body>
 				<div class="header fixed">
@@ -139,6 +153,11 @@
 						</div>
 					</div>
 				</div>
+				<div>
+                    <a href="/newEvent">
+				        <button type="button" class="addButton">+</button>
+                    </a>
+                </div>
 				<xsl:apply-templates select="//meta/*"/>
 			</body>
 		</html>
