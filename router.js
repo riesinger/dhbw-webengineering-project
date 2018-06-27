@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const path = require("path");
+const xml = require("xml2js");
+const xmlBuilder = new xml.Builder();
 
 const users = require("./users");
 const calendar = require("./calendar");
@@ -16,6 +18,24 @@ function injectXSLT(xml, xslt) {
 		slimXML = xml;
 	}
 	return "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<?xml-stylesheet type=\"text/xsl\" href=\"xsl/" + xslt + "\" ?>\n" + slimXML;
+}
+
+function sendCalendar(res, events, injectTags) {
+	res.setHeader("Content-Type", "text/xml");
+	try {
+		let meta = {};
+		for (tag of injectTags) {
+			meta[tag] = "";
+		}
+		
+		let sendObject = { calendar: { week: events, meta: meta } };
+		const s = xmlBuilder.buildObject(sendObject)
+
+		res.send(injectXSLT(s, "index.xsl"));
+	} catch (err) {
+		console.error(err);
+		res.sendStatus(500);
+	}
 }
 
 exports.setup = function () {
@@ -56,13 +76,12 @@ exports.setup = function () {
 
 	app.get("/", async (req, res) => {
 		console.log("Getting calendar for user", req.user);
-		res.setHeader("Content-Type", "text/xml");
 		try {
-			const events = await calendar.getEventsInCurrentWeek(req.user);
-			res.send(injectXSLT(events, "index.xsl"));
+			const oEvents = await calendar.getEventsInCurrentWeek(req.user);
+			sendCalendar(res, oEvents, []);
 		} catch (err) {
 			console.error(err);
-			res.sendStatus(500);
+			res.statusCode(500);
 		}
 	});
 
@@ -95,6 +114,17 @@ exports.setup = function () {
 
 		res.redirect("/");
 	});
+
+	app.get("/addRemote", async (req, res) => {
+		try {
+			const oEvents = await calendar.getEventsInCurrentWeek(req.user);
+			sendCalendar(res, oEvents, ["addRemote"]);
+		} catch (err) {
+			console.error(err);
+			res.statusCode(500);
+		}
+	});
+
 };
 
 exports.start = function () {

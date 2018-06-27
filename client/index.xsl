@@ -23,6 +23,11 @@
 		</div>
 	</xsl:template>
 
+	<xsl:template match="addRemote">
+		<div class="card">
+		</div>
+	</xsl:template>
+
 	<xsl:template match="/">
 		<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
 			<head>
@@ -123,6 +128,7 @@
 						</div>
 					</div>
 				</div>
+				<xsl:apply-templates select="//meta/*"/>
 			</body>
 		</html>
 	</xsl:template>
