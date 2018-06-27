@@ -36,7 +36,7 @@
 .closePopupButton{
     position: absolute;
     top: 1%;
-    left: 1%;
+    right: 1%;
 
     background-color: Transparent;
     background-repeat:no-repeat;

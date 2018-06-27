@@ -106,8 +106,6 @@ exports.setup = function () {
 
 		var startDate = req.body.eventStartDate.split('-');
 		var endDate = req.body.eventEndDate.split('-');
-		var startTime = req.body.eventStartTime.split(':');
-		var endTime = req.body.eventEndTime.split(':');
 
         calendar.addEventToCalendar(req.user, {
             name: req.body.eventName,
@@ -116,13 +114,13 @@ exports.setup = function () {
             startDateDay: Number(startDate[2]),
             startDateMonth: Number(startDate[1]),
             startDateYear: Number(startDate[0]),
-            startTimeHour: Number(startTime[0]),
-            startTimeMinute: Number(startTime[1]),
+            startTimeHour: Number(req.body.eventStartTimeHour),
+            startTimeMinute: Number(req.body.eventStartTimeMinute),
             endDateDay: Number(endDate[2]),
             endDateMonth: Number(endDate[1]),
             endDateYear: Number(endDate[0]),
-            endTimeHour: Number(endTime[0]),
-            endTimeMinute: Number(endTime[1])
+            endTimeHour: Number(req.body.eventEndTimeHour),
+            endTimeMinute: Number(req.body.eventEndTimeMinute)
         }).then((res) => {
             console.log("Event successfully added!");
         }, (err) => {
@@ -132,7 +130,7 @@ exports.setup = function () {
         res.redirect("/");
     });
 
-	app.get("/openNewEventWindow", async (req, res) => {
+	app.get("/newEvent", async (req, res) => {
 		try {
             const oEvents = await calendar.getEventsInCurrentWeek(req.user);
             sendCalendar(res, oEvents, ["newEventWindow"]);

@@ -137,7 +137,7 @@
 					</div>
 				</div>
 				<div>
-                    <a href="/openNewEventWindow">
+                    <a href="/newEvent">
 				        <button type="button" class="addButton">+</button>
                     </a>
                 </div>
