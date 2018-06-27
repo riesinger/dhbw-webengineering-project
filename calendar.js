@@ -137,34 +137,6 @@ exports.removeEventFromCalendar = (username, eventID) => {
 	});
 };
 
-function getEvents(username, firstDate, lastDate) {
-	let curDate = new Date();
-
-	return new Promise((resolve, reject) => {
-		xml.parseString(getCalendarFile(username), (err, result) => {
-			if (err || result === null) {
-				reject("Error parsing calendar file: " + err);
-			}
-
-			let eventArray = result.calendar.events[0].event.filter(event => {
-				const startDate = getEventStartDate(event);
-				const endDate = getEventEndDate(event);
-				return included;
-			}).sort(eventDateComparator);
-
-			let week = {};
-			addTimeToObj(week, "curDate", curDate);
-			addTimeToObj(week, "firstDate", firstDate);
-			addTimeToObj(week, "lastDate", lastDate);
-			week.events = {event: eventArray};
-
-			resolve(xmlBuilder.buildObject({week}));
-		});
-	});
-}
-
-exports.getEvents = getEvents;
-
 const getEventsBetween = async (username, firstDate, lastDate) => {
 	try {
 		const calendar = await parseCalendarFile(username);
@@ -201,6 +173,6 @@ exports.getEventsInCurrentWeek = async (username) => {
 	addTimeToObj(week, "lastDate", lastDate);
 
 	week.events = {event: events};
-	return xmlBuilder.buildObject({week});
+	return week;
 };
 
