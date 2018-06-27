@@ -114,7 +114,7 @@ exports.setup = function () {
         res.redirect("/");
     });
 
-	app.get("/openNewEventWindow", (req, res) => {
+	app.get("/openNewEventWindow", async (req, res) => {
 
 		res.redirect("/");
 	});
