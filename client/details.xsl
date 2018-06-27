@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
     <xsl:output method="xml" doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
-    <xsl:template match="event" mode="showEvent">
+    <xsl:template match="showEvent">
         <div class="eventDetails">
             <h3 class="detailHeading">Details</h3>
             <table>
@@ -10,7 +10,7 @@
                         <b class="detailLabel">Name:</b>
                     </td>
                     <td>
-                        <xsl:value-of select="name"/>
+                        <xsl:value-of select="//week/events/event[./ID= //meta/showEvent/ID]/name"/>
                     </td>
                 </tr>
                 <tr>
@@ -18,7 +18,7 @@
                         <b class="detailLabel">Beschreibung:</b>
                     </td>
                     <td>
-                        <xsl:value-of select="description"/>
+                        <xsl:value-of select="//week/events/event[./ID= //meta/showEvent/ID]/description"/>
                     </td>
                 </tr>
                 <tr>
@@ -26,7 +26,7 @@
                         <b class="detailLabel">Lokation:</b>
                     </td>
                     <td>
-                        <xsl:value-of select="location"/>
+                        <xsl:value-of select="//week/events/event[./ID= //meta/showEvent/ID]/location"/>
                     </td>
                 </tr>
                 <tr>
@@ -34,7 +34,7 @@
                         <b class="detailLabel">Startdatum:</b>
                     </td>
                     <td>
-                        <xsl:value-of select="startDateDay"/>.<xsl:value-of select="startDateMonth"/>.<xsl:value-of select="startDateYear"/>
+                        <xsl:value-of select="//week/events/event[./ID= //meta/showEvent/ID]/startDateDay"/>.<xsl:value-of select="//week/events/event[./ID= //meta/showEvent/ID]/startDateMonth"/>.<xsl:value-of select="//week/events/event[./ID= //meta/showEvent/ID]/startDateYear"/>
                     </td>
                 </tr>
                 <tr>
@@ -42,7 +42,7 @@
                         <b class="detailLabel">Startzeit:</b>
                     </td>
                     <td>
-                        <xsl:value-of select="startTimeHour"/>:<xsl:value-of select="startTimeMinute"/>
+                        <xsl:value-of select="//week/events/event[./ID= //meta/showEvent/ID]/startTimeHour"/>:<xsl:value-of select="//week/events/event[./ID= //meta/showEvent/ID]/startTimeMinute"/>
                     </td>
                 </tr>
                 <tr>
@@ -50,7 +50,7 @@
                         <b class="detailLabel">Enddatum:</b>
                     </td>
                     <td>
-                        <xsl:value-of select="endDateDay"/>.<xsl:value-of select="endDateMonth"/>.<xsl:value-of select="endDateYear"/>
+                        <xsl:value-of select="//week/events/event[./ID= //meta/showEvent/ID]/endDateDay"/>.<xsl:value-of select="//week/events/event[./ID= //meta/showEvent/ID]/endDateMonth"/>.<xsl:value-of select="//week/events/event[./ID= //meta/showEvent/ID]/endDateYear"/>
                     </td>
                 </tr>
                 <tr>
@@ -58,7 +58,7 @@
                         <b class="detailLabel">Endzeit:</b>
                     </td>
                     <td>
-                        <xsl:value-of select="endTimeHour"/>:<xsl:value-of select="endTimeMinute"/>
+                        <xsl:value-of select="//week/events/event[./ID= //meta/showEvent/ID]/endTimeHour"/>:<xsl:value-of select="//week/events/event[./ID= //meta/showEvent/ID]/endTimeMinute"/>
                     </td>
                 </tr>
             </table>
