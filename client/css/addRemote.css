@@ -1,0 +1,24 @@
+.addRemote {
+	text-align: center;
+}
+
+.addRemote form {
+	font-size: 2rem;
+}
+
+.addRemote form .alignLeft {
+	text-align: left;
+	margin-left: 70px;
+}
+
+.addRemote form input[type=text] {
+	width: 80%;
+}
+
+.addRemote form input[type=submit] {
+	margin-top: 15px;
+}
+
+.addRemote form input[type=checkbox] {
+	margin-right: 15px;
+}

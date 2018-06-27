@@ -25,14 +25,28 @@
 	</xsl:template>
 
 	<xsl:template match="addRemote">
-		<div class="card">
+		<div class="card addRemote">
+			<h1>Remote Kalender hinzufügen</h1>
+			<form action="/addRemote" method="POST">
+					<input type="text" name="url" placeholder="URL"/><br/>
+					<input type="submit" value="Hinzufügen"/>
+			</form>
+			<h1>RAPLA hinzufügen</h1>
+			<form action="/addRemote" method="POST">
+				<input type="text" name="url" placeholder="URL"/><br/>
+				<div class="alignLeft">
+					<input type="checkbox" name="anwendungsprojekt"/>Anwendungsprojekt<br/>
+					<input type="checkbox" name="medizin"/>Medizin<br/>
+					<input type="checkbox" name="webengineering"/>Web-Engineering<br/>
+					<input type="checkbox" name="marketing"/>Marketing<br/>
+					<input type="checkbox" name="ccna"/>CCNA<br/>
+					<input type="checkbox" name="interculturalComm1"/>Intercultural Communication I<br/>
+					<input type="checkbox" name="interculturalComm2"/>Intercultural Communication II<br/>
+				</div>
+				<input type="submit" value="Hinzufügen"/>
+			</form>
 		</div>
 	</xsl:template>
-
-	<xsl:template match="newEventWindow">
-		<xsl:apply-templates mode="event_new" select="/"/>
-	</xsl:template>
-
 
 	<xsl:template match="/">
 		<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
@@ -40,6 +54,7 @@
 				<link rel="stylesheet" type="text/css" href="/css/main.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/calendar.css"/>
                 <link rel="stylesheet" type="text/css" href="/css/eventDetail.css"/>
+				<link rel="stylesheet" type="text/css" href="/css/addRemote.css"/>
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
 				<link rel="shortcut icon" type="image/png" href="/images/icon.png"/>
 				<title>Kalender vom <xsl:value-of select="//week/firstDateDay"/>.<xsl:value-of select="//week/firstDateMonth"/>.

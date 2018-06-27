@@ -22,13 +22,8 @@ function injectXSLT(xml, xslt) {
 
 function sendCalendar(res, events, injectTags) {
 	res.setHeader("Content-Type", "text/xml");
-	try {
-		let meta = {};
-		for (tag of injectTags) {
-			meta[tag] = "";
-		}
-		
-		let sendObject = { calendar: { week: events, meta: meta } };
+	try {	
+		let sendObject = { calendar: { week: events, meta: injectTags } };
 		const s = xmlBuilder.buildObject(sendObject)
 
 		res.send(injectXSLT(s, "index.xsl"));
@@ -133,7 +128,7 @@ exports.setup = function () {
 	app.get("/newEvent", async (req, res) => {
 		try {
             const oEvents = await calendar.getEventsInCurrentWeek(req.user);
-            sendCalendar(res, oEvents, ["newEventWindow"]);
+            sendCalendar(res, oEvents, {"newEventWindow": {}});
         } catch (err){
             console.error(err);
             res.statusCode(500);
@@ -153,7 +148,7 @@ exports.setup = function () {
 	app.get("/addRemote", async (req, res) => {
 		try {
 			const oEvents = await calendar.getEventsInCurrentWeek(req.user);
-			sendCalendar(res, oEvents, ["addRemote"]);
+			sendCalendar(res, oEvents, { "addRemote": {} });
 		} catch (err) {
 			console.error(err);
 			res.statusCode(500);
