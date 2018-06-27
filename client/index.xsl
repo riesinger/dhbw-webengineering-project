@@ -25,13 +25,25 @@
 
 	<xsl:template match="addRemote">
 		<div class="card addRemote">
-			<h1>Füge einen remote Kalender hinzu</h1>
-			<form action="/login" method="POST">
-					<h5>URL:</h5>
-					<input type="text" name="url"/>
-					<br/>
+			<h1>Remote Kalender hinzufügen</h1>
+			<form action="/addRemote" method="POST">
+					<input type="text" name="url" placeholder="URL"/><br/>
 					<input type="submit" value="Hinzufügen"/>
-				</form>
+			</form>
+			<h1>RAPLA hinzufügen</h1>
+			<form action="/addRemote" method="POST">
+				<input type="text" name="url" placeholder="URL"/><br/>
+				<div class="alignLeft">
+					<input type="checkbox" name="anwendungsprojekt"/>Anwendungsprojekt<br/>
+					<input type="checkbox" name="anwendungsprojekt"/>Medizin<br/>
+					<input type="checkbox" name="anwendungsprojekt"/>Web-Engineering<br/>
+					<input type="checkbox" name="anwendungsprojekt"/>Marketing<br/>
+					<input type="checkbox" name="anwendungsprojekt"/>CCNA<br/>
+					<input type="checkbox" name="anwendungsprojekt"/>Intercultural Communication I<br/>
+					<input type="checkbox" name="anwendungsprojekt"/>Intercultural Communication II<br/>
+				</div>
+				<input type="submit" value="Hinzufügen"/>
+			</form>
 		</div>
 	</xsl:template>
 
