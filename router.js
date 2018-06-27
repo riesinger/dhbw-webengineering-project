@@ -145,9 +145,9 @@ exports.setup = function () {
 				console.error(err);
 				res.statusCode(500);
 			}
+		} else {
+			res.redirect("/");
 		}
-
-		res.redirect("/");
 	});
 
 	app.get("/deleteEvent", async (req, res) => {

@@ -1,11 +1,3 @@
-.detailHeading {
-    text-align: center;
-}
-
-.detailLabel {
-	padding: 6px;
-}
-
 .addButton {
     position: absolute;
     top: 90%;
@@ -27,6 +19,14 @@
 
 .centeredText{
     text-align: center;
+}
+
+.detailHeading {
+    text-align: center;
+}
+
+.detailLabel {
+	padding: 6px;
 }
 
 .newEventButtonsDiv{
