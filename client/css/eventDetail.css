@@ -1,0 +1,14 @@
+.event_details {
+	background-color: white;
+	border-radius: 5px;
+	height: 80%;
+	width: 40%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	position: absolute;
+	top: 15%;
+	left: 30%;
+}
+
+.detail_heading {
+    
+}

@@ -7,6 +7,8 @@
 	<xsl:output method="xml" doctype-public="-//W3C//DTD XHTML 1.1//EN"
 	            doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
 
+	<xsl:include href="details.xsl"/>
+
 	<xsl:template match="event" mode="calendar__event">
 		<div>
 			<xsl:attribute name="class">calendar__event starts_<xsl:value-of select="startTimeHour"/>_<xsl:value-of
@@ -30,6 +32,7 @@
 				<link rel="stylesheet" type="text/css" href="/css/calendar.css"/>
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
 				<link rel="shortcut icon" type="image/png" href="/images/icon.png"/>
+				<link rel="stylesheet" type="text/css" href="/css/eventDetails.css">
 				<title>Kalender vom <xsl:value-of select="//week/firstDateDay"/>.<xsl:value-of select="//week/firstDateMonth"/>.
 					bis <xsl:value-of select="//week/lastDateDay"/>.<xsl:value-of
 						select="//week/lastDateMonth"/>.
@@ -123,6 +126,7 @@
 						</div>
 					</div>
 				</div>
+				<xsl:apply-templates mode="event_details" select="//week/events/event[1]"/>
 			</body>
 		</html>
 	</xsl:template>
