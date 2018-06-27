@@ -6,6 +6,7 @@
 
 	<xsl:output method="xml" doctype-public="-//W3C//DTD XHTML 1.1//EN"
 	            doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
+	<xsl:include href="newEvent.xsl"/>
 
 	<xsl:template match="event" mode="calendar__event">
 		<div>
@@ -52,6 +53,7 @@
 			<head>
 				<link rel="stylesheet" type="text/css" href="/css/main.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/calendar.css"/>
+                <link rel="stylesheet" type="text/css" href="/css/eventDetail.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/addRemote.css"/>
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
 				<link rel="shortcut icon" type="image/png" href="/images/icon.png"/>
@@ -59,6 +61,7 @@
 					bis <xsl:value-of select="//week/lastDateDay"/>.<xsl:value-of
 						select="//week/lastDateMonth"/>.
 				</title>
+
 			</head>
 			<body>
 				<div class="header fixed">
@@ -148,6 +151,11 @@
 						</div>
 					</div>
 				</div>
+				<div>
+                    <a href="/newEvent">
+				        <button type="button" class="addButton">+</button>
+                    </a>
+                </div>
 				<xsl:apply-templates select="//meta/*"/>
 			</body>
 		</html>

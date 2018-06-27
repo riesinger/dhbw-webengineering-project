@@ -1,0 +1,47 @@
+
+.addButton {
+    position: absolute;
+    top: 90%;
+    left: 90%;
+
+    background-color:#54C6EB;
+    border: none;
+    color: white;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration:none;
+    font-size: 20px;
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    line-height:50%;
+}
+
+.centeredText{
+    text-align: center;
+}
+
+.newEventButtonsDiv{
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+}
+
+.newEventFormDiv{
+    position:relative;
+    left:10%;
+}
+
+.closePopupButton{
+    position: absolute;
+    top: 1%;
+    right: 1%;
+
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
