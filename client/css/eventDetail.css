@@ -1,4 +1,4 @@
-.event_details {
+.eventDetails {
 	background-color: white;
 	border-radius: 5px;
 	height: 80%;
@@ -9,6 +9,10 @@
 	left: 30%;
 }
 
-.detail_heading {
-    
+.detailHeading {
+    text-align: center;
+}
+
+.detailLabel {
+	padding: 6px;
 }

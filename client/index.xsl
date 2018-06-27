@@ -30,9 +30,9 @@
 			<head>
 				<link rel="stylesheet" type="text/css" href="/css/main.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/calendar.css"/>
+				<link rel="stylesheet" type="text/css" href="/css/eventDetail.css"/>
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
 				<link rel="shortcut icon" type="image/png" href="/images/icon.png"/>
-				<link rel="stylesheet" type="text/css" href="/css/eventDetails.css">
 				<title>Kalender vom <xsl:value-of select="//week/firstDateDay"/>.<xsl:value-of select="//week/firstDateMonth"/>.
 					bis <xsl:value-of select="//week/lastDateDay"/>.<xsl:value-of
 						select="//week/lastDateMonth"/>.
@@ -126,7 +126,7 @@
 						</div>
 					</div>
 				</div>
-				<xsl:apply-templates mode="event_details" select="//week/events/event[1]"/>
+				<xsl:apply-templates mode="showEvent" select="//week/events/event[1]"/>
 			</body>
 		</html>
 	</xsl:template>
