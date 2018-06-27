@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <calendar>
-  <nextEventID>5</nextEventID>
+  <nextEventID>7</nextEventID>
   <events>
     <event>
       <ID>1</ID>
@@ -19,20 +19,20 @@
       <endTimeMinute>45</endTimeMinute>
     </event>
     <event>
-      <ID>5</ID>
-      <name>Test Event 2</name>
-      <description>Beschreibung</description>
-      <location>DHBW</location>
+      <ID>3</ID>
+      <name>Kino</name>
+      <description>PiPaPo</description>
+      <location>ZKM</location>
       <startDateDay>26</startDateDay>
       <startDateMonth>6</startDateMonth>
       <startDateYear>2018</startDateYear>
-      <startTimeHour>15</startTimeHour>
-      <startTimeMinute>15</startTimeMinute>
+      <startTimeHour>8</startTimeHour>
+      <startTimeMinute>0</startTimeMinute>
       <endDateDay>26</endDateDay>
-      <endDateMonth>06</endDateMonth>
+      <endDateMonth>6</endDateMonth>
       <endDateYear>2018</endDateYear>
-      <endTimeHour>22</endTimeHour>
-      <endTimeMinute>15</endTimeMinute>
+      <endTimeHour>9</endTimeHour>
+      <endTimeMinute>0</endTimeMinute>
     </event>
     <event>
       <ID>2</ID>
@@ -50,20 +50,21 @@
       <endTimeHour>22</endTimeHour>
       <endTimeMinute>0</endTimeMinute>
     </event>
-	  <event>
-      <ID>3</ID>
-      <name>Kino</name>
-      <description>PiPaPo</description>
-      <location>ZKM</location>
-      <startDateDay>26</startDateDay>
+    <event>
+      <ID>6</ID>
+      <name>Test Termin 3</name>
+      <description>Beschreibung</description>
+      <location>DHBW - Karlsruhe</location>
+      <startDateDOW>3</startDateDOW>
+      <startDateDay>27</startDateDay>
       <startDateMonth>6</startDateMonth>
       <startDateYear>2018</startDateYear>
-      <startTimeHour>8</startTimeHour>
+      <startTimeHour>11</startTimeHour>
       <startTimeMinute>0</startTimeMinute>
-      <endDateDay>26</endDateDay>
+      <endDateDay>27</endDateDay>
       <endDateMonth>6</endDateMonth>
       <endDateYear>2018</endDateYear>
-      <endTimeHour>9</endTimeHour>
+      <endTimeHour>13</endTimeHour>
       <endTimeMinute>0</endTimeMinute>
     </event>
   </events>

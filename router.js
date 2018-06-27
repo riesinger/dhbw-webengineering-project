@@ -109,20 +109,20 @@ exports.setup = function () {
 		var startTime = req.body.eventStartTime.split(':');
 		var endTime = req.body.eventEndTime.split(':');
 
-        cal.addEventToCalendar(req.user, {
+        calendar.addEventToCalendar(req.user, {
             name: req.body.eventName,
             description: req.body.eventDescription,
             location: req.body.eventLocation,
-            startDateDay: startDate[2],
-            startDateMonth: startDate[1],
-            startDateYear: startDate[0],
-            startTimeHour: startTime[0],
-            startTimeMinute: startTime[1],
-            endDateDay: endDate[2],
-            endDateMonth: endDate[1],
-            endDateYear: endDate[0],
-            endTimeHour: endTime[0],
-            endTimeMinute: endTime[1]
+            startDateDay: Number(startDate[2]),
+            startDateMonth: Number(startDate[1]),
+            startDateYear: Number(startDate[0]),
+            startTimeHour: Number(startTime[0]),
+            startTimeMinute: Number(startTime[1]),
+            endDateDay: Number(endDate[2]),
+            endDateMonth: Number(endDate[1]),
+            endDateYear: Number(endDate[0]),
+            endTimeHour: Number(endTime[0]),
+            endTimeMinute: Number(endTime[1])
         }).then((res) => {
             console.log("Event successfully added!");
         }, (err) => {
