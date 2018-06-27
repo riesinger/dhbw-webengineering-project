@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="700" height="700">
+  <path d="M680 20, L600 40, L470 350, L530 460, L35 460, M470 350, L60 320, L30 140, L555 140" stroke="black" stroke-width="30" fill="none" style="stroke-linecap:round; stroke-linejoin:round;"/>
+  <path d="M40 205, L530 205, M40 265, L500 265, M120 140, L120 320, M200 140, L200 320, M280 140, L280 320, M360 140, L360 340, M440 140, L440 340" stroke="black" stroke-width="7" fill="none" style="stroke-linecap:round; stroke-linejoin:round;"/>
+
+    <circle cx="470" cy="510" r="30" style="fill:none; stroke:black; stroke-width:10"/>
+    <circle cx="470" cy="510" r="10" style="fill:black; stroke:black;"/>
+    <circle cx="80" cy="510" r="30" style="fill:none; stroke:black; stroke-width:10"/>
+    <circle cx="80" cy="510" r="10" style="fill:black; stroke:black;"/>
+</svg>

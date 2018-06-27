@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="150" height="150">
-  <circle cx="75" cy="75" r="50" fill="#54C6EB"/>
 	<path d="M45,105 L45,85 L65,105 M67,103 L47,83 L80,50 L100,70 M102,68 L82,48 L92,38 L112,58"
-    fill="#515356"/>
-
+    fill="black"/>
 </svg>
