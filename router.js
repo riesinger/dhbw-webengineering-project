@@ -70,13 +70,24 @@ exports.setup = function () {
 	app.use("/images", express.static(path.join(__dirname, "client", "images")));
 
 	app.get("/", async (req, res) => {
-		console.log("Getting calendar for user", req.user);
-		try {
-			const oEvents = await calendar.getEventsInCurrentWeek(req.user);
-			sendCalendar(res, oEvents, []);
-		} catch (err) {
-			console.error(err);
-			res.statusCode(500);
+		if(req.query.week == null || req.query.week == 0) {
+            console.log("Getting calendar for user", req.user);
+            try {
+                const oEvents = await calendar.getEventsInCurrentWeek(req.user);
+                sendCalendar(res, oEvents, []);
+            } catch (err) {
+                console.error(err);
+                res.statusCode(500);
+            }
+        } else {
+            console.log("Getting calendar for user", req.user);
+            try {
+                const oEvents = await calendar.getEventsInWeek(req.user, Number(req.query.week));
+                sendCalendar(res, oEvents, []);
+            } catch (err) {
+                console.error(err);
+                res.statusCode(500);
+            }
 		}
 	});
 

@@ -134,10 +134,21 @@
 					</div>
 				</div>
 				<div>
-					<a href="/newEvent">
-						<button type="button" class="addButton">+</button>
+                    <a href="/newEvent">
+				        <button type="button" class="addButton">+</button>
+                    </a>
+                </div>
+				<div class="leftPageScrollingDiv">
+					<a href="/">
+						<button type="button" class="pageScrollButton"> &lt; </button>
 					</a>
-        </div>
+				</div>
+				<div class="rightPageScrollingDiv">
+					<a href="/">
+						<button type="button" class="pageScrollButton"> &gt; </button>
+					</a>
+				</div>
+
 				<xsl:apply-templates select="//meta/*"/>
 			</body>
 		</html>
