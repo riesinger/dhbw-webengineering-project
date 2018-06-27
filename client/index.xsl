@@ -24,7 +24,14 @@
 	</xsl:template>
 
 	<xsl:template match="addRemote">
-		<div class="card">
+		<div class="card addRemote">
+			<h1>Füge einen remote Kalender hinzu</h1>
+			<form action="/login" method="POST">
+					<h5>URL:</h5>
+					<input type="text" name="url"/>
+					<br/>
+					<input type="submit" value="Hinzufügen"/>
+				</form>
 		</div>
 	</xsl:template>
 
@@ -33,6 +40,7 @@
 			<head>
 				<link rel="stylesheet" type="text/css" href="/css/main.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/calendar.css"/>
+				<link rel="stylesheet" type="text/css" href="/css/addRemote.css"/>
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
 				<link rel="shortcut icon" type="image/png" href="/images/icon.png"/>
 				<title>Kalender vom <xsl:value-of select="//week/firstDateDay"/>.<xsl:value-of select="//week/firstDateMonth"/>.
