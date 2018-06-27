@@ -8,6 +8,8 @@
 	            doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
 	<xsl:include href="newEvent.xsl"/>
 
+	<xsl:include href="details.xsl"/>
+
 	<xsl:template match="event" mode="calendar__event">
 		<div>
 			<xsl:attribute name="class">calendar__event starts_<xsl:value-of select="startTimeHour"/>_<xsl:value-of
@@ -53,7 +55,7 @@
 			<head>
 				<link rel="stylesheet" type="text/css" href="/css/main.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/calendar.css"/>
-                <link rel="stylesheet" type="text/css" href="/css/eventDetail.css"/>
+				<link rel="stylesheet" type="text/css" href="/css/eventDetail.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/addRemote.css"/>
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
 				<link rel="shortcut icon" type="image/png" href="/images/icon.png"/>

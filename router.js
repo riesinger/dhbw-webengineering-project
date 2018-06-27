@@ -22,7 +22,7 @@ function injectXSLT(xml, xslt) {
 
 function sendCalendar(res, events, injectTags) {
 	res.setHeader("Content-Type", "text/xml");
-	try {	
+	try {
 		let sendObject = { calendar: { week: events, meta: injectTags } };
 		const s = xmlBuilder.buildObject(sendObject)
 
@@ -133,6 +133,21 @@ exports.setup = function () {
             console.error(err);
             res.statusCode(500);
 		}
+	});
+
+	app.get("/showEvent", async (req, res) => {
+		let eventID = req.query.eventID;
+		if (eventID) {
+			try {
+				const oEvents = await calendar.getEventsInCurrentWeek(req.user);
+				sendCalendar(res, oEvents, { "showEvent": {ID: eventID} });
+			} catch (err) {
+				console.error(err);
+				res.statusCode(500);
+			}
+		}
+
+		res.redirect("/");
 	});
 
 	app.get("/deleteEvent", async (req, res) => {

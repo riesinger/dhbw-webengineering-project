@@ -1,3 +1,10 @@
+.detailHeading {
+    text-align: center;
+}
+
+.detailLabel {
+	padding: 6px;
+}
 
 .addButton {
     position: absolute;
