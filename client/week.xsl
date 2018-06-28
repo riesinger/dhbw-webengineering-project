@@ -5,29 +5,48 @@
 		<div>
 			<div class="header fixed">
 				<h1>Mein Kalender</h1>
-				<h2>- <xsl:value-of select="firstDateDay"/>.<xsl:value-of select="firstDateMonth"/>.
-				bis <xsl:value-of select="lastDateDay"/>.<xsl:value-of
-					select="lastDateMonth"/>.</h2>
+				<h2>- <xsl:value-of select="//week/firstDateDay"/>.<xsl:value-of select="//week/firstDateMonth"/>.
+				bis <xsl:value-of select="//week/lastDateDay"/>.<xsl:value-of
+					select="//week/lastDateMonth"/>.</h2>
+				<xsl:call-template name="navButtons"/>
 			</div>
 			<div class="calendar">
 				<div class="calendar__header">
 					<div class="calendar__header__legend__padding"/>
-					<h3>Montag <xsl:value-of select="firstDateDay"/>.
+					<h3>
+						<xsl:attribute name="class"><xsl:if test="number(//week/firstDateDay) = number(//week/currentDateDay)">current-day</xsl:if></xsl:attribute>
+						Montag <xsl:value-of select="//week/firstDateDay"/>.
 					</h3>
-					<h3>Dienstag <xsl:value-of select="firstDateDay + 1"/>.
+					<h3>
+						<xsl:attribute name="class"><xsl:if test="(//week/firstDateDay + 1) = number(//week/currentDateDay)">current-day</xsl:if></xsl:attribute>
+						Dienstag <xsl:value-of select="//week/firstDateDay + 1"/>.
 					</h3>
-					<h3>Mittwoch <xsl:value-of select="firstDateDay + 2"/>.
+					<h3>
+						<xsl:attribute name="class"><xsl:if test="(//week/firstDateDay + 2) = number(//week/currentDateDay)">current-day</xsl:if></xsl:attribute>
+						Mittwoch <xsl:value-of select="//week/firstDateDay + 2"/>.
 					</h3>
-					<h3>Donnerstag <xsl:value-of select="firstDateDay + 3"/>.
+					<h3>
+						<xsl:attribute name="class"><xsl:if test="(//week/firstDateDay + 3) = number(//week/currentDateDay)">current-day</xsl:if></xsl:attribute>
+						Donnerstag <xsl:value-of select="//week/firstDateDay + 3"/>.
 					</h3>
-					<h3>Freitag <xsl:value-of select="firstDateDay + 4"/>.
+					<h3>
+						<xsl:attribute name="class"><xsl:if test="(//week/firstDateDay + 4) = number(//week/currentDateDay)">current-day</xsl:if></xsl:attribute>
+						Freitag <xsl:value-of select="//week/firstDateDay + 4"/>.
 					</h3>
-					<h3>Samstag <xsl:value-of select="firstDateDay + 5"/>.
+					<h3>
+						<xsl:attribute name="class"><xsl:if test="(//week/firstDateDay + 5) = number(//week/currentDateDay)">current-day</xsl:if></xsl:attribute>
+						Samstag <xsl:value-of select="//week/firstDateDay + 5"/>.
 					</h3>
-					<h3>Sonntag <xsl:value-of select="firstDateDay + 6"/>.
+					<h3>
+						<xsl:attribute name="class"><xsl:if test="(//week/firstDateDay + 6) = number(//week/currentDateDay)">current-day</xsl:if></xsl:attribute>
+						Sonntag <xsl:value-of select="//week/firstDateDay + 6"/>.
 					</h3>
 				</div>
 				<div class="calendar__body">
+					<div>
+						<xsl:attribute name="class">current_time_line time_<xsl:value-of select="//week/currentDateHour"/>_<xsl:value-of
+							select="//week/currentDateMinute"/></xsl:attribute>
+					</div>
 					<div class="calendar__legend">
 						<div>00:00</div>
 						<div>01:00</div>
@@ -56,37 +75,44 @@
 					</div>
 
 					<div class="calendar__day">
-						<xsl:for-each select="events/event/startDateDay[ . = ../../../firstDateDay]">
+						<xsl:attribute name="class">calendar__day <xsl:if test="//week/firstDateDay = //week/currentDateDay">current-day</xsl:if> </xsl:attribute>
+						<xsl:for-each select="//week/events/event/startDateDay[ . = //week/firstDateDay]">
 							<xsl:apply-templates mode="calendar__event" select=".."/>
 						</xsl:for-each>
 					</div>
 					<div class="calendar__day">
-						<xsl:for-each select="events/event/startDateDay[ . = ../../../firstDateDay + 1]">
+						<xsl:attribute name="class">calendar__day <xsl:if test="//week/firstDateDay + 1= number(//week/currentDateDay)">current-day</xsl:if> </xsl:attribute>
+						<xsl:for-each select="//week/events/event/startDateDay[ . = //week/firstDateDay + 1]">
 							<xsl:apply-templates mode="calendar__event" select=".."/>
 						</xsl:for-each>
 					</div>
 					<div class="calendar__day">
-						<xsl:for-each select="events/event/startDateDay[ . = ../../../firstDateDay + 2]">
+						<xsl:attribute name="class">calendar__day <xsl:if test="//week/firstDateDay + 2 = number(//week/currentDateDay)">current-day</xsl:if> </xsl:attribute>
+						<xsl:for-each select="//week/events/event/startDateDay[ . = //week/firstDateDay + 2]">
 							<xsl:apply-templates mode="calendar__event" select=".."/>
 						</xsl:for-each>
 					</div>
 					<div class="calendar__day">
-						<xsl:for-each select="events/event/startDateDay[ . = ../../../firstDateDay + 3]">
+						<xsl:attribute name="class">calendar__day <xsl:if test="//week/firstDateDay + 3= number(//week/currentDateDay)">current-day</xsl:if> </xsl:attribute>
+						<xsl:for-each select="//week/events/event/startDateDay[ . = //week/firstDateDay + 3]">
 							<xsl:apply-templates mode="calendar__event" select=".."/>
 						</xsl:for-each>
 					</div>
 					<div class="calendar__day">
-						<xsl:for-each select="events/event/startDateDay[ . = ../../../firstDateDay + 4]">
+						<xsl:attribute name="class">calendar__day <xsl:if test="//week/firstDateDay + 4= number(//week/currentDateDay)">current-day</xsl:if> </xsl:attribute>
+						<xsl:for-each select="//week/events/event/startDateDay[ . = //week/firstDateDay + 4]">
 							<xsl:apply-templates mode="calendar__event" select=".."/>
 						</xsl:for-each>
 					</div>
 					<div class="calendar__day">
-						<xsl:for-each select="events/event/startDateDay[ . = ../../../firstDateDay + 5]">
+						<xsl:attribute name="class">calendar__day <xsl:if test="//week/firstDateDay + 5 = number(//week/currentDateDay)">current-day</xsl:if> </xsl:attribute>
+						<xsl:for-each select="//week/events/event/startDateDay[ . = //week/firstDateDay + 5]">
 							<xsl:apply-templates mode="calendar__event" select=".."/>
 						</xsl:for-each>
 					</div>
 					<div class="calendar__day">
-						<xsl:for-each select="events/event/startDateDay[ . = //week/firstDateDay + 6]">
+						<xsl:attribute name="class">calendar__day <xsl:if test="//week/firstDateDay + 6 = number(//week/currentDateDay)">current-day</xsl:if> </xsl:attribute>
+						<xsl:for-each select="//week/events/event/startDateDay[ . = //week/firstDateDay + 6]">
 							<xsl:apply-templates mode="calendar__event" select=".."/>
 						</xsl:for-each>
 					</div>

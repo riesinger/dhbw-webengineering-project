@@ -8,6 +8,7 @@
 				<h2>- <xsl:value-of select="firstDateDay"/>.<xsl:value-of select="firstDateMonth"/>.
 				bis <xsl:value-of select="lastDateDay"/>.<xsl:value-of
 					select="lastDateMonth"/>.</h2>
+				<xsl:call-template name="navButtons"/>
 			</div>
 			<div class="calendar">
 				<div class="calendar__header">
