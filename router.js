@@ -54,7 +54,7 @@ exports.setup = function() {
   app.use(cookieParser());
 
   app.use((req, res, next) => {
-    if (req.path === "/login" || req.path.indexOf("css") > -1) return next();
+    if (req.path === "/login" || req.path.indexOf("css") > -1 || req.path.indexOf("dtd") > -1) return next();
 
     let cookie = req.cookies.token;
     if (cookie) {
@@ -86,6 +86,7 @@ exports.setup = function() {
 
   app.use("/css", express.static(path.join(__dirname, "client", "css")));
   app.use("/images", express.static(path.join(__dirname, "client", "images")));
+  app.use("/dtd", express.static(path.join(__dirname, "dtd")));
 
   app.get("/", async (req, res) => {
     console.log("Getting calendar for user", req.user);
