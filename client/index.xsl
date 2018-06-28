@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xsl:stylesheet version="1.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns="http://www.w3.org/1999/xhtml">
+								xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+								xmlns="http://www.w3.org/1999/xhtml">
 
 	<xsl:output method="xml" doctype-public="-//W3C//DTD XHTML 1.1//EN"
-	            doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
+							doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
 
 	<xsl:include href="newEvent.xsl"/>
-	<xsl:include href="addRemote.xsl"/>
 	<xsl:include href="details.xsl"/>
 
 	<xsl:template match="event" mode="calendar__event">
@@ -134,20 +133,20 @@
 					</div>
 				</div>
 				<div>
-                    <a>
-						<xsl:attribute name="href">\newEvent?week=<xsl:value-of select="//meta/weekSelected"/></xsl:attribute>
-				        <button type="button" class="addButton">+</button>
-                    </a>
-                </div>
+					<a>
+						<xsl:attribute name="href">\newEvent?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
+						<button type="button" class="addButton">+</button>
+					</a>
+				</div>
 				<div class="leftPageScrollingDiv">
 					<a>
-						<xsl:attribute name="href">\?week=<xsl:value-of select="//meta/weekSelected - 1"/></xsl:attribute>
+						<xsl:attribute name="href">\?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset - 1"/></xsl:attribute>
 						<button type="button" class="pageScrollButton"> &lt; </button>
 					</a>
 				</div>
 				<div class="rightPageScrollingDiv">
 					<a>
-						<xsl:attribute name="href">\?week=<xsl:value-of select="//meta/weekSelected + 1"/></xsl:attribute>
+						<xsl:attribute name="href">\?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset + 1"/></xsl:attribute>
 						<button type="button" class="pageScrollButton"> &gt; </button>
 					</a>
 				</div>
