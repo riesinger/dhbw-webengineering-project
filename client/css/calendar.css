@@ -42,11 +42,10 @@
 	flex: 0 0 5ch;
 }
 
-.calendar__header h3 {
+.calendar__header h3, .calendar__header h1 {
 	flex: 1;
 	margin: 0;
 	text-align: center;
-
 }
 
 .calendar__body {
