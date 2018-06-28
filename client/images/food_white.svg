@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="900" height="700">
-    
     <path d="M415 280, L420 200, L10 200, L25 655, L90 655" style="fill:none; stroke:white; stroke-width:20; stroke-linecap:round; stroke-linejoin:round"/>
     <path d="M40 200, L25 80, M80 200, 80 40, M110 200, 130 90, M160 200, 170 130, M220 200, 170 40, M250 200, L250 90, M290 200, L320 70, M350 200, L340 100, M380 200, L420 60" style="fill:none; stroke:white; stroke-width:40;"/>
 
