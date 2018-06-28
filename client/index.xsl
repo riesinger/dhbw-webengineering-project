@@ -10,6 +10,7 @@
 	<xsl:include href="newEvent.xsl"/>
 	<xsl:include href="addRemote.xsl"/>
 	<xsl:include href="details.xsl"/>
+	<xsl:include href="editEvent.xsl"/>
 
 	<xsl:template match="event" mode="calendar__event">
 		<a>
@@ -24,7 +25,11 @@
 				<xsl:value-of select="name"/>
 				<a>
 					<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="ID"/></xsl:attribute>
-					<img class="eventTrash" src="/images/trash.svg"/>
+					<img class="eventIcon" src="/images/trash.svg"/>
+				</a>
+				<a>
+					<xsl:attribute name="href">/editEvent?eventID=<xsl:value-of select="ID"/>&amp;week=<xsl:value-of select="//meta/weekSelected"/></xsl:attribute>
+					<img class="eventIcon" src="/images/edit.svg"/>
 				</a>
 			</div>
 		</a>

@@ -14,87 +14,29 @@
                         <table>
                             <tr>
                                 <td>Von</td>
-                                <td><input type="date" name="eventStartDate" required="required"/></td>
+                                <td><input type="date" name="eventStartDate" required="required">
+                                    <xsl:attribute name="value"><xsl:value-of select="//week/currentDateYear"/>-<xsl:if test="//week/currentDateMonth &gt; 9"><xsl:value-of select="//week/currentDateMonth"/></xsl:if><xsl:if test="//week/currentDateMonth &lt; 10">0<xsl:value-of select="//week/currentDateMonth"/></xsl:if>-<xsl:if test="//week/currentDateDay &gt; 9"><xsl:value-of select="//week/currentDateDay"/></xsl:if><xsl:if test="//week/currentDateDay &lt; 10">0<xsl:value-of select="//week/currentDateDay"/></xsl:if></xsl:attribute>
+                                </input></td>
                                 <td> um </td>
                                 <td>
-                                    <select name="eventStartTimeHour" form="newEventForm">
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                        <option value="13">13</option>
-                                        <option value="14">14</option>
-                                        <option value="15">15</option>
-                                        <option value="16">16</option>
-                                        <option value="17">17</option>
-                                        <option value="18">18</option>
-                                        <option value="19">19</option>
-                                        <option value="20">20</option>
-                                        <option value="21">21</option>
-                                        <option value="22">22</option>
-                                        <option value="23">23</option>
-                                    </select>
-                                </td>
-                                <td>:</td>
-                                <td>
-                                    <select name="eventStartTimeMinute" form="newEventForm">
-                                        <option value="0">00</option>
-                                        <option value="15">15</option>
-                                        <option value="30">30</option>
-                                        <option value="45">45</option>
-                                    </select>
+                                    <input type="time" name="eventStartTime" required="required">
+                                        <xsl:attribute name="value"><xsl:if test="//week/currentDateHour &lt; 10">0<xsl:value-of
+                                                select="//week/currentDateHour"/></xsl:if><xsl:if test="//week/currentDateHour &gt; 9"><xsl:value-of
+                                                select="//week/currentDateHour"/></xsl:if>:<xsl:if test="//week/currentDateMinute &lt; 10">0<xsl:value-of
+                                                select="//week/currentDateMinute"/></xsl:if><xsl:if test="//week/currentDateMinute &gt; 9"><xsl:value-of
+                                                select="//week/currentDateMinute"/></xsl:if></xsl:attribute>
+                                    </input>
                                 </td>
                                 <td>Uhr</td>
                             </tr>
                             <tr>
                                 <td>Bis</td>
-                                <td><input type="date" name="eventEndDate" required="required"/></td>
+                                <td><input type="date" name="eventEndDate" required="required">
+                                    <xsl:attribute name="value"><xsl:value-of select="//week/currentDateYear"/>-<xsl:if test="//week/currentDateMonth &gt; 9"><xsl:value-of select="//week/currentDateMonth"/></xsl:if><xsl:if test="//week/currentDateMonth &lt; 10">0<xsl:value-of select="//week/currentDateMonth"/></xsl:if>-<xsl:if test="//week/currentDateDay &gt; 9"><xsl:value-of select="//week/currentDateDay"/></xsl:if><xsl:if test="//week/currentDateDay &lt; 10">0<xsl:value-of select="//week/currentDateDay"/></xsl:if></xsl:attribute>
+                                </input></td>
                                 <td> um </td>
                                 <td>
-                                    <select name="eventEndTimeHour" form="newEventForm">
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                        <option value="13">13</option>
-                                        <option value="14">14</option>
-                                        <option value="15">15</option>
-                                        <option value="16">16</option>
-                                        <option value="17">17</option>
-                                        <option value="18">18</option>
-                                        <option value="19">19</option>
-                                        <option value="20">20</option>
-                                        <option value="21">21</option>
-                                        <option value="22">22</option>
-                                        <option value="23">23</option>
-                                    </select>
-                                </td>
-                                <td>:</td>
-                                <td>
-                                    <select name="eventEndTimeMinute" form="newEventForm">
-                                        <option value="0">00</option>
-                                        <option value="15">15</option>
-                                        <option value="30">30</option>
-                                        <option value="45">45</option>
-                                    </select>
+                                    <input type="time" name="eventEndTime" required="required"/>
                                 </td>
                                 <td>Uhr</td>
                             </tr>
@@ -105,14 +47,16 @@
                         Ort:<br/>
                         <input type="text" name="eventLocation" style="width: 80%; margin-left: 0px;"/> <br/>
                         Details:<br/>
-                        <textarea form="newEventForm" style="margin-top: 5px; width: 80%; resize: none" name="eventDescription" rows="5"/><br/>
+                        <textarea form="newEventForm" style="margin-top: 5px; width: 80%; resize: none" name="eventDescription" rows="5"/>
+                        <br/>
                     </div>
                     <div class="newEventButtonsDiv">
                         <input type="submit" value="Zum Kalender hinzufügen"/>
                     </div>
                 </form>
             </div>
-            <a href="/">
+            <a>
+                <xsl:attribute name="href">/?week=<xsl:value-of select="//meta/weekSelected"/></xsl:attribute>
                 <button class="closePopupButton">x</button>
             </a>
         </div>

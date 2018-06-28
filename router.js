@@ -106,31 +106,88 @@ exports.setup = function () {
 
 	app.post("/addEvent", (req, res) => {
 
-		var startDate = req.body.eventStartDate.split('-');
-		var endDate = req.body.eventEndDate.split('-');
+		try {
+            var startDate = req.body.eventStartDate.split('-');
+            var endDate = req.body.eventEndDate.split('-');
+            var startTime = req.body.eventStartTime.split(":");
+            var endTime = req.body.eventEndTime.split(":");
 
-        calendar.addEventToCalendar(req.user, {
-            name: req.body.eventName,
-            description: req.body.eventDescription,
-            location: req.body.eventLocation,
-            startDateDay: Number(startDate[2]),
-            startDateMonth: Number(startDate[1]),
-            startDateYear: Number(startDate[0]),
-            startTimeHour: Number(req.body.eventStartTimeHour),
-            startTimeMinute: Number(req.body.eventStartTimeMinute),
-            endDateDay: Number(endDate[2]),
-            endDateMonth: Number(endDate[1]),
-            endDateYear: Number(endDate[0]),
-            endTimeHour: Number(req.body.eventEndTimeHour),
-            endTimeMinute: Number(req.body.eventEndTimeMinute)
-        }).then((res) => {
-            console.log("Event successfully added!");
-        }, (err) => {
-            console.error(err);
-        });
+            calendar.addEventToCalendar(req.user, {
+                name: req.body.eventName,
+                description: req.body.eventDescription,
+                location: req.body.eventLocation,
+                startDateDay: Number(startDate[2]),
+                startDateMonth: Number(startDate[1]),
+                startDateYear: Number(startDate[0]),
+                startTimeHour: Number(startTime[0]),
+                startTimeMinute: Number(startTime[1]),
+                endDateDay: Number(endDate[2]),
+                endDateMonth: Number(endDate[1]),
+                endDateYear: Number(endDate[0]),
+                endTimeHour: Number(endTime[0]),
+                endTimeMinute: Number(endTime[1])
+            }).then((res) => {
+                console.log("Event successfully added!");
+            }, (err) => {
+                console.error(err);
+            });
+        } catch (err){
+			console.log(err);
+		}
 
         res.redirect("/");
     });
+
+	app.post("/editEvent",async (req,res) => {
+		console.log("Getting change on calender for user " + req.user);
+        let eventID = req.query.eventID;
+        if (eventID) {
+            await calendar.removeEventFromCalendar(req.user, eventID);
+
+            var startDate = req.body.eventStartDate.split('-');
+            var endDate = req.body.eventEndDate.split('-');
+            var startTime = req.body.eventStartTime.split(":");
+            var endTime = req.body.eventEndTime.split(":");
+
+            console.log({
+                name: req.body.eventName,
+                description: req.body.eventDescription,
+                location: req.body.eventLocation,
+                startDateDay: Number(startDate[2]),
+                startDateMonth: Number(startDate[1]),
+                startDateYear: Number(startDate[0]),
+                startTimeHour: Number(startTime[0]),
+                startTimeMinute: Number(startTime[1]),
+                endDateDay: Number(endDate[2]),
+                endDateMonth: Number(endDate[1]),
+                endDateYear: Number(endDate[0]),
+                endTimeHour: Number(endTime[0]),
+                endTimeMinute: Number(endTime[1])
+            });
+
+            await calendar.addEventToCalendar(req.user, {
+                name: req.body.eventName,
+                description: req.body.eventDescription,
+                location: req.body.eventLocation,
+                startDateDay: Number(startDate[2]),
+                startDateMonth: Number(startDate[1]),
+                startDateYear: Number(startDate[0]),
+                startTimeHour: Number(startTime[0]),
+                startTimeMinute: Number(startTime[1]),
+                endDateDay: Number(endDate[2]),
+                endDateMonth: Number(endDate[1]),
+                endDateYear: Number(endDate[0]),
+                endTimeHour: Number(endTime[0]),
+                endTimeMinute: Number(endTime[1])
+            }).then((res) => {
+                console.log("Changed event successfully!");
+            }, (err) => {
+                console.error(err);
+            });
+        }
+        	res.redirect("/");
+
+	})
 
 	app.get("/newEvent", async (req, res) => {
 		try {
@@ -176,6 +233,22 @@ exports.setup = function () {
 			res.statusCode(500);
 		}
 	});
+
+    app.get("/editEvent", async (req, res) => {
+        try {
+            let eventID = req.query.eventID;
+            if(eventID) {
+                const oEvents = await calendar.getEventsInWeek(req.user, getSelectedWeek(req));
+                sendCalendar(res, oEvents, {"editEventWindow": {ID: eventID}, weekSelected: getSelectedWeek(req)
+                });
+            } else {
+            	res.redirect("/");
+			}
+        } catch (err) {
+            console.error(err);
+            res.statusCode(500);
+        }
+    });
 
 };
 

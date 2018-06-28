@@ -101,6 +101,7 @@ exports.addEventToCalendar = (username, eventDetails) => {
 			});
 			eventArray.sort(eventDateComparator);
 
+			console.log(result.events);
 			writeCalendarFile(username, result);
 
 			resolve();
