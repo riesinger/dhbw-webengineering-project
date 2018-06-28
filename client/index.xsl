@@ -13,8 +13,7 @@
 
 	<xsl:template match="event" mode="calendar__event">
 		<a>
-			<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="ID"/>
-			</xsl:attribute>
+			<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="ID"/>&amp;week=<xsl:value-of select="//meta/weekSelected"/></xsl:attribute>
 			<div>
 				<xsl:attribute name="class">calendar__event starts_<xsl:value-of select="startTimeHour"/>_<xsl:value-of
 					select="startTimeMinute"/> length_<xsl:value-of select="number(endTimeHour) - number(startTimeHour) "/>_<xsl:if
@@ -145,8 +144,21 @@
 					</div>
 				</div>
 				<div>
-					<a href="/newEvent">
-						<button type="button" class="addButton">+</button>
+                    <a>
+						<xsl:attribute name="href">\newEvent?week=<xsl:value-of select="//meta/weekSelected"/></xsl:attribute>
+				        <button type="button" class="addButton">+</button>
+                    </a>
+                </div>
+				<div class="leftPageScrollingDiv">
+					<a>
+						<xsl:attribute name="href">\?week=<xsl:value-of select="//meta/weekSelected - 1"/></xsl:attribute>
+						<button type="button" class="pageScrollButton"> &lt; </button>
+					</a>
+				</div>
+				<div class="rightPageScrollingDiv">
+					<a>
+						<xsl:attribute name="href">\?week=<xsl:value-of select="//meta/weekSelected + 1"/></xsl:attribute>
+						<button type="button" class="pageScrollButton"> &gt; </button>
 					</a>
 				</div>
 				<xsl:apply-templates select="//meta/*"/>

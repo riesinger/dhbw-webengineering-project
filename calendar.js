@@ -157,22 +157,43 @@ const getEventsBetween = async (username, firstDate, lastDate) => {
 };
 
 exports.getEventsInCurrentWeek = async (username) => {
-	const date = new Date();
-	let firstDate = new Date(date.setDate(date.getDate() - date.getDay() + 1));
-	firstDate.setUTCHours(0, 0, 0, 0);
+    const date = new Date();
+    let firstDate = new Date(date.setDate(date.getDate() - date.getDay() + 1));
+    firstDate.setUTCHours(0, 0, 0, 0);
+
+    let lastDate = new Date(date.setDate(firstDate.getDate() + 6));
+    lastDate.setUTCHours(23, 59, 59, 0);
+
+    console.debug(`Getting events between ${firstDate.toISOString()} and ${lastDate.toISOString()}`);
+    const events = await getEventsBetween(username, firstDate, lastDate);
+
+    let week = {};
+    addTimeToObj(week, "currentDate", new Date());
+    addTimeToObj(week, "firstDate", firstDate);
+    addTimeToObj(week, "lastDate", lastDate);
+
+    week.events = {event: events};
+    return week;
+};
+
+exports.getEventsInWeek = async (username, week) => {
+    const date = new Date();
+	let firstDate = new Date(date.setDate(date.getDate() - date.getDay() + 1 + (week * 7)));
+    firstDate.setUTCHours(0, 0, 0, 0);
 
 	let lastDate = new Date(date.setDate(firstDate.getDate() + 6));
-	lastDate.setUTCHours(23, 59, 59, 0);
+    lastDate.setUTCHours(23, 59, 59, 0);
 
-	console.debug(`Getting events between ${firstDate.toISOString()} and ${lastDate.toISOString()}`);
-	const events = await getEventsBetween(username, firstDate, lastDate);
+    console.debug(`Getting events between ${firstDate.toISOString()} and ${lastDate.toISOString()}`);
+    const events = await getEventsBetween(username, firstDate, lastDate);
 
-	let week = {};
-	addTimeToObj(week, "currentDate", new Date());
-	addTimeToObj(week, "firstDate", firstDate);
-	addTimeToObj(week, "lastDate", lastDate);
+    let returnWeek = {};
+    addTimeToObj(returnWeek, "currentDate", new Date(Date.now() + (week * 7)));
+    addTimeToObj(returnWeek, "firstDate", firstDate);
+    addTimeToObj(returnWeek, "lastDate", lastDate);
 
-	week.events = {event: events};
-	return week;
+
+    returnWeek.events = {event: events};
+    return returnWeek;
 };
 

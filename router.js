@@ -23,13 +23,20 @@ function injectXSLT(xml, xslt) {
 function sendCalendar(res, events, injectTags) {
 	res.setHeader("Content-Type", "text/xml");
 	try {
-		let sendObject = { calendar: { week: events, meta: injectTags } };
-		const s = xmlBuilder.buildObject(sendObject)
-
+		let sendObject = { calendar: { week: events, meta: injectTags} };
+		const s = xmlBuilder.buildObject(sendObject);
 		res.send(injectXSLT(s, "index.xsl"));
 	} catch (err) {
 		console.error(err);
 		res.sendStatus(500);
+	}
+}
+
+function getSelectedWeek(req){
+	if(req.query.week == null || req.query.week == 0){
+		return 0;
+	} else {
+		return Number(req.query.week);
 	}
 }
 
@@ -70,14 +77,14 @@ exports.setup = function () {
 	app.use("/images", express.static(path.join(__dirname, "client", "images")));
 
 	app.get("/", async (req, res) => {
-		console.log("Getting calendar for user", req.user);
-		try {
-			const oEvents = await calendar.getEventsInCurrentWeek(req.user);
-			sendCalendar(res, oEvents, []);
-		} catch (err) {
-			console.error(err);
-			res.statusCode(500);
-		}
+            console.log("Getting calendar for user", req.user);
+            try {
+                const oEvents = await calendar.getEventsInWeek(req.user, getSelectedWeek(req));
+                sendCalendar(res, oEvents, {weekSelected : getSelectedWeek(req)});
+            } catch (err) {
+                console.error(err);
+                res.statusCode(500);
+            }
 	});
 
 	app.get("/login", async (req, res) => {
@@ -127,8 +134,8 @@ exports.setup = function () {
 
 	app.get("/newEvent", async (req, res) => {
 		try {
-            const oEvents = await calendar.getEventsInCurrentWeek(req.user);
-            sendCalendar(res, oEvents, {"newEventWindow": {}});
+            const oEvents = await calendar.getEventsInWeek(req.user, getSelectedWeek(req));
+            sendCalendar(res, oEvents, {"newEventWindow": {}, weekSelected: getSelectedWeek(req)});
         } catch (err){
             console.error(err);
             res.statusCode(500);
@@ -139,8 +146,8 @@ exports.setup = function () {
 		let eventID = req.query.eventID;
 		if (eventID) {
 			try {
-				const oEvents = await calendar.getEventsInCurrentWeek(req.user);
-				sendCalendar(res, oEvents, { "showEvent": {ID: eventID} });
+				const oEvents = await calendar.getEventsInWeek(req.user, getSelectedWeek(req));
+				sendCalendar(res, oEvents, { "showEvent": {ID: eventID}, weekSelected: getSelectedWeek(req) });
 			} catch (err) {
 				console.error(err);
 				res.statusCode(500);
