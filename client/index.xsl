@@ -9,6 +9,7 @@
 
 	<xsl:include href="newEvent.xsl"/>
 	<xsl:include href="details.xsl"/>
+	<xsl:include href="editEvent.xsl"/>
 	<xsl:include href="week.xsl"/>
 	<xsl:include href="day.xsl"/>
 	<xsl:include href="navButtons.xsl"/>
