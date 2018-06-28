@@ -31,7 +31,6 @@ function sendCalendar(res, events, dispForm, injectTags) {
 		let sendObject = { calendar: { meta: injectTags } };
 		sendObject.calendar[dispForm] = events;
 		const s = xmlBuilder.buildObject(sendObject);
-		console.log(s);
     res.send(injectXSLT(s, "index.xsl"));
   } catch (err) {
     console.error(err);
@@ -149,7 +148,8 @@ exports.setup = function() {
         }
       );
 
-    res.redirect("/");
+		const date = getSelectedDate(req);
+    res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
   });
 
   app.get("/newEvent", async (req, res) => {
@@ -170,12 +170,12 @@ exports.setup = function() {
     let eventID = req.query.eventID;
     if (eventID) {
       try {
-        const selectedDate = getSelectedDate(req);
-        const oEvents = await calendar.getEvents(req.user, selectedDate);
-        sendCalendar(res, oEvents, {
-          showEvent: { ID: eventID },
-          ...selectedDate
-        });
+				const selectedDate = getSelectedDate(req);
+				const oEvents = await calendar.getEvents(req.user, selectedDate);
+				sendCalendar(res, oEvents, selectedDate.dispForm, {
+					showEvent: { ID: eventID },
+					...selectedDate
+				});
       } catch (err) {
         console.error(err);
         res.statusCode(500);
