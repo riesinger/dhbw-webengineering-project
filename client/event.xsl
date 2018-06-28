@@ -21,7 +21,11 @@
 					<xsl:value-of select="name"/>
 					<a>
 						<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="ID"/>&amp;<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
-						<img class="eventTrash" src="/images/trash_white.svg"/>
+						<img class="eventIcon" src="/images/trash_white.svg"/>
+					</a>
+					<a>
+						<xsl:attribute name="href">/editEvent?eventID=<xsl:value-of select="ID"/>&amp;week=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
+						<img class="eventIcon" src="/images/edit.svg"/>
 					</a>
 				</div>
 			</div>
