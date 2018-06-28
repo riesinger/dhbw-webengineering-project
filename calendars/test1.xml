@@ -86,9 +86,9 @@
     </event>
     <event>
       <ID>7</ID>
-      <name>Test Termin 4</name>
+      <name>Einkaufen gehen</name>
       <description>Lorem ipsum dolor sit amet, sed consecetur</description>
-      <location>DHBW - Karlsruhe</location>
+      <location>Aldi</location>
       <startDateDOW>3</startDateDOW>
       <startDateDay>27</startDateDay>
       <startDateMonth>6</startDateMonth>
