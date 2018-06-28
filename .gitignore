@@ -210,6 +210,6 @@ $RECYCLE.BIN/
 *.lnk
 
 #Users
-./users.xml
+users.xml
 
 # End of https://www.gitignore.io/api/vim,node,linux,macos,windows,intellij+all,visualstudiocode

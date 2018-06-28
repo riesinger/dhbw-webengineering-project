@@ -62,7 +62,8 @@
 					</td>
 				</tr>
 			</table>
-			<a href="/">
+			<a>
+				<xsl:attribute name="href">/?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
 				<button class="closePopupButton">x</button>
 			</a>
 		</div>
