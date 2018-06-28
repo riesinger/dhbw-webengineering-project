@@ -100,8 +100,6 @@ exports.addEventToCalendar = (username, eventDetails) => {
 				endTimeMinute: [eventDetails["endTimeMinute"]]
 			});
 			eventArray.sort(eventDateComparator);
-
-			console.log(result.events);
 			writeCalendarFile(username, result);
 
 			resolve();
