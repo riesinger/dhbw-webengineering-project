@@ -46,7 +46,10 @@
 	flex: 1;
 	margin: 0;
 	text-align: center;
+}
 
+.calendar__header h3.current-day {
+	color: #2979FF;
 }
 
 .calendar__body {
@@ -60,6 +63,10 @@
 
 .calendar__day {
 	border-right: 1px solid #ccc;
+}
+
+.calendar__day.current-day {
+	background: rgba(0, 0, 0, 0.05);
 }
 
 .calendar__legend {
@@ -122,4 +129,12 @@
 
 .calendar__event .eventTrash {
 	width: 30px;
+}
+
+.current_time_line {
+	height: 2px;
+	position: absolute;
+	left: 0;
+	width: 100vw;
+	background-color: #2979FF;
 }
