@@ -28,6 +28,9 @@
 						<xsl:when test="contains(name, 'Einkaufen') or contains(name, 'einkaufen')">
 							<img class="event-icon" src="/images/cart_white.svg"/>
 						</xsl:when>
+						<xsl:when test="contains(name, 'Kino') or contains(name, 'kino')">
+							<img class="event-icon" src="/images/popcorn_inverted.svg"/>
+						</xsl:when>
 					</xsl:choose>
 					<xsl:value-of select="name"/>
 					<a>
