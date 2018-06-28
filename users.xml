@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE users SYSTEM "users.dtd">
+<!DOCTYPE users SYSTEM "dtd/users.dtd">
 <users>
   <user>
     <username>test1</username>
