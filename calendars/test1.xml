@@ -1,55 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <calendar>
-  <nextEventID>36</nextEventID>
+  <nextEventID>52</nextEventID>
   <events>
-    <event ID="2">
-      <name>Einkaufen</name>
-      <description>Ich gehe mit Max einkaufen</description>
-      <location>Aldi Süd</location>
-      <startdate year="2018" month="6" day="26" hour="17" minute="10"/>
-      <enddate year="2018" month="6" day="26" hour="18" minute="40"/>
-    </event>
-    <event ID="3">
-      <name>Ins Kino gehen</name>
-      <description>Mit Simon in Deadpool 2 gehen</description>
-      <location>ZKM</location>
-      <startdate year="2018" month="6" day="27" hour="20" minute="15"/>
-      <enddate year="2018" month="6" day="27" hour="22" minute="55"/>
-    </event>
-    <event ID="33">
-      <name>Test</name>
+    <event ID="51">
+      <name>Test Termin 5</name>
       <description/>
-      <location>498498</location>
-      <startdate year="2018" month="6" day="28" hour="15" minute="8"/>
-      <enddate year="2018" month="6" day="28" hour="17" minute="23"/>
+      <location>Testort</location>
+      <startdate year="2018" month="6" day="27" hour="7" minute="13"/>
+      <enddate year="2018" month="6" day="27" hour="13" minute="0"/>
     </event>
-    <event ID="34">
-      <name>Test</name>
+    <event ID="50">
+      <name>test 12345</name>
       <description/>
-      <location>kalkalkjsadlkj</location>
-      <startdate year="2018" month="6" day="28" hour="15" minute="10"/>
-      <enddate year="2018" month="6" day="28" hour="18" minute="4"/>
+      <location>12345</location>
+      <startdate year="2018" month="6" day="28" hour="11" minute="0"/>
+      <enddate year="2018" month="6" day="28" hour="13" minute="0"/>
     </event>
-    <event ID="32">
-      <name>Test</name>
-      <description/>
-      <location>Zuhause</location>
-      <startdate year="2018" month="6" day="28" hour="15" minute="11"/>
-      <enddate year="2018" month="6" day="28" hour="18" minute="7"/>
-    </event>
-    <event ID="5">
-      <name>Essen gehen</name>
-      <description>Mit Sophia und Jan</description>
-      <location>Oxford Pub</location>
-      <startdate year="2018" month="6" day="28" hour="17" minute="0"/>
-      <enddate year="2018" month="6" day="28" hour="22" minute="30"/>
-    </event>
-    <event ID="35">
+    <event ID="41">
       <name>Test2</name>
-      <description/>
+      <description>Test Description 42</description>
       <location>Testing</location>
       <startdate year="2018" month="6" day="30" hour="9" minute="13"/>
-      <enddate year="2018" month="6" day="30" hour="10" minute="14"/>
+      <enddate year="2018" month="6" day="30" hour="15" minute="14"/>
+    </event>
+    <event ID="49">
+      <name>Week 2 Termin 2</name>
+      <description/>
+      <location>zu Hause 123</location>
+      <startdate year="2018" month="7" day="5" hour="11" minute="2"/>
+      <enddate year="2018" month="7" day="5" hour="14" minute="5"/>
     </event>
   </events>
 </calendar>
