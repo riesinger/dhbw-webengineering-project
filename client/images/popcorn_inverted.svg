@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="560" height="700">
+    <style>
+    .text { font: bold 50px serif; }
+  </style>
+
+    <path d="M80 250, L130 680, L430 680, L480 250, Z" style="fill:none; stroke:white; stroke-width:25; stroke-linejoin:round; stroke-linecap:round;"/>   
+    <path d="M160 250, L190 680, M240 250, L250 680, M320 250, L310 680, M400 250, L370 680" style="fill:none; stroke:white; stroke-width:40;"/>   
+    <ellipse cx="280" cy="500" rx="120" ry="60" style="fill:black"/>
+    <text x="195" y="510" class="text" fill="white">Popcorn</text>
+
+    <path d="M80 250,
+           C40 210,  140 150,  160 200, M145 180, C125 140, 195 90, 235 130, M195 140, C195 65, 345 65, 345 140, M310 145 C340 100, 430 180, 410 200, M380 200, C410 150, 500, 230 480 250"
+           style="fill:none; stroke:white; stroke-width:15; stroke-linejoin:round; stroke-linecap:round"/>
+</svg>

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <calendar>
-  <nextEventID>27</nextEventID>
+  <nextEventID>32</nextEventID>
   <events>
     <event>
       <ID>11</ID>
       <name>Termin 6</name>
       <description/>
       <location/>
-      <startDateDOW>3</startDateDOW>
       <startDateDay>27</startDateDay>
       <startDateMonth>6</startDateMonth>
       <startDateYear>2018</startDateYear>
@@ -20,28 +19,26 @@
       <endTimeMinute>0</endTimeMinute>
     </event>
     <event>
-      <ID>26</ID>
-      <name>Test Event 1</name>
+      <ID>21</ID>
+      <name>Einkaufen gehen</name>
       <description/>
-      <location>ZKM</location>
-      <startDateDOW>4</startDateDOW>
-      <startDateDay>28</startDateDay>
+      <location>DHBW - Karlsruhe</location>
+      <startDateDay>27</startDateDay>
       <startDateMonth>6</startDateMonth>
       <startDateYear>2018</startDateYear>
-      <startTimeHour>13</startTimeHour>
-      <startTimeMinute>0</startTimeMinute>
-      <endDateDay>28</endDateDay>
+      <startTimeHour>11</startTimeHour>
+      <startTimeMinute>15</startTimeMinute>
+      <endDateDay>27</endDateDay>
       <endDateMonth>6</endDateMonth>
       <endDateYear>2018</endDateYear>
       <endTimeHour>18</endTimeHour>
-      <endTimeMinute>0</endTimeMinute>
+      <endTimeMinute>31</endTimeMinute>
     </event>
     <event>
-      <ID>12</ID>
+      <ID>31</ID>
       <name>Test</name>
       <description/>
-      <location/>
-      <startDateDOW>3</startDateDOW>
+      <location>asd</location>
       <startDateDay>4</startDateDay>
       <startDateMonth>7</startDateMonth>
       <startDateYear>2018</startDateYear>
@@ -50,7 +47,7 @@
       <endDateDay>4</endDateDay>
       <endDateMonth>7</endDateMonth>
       <endDateYear>2018</endDateYear>
-      <endTimeHour>14</endTimeHour>
+      <endTimeHour>16</endTimeHour>
       <endTimeMinute>0</endTimeMinute>
     </event>
   </events>
