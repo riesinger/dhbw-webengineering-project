@@ -3,11 +3,27 @@
   <nextEventID>32</nextEventID>
   <events>
     <event>
-      <ID>11</ID>
-      <name>Termin 6</name>
-      <description/>
-      <location/>
-      <startDateDay>27</startDateDay>
+      <ID>1</ID>
+      <name>Noch ein Ereignis!</name>
+      <description>Hab Hunger!</description>
+      <location>Lidl</location>
+      <startDateDay>25</startDateDay>
+      <startDateMonth>6</startDateMonth>
+      <startDateYear>2018</startDateYear>
+      <startTimeHour>12</startTimeHour>
+      <startTimeMinute>15</startTimeMinute>
+      <endDateDay>25</endDateDay>
+      <endDateMonth>6</endDateMonth>
+      <endDateYear>2018</endDateYear>
+      <endTimeHour>16</endTimeHour>
+      <endTimeMinute>45</endTimeMinute>
+    </event>
+    <event>
+      <ID>3</ID>
+      <name>Kino</name>
+      <description>PiPaPo</description>
+      <location>ZKM</location>
+      <startDateDay>26</startDateDay>
       <startDateMonth>6</startDateMonth>
       <startDateYear>2018</startDateYear>
       <startTimeHour>8</startTimeHour>
