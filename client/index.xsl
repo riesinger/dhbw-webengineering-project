@@ -12,7 +12,7 @@
 
 	<xsl:template match="event" mode="calendar__event">
 		<a>
-			<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="ID"/>&amp;week=<xsl:value-of select="//meta/weekSelected"/></xsl:attribute>
+			<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="ID"/>&amp;<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
 			<div>
 				<xsl:attribute name="class">calendar__event starts_<xsl:value-of select="startTimeHour"/>_<xsl:value-of
 					select="startTimeMinute"/> length_<xsl:value-of select="endTimeHour - startTimeHour "/>_<xsl:if
@@ -22,7 +22,7 @@
 				</xsl:attribute>
 				<xsl:value-of select="name"/>
 				<a>
-					<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="ID"/></xsl:attribute>
+					<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="ID"/>&amp;<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
 					<img class="eventTrash" src="/images/trash.svg"/>
 				</a>
 			</div>
@@ -48,7 +48,9 @@
 			<body>
 				<div class="header fixed">
 					<h1>Mein Kalender</h1>
-					<h2>- Diese Woche</h2>
+					<h2>- <xsl:value-of select="//week/firstDateDay"/>.<xsl:value-of select="//week/firstDateMonth"/>.
+					bis <xsl:value-of select="//week/lastDateDay"/>.<xsl:value-of
+						select="//week/lastDateMonth"/>.</h2>
 				</div>
 				<div class="calendar">
 					<div class="calendar__header">

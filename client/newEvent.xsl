@@ -5,7 +5,8 @@
 		<div id="newEventWindowDiv" class="card">
 			<h3 class="centeredText">Neuer Termin</h3>
 			<div>
-				<form id="newEventForm" action="/addEvent" method="post">
+				<form id="newEventForm" method="post">
+					<xsl:attribute name="action">/addEvent?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
 					<div class="newEventFormDiv">
 						Termin Name:<br/>
 						<input type="text" name="eventName" style="width: 80%; margin-left: 0px;" required="required"/> <br/>
