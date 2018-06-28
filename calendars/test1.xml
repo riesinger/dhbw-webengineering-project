@@ -69,16 +69,16 @@
     </event>
     <event>
       <ID>6</ID>
-      <name>Test Termin 3</name>
+      <name>Einkaufen gehen</name>
       <description>Beschreibung</description>
-      <location>DHBW - Karlsruhe</location>
+      <location>Aldi</location>
       <startDateDOW>3</startDateDOW>
-      <startDateDay>27</startDateDay>
+      <startDateDay>28</startDateDay>
       <startDateMonth>6</startDateMonth>
       <startDateYear>2018</startDateYear>
       <startTimeHour>11</startTimeHour>
       <startTimeMinute>0</startTimeMinute>
-      <endDateDay>27</endDateDay>
+      <endDateDay>28</endDateDay>
       <endDateMonth>6</endDateMonth>
       <endDateYear>2018</endDateYear>
       <endTimeHour>13</endTimeHour>
