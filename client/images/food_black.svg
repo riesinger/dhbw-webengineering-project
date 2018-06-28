@@ -6,7 +6,7 @@
 
     <path d="M90 650, L590 650, L590 550, L90 550, Z" style="fill:none; stroke:black; stroke-width:30; stroke-linecap:round; stroke-linejoin:round"/>
     <path d="M130 490, L530 490" style="fill:none; stroke:black; stroke-width:55; stroke-linecap:round; stroke-linejoin:round"/>
-    <path d="M80 430, L580 430, C580 220, 80 220, 80 430" style="fill:none; stroke:black; stroke-width:30; stroke-linecap:round; stroke-linejoin:round"/>
+    <path d="M90 430, L590 430, C590 220, 80 220, 90 430" style="fill:none; stroke:black; stroke-width:30; stroke-linecap:round; stroke-linejoin:round"/>
     
     <path d="M690 650, L850 650, L870 200, L670 200, Z" style="fill:none; stroke:black; stroke-width:20; stroke-linecap:round; stroke-linejoin:round"/>
     <path d="M710 200, L700 130, L630 50" style="fill:none; stroke:black; stroke-width:20; stroke-linecap:round; stroke-linejoin:round"/>

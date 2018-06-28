@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="470" height="360">
+    <defs>
+      <mask id="mask1">
+        <circle cx="120" cy="70" r="60" style="fill:white"/>
+        <circle cx="120" cy="70" r="10" style="fill:black"/>
+        <circle cx="85" cy="70" r="14" style="fill:black"/>
+        <circle cx="155" cy="70" r="14" style="fill:black"/>
+        <circle cx="120" cy="105" r="14" style="fill:black"/>
+        <circle cx="120" cy="35" r="14" style="fill:black"/>
+      </mask>
+      <mask id="mask2">
+        <circle cx="270" cy="70" r="60" style="fill:white"/>
+        <circle cx="270" cy="70" r="10" style="fill:black"/>
+        <circle cx="235" cy="70" r="14" style="fill:black"/>
+        <circle cx="305" cy="70" r="14" style="fill:black"/>
+        <circle cx="270" cy="105" r="14" style="fill:black"/>
+        <circle cx="270" cy="35" r="14" style="fill:black"/>
+      </mask>
+    </defs>
+    
+    <rect x="50" y="145" rx="30" ry="30" width="300" height="180" style="fill:white;" />
+    <path d="M370 200, L370 280, L430 325, L430 145" style="fill:white; stroke:white; stroke-linecap:round; stroke-linejoin:round;"/>
+    <circle cx="120" cy="70" r="65" style="fill:none; stroke:white; stroke-width:8;"/>
+    <circle cx="120" cy="70" r="50" mask="url(#mask1)" style="fill:white; stroke:white; stroke-width:8;"/>
+
+    <circle cx="270" cy="70" r="65" style="fill:none; stroke:white; stroke-width:8"/>
+    <circle cx="270" cy="70" r="50" mask="url(#mask2)" style="fill:white; stroke:white; stroke-width:8;"/>
+</svg>
