@@ -177,7 +177,7 @@ async function getEventsInWeek(username, week) {
 
   returnWeek.events = { event: events };
   return returnWeek;
-};
+}
 
 async function getEventsInDay(username, day) {
 	const date = new Date();
