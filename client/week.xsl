@@ -43,9 +43,8 @@
 					</h3>
 				</div>
 				<div class="calendar__body">
-					<div>
-						<xsl:attribute name="class">current_time_line time_<xsl:value-of select="//week/currentDateHour"/>_<xsl:value-of
-							select="//week/currentDateMinute"/></xsl:attribute>
+					<div class="current_time_line">
+						<xsl:attribute name="style">top: <xsl:value-of select="(//week/currentDateHour * 4) + (//week/currentDateMinute * 0.0666666)"/>rem;</xsl:attribute>
 					</div>
 					<div class="calendar__legend">
 						<div>00:00</div>
