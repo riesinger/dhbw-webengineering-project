@@ -10,8 +10,8 @@
     text-decoration:none;
     font-size: 20px;
     cursor: pointer;
-    height: 3rem;
-    width: 3rem;
+    height: 0.5rem;
+    width: 0.5rem;
     border-radius: 50%;
     line-height:50%;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
@@ -45,7 +45,6 @@
     top: 1%;
     right: 1%;
 
-    background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
     cursor:pointer;

@@ -40,7 +40,7 @@
 				<div>
 					<a>
 						<xsl:attribute name="href">\newEvent?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
-						<button type="button" class="addButton">+</button>
+						<img src="images/plus_white.svg" style="height: 2rem; width:2rem;" class="addButton"/>
 					</a>
 				</div>
 
