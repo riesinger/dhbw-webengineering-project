@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <calendar>
-  <nextEventID>13</nextEventID>
+  <nextEventID>15</nextEventID>
   <events>
     <event>
       <ID>1</ID>
@@ -55,7 +55,6 @@
       <name>Termin 6</name>
       <description/>
       <location/>
-      <startDateDOW>3</startDateDOW>
       <startDateDay>27</startDateDay>
       <startDateMonth>6</startDateMonth>
       <startDateYear>2018</startDateYear>
@@ -68,28 +67,10 @@
       <endTimeMinute>0</endTimeMinute>
     </event>
     <event>
-      <ID>6</ID>
-      <name>Einkaufen gehen</name>
-      <description>Beschreibung</description>
-      <location>Aldi</location>
-      <startDateDOW>3</startDateDOW>
-      <startDateDay>28</startDateDay>
-      <startDateMonth>6</startDateMonth>
-      <startDateYear>2018</startDateYear>
-      <startTimeHour>11</startTimeHour>
-      <startTimeMinute>0</startTimeMinute>
-      <endDateDay>28</endDateDay>
-      <endDateMonth>6</endDateMonth>
-      <endDateYear>2018</endDateYear>
-      <endTimeHour>13</endTimeHour>
-      <endTimeMinute>0</endTimeMinute>
-    </event>
-    <event>
       <ID>7</ID>
       <name>Einkaufen gehen</name>
       <description>Lorem ipsum dolor sit amet, sed consecetur</description>
-      <location>Aldi</location>
-      <startDateDOW>3</startDateDOW>
+      <location>DHBW - Karlsruhe</location>
       <startDateDay>27</startDateDay>
       <startDateMonth>6</startDateMonth>
       <startDateYear>2018</startDateYear>
@@ -102,11 +83,26 @@
       <endTimeMinute>31</endTimeMinute>
     </event>
     <event>
+      <ID>6</ID>
+      <name>Einkaufen gehen</name>
+      <description>Beschreibung</description>
+      <location>Aldi</location>
+      <startDateDay>28</startDateDay>
+      <startDateMonth>6</startDateMonth>
+      <startDateYear>2018</startDateYear>
+      <startTimeHour>11</startTimeHour>
+      <startTimeMinute>0</startTimeMinute>
+      <endDateDay>28</endDateDay>
+      <endDateMonth>6</endDateMonth>
+      <endDateYear>2018</endDateYear>
+      <endTimeHour>13</endTimeHour>
+      <endTimeMinute>0</endTimeMinute>
+    </event>
+    <event>
       <ID>12</ID>
       <name>Test</name>
       <description/>
       <location/>
-      <startDateDOW>3</startDateDOW>
       <startDateDay>4</startDateDay>
       <startDateMonth>7</startDateMonth>
       <startDateYear>2018</startDateYear>

@@ -88,7 +88,6 @@ exports.addEventToCalendar = (username, eventDetails) => {
         name: [eventDetails["name"]],
         description: [eventDetails["description"]],
         location: [eventDetails["location"]],
-        startDateDOW: [new Date().getDay()],
         startDateDay: [eventDetails["startDateDay"]],
         startDateMonth: [eventDetails["startDateMonth"]],
         startDateYear: [eventDetails["startDateYear"]],
