@@ -2,17 +2,13 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
 	<xsl:output method="xml" doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
 	<xsl:template match="event" mode="calendar__event">
+		<xsl:variable name="evtLengthMinutes" select="number(startTimeMinute) - number(endTimeMinute)"/>
+		<xsl:variable name="evtLengthHour" select="number(endTimeHour) - number(startTimeHour)"/>
 		<a>
 			<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="ID"/>&amp;<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
-			<div>
-				<xsl:attribute name="class">calendar__event starts_<xsl:value-of select="startTimeHour"/>_<xsl:value-of
-					select="startTimeMinute"/> length_<xsl:value-of select="number(endTimeHour) - number(startTimeHour) "/>_<xsl:if
-						test="endTimeMinute > startTimeMinute"><xsl:value-of
-						select="number(endTimeMinute) - number(startTimeMinute)"/>
-					</xsl:if><xsl:if test="startTimeMinute > endTimeMinute"><xsl:value-of
-						select="number(startTimeMinute) - number(endTimeMinute)"/></xsl:if><xsl:if
-						test="startTimeMinute = endTimeMinute">0</xsl:if>
-				</xsl:attribute>
+			<div class="calendar__event">
+				<xsl:attribute name="style">top: <xsl:value-of select="(startTimeHour * 4) + (startTimeMinute * 0.0666666)"/>rem; height: <xsl:value-of
+					select="string(($evtLengthHour * 4) + (($evtLengthMinutes * ($evtLengthMinutes >= 0) - $evtLengthMinutes * ($evtLengthMinutes &lt; 0))) * 0.0666666)"/>rem;</xsl:attribute>
 				<div class="calendar__event__title">
 					<xsl:choose>
 						<xsl:when test="contains(name, 'Einkaufen') or contains(name, 'einkaufen')">

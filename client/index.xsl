@@ -18,11 +18,12 @@
 	<xsl:template match="/">
 		<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
 			<head>
+				<meta name="viewport" content="width=device-width"/>
+				<meta name="theme-color" content="#2979FF"/>
 				<link rel="stylesheet" type="text/css" href="/css/main.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/calendar.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/eventDetail.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/addRemote.css"/>
-				<link rel="stylesheet" type="text/css" href="/css/event.css"/>
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
 				<link rel="shortcut icon" type="image/png" href="/images/icon.png"/>
 				<title>Kalender vom <xsl:value-of select="//firstDateDay"/>.<xsl:value-of select="//firstDateMonth"/>.
