@@ -120,16 +120,16 @@ exports.setup = function() {
   });
 
   app.post("/addEvent", (req, res) => {
-    var startDate = req.body.eventStartDate.split("-");
-    var endDate = req.body.eventEndDate.split("-");
-    var startTime = req.body.eventStartTime.split(":");
-    var endTime = req.body.eventEndTime.split(":");
+    const startDate = req.body.eventStartDate.split("-");
+    const endDate = req.body.eventEndDate.split("-");
+    const startTime = req.body.eventStartTime.split(":");
+	  const endTime = req.body.eventEndTime.split(":");
 
-      var loc = req.body.eventLocation;
-      if(loc == null) loc = "";
+	  let loc = req.body.eventLocation;
+	  if(loc == null) loc = "";
 
-      var desc = req.body.eventDescription;
-      if(desc == null) desc = "";
+	  let desc = req.body.eventDescription;
+	  if(desc == null) desc = "";
 
     calendar
       .addEventToCalendar(req.user, {

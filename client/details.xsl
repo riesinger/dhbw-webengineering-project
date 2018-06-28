@@ -34,7 +34,7 @@
 						<b class="detailLabel">Startdatum:</b>
 					</td>
 					<td>
-						<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/startDateDay"/>.<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/startDateMonth"/>.<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/startDateYear"/>
+						<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/startDate/@day"/>.<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/startDate/@month"/>.<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/startDateYear"/>
 					</td>
 				</tr>
 				<tr>
@@ -42,7 +42,7 @@
 						<b class="detailLabel">Startzeit:</b>
 					</td>
 					<td>
-						<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/startTimeHour"/>:<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/startTimeMinute"/>
+						<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/startDate/@hour"/>:<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/startDate/@minute"/>
 					</td>
 				</tr>
 				<tr>
@@ -50,7 +50,7 @@
 						<b class="detailLabel">Enddatum:</b>
 					</td>
 					<td>
-						<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/endDateDay"/>.<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/endDateMonth"/>.<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/endDateYear"/>
+						<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/endDate/@day"/>.<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/endDate/@month"/>.<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/endDateYear"/>
 					</td>
 				</tr>
 				<tr>
@@ -58,7 +58,7 @@
 						<b class="detailLabel">Endzeit:</b>
 					</td>
 					<td>
-						<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/endTimeHour"/>:<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/endTimeMinute"/>
+						<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/endDate/@hour"/>:<xsl:value-of select="//events/event[./ID= //meta/showEvent/ID]/endDate/@minute"/>
 					</td>
 				</tr>
 			</table>
