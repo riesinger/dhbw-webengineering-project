@@ -8,6 +8,16 @@
 	height: calc(100vh - 56px);
 }
 
+.event-icon {
+	height: 24px;
+}
+
+.calendar__event__title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .calendar__days {
 	display: flex;
 	width: calc(100% - 5ch);
