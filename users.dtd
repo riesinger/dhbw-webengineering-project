@@ -1,0 +1,5 @@
+<!ELEMENT users (user)*>
+<!ELEMENT user (username,password,token?)>
+<!ELEMENT username (#PCDATA)>
+<!ELEMENT password (#PCDATA)>
+<!ELEMENT token (#PCDATA)>
