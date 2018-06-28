@@ -101,6 +101,12 @@ input[type=submit] {
 	display: flex;
 }
 
+.header .buttons a,
+.header .buttons a:hover,
+.header .buttons a:visited {
+	text-decoration: none;
+}
+
 .rightPageScrollingDiv, .leftPageScrollingDiv {
 	width: 2rem;
 	height: 2rem;

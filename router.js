@@ -30,7 +30,7 @@ function sendCalendar(res, events, dispForm, injectTags) {
   try {
 		let sendObject = { calendar: { meta: injectTags } };
 		sendObject.calendar[dispForm] = events;
-		const s = xmlBuilder.buildObject(sendObject);
+    const s = xmlBuilder.buildObject(sendObject);
     res.send(injectXSLT(s, "index.xsl"));
   } catch (err) {
     console.error(err);
