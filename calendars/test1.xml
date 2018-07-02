@@ -9,13 +9,6 @@
       <startdate year="2018" month="6" day="27" hour="7" minute="13"/>
       <enddate year="2018" month="6" day="27" hour="13" minute="0"/>
     </event>
-    <event ID="50">
-      <name>test 12345</name>
-      <description/>
-      <location>12345</location>
-      <startdate year="2018" month="6" day="28" hour="11" minute="0"/>
-      <enddate year="2018" month="6" day="28" hour="13" minute="0"/>
-    </event>
     <event ID="41">
       <name>Test2</name>
       <description>Test Description 42</description>
