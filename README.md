@@ -1,19 +1,48 @@
-# Webengineering Project
+# Kalender 42
 
-This is a web calendar using really outdated technologies to satisfy the needs for the Webengineering course.
+Dieses Projekt ist für den Kurs Webengineering I in TINF17B1.
+Entwickelt wurde ein Kalender, welcher Daten im XML-Format von einem in NodeJS
+geschriebenen Backend abruft und diese via XSLT in XML-Konformes HTML5 umwandelt.
 
-## Installing
+## Installation
 
-Clone this repo, then run `npm install`. 
+Zunächst müssen die beiden Programme "Node.js" und "NPM" installiert werden.
+Unter Windows muss dafür lediglich die aktuellste Version von Node.js unter
+[https://nodejs.org/](https://nodejs.org/en/) heruntergeladen und installiert werden.
+Wichtig ist, dass nicht die sogenannte LTS-Version, sondern die aktuellste installiert wird (10.x.x).
 
-## Building
+Unter Linux muss häufig NPM getrennt von Node.js aus einem eigenen Paket installiert werden.
+Dafür sollte die Dokumentation der jeweiligen Distribution zur Rate gezogen werden.
 
-For developer's convenience, there are some tasks setup, which will help you develop and build the
-app.
+Für eine Installation unter macOS kann auch die aktuelle Version unter der oben gegebenen Adresse
+heruntergeladen werden. Diese inkludiert NPM ebenfalls.
 
-First, there is `npm run dev`, which will start `nodemon` on the server.
+Sobald Node.js und NPM installiert sind, muss eine Kommandozeile im Quellcodeverzeichnis geöffnet werden.
+Hier müssen mit dem Befehl `npm install` die Abhängigkeiten des Backends installiert werden.
 
+Sobald alle Abhängigkeiten installiert sind, kann mit dem Befehl `node server.js` der Server
+gestartet werden und der Kalender ist unter der Adresse `http://localhost:9991` erreichbar.
+Der Server kann durch das Senden eines `SIGINT`-Signals gestoppt werden, dies geschieht häufig 
+über die Tastenkombination `STRG+C`.
 
-Also, for some reason, XSLT does not seem to work in Firefox Quantum, so alternatively use Google
-Chrome, Internet Explorer 6 or Netscape Navigator 4.0. You might also use Opera Presto, which has
-the fastest SVG renderer ever! (Even faster than Chrome and Firefox combined!!!!!)
+## Login
+
+Um den Kalender nutzen zu können, muss man sich zunächst auf der Weboberfläche anmelden.
+Falls dies noch nicht geschehen ist, wird man automatisch auf die Anmeldeseite weitergeleitet.
+
+Für Testzwecke werden mit der Installation zwei Benutzerkonten mitgeliefert, welche die folgenden
+Zugangsdaten haben:
+
+Nutzername | Passwort
+:---------:| :------:
+test1      | 123456
+test2      | 123456
+
+## Sonstiges
+
+Alle XML-Daten, welche von unserem Backend übermittelt werden sind über mitgelieferte DTDs validierbar.
+Diese liegen im Unterverzeichnis `dtd/` und haben jeweils denselben Namen, wie das Root-Tag der Daten.
+
+Alle Dateien, welche für das Frontend verwendet werden, liegen im Verzeichnis `client/`. Dies beinhaltet
+sämtliche CSS-, Bild- und XSL-Ressourcen. Die XML-Daten, welche an das Frontend gesendet werden, werden
+dynamisch generiert und sind nur über den Browser-Debugger zu sehen.
