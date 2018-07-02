@@ -59,7 +59,7 @@
                                 <xsl:attribute name="value"><xsl:value-of select="//events/event[@ID= //meta/editEvent/ID]/location"/></xsl:attribute>
                             </input> <br/>
                             Details:<br/>
-                            <textarea form="editEventForm" style="margin-top: 5px; width: 80%; resize: none" name="eventDescription" rows="5">
+                            <textarea style="margin-top: 5px; width: 80%; resize: none" name="eventDescription" rows="5">
                                 <xsl:value-of select="//events/event[@ID= //meta/editEvent/ID]/description"/>
                             </textarea>
                         <br/>
