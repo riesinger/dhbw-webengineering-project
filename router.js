@@ -246,7 +246,8 @@ exports.setup = function() {
       await calendar.removeEventFromCalendar(req.user, eventID);
     }
 
-    res.redirect("/");
+    const date = getSelectedDate(req);
+    res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
   });
 
     app.get("/editEvent", async (req, res) => {
