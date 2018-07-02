@@ -52,3 +52,7 @@
     overflow: hidden;
     outline:none;
 }
+
+.editIcon{
+    width: 3rem;
+}

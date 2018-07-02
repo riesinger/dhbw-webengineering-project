@@ -6,7 +6,7 @@
             <h3 class="centeredText">Termin bearbeiten</h3>
             <div>
                 <form id="editEventForm" method="post">
-                    <xsl:attribute name="action">/editEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
+                    <xsl:attribute name="action">/editEvent?eventID=<xsl:value-of select="//meta/editEvent/ID"/>&amp;<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
                     <div class="newEventFormDiv">
                         Termin Name:<br/>
                         <input type="text" name="eventName" style="width: 80%; margin-left: 0px;" required="required">
@@ -70,7 +70,7 @@
                 </form>
             </div>
             <a>
-                <xsl:attribute name="href">/?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
+				<xsl:attribute name="href">/?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
                 <button class="closePopupButton">x</button>
             </a>
         </div>

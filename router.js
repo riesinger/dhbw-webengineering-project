@@ -162,10 +162,12 @@ exports.setup = function() {
   });
 
   app.post("/editEvent",async (req,res) => {
-		console.log("Getting change on calender for user " + req.user);
+    console.log("Getting change on calender for user " + req.user);
         let eventID = req.query.eventID;
+        console.log("Event ID: "  + eventID);
         if (eventID) {
             await calendar.removeEventFromCalendar(req.user, eventID);
+            console.log("Reomved event from calender")
 
             var startDate = req.body.eventStartDate.split('-');
             var endDate = req.body.eventEndDate.split('-');
