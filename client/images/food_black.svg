@@ -1,13 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="900" height="700">
-    <path d="M415 280, L420 200, L10 200, L25 655, L90 655" style="fill:none; stroke:black; stroke-width:20; stroke-linecap:round; stroke-linejoin:round"/>
-    <path d="M40 200, L25 80, M80 200, 80 40, M110 200, 130 90, M160 200, 170 130, M220 200, 170 40, M250 200, L250 90, M290 200, L320 70, M350 200, L340 100, M380 200, L420 60" style="fill:none; stroke:black; stroke-width:40;"/>
 
-    <path d="M90 650, L590 650, L590 550, L90 550, Z" style="fill:none; stroke:black; stroke-width:30; stroke-linecap:round; stroke-linejoin:round"/>
-    <path d="M130 490, L530 490" style="fill:none; stroke:black; stroke-width:55; stroke-linecap:round; stroke-linejoin:round"/>
-    <path d="M80 430, L580 430, C580 220, 80 220, 80 430" style="fill:none; stroke:black; stroke-width:30; stroke-linecap:round; stroke-linejoin:round"/>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="900" height="700">
+    <title>Fast Food</title>
+    <desc>A Burger, french fries and a drink in black</desc>
     
-    <path d="M690 650, L850 650, L870 200, L670 200, Z" style="fill:none; stroke:black; stroke-width:20; stroke-linecap:round; stroke-linejoin:round"/>
-    <path d="M710 200, L700 130, L630 50" style="fill:none; stroke:black; stroke-width:20; stroke-linecap:round; stroke-linejoin:round"/>
+    <!-- French Fries -->
+    <path d="M415 280, L420 200, L10 200, L25 655, L90 655"
+        fill="transparent"
+        stroke="black"
+        stroke-width="20"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+    <path d="M40 200, L25 80, M80 200, 80 40, M110 200, 130 90, M160 200, 170 130, M220 200, 170 40, M250 200, L250 90, M290 200, L320 70, M350 200, L340 100, M380 200, L420 60"
+        fill="transparent"
+        stroke="black"
+        stroke-width="40"/>
+
+    <!-- Burger -->
+    <path d="M90 650, L590 650, L590 550, L90 550, Z"
+        fill="transparent"
+        stroke="black"
+        stroke-width="30"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+    <path d="M130 490, L530 490"
+        fill="transparent"
+        stroke="black"
+        stroke-width="55"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+    <path d="M80 430, L580 430, C580 220, 80 220, 80 430"
+        fill="transparent"
+        stroke="black"
+        stroke-width="30"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+    
+    <!-- Drink -->
+    <path d="M690 650, L850 650, L870 200, L670 200, Z"
+        fill="transparent"
+        stroke="black"
+        stroke-width="20"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+    <path d="M710 200, L700 130, L630 50"
+        fill="transparent"
+        stroke="black"
+        stroke-width="20"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
 </svg>
