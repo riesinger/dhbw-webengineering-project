@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<users>
+  <user>
+    <username>test1</username>
+    <password>123456</password>
+    <token>l1pe4gkxuucim452gg0s3l</token>
+  </user>
+  <user>
+    <username>test2</username>
+    <password>123456</password>
+    <token>p0pzes4nit70otqytrizl</token>
+  </user>
+</users>

@@ -2,19 +2,19 @@
     position: absolute;
     bottom: 2rem;
     right: 2rem;
-	  background: #2979FF;
+    background: #2979FF;
     border: none;
     color: white;
-    padding: 15px 15px;
     text-align: center;
     text-decoration:none;
     font-size: 20px;
     cursor: pointer;
-    height: 3rem;
-    width: 3rem;
     border-radius: 50%;
     line-height:50%;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    height: 3rem;
+    width:3rem;
+    padding: 4px;
 }
 
 .centeredText{
@@ -45,10 +45,13 @@
     top: 1%;
     right: 1%;
 
-    background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
     cursor:pointer;
     overflow: hidden;
     outline:none;
+}
+
+.editIcon{
+    width: 3rem;
 }

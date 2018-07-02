@@ -3,17 +3,33 @@
 	<xsl:output method="xml" doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
 	<xsl:template match="/" name="navButtons">
 		<div class="buttons">
+			<xsl:element name="a">
+				<xsl:if test="//meta/dispForm = 'day'">
+					<xsl:attribute name="class">dispButton selected</xsl:attribute>
+				</xsl:if>
+				<xsl:if test="not(//meta/dispForm = 'day')">
+					<xsl:attribute name="class">dispButton</xsl:attribute>
+				</xsl:if>
+				<xsl:attribute name="href">/?day=0</xsl:attribute>
+				Tag
+			</xsl:element>
+			<xsl:element name="a">
+				<xsl:if test="//meta/dispForm = 'week'">
+					<xsl:attribute name="class">dispButton selected</xsl:attribute>
+				</xsl:if>
+				<xsl:if test="not(//meta/dispForm = 'week')">
+					<xsl:attribute name="class">dispButton</xsl:attribute>
+				</xsl:if>
+				<xsl:attribute name="href">/?week=0</xsl:attribute>
+				Woche
+			</xsl:element>
 			<a title="Zurück">
 				<xsl:attribute name="href">\?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset - 1"/></xsl:attribute>
-				<div class="leftPageScrollingDiv">
-					&lt;
-				</div>
+				<img src="/images/arrow_left.svg" alt="Zurück blättern"/>
 			</a>
 			<a title="Weiter">
 				<xsl:attribute name="href">\?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset + 1"/></xsl:attribute>
-				<div class="rightPageScrollingDiv">
-						&gt;
-				</div>
+				<img src="/images/arrow_right.svg" alt="Vorwärts blättern"/>
 			</a>
 		</div>
 	</xsl:template>

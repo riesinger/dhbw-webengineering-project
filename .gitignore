@@ -209,7 +209,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-#Users
-users.xml
-
 # End of https://www.gitignore.io/api/vim,node,linux,macos,windows,intellij+all,visualstudiocode

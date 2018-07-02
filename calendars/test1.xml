@@ -1,118 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <calendar>
-  <nextEventID>15</nextEventID>
+  <nextEventID>61</nextEventID>
   <events>
-    <event>
-      <ID>1</ID>
-      <name>Noch ein Ereignis!</name>
-      <description>Hab Hunger!</description>
-      <location>Lidl</location>
-      <startDateDay>25</startDateDay>
-      <startDateMonth>6</startDateMonth>
-      <startDateYear>2018</startDateYear>
-      <startTimeHour>12</startTimeHour>
-      <startTimeMinute>15</startTimeMinute>
-      <endDateDay>25</endDateDay>
-      <endDateMonth>6</endDateMonth>
-      <endDateYear>2018</endDateYear>
-      <endTimeHour>16</endTimeHour>
-      <endTimeMinute>45</endTimeMinute>
-    </event>
-    <event>
-      <ID>3</ID>
-      <name>Kino</name>
-      <description>PiPaPo</description>
-      <location>ZKM</location>
-      <startDateDay>26</startDateDay>
-      <startDateMonth>6</startDateMonth>
-      <startDateYear>2018</startDateYear>
-      <startTimeHour>8</startTimeHour>
-      <startTimeMinute>0</startTimeMinute>
-      <endDateDay>26</endDateDay>
-      <endDateMonth>6</endDateMonth>
-      <endDateYear>2018</endDateYear>
-      <endTimeHour>9</endTimeHour>
-      <endTimeMinute>0</endTimeMinute>
-    </event>
-    <event>
-      <ID>2</ID>
-      <name>Kino</name>
-      <description>PiPaPo</description>
-      <location>ZKM</location>
-      <startDateDay>26</startDateDay>
-      <startDateMonth>6</startDateMonth>
-      <startDateYear>2018</startDateYear>
-      <startTimeHour>19</startTimeHour>
-      <startTimeMinute>15</startTimeMinute>
-      <endDateDay>26</endDateDay>
-      <endDateMonth>6</endDateMonth>
-      <endDateYear>2018</endDateYear>
-      <endTimeHour>22</endTimeHour>
-      <endTimeMinute>0</endTimeMinute>
-    </event>
-    <event>
-      <ID>11</ID>
-      <name>Termin 6</name>
+    <event ID="51">
+      <name>Test Termin 5</name>
       <description/>
-      <location/>
-      <startDateDay>27</startDateDay>
-      <startDateMonth>6</startDateMonth>
-      <startDateYear>2018</startDateYear>
-      <startTimeHour>8</startTimeHour>
-      <startTimeMinute>0</startTimeMinute>
-      <endDateDay>28</endDateDay>
-      <endDateMonth>6</endDateMonth>
-      <endDateYear>2018</endDateYear>
-      <endTimeHour>8</endTimeHour>
-      <endTimeMinute>0</endTimeMinute>
+      <location>Testort</location>
+      <startdate year="2018" month="6" day="27" hour="7" minute="13"/>
+      <enddate year="2018" month="6" day="27" hour="13" minute="0"/>
     </event>
-    <event>
-      <ID>7</ID>
-      <name>Einkaufen gehen</name>
-      <description>Lorem ipsum dolor sit amet, sed consecetur</description>
-      <location>DHBW - Karlsruhe</location>
-      <startDateDay>27</startDateDay>
-      <startDateMonth>6</startDateMonth>
-      <startDateYear>2018</startDateYear>
-      <startTimeHour>11</startTimeHour>
-      <startTimeMinute>15</startTimeMinute>
-      <endDateDay>27</endDateDay>
-      <endDateMonth>6</endDateMonth>
-      <endDateYear>2018</endDateYear>
-      <endTimeHour>17</endTimeHour>
-      <endTimeMinute>31</endTimeMinute>
+    <event ID="41">
+      <name>Test2</name>
+      <description>Test Description 42</description>
+      <location>Testing</location>
+      <startdate year="2018" month="6" day="30" hour="9" minute="13"/>
+      <enddate year="2018" month="6" day="30" hour="15" minute="14"/>
     </event>
-    <event>
-      <ID>6</ID>
-      <name>Einkaufen gehen</name>
-      <description>Beschreibung</description>
-      <location>Aldi</location>
-      <startDateDay>28</startDateDay>
-      <startDateMonth>6</startDateMonth>
-      <startDateYear>2018</startDateYear>
-      <startTimeHour>11</startTimeHour>
-      <startTimeMinute>0</startTimeMinute>
-      <endDateDay>28</endDateDay>
-      <endDateMonth>6</endDateMonth>
-      <endDateYear>2018</endDateYear>
-      <endTimeHour>13</endTimeHour>
-      <endTimeMinute>0</endTimeMinute>
-    </event>
-    <event>
-      <ID>12</ID>
+    <event ID="52">
       <name>Test</name>
       <description/>
-      <location/>
-      <startDateDay>4</startDateDay>
-      <startDateMonth>7</startDateMonth>
-      <startDateYear>2018</startDateYear>
-      <startTimeHour>8</startTimeHour>
-      <startTimeMinute>0</startTimeMinute>
-      <endDateDay>4</endDateDay>
-      <endDateMonth>7</endDateMonth>
-      <endDateYear>2018</endDateYear>
-      <endTimeHour>14</endTimeHour>
-      <endTimeMinute>0</endTimeMinute>
+      <location>Test</location>
+      <startdate year="2018" month="7" day="2" hour="10" minute="44"/>
+      <enddate year="2018" month="7" day="2" hour="13" minute="1"/>
+    </event>
+    <event ID="60">
+      <name>Week 2 Termin 2</name>
+      <description>Details Test</description>
+      <location>zu Hause 123</location>
+      <startdate year="2018" month="7" day="5" hour="11" minute="2"/>
+      <enddate year="2018" month="7" day="5" hour="14" minute="5"/>
     </event>
   </events>
 </calendar>
