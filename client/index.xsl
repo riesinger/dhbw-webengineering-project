@@ -27,9 +27,9 @@
 				<link rel="stylesheet" type="text/css" href="/css/addRemote.css"/>
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
 				<link rel="shortcut icon" type="image/png" href="/images/icon.png"/>
-				<title>Kalender vom <xsl:value-of select="//firstDateDay"/>.<xsl:value-of select="//firstDateMonth"/>.
-					bis <xsl:value-of select="//lastDateDay"/>.<xsl:value-of
-						select="//lastDateMonth"/>.
+				<title>Kalender vom <xsl:value-of select="//firstDate/@day"/>.<xsl:value-of select="//firstDate/@month"/>.
+					bis <xsl:value-of select="//lastDate/@day"/>.<xsl:value-of
+						select="//lastDate/@month"/>.
 				</title>
 
 			</head>

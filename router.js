@@ -54,7 +54,7 @@ exports.setup = function() {
   app.use(cookieParser());
 
   app.use((req, res, next) => {
-    if (req.path === "/login" || req.path.indexOf("css") > -1) return next();
+    if (req.path === "/login" || req.path.indexOf("css") > -1 || req.path.indexOf("dtd") > -1) return next();
 
     let cookie = req.cookies.token;
     if (cookie) {
@@ -86,6 +86,7 @@ exports.setup = function() {
 
   app.use("/css", express.static(path.join(__dirname, "client", "css")));
   app.use("/images", express.static(path.join(__dirname, "client", "images")));
+  app.use("/dtd", express.static(path.join(__dirname, "dtd")));
 
   app.get("/", async (req, res) => {
     console.log("Getting calendar for user", req.user);
@@ -120,16 +121,16 @@ exports.setup = function() {
   });
 
   app.post("/addEvent", (req, res) => {
-    var startDate = req.body.eventStartDate.split("-");
-    var endDate = req.body.eventEndDate.split("-");
-    var startTime = req.body.eventStartTime.split(":");
-    var endTime = req.body.eventEndTime.split(":");
+    const startDate = req.body.eventStartDate.split("-");
+    const endDate = req.body.eventEndDate.split("-");
+    const startTime = req.body.eventStartTime.split(":");
+	  const endTime = req.body.eventEndTime.split(":");
 
-      var loc = req.body.eventLocation;
-      if(loc == null) loc = "";
+	  let loc = req.body.eventLocation;
+	  if(loc == null) loc = "";
 
-      var desc = req.body.eventDescription;
-      if(desc == null) desc = "";
+	  let desc = req.body.eventDescription;
+	  if(desc == null) desc = "";
 
     calendar
       .addEventToCalendar(req.user, {
@@ -161,10 +162,12 @@ exports.setup = function() {
   });
 
   app.post("/editEvent",async (req,res) => {
-		console.log("Getting change on calender for user " + req.user);
+    console.log("Getting change on calender for user " + req.user);
         let eventID = req.query.eventID;
+        console.log("Event ID: "  + eventID);
         if (eventID) {
             await calendar.removeEventFromCalendar(req.user, eventID);
+            console.log("Reomved event from calender")
 
             var startDate = req.body.eventStartDate.split('-');
             var endDate = req.body.eventEndDate.split('-');
@@ -243,7 +246,8 @@ exports.setup = function() {
       await calendar.removeEventFromCalendar(req.user, eventID);
     }
 
-    res.redirect("/");
+    const date = getSelectedDate(req);
+    res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
   });
 
     app.get("/editEvent", async (req, res) => {

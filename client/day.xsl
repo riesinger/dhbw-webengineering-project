@@ -5,15 +5,15 @@
 		<div>
 			<div class="header fixed">
 				<h1>Mein Kalender</h1>
-				<h2>- <xsl:value-of select="firstDateDay"/>.<xsl:value-of select="firstDateMonth"/>.
-				bis <xsl:value-of select="lastDateDay"/>.<xsl:value-of
-					select="lastDateMonth"/>.</h2>
+				<h2>- <xsl:value-of select="firstDate/@day"/>.<xsl:value-of select="firstDate/@month"/>.
+				bis <xsl:value-of select="lastDate/@day"/>.<xsl:value-of
+					select="lastDate/@month"/>.</h2>
 				<xsl:call-template name="navButtons"/>
 			</div>
 			<div class="calendar">
 				<div class="calendar__header">
 					<div class="calendar__header__legend__padding"/>
-					<h1><xsl:value-of select="firstDateDay"/>.<xsl:value-of select="firstDateMonth"/>.</h1>
+					<h1><xsl:value-of select="firstDate/@day"/>.<xsl:value-of select="firstDate/@month"/>.</h1>
 				</div>
 				<div class="calendar__body">
 					<div class="calendar__legend">
