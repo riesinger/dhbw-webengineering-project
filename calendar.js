@@ -18,16 +18,13 @@ function getCalendarFile(username) {
 }
 
 function getEventStartDate(event) {
-	const startDate = utils.XMLDateToJSDate(
+	return utils.XMLDateToJSDate(
 		event.startdate[0].$.year,
 		event.startdate[0].$.month,
 		event.startdate[0].$.day,
 		event.startdate[0].$.hour,
 		event.startdate[0].$.minute,
 	);
-
-	console.debug("Event StartDate", startDate);
-	return startDate;
 }
 
 function getEventEndDate(event) {
@@ -191,12 +188,12 @@ async function getEventsInWeek(username, week) {
 async function getEventsInDay(username, day) {
 	const date = new Date();
   let firstDate = new Date(
-    date.setDate(date.getDate() + day + 1)
+    date.setDate(date.getDate() + day)
   );
-  firstDate.setHours(0, 0, 0, 0);
+  firstDate.setUTCHours(0, 0, 0, 0);
 
   let lastDate = new Date(firstDate);
-  lastDate.setHours(23, 59, 59, 0);
+  lastDate.setUTCHours(23, 59, 59, 0);
 
   console.debug(`Getting events between ${firstDate.toISOString()} and ${lastDate.toISOString()}`);
   const events = await getEventsBetween(username, firstDate, lastDate);

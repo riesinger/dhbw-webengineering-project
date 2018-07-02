@@ -4,30 +4,36 @@
 	<xsl:template match="week">
 		<xsl:variable name="day1" select="//week/firstDate/@day"/>
 		<xsl:variable name="day2">
-			<xsl:if test="//week/firstDate/@day > number(//week/lastDate/@day)">
+			<xsl:if test="//week/firstDate/@day > number(//week/lastDate/@day) and //week/lastDate/@day > 5">1</xsl:if>
+			<xsl:if test="not(//week/firstDate/@day > number(//week/lastDate/@day)) or not(//week/lastDate/@day > 5)">
+				<xsl:value-of select="$day1 + 1"/>
 			</xsl:if>
-			<xsl:if test="($day1 + 1) &lt; number(//week/lastDate/@day)"><xsl:value-of select="$day1 + 1"/></xsl:if>
 		</xsl:variable>
 		<xsl:variable name="day3">
-			<xsl:if test="$day2 + 1 >= number(//week/lastDate/@day)"><xsl:value-of select="//week/lastDate/@day"/></xsl:if>
-			<xsl:if test="$day2 + 1 &lt; number(//week/lastDate/@day)"><xsl:value-of select="$day2 + 1"/></xsl:if>
+			<xsl:if test="$day2 > number(//week/lastDate/@day) and //week/lastDate/@day > 4">1</xsl:if>
+			<xsl:if test="not($day2 > number(//week/lastDate/@day) and //week/lastDate/@day > 4)">
+				<xsl:value-of select="$day2 + 1"/>
+			</xsl:if>
 		</xsl:variable>
 		<xsl:variable name="day4">
-			<xsl:if test="$day3 + 1 >= number(//week/lastDate/@day)"><xsl:value-of select="//week/lastDate/@day"/></xsl:if>
-			<xsl:if test="$day3 + 1 &lt; number(//week/lastDate/@day)"><xsl:value-of select="$day3 + 1"/></xsl:if>
+			<xsl:if test="$day3 > number(//week/lastDate/@day) and //week/lastDate/@day > 3">1</xsl:if>
+			<xsl:if test="not($day3 > number(//week/lastDate/@day) and //week/lastDate/@day > 3)">
+				<xsl:value-of select="$day3 + 1"/>
+			</xsl:if>
 		</xsl:variable>
 		<xsl:variable name="day5">
-			<xsl:if test="$day4 + 1 >= number(//week/lastDate/@day)"><xsl:value-of select="//week/lastDate/@day"/></xsl:if>
-			<xsl:if test="$day4 + 1 &lt; number(//week/lastDate/@day)"><xsl:value-of select="$day4 + 1"/></xsl:if>
+			<xsl:if test="$day4 > number(//week/lastDate/@day) and //week/lastDate/@day > 2">1</xsl:if>
+			<xsl:if test="not($day4 > number(//week/lastDate/@day) and //week/lastDate/@day > 2)">
+				<xsl:value-of select="$day4 + 1"/>
+			</xsl:if>
 		</xsl:variable>
 		<xsl:variable name="day6">
-			<xsl:if test="$day5 + 1 >= number(//week/lastDate/@day)"><xsl:value-of select="//week/lastDate/@day"/></xsl:if>
-			<xsl:if test="$day5 + 1 &lt; number(//week/lastDate/@day)"><xsl:value-of select="$day5 + 1"/></xsl:if>
+			<xsl:if test="$day5 > number(//week/lastDate/@day) and //week/lastDate/@day > 1">1</xsl:if>
+			<xsl:if test="not($day5 > number(//week/lastDate/@day) and //week/lastDate/@day > 1)">
+				<xsl:value-of select="$day5 + 1"/>
+			</xsl:if>
 		</xsl:variable>
-		<xsl:variable name="day7">
-			<xsl:if test="$day6 + 1 >= number(//week/lastDate/@day)"><xsl:value-of select="//week/lastDate/@day"/></xsl:if>
-			<xsl:if test="$day6 + 1 &lt; number(//week/lastDate/@day)"><xsl:value-of select="$day6 + 1"/></xsl:if>
-		</xsl:variable>
+		<xsl:variable name="day7" select="//week/lastDate/@day"/>
 		<div>
 			<div class="header fixed">
 				<h1>Mein Kalender</h1>
