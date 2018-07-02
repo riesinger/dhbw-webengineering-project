@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <calendar>
-  <nextEventID>52</nextEventID>
+  <nextEventID>53</nextEventID>
   <events>
     <event ID="51">
       <name>Test Termin 5</name>
@@ -15,6 +15,13 @@
       <location>Testing</location>
       <startdate year="2018" month="6" day="30" hour="9" minute="13"/>
       <enddate year="2018" month="6" day="30" hour="15" minute="14"/>
+    </event>
+    <event ID="52">
+      <name>Einkaufen mit Klara</name>
+      <description/>
+      <location>Mall</location>
+      <startdate year="2018" month="7" day="1" hour="10" minute="30"/>
+      <enddate year="2018" month="7" day="1" hour="18" minute="30"/>
     </event>
     <event ID="49">
       <name>Week 2 Termin 2</name>

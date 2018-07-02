@@ -7,6 +7,8 @@ const path = require("path");
 const xml = require("xml2js");
 const xmlBuilder = new xml.Builder();
 
+const utils = require("./utils");
+
 function getPath(username) {
   return path.join(__dirname, "calendars", username + ".xml");
 }
@@ -16,23 +18,26 @@ function getCalendarFile(username) {
 }
 
 function getEventStartDate(event) {
-  return new Date(
-    parseInt(event.startdate[0].$.year),
-    parseInt(event.startdate[0].$.month) - 1, // 0-based, but we add one later
-    parseInt(event.startdate[0].$.day) + 1, // 0-based
-    parseInt(event.startdate[0].$.hour) + 2, // 0-based
-    parseInt(event.startdate[0].$.minute)
-  );
+	const startDate = utils.XMLDateToJSDate(
+		event.startdate[0].$.year,
+		event.startdate[0].$.month,
+		event.startdate[0].$.day,
+		event.startdate[0].$.hour,
+		event.startdate[0].$.minute,
+	);
+
+	console.debug("Event StartDate", startDate);
+	return startDate;
 }
 
 function getEventEndDate(event) {
-  return new Date(
-	  parseInt(event.enddate[0].$.year),
-	  parseInt(event.enddate[0].$.month) - 1, // 0-based, but we add one later
-	  parseInt(event.enddate[0].$.day) + 1, // 0-based
-	  parseInt(event.enddate[0].$.hour) + 2, // 0-based
-	  parseInt(event.enddate[0].$.minute)
-  );
+	return utils.XMLDateToJSDate(
+		event.enddate[0].$.year,
+		event.enddate[0].$.month,
+		event.enddate[0].$.day,
+		event.enddate[0].$.hour,
+		event.enddate[0].$.minute,
+	);
 }
 
 const parseCalendarFile = async username => {
@@ -60,10 +65,10 @@ function addTimeToObj(obj, timeName, time) {
 	  {
 	  	"$": {
 	  		year: time.getFullYear(),
-			  month: time.getMonth() + 1,
-	  		day: time.getDate(),
-			  hour: time.getHours(),
-			  minute: time.getMinutes(),
+			  month: time.getUTCMonth() + 1,
+	  		day: time.getUTCDate(),
+			  hour: time.getUTCHours(),
+			  minute: time.getUTCMinutes(),
 		  }
 	  }
 	];
@@ -169,13 +174,7 @@ const getEventsBetween = async (username, firstDate, lastDate) => {
 
 async function getEventsInWeek(username, week) {
   const date = new Date();
-  let firstDate = new Date(
-    date.setDate(date.getDate() - date.getDay() + 1 + week * 7)
-  );
-  firstDate.setHours(0, 0, 0, 0);
-
-  let lastDate = new Date(date.setDate(firstDate.getDate() + 6));
-  lastDate.setHours(23, 59, 59, 0);
+  const { firstDate, lastDate } = utils.getFirstAndLastDayInWeek(date, week);
 
   console.debug(`Getting events between ${firstDate.toISOString()} and ${lastDate.toISOString()}`);
   const events = await getEventsBetween(username, firstDate, lastDate);
@@ -219,4 +218,5 @@ exports.getEvents = async (username, date) => {
 	} else {
 		return getEventsInWeek(username, 0);
 	}
-}
+};
+
