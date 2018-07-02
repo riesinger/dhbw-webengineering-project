@@ -12,16 +12,19 @@
 				<div class="calendar__event__title">
 					<xsl:choose>
 						<xsl:when test="contains(name, 'Einkaufen') or contains(name, 'einkaufen')">
-							<img class="event-icon" src="/images/cart_white.svg"/>
+							<img class="event-icon" src="/images/cart_white.svg" alt="Bild eines Einkaufswagens"/>
 						</xsl:when>
 						<xsl:when test="contains(name, 'Kino') or contains(name, 'kino')">
-							<img class="event-icon" src="/images/popcorn_inverted.svg"/>
+							<img class="event-icon" src="/images/popcorn_inverted.svg" alt="Bild eines Popcorneimers"/>
+						</xsl:when>
+						<xsl:when test="contains(name, 'Essen') or contains(name, 'essen')">
+							<img class="event-icon" src="/images/food_white.svg" alt="Bild von Essen"/>
 						</xsl:when>
 					</xsl:choose>
 					<xsl:value-of select="name"/>
 					<a>
 						<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
-						<img class="eventIcon" src="/images/trash_white.svg"/>
+						<img class="eventIcon" src="/images/trash_white.svg" alt="Ereignis löschen"/>
 					</a>
 				</div>
 			</div>

@@ -25,11 +25,11 @@
 			</xsl:element>
 			<a title="Zurück">
 				<xsl:attribute name="href">\?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset - 1"/></xsl:attribute>
-				<img src="/images/arrow_left.svg"/>
+				<img src="/images/arrow_left.svg" alt="Zurück blättern"/>
 			</a>
 			<a title="Weiter">
 				<xsl:attribute name="href">\?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset + 1"/></xsl:attribute>
-				<img src="/images/arrow_right.svg"/>
+				<img src="/images/arrow_right.svg" alt="Vorwärts blättern"/>
 			</a>
 		</div>
 	</xsl:template>
