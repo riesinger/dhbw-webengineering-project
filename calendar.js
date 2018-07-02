@@ -190,9 +190,10 @@ async function getEventsInWeek(username, week) {
 }
 
 async function getEventsInDay(username, day) {
+	console.debug('Getting events for day with offset', day);
 	const date = new Date();
   let firstDate = new Date(
-    date.setDate(date.getDate() + day + 1)
+    date.setDate(date.getDate() + day)
   );
   firstDate.setHours(0, 0, 0, 0);
 
@@ -219,4 +220,4 @@ exports.getEvents = async (username, date) => {
 	} else {
 		return getEventsInWeek(username, 0);
 	}
-}
+};
