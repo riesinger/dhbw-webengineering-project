@@ -25,15 +25,12 @@
 								<td>
 									<input type="date" name="eventStartDate" required="required" disabled="disabled">
 										<xsl:attribute name="value"><xsl:value-of
-											select="//events/event[ @ID = //meta/showEvent/ID]/startdate/@year"/>-
-											<xsl:if test="//events/event[ @ID= //meta/showEvent/ID]/startdate/@month &gt; 9">
+											select="//events/event[ @ID = //meta/showEvent/ID]/startdate/@year"/>-<xsl:if test="//events/event[ @ID= //meta/showEvent/ID]/startdate/@month &gt; 9">
 												<xsl:value-of select="//events/event[ @ID= //meta/showEvent/ID]/startdate/@month"/>
 											</xsl:if>
 											<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/startdate/@month &lt; 10">0<xsl:value-of
 												select="//events/event[@ID= //meta/showEvent/ID]/startdate/@month"/>
-											</xsl:if>
-											-
-											<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/startdate/@day &gt; 9">
+											</xsl:if>-<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/startdate/@day &gt; 9">
 												<xsl:value-of select="//events/event[@ID= //meta/showEvent/ID]/startdate/@day"/>
 											</xsl:if>
 											<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/startdate/@day &lt; 10">0<xsl:value-of
@@ -52,9 +49,7 @@
 											<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/startdate/@hour &gt; 9">
 												<xsl:value-of
 													select="//events/event[ @ID= //meta/showEvent/ID]/startdate/@hour"/>
-											</xsl:if>
-											:
-											<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/startdate/@minute &lt; 10">0<xsl:value-of
+											</xsl:if>:<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/startdate/@minute &lt; 10">0<xsl:value-of
 												select="//events/event[ @ID= //meta/showEvent/ID]/startdate/@minute"/>
 											</xsl:if>
 											<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/startdate/@minute &gt; 9">
@@ -71,15 +66,12 @@
 								<td>
 									<input type="date" name="eventEndDate" required="required" disabled="disabled">
 										<xsl:attribute name="value"><xsl:value-of
-											select="//events/event[@ID= //meta/showEvent/ID]/enddate/@year"/>-
-											<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/enddate/@month &gt; 9">
+											select="//events/event[@ID= //meta/showEvent/ID]/enddate/@year"/>-<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/enddate/@month &gt; 9">
 												<xsl:value-of select="//events/event[@ID= //meta/showEvent/ID]/enddate/@month"/>
 											</xsl:if>
 											<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/enddate/@month &lt; 10">0<xsl:value-of
 												select="//events/event[@ID= //meta/showEvent/ID]/enddate/@month"/>
-											</xsl:if>
-											-
-											<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/enddate/@day &gt; 9">
+											</xsl:if>-<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/enddate/@day &gt; 9">
 												<xsl:value-of select="//events/event[@ID= //meta/showEvent/ID]/enddate/@day"/>
 											</xsl:if>
 											<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/enddate/@day &lt; 10">0<xsl:value-of
@@ -98,9 +90,7 @@
 											<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/enddate/@hour &gt; 9">
 												<xsl:value-of
 													select="//events/event[@ID= //meta/showEvent/ID]/enddate/@hour"/>
-											</xsl:if>
-											:
-											<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/enddate/@minute &lt; 10">0<xsl:value-of
+											</xsl:if>:<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/enddate/@minute &lt; 10">0<xsl:value-of
 												select="//events/event[@ID= //meta/showEvent/ID]/enddate/@minute"/>
 											</xsl:if>
 											<xsl:if test="//events/event[@ID= //meta/showEvent/ID]/enddate/@minute &gt; 9">
