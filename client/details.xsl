@@ -128,7 +128,7 @@
 								select="//meta/showEvent/ID"/>&amp;<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of
 								select="//meta/dateOffset"/>
 							</xsl:attribute>
-							<img src="/images/edit.svg" class="editIcon" alt="Ereignis bearbeiten"/>
+							<img src="/images/edit_black.svg" class="editIcon" alt="Ereignis bearbeiten"/>
 						</a>
 					</div>
 				</form>
