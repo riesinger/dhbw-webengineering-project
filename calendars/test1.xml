@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <calendar>
-  <nextEventID>61</nextEventID>
+  <nextEventID>63</nextEventID>
   <events>
     <event ID="51">
       <name>Test Termin 5</name>
@@ -25,11 +25,17 @@
     </event>
     <event ID="49">
       <name>Week 2 Termin 2</name>
-      <name>Test</name>
       <description/>
       <location>Test</location>
       <startdate year="2018" month="7" day="2" hour="10" minute="44"/>
       <enddate year="2018" month="7" day="2" hour="13" minute="1"/>
+    </event>
+    <event ID="62">
+      <name>Test</name>
+      <description/>
+      <location/>
+      <startdate year="2018" month="7" day="3" hour="11" minute="0"/>
+      <enddate year="2018" month="7" day="3" hour="13" minute="0"/>
     </event>
     <event ID="60">
       <name>Week 2 Termin 2</name>
