@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE users SYSTEM "dtd/users.dtd">
 <users>
   <user>
     <username>test1</username>
     <password>123456</password>
-    <token>b6qlym3c2d7dzygx7bphsv</token>
+    <token>ubil1xfnxu89tsv7pcdsq9</token>
   </user>
   <user>
     <username>test2</username>
