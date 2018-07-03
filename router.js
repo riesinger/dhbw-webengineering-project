@@ -75,7 +75,7 @@ exports.setup = function() {
 
   app.use(
     "/xsl",
-    express.static(path.join(__dirname, "client/xsl"), {
+    express.static(path.join(__dirname, "client", "xsl"), {
       setHeaders: (res, path) => {
         if (path.indexOf(".xsl") > -1) {
           res.setHeader("Content-Type", "text/xsl");
