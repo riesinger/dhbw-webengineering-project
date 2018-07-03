@@ -10,3 +10,9 @@
     padding: 50px;
     text-align: center;
 }
+
+.month-date {
+    font-weight: bold;
+    position: relative;
+    top: -40px;
+}
