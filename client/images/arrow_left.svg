@@ -5,15 +5,15 @@
   <title>Arrow-Left</title>
   <desc>Arrow to the left with grey circle as border</desc>
   
-  <!-- Border -->
+  <!-- Border
   <circle cx="75" cy="75" r="50" 
-        fill="transparent" 
+        fill="transparent"
         stroke="grey" 
-        stroke-width="4"/>
+        stroke-width="4"/> -->
   
   <!-- Arrow -->
   <polyline points="80,55 60,75 80,95" 
-        fill="transparent" 
+        fill="transparent"
         stroke="black" 
         stroke-width="6" 
         stroke-linejoin="round" 
