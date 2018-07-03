@@ -5,11 +5,11 @@
   <title>Arrow-Right</title>
   <desc>Arrow to the right with grey circle as border</desc>
   
-  <!-- Border -->
+  <!-- Border
   <circle cx="75" cy="75" r="50" 
         fill="transparent"
         stroke="grey"
-        stroke-width="4"/>
+        stroke-width="4"/> -->
 
   <!-- Arrow -->
   <polyline points="70,55 90,75 70,95"
