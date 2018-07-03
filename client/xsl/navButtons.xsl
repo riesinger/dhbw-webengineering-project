@@ -23,6 +23,16 @@
 				<xsl:attribute name="href">/?week=0</xsl:attribute>
 				Woche
 			</xsl:element>
+			<xsl:element name="a">
+				<xsl:if test="//meta/dispForm = 'month'">
+					<xsl:attribute name="class">dispButton selected</xsl:attribute>
+				</xsl:if>
+				<xsl:if test="not(//meta/dispForm = 'month')">
+					<xsl:attribute name="class">dispButton</xsl:attribute>
+				</xsl:if>
+				<xsl:attribute name="href">/?month=0</xsl:attribute>
+				Monat
+			</xsl:element>
 			<a title="Zurück">
 				<xsl:attribute name="href">\?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset - 1"/></xsl:attribute>
 				<img src="/images/arrow_left.svg" alt="Zurück blättern"/>
