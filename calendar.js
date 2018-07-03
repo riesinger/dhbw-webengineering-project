@@ -194,7 +194,10 @@ async function getEventsInWeek(username, week) {
   const events = await getEventsBetween(username, firstDate, lastDate);
 
   let returnWeek = {};
-  addTimeToObj(returnWeek, "currentDate", new Date(Date.now()));
+  const now = new Date();
+  // Fixing the UTC Offset
+	now.setHours(now.getHours() + 2);
+  addTimeToObj(returnWeek, "currentDate", now);
   addTimeToObj(returnWeek, "firstDate", firstDate);
   addTimeToObj(returnWeek, "lastDate", lastDate);
 
@@ -216,7 +219,10 @@ async function getEventsInDay(username, day) {
   const events = await getEventsBetween(username, firstDate, lastDate);
 
   let returnDay = {};
-  addTimeToObj(returnDay, "currentDate", new Date(Date.now()));
+	const now = new Date();
+	// Fixing the UTC Offset
+	now.setHours(now.getHours() + 2);
+  addTimeToObj(returnDay, "currentDate", now);
   addTimeToObj(returnDay, "firstDate", firstDate);
   addTimeToObj(returnDay, "lastDate", lastDate);
 
