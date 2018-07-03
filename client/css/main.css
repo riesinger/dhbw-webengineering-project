@@ -8,39 +8,6 @@ body {
 	overflow: hidden;
 }
 
-.header {
-	background-color: #2979FF;
-	color: #fff;
-	padding: 12px 24px;
-	box-shadow: 0 0 30px rgba(0, 0, 0, 0.16);
-	display: flex;
-	align-items: center;
-	height: 56px;
-	box-sizing: border-box;
-}
-
-.header.fixed {
-	position: fixed;
-	width: 100%;
-	top: 0;
-	left: 0;
-	right: 0;
-}
-
-.header h1 {
-	line-height: 32px;
-}
-
-
-.header h1, .header h2 {
-	margin: 0;
-	font-weight: normal;
-}
-
-.header h1 {
-	margin-right: .5ch;
-}
-
 .card {
 	background-color:white;
 	border-radius: 5px;
@@ -51,6 +18,19 @@ body {
 	position: absolute;
 	top: 15%;
 	left: 30%;
+}
+
+.card .closePopupButton{
+	position: absolute;
+	top: 1%;
+	right: 1%;
+
+	background-color: Transparent;
+	background-repeat:no-repeat;
+	border: none;
+	cursor:pointer;
+	overflow: hidden;
+	outline:none;
 }
 
 input[type=text], input[type=password], textarea {
@@ -82,83 +62,4 @@ input[type=submit] {
 	white-space: nowrap;
 	font-family: 'Roboto', sans-serif;
 	font-weight: bold;
-}
-
-.closePopupButton{
-	position: absolute;
-	top: 1%;
-	right: 1%;
-
-	background-color: Transparent;
-	background-repeat:no-repeat;
-	border: none;
-	cursor:pointer;
-	overflow: hidden;
-	outline:none;
-}
-
-.header .buttons {
-	align-items: center;
-	margin-left: auto;
-	display: flex;
-}
-
-.header .buttons a,
-.header .buttons a:hover,
-.header .buttons a:visited {
-	text-decoration: none;
-	color: #2978fe;
-}
-
-.header .buttons .dispButton {
-	color: #2978fe;
-	background-color: #fff;
-	border-radius: 20px;
-	padding: 5px 10px;
-	margin: 0 5px;
-}
-
-.header .buttons .dispButton.selected {
-	background-color: rgba(255, 255, 255, 0.7);
-}
-
-.header .buttons img {
-	width: 40px;
-}
-
-.rightPageScrollingDiv, .leftPageScrollingDiv {
-	width: 2rem;
-	height: 2rem;
-	text-align: center;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-	background: #fff;
-	border-radius: 50%;
-	margin-left: 2rem;
-}
-
-
-.rightPageScrollingDiv a, .leftPageScrollingDiv a {
-	text-decoration: none;
-	color: #000;
-	font-size: 1.25rem;
-}
-
-.pageScrollButton{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-
-	width: 2rem;
-	height: 2rem;
-
-	border-radius: 50%;
-
-	transform: translate(-50%, -50%);
-
-	background-color: Transparent;
-	background-repeat:no-repeat;
-	border: none;
-	cursor:pointer;
-	overflow: hidden;
-	outline:none;
 }
