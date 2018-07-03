@@ -18,9 +18,6 @@
                     <xsl:with-param name="stop" select="lastDate/@day"/>
                 </xsl:call-template>
             </div>
-            <xsl:for-each select="events/event">
-                <xsl:apply-templates select="." mode="month"/>
-            </xsl:for-each>
         </div>
     </xsl:template>
 
