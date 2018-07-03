@@ -27,6 +27,25 @@ exports.getFirstAndLastDayInWeek = (date, weekOffset) => {
 	}
 };
 
+exports.getFirstAndLastDayInMonth = (date, monthOffset) => {
+	console.debug("MonthOffset is", monthOffset);
+	console.debug("Date is", date.toISOString());
+
+	let d = new Date(date);
+	d.setUTCMonth(d.getUTCMonth() + monthOffset);
+	let firstDay = new Date();
+	firstDay.setUTCFullYear(d.getUTCFullYear(), d.getUTCMonth(), 1);
+	firstDay.setUTCHours(0, 0, 0, 0);
+	let lastDay = new Date();
+	lastDay.setUTCFullYear(d.getUTCFullYear(), d.getUTCMonth() + 1, 1);
+	lastDay.setUTCHours(23, 59, 59, 0);
+	lastDay.setUTCDate(lastDay.getUTCDate() - 1);
+
+	return {
+		firstDate: firstDay,
+		lastDate: lastDay
+	}
+}
 
 
 exports.jsDateToXMLObject = (date) => {

@@ -170,6 +170,22 @@ const getEventsBetween = async (username, firstDate, lastDate) => {
   }
 };
 
+async function getEventsInMonth(username, month) {
+  const date = new Date();
+  const { firstDate, lastDate } = utils.getFirstAndLastDayInMonth(date, month);
+
+  console.debug(`Getting events between ${firstDate.toISOString()} and ${lastDate.toISOString()}`);
+  const events = await getEventsBetween(username, firstDate, lastDate);
+
+  let returnMonth = {};
+  addTimeToObj(returnMonth, "currentDate", new Date(Date.now()));
+  addTimeToObj(returnMonth, "firstDate", firstDate);
+  addTimeToObj(returnMonth, "lastDate", lastDate);
+
+  returnMonth.events = { event: events };
+  return returnMonth;
+}
+
 async function getEventsInWeek(username, week) {
   const date = new Date();
   const { firstDate, lastDate } = utils.getFirstAndLastDayInWeek(date, week);
@@ -209,10 +225,12 @@ async function getEventsInDay(username, day) {
 }
 
 exports.getEvents = async (username, date) => {
-	if (date.dispForm === "day") {
-		return getEventsInDay(username, date.dateOffset);
-	} else if (date.dispForm === "week") {
+	if (date.dispForm === "month") {
+    return getEventsInMonth(username, date.dateOffset);
+  } else if (date.dispForm === "week") {
 		return getEventsInWeek(username, date.dateOffset);
+	} else if (date.dispForm === "day") {
+		return getEventsInDay(username, date.dateOffset);
 	} else {
 		return getEventsInWeek(username, 0);
 	}
