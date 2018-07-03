@@ -66,6 +66,7 @@ function addTimeToObj(obj, timeName, time) {
 	  		day: time.getUTCDate(),
 			  hour: time.getUTCHours(),
 			  minute: time.getUTCMinutes(),
+			  dow: time.getUTCDay() || 7, // To fix Sunday being 0
 		  }
 	  }
 	];
