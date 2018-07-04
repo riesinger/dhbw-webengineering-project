@@ -22,10 +22,11 @@
 				<meta name="viewport" content="width=device-width"/>
 				<meta name="theme-color" content="#2979FF"/>
 				<link rel="stylesheet" type="text/css" href="/css/main.css"/>
-				<link rel="stylesheet" type="text/css" href="/css/header.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/calendar.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/eventDetail.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/addRemote.css"/>
+				<link rel="stylesheet" type="text/css" href="/css/red.css" title="Rot"/>
+				<link rel="alternate stylesheet" type="text/css" href="/css/blue.css" title="Blau"/>
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
 				<link rel="shortcut icon" type="image/png" href="/images/icon.png"/>
 				<title>Kalender vom <xsl:value-of select="//firstDate/@day"/>.<xsl:value-of select="//firstDate/@month"/>.
