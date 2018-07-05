@@ -4,7 +4,7 @@
 	align-items: flex-start;
 	margin-top: 56px;
 	box-sizing: border-box;
-	padding: 0 2rem;
+	padding: 0 0 0 2rem;
 	height: calc(100vh - 56px);
 }
 
@@ -65,6 +65,8 @@
 	height: calc(100vh - 96px);
 	overflow-y: auto;
 	overflow-x: hidden;
+	padding-right: 2rem;
+	box-sizing: border-box;
 }
 
 .calendar__day {
@@ -134,7 +136,7 @@
 	box-sizing: border-box;
 }
 
-.calendar__event .eventIcon{
+.calendar__event .eventIcon {
 	width: 30px;
 }
 
@@ -142,6 +144,6 @@
 	height: 2px;
 	position: absolute;
 	left: 0;
-	width: 100vw;
+	width: calc(100% - 2rem);
 	background-color: #2979FF;
 }
