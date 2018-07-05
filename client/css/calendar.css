@@ -34,7 +34,12 @@
 	top: 56px;
 	height: 36px;
 	line-height: 36px;
-	width: calc(100vw - 4rem);
+	width: 100vw;
+	left: 0;
+	right: 0;
+	box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	padding: 0 2rem;
 }
 
 .calendar__header .calendar__header__legend__padding {
@@ -46,6 +51,7 @@
 	flex: 1;
 	margin: 0;
 	text-align: center;
+	font-weight: normal;
 }
 
 .calendar__header h3.current-day {
