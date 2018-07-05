@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <calendar>
-  <nextEventID>64</nextEventID>
+  <nextEventID>65</nextEventID>
   <events>
     <event ID="51">
       <name>Test Termin 5</name>
@@ -37,10 +37,10 @@
       <startdate year="2018" month="7" day="3" hour="11" minute="0"/>
       <enddate year="2018" month="7" day="3" hour="13" minute="0"/>
     </event>
-    <event ID="63">
+    <event ID="64">
       <name>Tester123</name>
       <description/>
-      <location/>
+      <location>Test </location>
       <startdate year="2018" month="7" day="4" hour="3" minute="20"/>
       <enddate year="2018" month="7" day="4" hour="18" minute="20"/>
     </event>
