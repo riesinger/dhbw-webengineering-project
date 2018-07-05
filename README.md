@@ -51,6 +51,32 @@ Nutzername | Passwort
 test1      | 123456
 test2      | 123456
 
+## Erläuterungen zum Backend
+
+Im folgenden Abschnitt wird grob die Funktionalität des Backends und warum diese nötig sind erläutert.
+Das Backend hat drei grundlegende Funktionalitäten: User Management, Herausfiltern der anzuzeigenden Events und behandeln von verschiedenen URLs.
+
+Das User Management beschränkt sich auf eine simple Authentifizierung von Benutzern und das Erstellen/Tracken von Sessions.
+Die Authentifizierung funktioniert über eine Post-Request aus dem Frontend. In dieser werden Benutzername und Password mit Hilfe der `users.xml` Datei validiert und dann ein Token erstellt.
+Dieser Token wird einmal in der `users.xml` Datei gespeichert und als Cookie and den Browser gesendet.
+Bei jeder weiteren Anfrage kann durch den Cookie der Username und die Validität der Anfrage überprüft werden.
+Dieser Teil ist sehr wichtig, um mehrere User zu unterstützen, da dies, vor allem mit Authentifizierung, in purem XSLT/HTML nicht möglich ist.
+
+Beim Herausfiltern der anzuzeigenden Events sind hauptsächlich drei Aspekte wichtig: Der anfordernde User, die angeforderte Ansicht und der "Offset" der angeforderten Sicht.
+Bei jeder Anfrage sind diese Daten vorhanden. Der Username aus der Authentifizierung und der Rest über GET-Parameter oder per default die Wochenansicht mit einem Offset von 0 Wochen.
+Sollte das Backend eine Weiterleitung machen, so werden diese GET-Parameter an die URL der Weiterleitung angehängt.
+Das tatsächliche Herausfiltern der Events wird dann aus der Kalender XML-Datei des Users und dem angeforderten Zeitraum gemacht. Dies ist nötig, da in XSLT das aktuelle Datum nicht abrufbar ist.
+Deshalt wird das akutelle Datum und Uhrzeit in das genertierte XML auch eingefügt.
+Je nachdem, welche Darstellungsform angefordert wurde, wird ein entsprechendes XML Tag verwendet. Dadurch kann im XSLT auf den Namen der Darstellungsform gematcht werden.
+
+Verschiedene URLs werden über verschiedene Handler abgearbeitet. Dadurch kann in den `meta` Tag des generierten XML (neben dem angeforderten Kalender) unterschiedliche Daten geschrieben werden.
+Zum Beispiel bei der relativen URL `/newEvent` wird dem XML der Tag `newEventWindow` hinzugefügt. Im Frontend wird auf dieses Tag gematcht und das entsprechende Popup angezeigt.
+Verwendet wird diese Technik, damit mit relativ geringem Aufwand immer das selbe XSLT Template verwendet werden kann.
+Dies gestaltet die Programmierung relativ dynamisch.
+
+Zu dem Behandeln verschiedener URLs zählen auch Handler für die POST-Requests.
+In diesen werden in den lokal gespeicherten XML-Kalender neue Events hinzugefügt, bearbeitet oder gelöscht. Auch das Login funktioniert über solch einen Handler.
+
 ## Sonstiges
 
 Alle XML-Daten, welche von unserem Backend übermittelt werden sind über mitgelieferte DTDs validierbar.
