@@ -13,9 +13,25 @@
 			<div class="calendar">
 				<div class="calendar__header">
 					<div class="calendar__header__legend__padding"/>
-					<h1><xsl:value-of select="firstDate/@day"/>.<xsl:value-of select="firstDate/@month"/>.</h1>
+					<h1>
+						<xsl:choose>
+							<xsl:when test="currentDate/@dow = 1">Montag</xsl:when>
+							<xsl:when test="currentDate/@dow = 2">Dienstag</xsl:when>
+							<xsl:when test="currentDate/@dow = 3">Mittwoch</xsl:when>
+							<xsl:when test="currentDate/@dow = 4">Donnerstag</xsl:when>
+							<xsl:when test="currentDate/@dow = 5">Freitag</xsl:when>
+							<xsl:when test="currentDate/@dow = 6">Samstag</xsl:when>
+							<xsl:when test="currentDate/@dow = 7">Sonntag</xsl:when>
+						</xsl:choose>
+						-
+						<xsl:value-of select="currentDate/@day"/>.<xsl:value-of select="currentDate/@month"/>.</h1>
 				</div>
 				<div class="calendar__body">
+					<xsl:if test="//meta/dateOffset = 0">
+						<div class="current_time_line">
+							<xsl:attribute name="style">top: <xsl:value-of select="(currentDate/@hour * 4) + (currentDate/@minute * 0.0666666)"/>rem;</xsl:attribute>
+						</div>
+					</xsl:if>
 					<div class="calendar__legend">
 						<div>00:00</div>
 						<div>01:00</div>

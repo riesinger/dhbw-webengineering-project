@@ -1,0 +1,50 @@
+<!ELEMENT calendar (meta,day)>
+<!ELEMENT meta (dispForm,dateOffset)>
+<!ELEMENT dispForm (#PCDATA)>
+<!ELEMENT dateOffset (#PCDATA)>
+<!ELEMENT day (currentDate,firstDate,lastDate,events)>
+<!ELEMENT currentDate EMPTY>
+<!ATTLIST currentDate
+	year CDATA #REQUIRED
+	month CDATA #REQUIRED
+	day CDATA #REQUIRED
+	hour CDATA #REQUIRED
+	minute CDATA #REQUIRED
+	dow CDATA #REQUIRED>
+<!ELEMENT firstDate EMPTY>
+<!ATTLIST firstDate
+	year CDATA #REQUIRED
+	month CDATA #REQUIRED
+	day CDATA #REQUIRED
+	hour CDATA #REQUIRED
+	minute CDATA #REQUIRED
+	dow CDATA #REQUIRED>
+<!ELEMENT lastDate EMPTY>
+<!ATTLIST lastDate
+	year CDATA #REQUIRED
+	month CDATA #REQUIRED
+	day CDATA #REQUIRED
+	hour CDATA #REQUIRED
+	minute CDATA #REQUIRED
+	dow CDATA #REQUIRED>
+<!ELEMENT events (event)*>
+<!ELEMENT event (name,description,location,startdate,enddate)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT location (#PCDATA)>
+<!ELEMENT startdate EMPTY>
+<!ELEMENT enddate EMPTY>
+<!ATTLIST event
+	ID CDATA #REQUIRED>
+<!ATTLIST startdate
+	year CDATA #REQUIRED
+	month CDATA #REQUIRED
+	day CDATA #REQUIRED
+	hour CDATA #REQUIRED
+	minute CDATA #REQUIRED>
+<!ATTLIST enddate
+	year CDATA #REQUIRED
+	month CDATA #REQUIRED
+	day CDATA #REQUIRED
+	hour CDATA #REQUIRED
+	minute CDATA #REQUIRED>

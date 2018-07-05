@@ -39,7 +39,9 @@ function sendCalendar(res, events, dispForm, injectTags) {
 }
 
 function getSelectedDate(req) {
-  if (req.query.week !== undefined) {
+  if (req.query.month !== undefined) {
+    return { dispForm: "month", dateOffset: parseInt(req.query.month) };
+  } else if (req.query.week !== undefined) {
     return { dispForm: "week", dateOffset: parseInt(req.query.week) };
   } else if (req.query.day !== undefined) {
     return { dispForm: "day", dateOffset: parseInt(req.query.day) };
@@ -75,7 +77,7 @@ exports.setup = function() {
 
   app.use(
     "/xsl",
-    express.static(path.join(__dirname, "client"), {
+    express.static(path.join(__dirname, "client", "xsl"), {
       setHeaders: (res, path) => {
         if (path.indexOf(".xsl") > -1) {
           res.setHeader("Content-Type", "text/xsl");

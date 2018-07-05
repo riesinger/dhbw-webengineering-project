@@ -8,7 +8,7 @@
 			<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
 			<div class="calendar__event">
 				<xsl:attribute name="style">top: <xsl:value-of select="(startdate/@hour * 4) + (startdate/@minute * 0.0666666)"/>rem; height: <xsl:value-of
-					select="string(($evtLengthHour * 4) + (($evtLengthMinutes * ($evtLengthMinutes >= 0) - $evtLengthMinutes * ($evtLengthMinutes &lt; 0))) * 0.0666666)"/>rem;</xsl:attribute>
+					select="string(number($evtLengthHour * 4) + number((($evtLengthMinutes * ($evtLengthMinutes >= 0) - $evtLengthMinutes * ($evtLengthMinutes &lt; 0))) * 0.0666666))"/>rem;</xsl:attribute>
 				<div class="calendar__event__title">
 					<xsl:choose>
 						<xsl:when test="contains(name, 'Einkaufen') or contains(name, 'einkaufen')">
