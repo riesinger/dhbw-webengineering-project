@@ -71,7 +71,7 @@
             </div>
             <a>
 				<xsl:attribute name="href">/?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
-                <button class="closePopupButton" title="Schließen">x</button>
+                <button class="closePopupButton" title="Schließen"><img src="/images/x_black.svg" alt="Schließen"/></button>
             </a>
         </div>
     </xsl:template>
