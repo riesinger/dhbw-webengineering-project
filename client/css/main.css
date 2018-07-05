@@ -162,3 +162,7 @@ input[type=submit] {
 	overflow: hidden;
 	outline:none;
 }
+
+.logoutButton{
+	margin-left: 48px;
+}
