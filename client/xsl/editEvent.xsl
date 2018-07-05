@@ -4,12 +4,12 @@
     <xsl:template match="editEvent">
         <div id="newEventWindowDiv" class="card">
             <h3 class="centeredText">Termin bearbeiten</h3>
-            <div>
+            <div id="showEvent">
                 <form id="editEventForm" method="post">
                     <xsl:attribute name="action">/editEvent?eventID=<xsl:value-of select="//meta/editEvent/ID"/>&amp;<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
                     <div class="newEventFormDiv">
                         Termin Name:<br/>
-                        <input type="text" name="eventName" style="width: 80%; margin-left: 0px;" required="required">
+                        <input type="text" name="eventName" required="required">
                             <xsl:attribute name="value"><xsl:value-of select="//events/event[ @ID = //meta/editEvent/ID]/name"/></xsl:attribute>
                         </input><br/>
                     </div>
@@ -52,14 +52,14 @@
                             </tr>
                         </table>
                     </div>
-                    <hr style="width:90%; opacity:0.5;"/>
+                    <hr/>
                     <div class="newEventFormDiv">
                             Ort:<br/>
-                            <input type="text" name="eventLocation" style="width: 80%; margin-left: 0px;">
+                            <input type="text" name="eventLocation">
                                 <xsl:attribute name="value"><xsl:value-of select="//events/event[@ID= //meta/editEvent/ID]/location"/></xsl:attribute>
                             </input> <br/>
                             Details:<br/>
-                            <textarea style="margin-top: 5px; width: 80%; resize: none" name="eventDescription" rows="5">
+                            <textarea name="eventDescription" rows="5">
                                 <xsl:value-of select="//events/event[@ID= //meta/editEvent/ID]/description"/>
                             </textarea>
                         <br/>
@@ -71,7 +71,7 @@
             </div>
             <a>
 				<xsl:attribute name="href">/?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
-                <button class="closePopupButton" title="Schließen">x</button>
+                <button class="closePopupButton" title="Schließen"><img src="/images/x_black.svg" alt="Schließen"/></button>
             </a>
         </div>
     </xsl:template>

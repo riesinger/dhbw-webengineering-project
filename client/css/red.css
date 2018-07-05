@@ -1,0 +1,39 @@
+.header {
+	background-color: #ff3c2d;
+	color: #fff;
+}
+
+.header .buttons a.dispButton {
+	color: #ff3c2d;
+	background-color: #fff;
+}
+
+input[type="submit"] {
+	background: #ff3c2d;
+	color: #fff;
+}
+
+.calendar__header h3 {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.calendar__header {
+	background: #ff3c2d;
+}
+
+.calendar__header h3.current-day {
+	color: #fff;
+}
+
+
+.calendar__event {
+	background: rgb(240, 147, 0);
+}
+
+.current_time_line {
+	background-color: #ff3c2d;
+}
+
+.addButton {
+	background-color: #ff3c2d;
+}

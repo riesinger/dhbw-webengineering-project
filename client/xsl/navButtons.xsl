@@ -33,13 +33,13 @@
 				<xsl:attribute name="href">/?month=0</xsl:attribute>
 				Monat
 			</xsl:element>
-			<a title="Zurück">
+			<a title="Zurück" class="navArrow">
 				<xsl:attribute name="href">\?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset - 1"/></xsl:attribute>
-				<img src="/images/arrow_left.svg" alt="Zurück blättern"/>
+				<img src="/images/arrow_left_white.svg" alt="Zurück blättern"/>
 			</a>
-			<a title="Weiter">
+			<a title="Weiter" class="navArrow"	>
 				<xsl:attribute name="href">\?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset + 1"/></xsl:attribute>
-				<img src="/images/arrow_right.svg" alt="Vorwärts blättern"/>
+				<img src="/images/arrow_right_white.svg" alt="Vorwärts blättern"/>
 			</a>
 		</div>
 	</xsl:template>

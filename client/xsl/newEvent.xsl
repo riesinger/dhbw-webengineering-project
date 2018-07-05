@@ -4,12 +4,12 @@
     <xsl:template match="newEventWindow">
         <div id="newEventWindowDiv" class="card">
             <h3 class="centeredText">Neuer Termin</h3>
-            <div>
+            <div id="showEvent">
                 <form id="newEventForm" name="newEventForm" method="post">
 					<xsl:attribute name="action">/addEvent?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
                     <div class="newEventFormDiv">
                         Termin Name:<br/>
-                        <input type="text" name="eventName" style="width: 80%; margin-left: 0px;" required="required"/> <br/>
+                        <input type="text" name="eventName" required="required"/> <br/>
                     </div>
                     <div class="newEventFormDiv">
                         <table>
@@ -43,12 +43,12 @@
                             </tr>
                         </table>
                     </div>
-                    <hr style="width:90%; opacity:0.5;"/>
+                    <hr/>
                     <div class="newEventFormDiv">
                         Ort:<br/>
-                        <input type="text" name="eventLocation" style="width: 80%; margin-left: 0px;"/> <br/>
+                        <input type="text" name="eventLocation"/> <br/>
                         Details:<br/>
-                        <textarea id="eventDescription" style="margin-top: 5px; width: 80%; resize: none" name="eventDescription" rows="5"/>
+                        <textarea id="eventDescription" name="eventDescription" rows="5"/>
                         <br/>
                     </div>
                     <div class="newEventButtonsDiv">
@@ -58,7 +58,7 @@
             </div>
             <a>
                 <xsl:attribute name="href">/?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
-                <button class="closePopupButton">x</button>
+                <button class="closePopupButton"><img src="/images/x_black.svg" alt="Schließen"/></button>
             </a>
         </div>
     </xsl:template>

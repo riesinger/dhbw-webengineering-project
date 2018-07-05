@@ -5,12 +5,12 @@
 	<xsl:template match="showEvent">
 		<div id="newEventWindowDiv" class="card">
 			<h3 class="centeredText">Termin</h3>
-			<div>
+			<div id="showEvent">
 				<form id="showEventForm" method="post">
 					<div class="newEventFormDiv">
 						Termin Name:
 						<br/>
-						<input type="text" name="eventName" style="width: 80%; margin-left: 0px;" required="required"
+						<input type="text" name="eventName"  required="required"
 						       disabled="disabled">
 							<xsl:attribute name="value">
 								<xsl:value-of select="//events/event[ @ID = //meta/showEvent/ID]/name"/>
@@ -104,11 +104,11 @@
 							</tr>
 						</table>
 					</div>
-					<hr style="width:90%; opacity:0.5;"/>
+					<hr/>
 					<div class="newEventFormDiv">
 						Ort:
 						<br/>
-						<input type="text" name="eventLocation" style="width: 80%; margin-left: 0px;" disabled="disabled">
+						<input type="text" name="eventLocation" disabled="disabled">
 							<xsl:attribute name="value">
 								<xsl:value-of select="//events/event[@ID= //meta/showEvent/ID]/location"/>
 							</xsl:attribute>
@@ -116,7 +116,7 @@
 						<br/>
 						Details:
 						<br/>
-						<textarea form="showEventForm" style="margin-top: 5px; width: 80%; resize: none" name="eventDescription"
+						<textarea form="showEventForm" name="eventDescription"
 						          rows="5" disabled="disabled">
 							<xsl:value-of select="//events/event[@ID= //meta/showEvent/ID]/description"/>
 						</textarea>
@@ -136,7 +136,7 @@
 			<a>
 				<xsl:attribute name="href">/?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
 				</xsl:attribute>
-				<button class="closePopupButton">x</button>
+				<button class="closePopupButton"><img src="/images/x_black.svg" alt="Schließen"/></button>
 			</a>
 		</div>
 	</xsl:template>
