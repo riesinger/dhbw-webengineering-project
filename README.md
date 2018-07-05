@@ -63,7 +63,7 @@ Bei jeder weiteren Anfrage kann durch den Cookie der Username und die Validität
 Dieser Teil ist sehr wichtig, um mehrere User zu unterstützen, da dies, vor allem mit Authentifizierung, in purem XSLT/HTML nicht möglich ist.
 
 Beim Herausfiltern der anzuzeigenden Events sind hauptsächlich drei Aspekte wichtig: Der anfordernde User, die angeforderte Ansicht und der "Offset" der angeforderten Sicht.
-Bei jeder Anfrage sind diese Daten vorhanden. Der Username aus der Authentifizierung und der Rest über GET-Parameter oder per default die Wochenansicht mit einem Offset von 0 Wochen.
+Bei jeder Anfrage sind diese Daten vorhanden. Der Username kommt dabei aus dem Authentifizierungssystem, der Rest über GET-Parameter. Per default wird die Wochenansicht mit einem Offset von 0 Wochen gewählt.
 Sollte das Backend eine Weiterleitung machen, so werden diese GET-Parameter an die URL der Weiterleitung angehängt.
 Das tatsächliche Herausfiltern der Events wird dann aus der Kalender XML-Datei des Users und dem angeforderten Zeitraum gemacht. Dies ist nötig, da in XSLT das aktuelle Datum nicht abrufbar ist.
 Deshalt wird das akutelle Datum und Uhrzeit in das genertierte XML auch eingefügt.
@@ -73,9 +73,6 @@ Verschiedene URLs werden über verschiedene Handler abgearbeitet. Dadurch kann i
 Zum Beispiel bei der relativen URL `/newEvent` wird dem XML der Tag `newEventWindow` hinzugefügt. Im Frontend wird auf dieses Tag gematcht und das entsprechende Popup angezeigt.
 Verwendet wird diese Technik, damit mit relativ geringem Aufwand immer das selbe XSLT Template verwendet werden kann.
 Dies gestaltet die Programmierung relativ dynamisch.
-
-Zu dem Behandeln verschiedener URLs zählen auch Handler für die POST-Requests.
-In diesen werden in den lokal gespeicherten XML-Kalender neue Events hinzugefügt, bearbeitet oder gelöscht. Auch das Login funktioniert über solch einen Handler.
 
 ## Sonstiges
 
