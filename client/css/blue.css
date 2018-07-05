@@ -13,10 +13,17 @@ input[type="submit"] {
 	color: #fff;
 }
 
-.calendar__header h3.current-day {
-	color: #2979FF;
+.calendar__header {
+	background: #2979FF;
 }
 
+.calendar__header h3 {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.calendar__header h3.current-day {
+	color: #fff;
+}
 
 .calendar__event {
 	background: rgb(240, 147, 0);
