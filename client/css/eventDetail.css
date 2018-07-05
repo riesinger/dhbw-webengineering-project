@@ -21,14 +21,6 @@
 	text-align: center;
 }
 
-.detailHeading {
-	text-align: center;
-}
-
-.detailLabel {
-	padding: 6px;
-}
-
 .newEventButtonsDiv {
 	position: absolute;
 	bottom: 2%;
@@ -59,4 +51,30 @@
 
 .editIcon {
 	width: 3rem;
+}
+
+#showEvent hr{
+	width:90%; opacity:0.5;
+}
+
+#showEvent input[type=time], input[type=date]{
+	font-family: 'Roboto', sans-serif;
+	background: rgba(0, 0, 0, 0.05);
+	border-radius: 4px;
+	width: 100%;
+	padding: 5px;
+	box-sizing: border-box;
+	border: none
+}
+
+#showEvent form textarea{
+	margin-top: 5px;
+	width: 80%;
+	resize: none;
+	margin-left: 0px;
+}
+
+#showEvent form input[type=text]{
+	width: 80%;
+	margin-left: 0px;
 }
