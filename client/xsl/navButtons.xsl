@@ -32,7 +32,7 @@
 				<img src="/images/arrow_right_white.svg" alt="Vorwärts blättern"/>
 			</a>
 			<a title="Ausloggen" href="/logout" class="logoutButton">
-				<img src="/images/trash_white.svg" alt="Ausloggen"/>
+				<img src="/images/logout_white.svg" alt="Ausloggen"/>
 			</a>
 		</div>
 	</xsl:template>
