@@ -1,18 +1,23 @@
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-template-columns: 14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
     padding: 10px;
     margin-top: 56px;
 }
 
 .grid-item {
     border: 1px solid rgb(0,0,0);
-    padding: 50px;
+    height: 17vh;
     text-align: center;
 }
 
 .month-date {
     font-weight: bold;
     position: relative;
-    top: -40px;
+    top: 10%;
+}
+
+.month-event {
+    position: relative;
+    top:15%
 }

@@ -26,8 +26,13 @@
         <xsl:param name="stop"/>
         <div class="grid-item">
             <div class="month-date">
-                <xsl:value-of select="$start"/>.<xsl:value-of select="currentDate/@month"/>.
+                <xsl:value-of select="$start"/>.<xsl:value-of select="firstDate/@month"/>.
             </div>
+            <xsl:for-each select="events/event[startdate/@day=$start]">
+                <div class="month-event">
+                    <xsl:value-of select="name"/>
+                </div>
+            </xsl:for-each>
         </div>
         <xsl:if test="($start+1)&lt;($stop+1)">
             <xsl:call-template name="loop_div_days">
