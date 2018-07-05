@@ -27,9 +27,11 @@
 						<xsl:value-of select="currentDate/@day"/>.<xsl:value-of select="currentDate/@month"/>.</h1>
 				</div>
 				<div class="calendar__body">
-					<div class="current_time_line">
-						<xsl:attribute name="style">top: <xsl:value-of select="(currentDate/@hour * 4) + (currentDate/@minute * 0.0666666)"/>rem;</xsl:attribute>
-					</div>
+					<xsl:if test="//meta/dateOffset = 0">
+						<div class="current_time_line">
+							<xsl:attribute name="style">top: <xsl:value-of select="(currentDate/@hour * 4) + (currentDate/@minute * 0.0666666)"/>rem;</xsl:attribute>
+						</div>
+					</xsl:if>
 					<div class="calendar__legend">
 						<div>00:00</div>
 						<div>01:00</div>
