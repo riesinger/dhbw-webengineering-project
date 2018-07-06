@@ -50,6 +50,15 @@ function getSelectedDate(req) {
   }
 }
 
+async function sendErrorMessage(req, res, err){
+    const selectedDate = getSelectedDate(req);
+    const oEvents = await calendar.getEvents(req.user, selectedDate);
+    sendCalendar(res, oEvents, selectedDate.dispForm, {
+        error: { err },
+        ...selectedDate
+    });
+}
+
 exports.setup = function() {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
@@ -156,6 +165,7 @@ exports.setup = function() {
         },
         err => {
           console.error(err);
+          sendErrorMessage(req, res, err);
         }
       );
 
@@ -200,6 +210,7 @@ exports.setup = function() {
                 console.log("Changed event successfully!");
             }, (err) => {
                 console.error(err);
+                sendErrorMessage(req, res, err);
             });
         }
         
