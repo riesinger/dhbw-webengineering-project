@@ -33,32 +33,31 @@
 						</div>
 					</xsl:if>
 					<div class="calendar__legend">
-						<div>00:00</div>
-						<div>01:00</div>
-						<div>02:00</div>
-						<div>03:00</div>
-						<div>04:00</div>
-						<div>05:00</div>
-						<div>06:00</div>
-						<div>07:00</div>
-						<div>08:00</div>
-						<div>09:00</div>
-						<div>10:00</div>
-						<div>11:00</div>
-						<div>12:00</div>
-						<div>13:00</div>
-						<div>14:00</div>
-						<div>15:00</div>
-						<div>16:00</div>
-						<div>17:00</div>
-						<div>18:00</div>
-						<div>19:00</div>
-						<div>20:00</div>
-						<div>21:00</div>
-						<div>22:00</div>
-						<div>23:00</div>
+						<div id="h0">00:00</div>
+						<div id="h1">01:00</div>
+						<div id="h2">02:00</div>
+						<div id="h3">03:00</div>
+						<div id="h4">04:00</div>
+						<div id="h5">05:00</div>
+						<div id="h6">06:00</div>
+						<div id="h7">07:00</div>
+						<div id="h8">08:00</div>
+						<div id="h9">09:00</div>
+						<div id="h10">10:00</div>
+						<div id="h11">11:00</div>
+						<div id="h12">12:00</div>
+						<div id="h13">13:00</div>
+						<div id="h14">14:00</div>
+						<div id="h15">15:00</div>
+						<div id="h16">16:00</div>
+						<div id="h17">17:00</div>
+						<div id="h18">18:00</div>
+						<div id="h19">19:00</div>
+						<div id="h20">20:00</div>
+						<div id="h21">21:00</div>
+						<div id="h22">22:00</div>
+						<div id="h23">23:00</div>
 					</div>
-
 					<div class="calendar__day">
 						<xsl:for-each select="events/event">
 							<xsl:apply-templates mode="calendar__event" select="."/>
@@ -66,6 +65,10 @@
 					</div>
 				</div>
 			</div>
+
+			<script>
+					window.onload = function () { window.location.hash = "h<xsl:value-of select="currentDate/@hour - 4"/>"; };
+			</script>
 		</div>
 	</xsl:template>
 </xsl:stylesheet>
