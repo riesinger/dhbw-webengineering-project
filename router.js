@@ -17,7 +17,7 @@ function sendCalendar(res, events, dispForm, injectTags) {
 		let sendObject = { calendar: { meta: injectTags } };
 		sendObject.calendar[dispForm] = events;
     const s = xmlBuilder.buildObject(sendObject);
-    res.send(utils.injectXSLT_DTD(s, "index.xsl", "calendar", "generated_week.dtd"));
+    res.send(utils.injectXSLT_DTD(s, "index.xsl", "calendar", "generated_" + dispForm + ".dtd"));
   } catch (err) {
     console.error(err);
     res.sendStatus(500);
