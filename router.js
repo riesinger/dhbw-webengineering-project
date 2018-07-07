@@ -7,23 +7,9 @@ const xmlBuilder = new xml.Builder();
 
 const users = require("./users");
 const calendar = require("./calendar");
+const utils = require("./utils");
 
 const app = express();
-
-function injectXSLT(xml, xslt) {
-  let slimXML = "";
-  if (xml.indexOf("<?xml version") >= 0) {
-    slimXML = xml.substring(xml.indexOf("\n") + 1);
-  } else {
-    slimXML = xml;
-  }
-  return (
-    '<?xml version="1.0" encoding="UTF-8" ?>\n<?xml-stylesheet type="text/xsl" href="xsl/' +
-    xslt +
-    '" ?>\n' +
-    slimXML
-  );
-}
 
 function sendCalendar(res, events, dispForm, injectTags) {
   res.setHeader("Content-Type", "text/xml");
@@ -31,7 +17,7 @@ function sendCalendar(res, events, dispForm, injectTags) {
 		let sendObject = { calendar: { meta: injectTags } };
 		sendObject.calendar[dispForm] = events;
     const s = xmlBuilder.buildObject(sendObject);
-    res.send(injectXSLT(s, "index.xsl"));
+    res.send(utils.injectXSLT_DTD(s, "index.xsl", "calendar", "generated_week.dtd"));
   } catch (err) {
     console.error(err);
     res.sendStatus(500);
