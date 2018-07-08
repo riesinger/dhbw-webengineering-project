@@ -17,6 +17,10 @@ input[type="submit"] {
 	color: rgba(255, 255, 255, 0.8);
 }
 
+.calendar__header h1 {
+	color: white;
+}
+
 .calendar__header {
 	background: #ff3c2d;
 }
