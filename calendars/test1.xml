@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <calendar>
-  <nextEventID>68</nextEventID>
+  <nextEventID>73</nextEventID>
   <events>
     <event ID="51">
       <name>Test Termin 5</name>
@@ -16,6 +16,13 @@
       <startdate year="2018" month="6" day="30" hour="9" minute="13"/>
       <enddate year="2018" month="6" day="30" hour="15" minute="14"/>
     </event>
+    <event ID="68">
+      <name>Hallo</name>
+      <description/>
+      <location/>
+      <startdate year="2018" month="7" day="1" hour="1" minute="11"/>
+      <enddate year="2018" month="7" day="1" hour="2" minute="22"/>
+    </event>
     <event ID="52">
       <name>Einkaufen mit Klara</name>
       <description/>
@@ -23,19 +30,19 @@
       <startdate year="2018" month="7" day="1" hour="10" minute="30"/>
       <enddate year="2018" month="7" day="1" hour="18" minute="30"/>
     </event>
-    <event ID="67">
-      <name>Test</name>
-      <description>Bla</description>
-      <location>Hier</location>
-      <startdate year="2018" month="7" day="1" hour="18" minute="0"/>
-      <enddate year="2018" month="7" day="1" hour="19" minute="0"/>
-    </event>
     <event ID="65">
       <name>Week 2 Termin 2</name>
       <description/>
       <location>Test</location>
       <startdate year="2018" month="7" day="2" hour="10" minute="44"/>
       <enddate year="2018" month="7" day="2" hour="13" minute="1"/>
+    </event>
+    <event ID="71">
+      <name>Test</name>
+      <description>Bla</description>
+      <location>Hier</location>
+      <startdate year="2018" month="7" day="2" hour="18" minute="0"/>
+      <enddate year="2018" month="7" day="2" hour="19" minute="0"/>
     </event>
     <event ID="62">
       <name>Test</name>
@@ -57,6 +64,13 @@
       <location>zu Hause 123</location>
       <startdate year="2018" month="7" day="5" hour="11" minute="2"/>
       <enddate year="2018" month="7" day="5" hour="14" minute="5"/>
+    </event>
+    <event ID="72">
+      <name>Test</name>
+      <description/>
+      <location/>
+      <startdate year="2018" month="7" day="8" hour="0" minute="0"/>
+      <enddate year="2018" month="7" day="8" hour="13" minute="0"/>
     </event>
   </events>
 </calendar>

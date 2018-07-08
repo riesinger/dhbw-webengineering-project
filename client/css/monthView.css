@@ -2,22 +2,50 @@
     display: grid;
     grid-template-columns: 14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
     padding: 10px;
-    margin-top: 56px;
+    margin-top: 92px;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .grid-item {
     border: 1px solid rgb(0,0,0);
-    height: 17vh;
+    height: 16.5vh;
     text-align: center;
+}
+
+.placeholder {
+    height: 16.5vh;
 }
 
 .month-date {
     font-weight: bold;
     position: relative;
-    top: 10%;
+    top: .5rem;
 }
 
 .month-event {
     position: relative;
-    top:15%
+	background: rgb(240, 147, 0);
+	width: 100%;
+	overflow: hidden;
+	text-align: center;
+	border-radius: 5px;
+	color: white;
+	font-weight: 500;
+	font-size: .95rem;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+	padding: 4px 16px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+.month-anchor {
+    position: relative;
+    top: 1rem;
+    text-decoration: none;
+}
+
+.event-icon-month {
+	width: 17px;
 }
