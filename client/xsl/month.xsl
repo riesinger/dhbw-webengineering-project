@@ -52,7 +52,7 @@
         <xsl:param name="start"/>
         <xsl:param name="stop"/>
         <div class="grid-item">
-            <xsl:if test="$start=currentDate/@day">
+            <xsl:if test="$start=currentDate/@day and firstDate/@month=currentDate/@month">
                 <xsl:attribute name="style">
                     background: rgba(0, 0, 0, 0.05);
                 </xsl:attribute>
