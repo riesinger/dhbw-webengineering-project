@@ -37,7 +37,7 @@ body {
 	top: 1%;
 	right: 1%;
 
-	background-color: Transparent;
+	background-color: transparent;
 	background-repeat:no-repeat;
 	border: none;
 	cursor:pointer;
@@ -75,6 +75,12 @@ input[type=submit] {
 	font-family: 'Roboto', sans-serif;
 	font-weight: bold;
 }
+
+button {
+	border: none;
+	background: transparent;
+}
+
 .header {
 	background-color: #2979FF;
 	color: #fff;
