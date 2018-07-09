@@ -36,6 +36,15 @@ function getSelectedDate(req) {
   }
 }
 
+async function sendErrorMessage(req, res, err){
+    const selectedDate = getSelectedDate(req);
+    const oEvents = await calendar.getEvents(req.user, selectedDate);
+    sendCalendar(res, oEvents, selectedDate.dispForm, {
+        errorWindow: { err },
+        ...selectedDate
+    });
+}
+
 exports.setup = function() {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
@@ -92,6 +101,11 @@ exports.setup = function() {
     res.sendFile(path.join(__dirname, "client", "login.html"));
   });
 
+  app.get("/logout", async (req, res)=> {
+    res.cookie("token", "");
+    res.redirect("/login");
+  });
+
   app.post("/login", async (req, res) => {
     let token = users.checkCredentials(req.body.username, req.body.password);
     if (token === "") {
@@ -138,15 +152,15 @@ exports.setup = function() {
       })
       .then(
         res => {
-          console.log("Event successfully added!");
+            const date = getSelectedDate(req);
+            res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
         },
         err => {
           console.error(err);
+          sendErrorMessage(req, res, err);
         }
       );
 
-		const date = getSelectedDate(req);
-    res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
   });
 
   app.post("/editEvent",async (req,res) => {
@@ -183,15 +197,14 @@ exports.setup = function() {
                 endTimeHour: Number(endTime[0]),
                 endTimeMinute: Number(endTime[1])
             }).then((res) => {
-                console.log("Changed event successfully!");
+                const date = getSelectedDate(req);
+                res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
             }, (err) => {
                 console.error(err);
+                sendErrorMessage(req, res, err);
+                return;
             });
         }
-        
-      const date = getSelectedDate(req);
-      res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
-
 	});
 
   app.get("/newEvent", async (req, res) => {
