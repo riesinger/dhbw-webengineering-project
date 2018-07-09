@@ -4,7 +4,7 @@
 	align-items: flex-start;
 	margin-top: 56px;
 	box-sizing: border-box;
-	padding: 0 2rem;
+	padding: 0 0 0 2rem;
 	height: calc(100vh - 56px);
 }
 
@@ -34,7 +34,12 @@
 	top: 56px;
 	height: 36px;
 	line-height: 36px;
-	width: calc(100vw - 4rem);
+	width: 100vw;
+	left: 0;
+	right: 0;
+	box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	padding: 0 2rem;
 }
 
 .calendar__header .calendar__header__legend__padding {
@@ -46,6 +51,7 @@
 	flex: 1;
 	margin: 0;
 	text-align: center;
+	font-weight: normal;
 }
 
 .calendar__header h3.current-day {
@@ -59,6 +65,8 @@
 	height: calc(100vh - 96px);
 	overflow-y: auto;
 	overflow-x: hidden;
+	padding-right: 2rem;
+	box-sizing: border-box;
 }
 
 .calendar__day {
@@ -128,7 +136,7 @@
 	box-sizing: border-box;
 }
 
-.calendar__event .eventIcon{
+.calendar__event .eventIcon {
 	width: 30px;
 }
 
@@ -136,6 +144,6 @@
 	height: 2px;
 	position: absolute;
 	left: 0;
-	width: 100vw;
+	width: calc(100% - 2rem);
 	background-color: #2979FF;
 }
