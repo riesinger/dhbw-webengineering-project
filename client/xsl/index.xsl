@@ -10,6 +10,7 @@
 	<xsl:include href="newEvent.xsl"/>
 	<xsl:include href="details.xsl"/>
 	<xsl:include href="editEvent.xsl"/>
+	<xsl:include href="month.xsl"/>
 	<xsl:include href="week.xsl"/>
 	<xsl:include href="day.xsl"/>
 	<xsl:include href="navButtons.xsl"/>
@@ -26,6 +27,7 @@
 				<link rel="stylesheet" type="text/css" href="/css/calendar.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/eventDetail.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/addRemote.css"/>
+				<link rel="stylesheet" type="text/css" href="/css/monthView.css"/>
 				<link rel="stylesheet" type="text/css" href="/css/red.css" title="Rot"/>
 				<link rel="alternate stylesheet" type="text/css" href="/css/blue.css" title="Blau"/>
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
