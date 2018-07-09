@@ -66,7 +66,7 @@
 				</div>
 			</div>
 
-			<script>
+			<script type="text/javascript">
 					window.onload = function () { window.location.hash = "h<xsl:value-of select="currentDate/@hour - 4"/>"; };
 			</script>
 		</div>

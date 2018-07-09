@@ -50,8 +50,9 @@ const parseCalendarFile = async username => {
 
 function writeCalendarFile(username, calendar) {
   try {
-    const u = xmlBuilder.buildObject(calendar);
-    fs.writeFileSync(getPath(username), u, null);
+    let c = xmlBuilder.buildObject(calendar);
+    c = utils.injectDTD(c, "calendar", "calendar.dtd");
+    fs.writeFileSync(getPath(username), c, null);
   } catch (e) {
     console.error(e);
   }
