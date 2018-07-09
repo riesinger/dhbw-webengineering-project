@@ -95,7 +95,7 @@ exports.addEventToCalendar = (username, eventDetails, response) => {
         var startDate = new Date(eventDetails.startDateYear, eventDetails.startDateMonth, eventDetails.startDateDay, eventDetails.startTimeHour, eventDetails.startTimeMinute);
         var endDate = new Date(eventDetails.endDateYear, eventDetails.endDateMonth, eventDetails.endDateDay, eventDetails.endTimeHour, eventDetails.endTimeMinute);
 
-        if (endDate.getTime() >= startDate.getTime() && eventDetails.name != null){
+        if (endDate.getTime() >= startDate.getTime() && endDate.getDay() == startDate.getDay() && eventDetails.name != null){
 
         let eventArray = result.calendar.events[0].event;
         eventArray.push({

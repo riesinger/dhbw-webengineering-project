@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE calendar SYSTEM "dtd/calendar.dtd">
 <calendar>
-  <nextEventID>99</nextEventID>
+  <nextEventID>101</nextEventID>
   <events>
     <event ID="51">
       <name>Test Termin 5</name>
