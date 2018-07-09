@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE calendar SYSTEM "dtd/calendar.dtd">
 <calendar>
-  <nextEventID>69</nextEventID>
+  <nextEventID>101</nextEventID>
   <events>
     <event ID="51">
       <name>Test Termin 5</name>
@@ -38,13 +38,6 @@
       <startdate year="2018" month="7" day="2" hour="10" minute="44"/>
       <enddate year="2018" month="7" day="2" hour="13" minute="1"/>
     </event>
-    <event ID="71">
-      <name>Test</name>
-      <description>Bla</description>
-      <location>Hier</location>
-      <startdate year="2018" month="7" day="2" hour="18" minute="0"/>
-      <enddate year="2018" month="7" day="2" hour="19" minute="0"/>
-    </event>
     <event ID="62">
       <name>Test</name>
       <description/>
@@ -65,13 +58,6 @@
       <location>zu Hause 123</location>
       <startdate year="2018" month="7" day="5" hour="11" minute="2"/>
       <enddate year="2018" month="7" day="5" hour="14" minute="5"/>
-    </event>
-    <event ID="72">
-      <name>Test</name>
-      <description/>
-      <location/>
-      <startdate year="2018" month="7" day="8" hour="0" minute="0"/>
-      <enddate year="2018" month="7" day="8" hour="13" minute="0"/>
     </event>
   </events>
 </calendar>
