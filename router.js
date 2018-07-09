@@ -134,6 +134,7 @@ exports.setup = function() {
 	  let desc = req.body.eventDescription;
 	  if(desc == null) desc = "";
 
+
     calendar
       .addEventToCalendar(req.user, {
         name: req.body.eventName,
@@ -149,7 +150,7 @@ exports.setup = function() {
         endDateYear: Number(endDate[0]),
         endTimeHour: Number(endTime[0]),
         endTimeMinute: Number(endTime[1])
-      })
+      }, res)
       .then(
         res => {
             const date = getSelectedDate(req);
@@ -169,7 +170,6 @@ exports.setup = function() {
         console.log("Event ID: "  + eventID);
         if (eventID) {
             await calendar.removeEventFromCalendar(req.user, eventID);
-            console.log("Reomved event from calender")
 
             var startDate = req.body.eventStartDate.split('-');
             var endDate = req.body.eventEndDate.split('-');
@@ -196,7 +196,9 @@ exports.setup = function() {
                 endDateYear: Number(endDate[0]),
                 endTimeHour: Number(endTime[0]),
                 endTimeMinute: Number(endTime[1])
-            }).then((res) => {
+            }, res)
+            .then(
+                (res) => {
                 const date = getSelectedDate(req);
                 res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
             }, (err) => {
