@@ -19,6 +19,7 @@
 	<xsl:template match="/">
 		<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
 			<head>
+				<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 				<meta name="viewport" content="width=device-width"/>
 				<meta name="theme-color" content="#2979FF"/>
 				<link rel="stylesheet" type="text/css" href="/css/main.css"/>
@@ -42,7 +43,7 @@
 				<div>
 					<a>
 						<xsl:attribute name="href">\newEvent?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
-						<img src="images/plus_white.svg" class="addButton"/>
+						<img src="images/plus_white.svg" class="addButton" alt="Event hinzufügen"/>
 					</a>
 				</div>
 

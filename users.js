@@ -3,6 +3,7 @@
  * It synchronizes users to the './users.xml' file.
  */
 
+const utils = require("./utils");
 const fs = require("fs");
 const xml = require("xml2js");
 const xmlBuilder = new xml.Builder();
@@ -23,7 +24,8 @@ exports.User = User;
 
 function writeUsers() {
 	try {
-		const u = xmlBuilder.buildObject({ "users": { "user": users } });
+		let u = xmlBuilder.buildObject({ "users": { "user": users } });
+		u = utils.injectDTD(u, "users", "users.dtd");
 		fs.writeFileSync(USERS_FILE, u, null);
 	} catch (e) {
 		console.error(e);
