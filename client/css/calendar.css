@@ -40,6 +40,7 @@
 	box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
 	box-sizing: border-box;
 	padding: 0 2rem;
+	z-index: 1;
 }
 
 .calendar__header .calendar__header__legend__padding {

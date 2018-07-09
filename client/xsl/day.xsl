@@ -13,7 +13,7 @@
 			<div class="calendar">
 				<div class="calendar__header">
 					<div class="calendar__header__legend__padding"/>
-					<h1>
+					<h3 class="current-day">
 						<xsl:choose>
 							<xsl:when test="currentDate/@dow = 1">Montag</xsl:when>
 							<xsl:when test="currentDate/@dow = 2">Dienstag</xsl:when>
@@ -24,7 +24,7 @@
 							<xsl:when test="currentDate/@dow = 7">Sonntag</xsl:when>
 						</xsl:choose>
 						-
-						<xsl:value-of select="currentDate/@day"/>.<xsl:value-of select="currentDate/@month"/>.</h1>
+						<xsl:value-of select="currentDate/@day"/>.<xsl:value-of select="currentDate/@month"/>.</h3>
 				</div>
 				<div class="calendar__body">
 					<xsl:if test="//meta/dateOffset = 0">
