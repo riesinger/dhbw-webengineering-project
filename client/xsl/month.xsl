@@ -66,22 +66,24 @@
 			<div class="month-date">
 				<xsl:value-of select="$start"/>.<xsl:value-of select="firstDate/@month"/>.
 			</div>
-			<xsl:for-each select="events/event[startdate/@day=$start]">
-				<a class="month-anchor">
-					<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of
-						select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
-					</xsl:attribute>
-					<div class="month-event">
-						<xsl:value-of select="name"/>
-						<a>
-							<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of
-								select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
-							</xsl:attribute>
-							<img class="event-icon-month" src="/images/trash_white.svg" alt="Ereignis löschen"/>
-						</a>
-					</div>
-				</a>
-			</xsl:for-each>
+			<div class="event-container">
+				<xsl:for-each select="events/event[startdate/@day=$start]">
+					<a class="month-anchor">
+						<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of
+							select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
+						</xsl:attribute>
+						<div class="month-event">
+							<xsl:value-of select="name"/>
+							<a>
+								<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of
+									select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
+								</xsl:attribute>
+								<img class="event-icon-month" src="/images/trash_white.svg" alt="Ereignis löschen"/>
+							</a>
+						</div>
+					</a>
+				</xsl:for-each>
+			</div>
 		</div>
 		<xsl:if test="($start+1)&lt;($stop+1)">
 			<xsl:call-template name="loop_div_days">
