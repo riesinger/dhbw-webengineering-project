@@ -115,6 +115,11 @@ exports.setup = function() {
     res.sendFile(path.join(__dirname, "client", "login.html"));
   });
 
+  app.get("/logout", async (req, res)=> {
+    res.cookie("token", "");
+    res.redirect("/login");
+  });
+
   app.post("/login", async (req, res) => {
     let token = users.checkCredentials(req.body.username, req.body.password);
     if (token === "") {

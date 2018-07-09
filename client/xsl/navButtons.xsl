@@ -31,6 +31,9 @@
 				<xsl:attribute name="href">\?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset + 1"/></xsl:attribute>
 				<img src="/images/arrow_right_white.svg" alt="Vorwärts blättern"/>
 			</a>
+			<a title="Ausloggen" href="/logout" class="logoutButton">
+				<img src="/images/logout_white.svg" alt="Ausloggen"/>
+			</a>
 		</div>
 	</xsl:template>
 </xsl:stylesheet>

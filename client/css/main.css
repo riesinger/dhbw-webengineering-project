@@ -139,3 +139,8 @@ button {
 .header .buttons .navArrow {
 	height: 40px;
 }
+
+.header .buttons .logoutButton img{
+	margin-left: 48px;
+	height: 30px;
+}
