@@ -83,50 +83,57 @@ function eventDateComparator(a, b) {
 exports.addEventToCalendar = (username, eventDetails) => {
   return new Promise((resolve, reject) => {
     xml.parseString(getCalendarFile(username), (err, result) => {
-      if (err != null) {
-        reject("Error parsing calendar file: " + err);
-      }
+        if (err != null) {
+            reject("Error parsing calendar file: " + err);
+        }
 
-      let eventID = result.calendar.nextEventID[0];
-      result.calendar.nextEventID[0] =
-        Number(result.calendar.nextEventID[0]) + 1;
+        let eventID = result.calendar.nextEventID[0];
+        result.calendar.nextEventID[0] =
+            Number(result.calendar.nextEventID[0]) + 1;
 
-      let eventArray = result.calendar.events[0].event;
-      eventArray.push({
-	      "$": {
-		      ID: eventID,
-        },
-        name: [eventDetails["name"]],
-        description: [eventDetails["description"]],
-        location: [eventDetails["location"]],
-        startdate: [
-          {
+        if (eventDetails.endTimeHour > eventDetails.startTimeMinute ||
+            (eventDetails.endTimeHour == eventDetails.startTimeHour && eventDetails.endTimeMinute > eventDetails.startTimeMinute)||
+            eventDetails.name == null){
+
+        let eventArray = result.calendar.events[0].event;
+        eventArray.push({
             "$": {
-              year: eventDetails.startDateYear,
-	            month: eventDetails.startDateMonth,
-	            day: eventDetails.startDateDay,
-	            hour: eventDetails.startTimeHour,
-	            minute: eventDetails.startTimeMinute,
-            }
-          }
-        ],
-	      enddate: [
-		      {
-		      	"$": {
-							year: eventDetails.endDateYear,
-	            month: eventDetails.endDateMonth,
-	            day: eventDetails.endDateDay,
-	            hour: eventDetails.endTimeHour,
-	            minute: eventDetails.endTimeMinute,
-			      }
-		      }
-	      ],
-      });
-      eventArray.sort(eventDateComparator);
+                ID: eventID,
+            },
+            name: [eventDetails["name"]],
+            description: [eventDetails["description"]],
+            location: [eventDetails["location"]],
+            startdate: [
+                {
+                    "$": {
+                        year: eventDetails.startDateYear,
+                        month: eventDetails.startDateMonth,
+                        day: eventDetails.startDateDay,
+                        hour: eventDetails.startTimeHour,
+                        minute: eventDetails.startTimeMinute,
+                    }
+                }
+            ],
+            enddate: [
+                {
+                    "$": {
+                        year: eventDetails.endDateYear,
+                        month: eventDetails.endDateMonth,
+                        day: eventDetails.endDateDay,
+                        hour: eventDetails.endTimeHour,
+                        minute: eventDetails.endTimeMinute,
+                    }
+                }
+            ],
+        });
+        eventArray.sort(eventDateComparator);
 
-      writeCalendarFile(username, result);
+        writeCalendarFile(username, result);
 
-      resolve();
+        resolve();
+    } else {
+            reject("Die Eingaben waren fehlerhaft! Bitte versuchen sie es erneut.");
+        }
     });
   });
 };

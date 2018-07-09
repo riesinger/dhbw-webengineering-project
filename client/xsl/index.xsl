@@ -16,6 +16,7 @@
 	<xsl:include href="navButtons.xsl"/>
 	<xsl:include href="event.xsl"/>
 	<xsl:include href="emptyTemplates.xsl"/>
+	<xsl:include href="error.xsl"/>
 
 	<xsl:template match="/">
 		<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">

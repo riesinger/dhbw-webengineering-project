@@ -3,7 +3,11 @@
   <user>
     <username>test1</username>
     <password>123456</password>
+<<<<<<< HEAD
     <token>uirgwci9wobj7zs02m86</token>
+=======
+    <token>8sqbe31wuqgxcm7esk8wh</token>
+>>>>>>> 85adc23f9f4a13a90b949fe17377caf2f958a375
   </user>
   <user>
     <username>test2</username>
