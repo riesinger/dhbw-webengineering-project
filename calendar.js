@@ -92,7 +92,8 @@ exports.addEventToCalendar = (username, eventDetails) => {
             Number(result.calendar.nextEventID[0]) + 1;
 
         if (eventDetails.endTimeHour > eventDetails.startTimeMinute ||
-            (eventDetails.endTimeHour == eventDetails.startTimeHour && eventDetails.endTimeMinute > eventDetails.startTimeMinute)) {
+            (eventDetails.endTimeHour == eventDetails.startTimeHour && eventDetails.endTimeMinute > eventDetails.startTimeMinute)||
+            eventDetails.name == null){
 
         let eventArray = result.calendar.events[0].event;
         eventArray.push({
@@ -131,7 +132,7 @@ exports.addEventToCalendar = (username, eventDetails) => {
 
         resolve();
     } else {
-            reject("Validation failed!");
+            reject("Die Eingaben waren fehlerhaft! Bitte versuchen sie es erneut.");
         }
     });
   });

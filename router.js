@@ -54,7 +54,7 @@ async function sendErrorMessage(req, res, err){
     const selectedDate = getSelectedDate(req);
     const oEvents = await calendar.getEvents(req.user, selectedDate);
     sendCalendar(res, oEvents, selectedDate.dispForm, {
-        error: { err },
+        errorWindow: { err },
         ...selectedDate
     });
 }
@@ -161,7 +161,8 @@ exports.setup = function() {
       })
       .then(
         res => {
-          console.log("Event successfully added!");
+            const date = getSelectedDate(req);
+            res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
         },
         err => {
           console.error(err);
@@ -169,8 +170,6 @@ exports.setup = function() {
         }
       );
 
-		const date = getSelectedDate(req);
-    res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
   });
 
   app.post("/editEvent",async (req,res) => {
@@ -207,16 +206,14 @@ exports.setup = function() {
                 endTimeHour: Number(endTime[0]),
                 endTimeMinute: Number(endTime[1])
             }).then((res) => {
-                console.log("Changed event successfully!");
+                const date = getSelectedDate(req);
+                res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
             }, (err) => {
                 console.error(err);
                 sendErrorMessage(req, res, err);
+                return;
             });
         }
-        
-      const date = getSelectedDate(req);
-      res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
-
 	});
 
   app.get("/newEvent", async (req, res) => {
