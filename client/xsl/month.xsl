@@ -122,22 +122,6 @@
 					<xsl:apply-templates select="." mode="calendar__event">
 						<xsl:with-param name="isMonthEvent" select="true()"/>
 					</xsl:apply-templates>
-					<!--
-					<a class="month-anchor">
-						<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of
-							select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
-						</xsl:attribute>
-						<div class="month-event">
-							<xsl:value-of select="name"/>
-							<a>
-								<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of
-									select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
-								</xsl:attribute>
-								<img class="event-icon-month" src="/images/trash_white.svg" alt="Ereignis löschen"/>
-							</a>
-						</div>
-					</a>
-					-->
 				</xsl:for-each>
 			</div>
 		</div>
