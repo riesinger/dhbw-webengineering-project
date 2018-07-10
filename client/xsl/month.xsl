@@ -3,6 +3,8 @@
 	<xsl:output method="xml" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.1//EN"
 	            doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"/>
 
+	<xsl:include href="event.xsl"/>
+
 	<xsl:template match="month">
 		<div class="month-container">
 			<div class="header fixed">
@@ -117,20 +119,9 @@
 			</div>
 			<div class="event-container">
 				<xsl:for-each select="events/event[startdate/@day=$start]">
-					<a class="month-anchor">
-						<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of
-							select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
-						</xsl:attribute>
-						<div class="month-event">
-							<xsl:value-of select="name"/>
-							<a>
-								<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of
-									select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
-								</xsl:attribute>
-								<img class="event-icon-month" src="/images/trash_white.svg" alt="Ereignis löschen"/>
-							</a>
-						</div>
-					</a>
+					<xsl:apply-templates select="." mode="calendar__event">
+						<xsl:with-param name="isMonthEvent" select="true()"/>
+					</xsl:apply-templates>
 				</xsl:for-each>
 			</div>
 		</div>

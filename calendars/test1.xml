@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE calendar SYSTEM "dtd/calendar.dtd">
 <calendar>
-  <nextEventID>105</nextEventID>
+  <nextEventID>110</nextEventID>
   <events>
     <event ID="51">
       <name>Test Termin 5</name>
@@ -86,6 +86,27 @@
       <location/>
       <startdate year="2018" month="7" day="9" hour="17" minute="53"/>
       <enddate year="2018" month="7" day="9" hour="18" minute="0"/>
+    </event>
+    <event ID="109">
+      <name>Test Grün</name>
+      <description>Test für farbe:grün</description>
+      <location>Uni</location>
+      <startdate year="2018" month="7" day="10" hour="13" minute="14"/>
+      <enddate year="2018" month="7" day="10" hour="19" minute="4"/>
+    </event>
+    <event ID="105">
+      <name>Test Blau</name>
+      <description>Das ist ein Test für farbe:blau</description>
+      <location>Uni</location>
+      <startdate year="2018" month="7" day="11" hour="10" minute="15"/>
+      <enddate year="2018" month="7" day="11" hour="13" minute="0"/>
+    </event>
+    <event ID="107">
+      <name>Test Rot</name>
+      <description>Test für farbe:rot</description>
+      <location>Uni</location>
+      <startdate year="2018" month="9" day="10" hour="5" minute="15"/>
+      <enddate year="2018" month="9" day="10" hour="11" minute="0"/>
     </event>
   </events>
 </calendar>
