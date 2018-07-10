@@ -15,13 +15,62 @@
 			</div>
 			<div class="calendar__header__legend__padding"/>
 			<div class="calendar__header" style="padding-left: 10px; padding-right: 10px;">
-				<h3>Montag</h3>
-				<h3>Dienstag</h3>
-				<h3>Mittwoch</h3>
-				<h3>Donnerstag</h3>
-				<h3>Freitag</h3>
-				<h3>Samstag</h3>
-				<h3>Sonntag</h3>
+				<h3>
+					<xsl:if test="(currentDate/@dow)=1">
+						<xsl:attribute name="class">
+							current-day
+						</xsl:attribute>
+					</xsl:if>
+					Montag
+				</h3>
+				<h3>
+					<xsl:if test="(currentDate/@dow)=2">
+						<xsl:attribute name="class">
+							current-day
+						</xsl:attribute>
+					</xsl:if>
+					Dienstag
+				</h3>
+				<h3>
+					<xsl:if test="(currentDate/@dow)=3">
+						<xsl:attribute name="class">
+							current-day
+						</xsl:attribute>
+					</xsl:if>
+					Mittwoch
+				</h3>
+				<h3>
+					<xsl:if test="(currentDate/@dow)=4">
+						<xsl:attribute name="class">
+							current-day
+						</xsl:attribute>
+					</xsl:if>
+					Donnerstag
+				</h3>
+				<h3>
+					<xsl:if test="(currentDate/@dow)=5">
+						<xsl:attribute name="class">
+							current-day
+						</xsl:attribute>
+					</xsl:if>
+					Freitag
+				</h3>
+				<h3>
+					<xsl:if test="(currentDate/@dow)=6">
+						<xsl:attribute name="class">
+							current-day
+						</xsl:attribute>
+					</xsl:if>
+					Samstag
+				</h3>
+				<h3>
+					<xsl:if test="(currentDate/@dow)=7">
+						<xsl:attribute name="class">
+							current-day
+						</xsl:attribute>
+					</xsl:if>
+					Sonntag
+				</h3>
 			</div>
 			<div class="calendar__body month">
 
