@@ -145,3 +145,7 @@ button {
 	margin-left: 48px;
 	height: 30px;
 }
+
+a {
+	text-decoration: none;
+}

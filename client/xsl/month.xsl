@@ -3,6 +3,8 @@
 	<xsl:output method="xml" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.1//EN"
 	            doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"/>
 
+	<xsl:include href="event.xsl"/>
+
 	<xsl:template match="month">
 		<div class="month-container">
 			<div class="header fixed">
@@ -117,6 +119,10 @@
 			</div>
 			<div class="event-container">
 				<xsl:for-each select="events/event[startdate/@day=$start]">
+					<xsl:apply-templates select="." mode="calendar__event">
+						<xsl:with-param name="isMonthEvent" select="true()"/>
+					</xsl:apply-templates>
+					<!--
 					<a class="month-anchor">
 						<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of
 							select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
@@ -131,6 +137,7 @@
 							</a>
 						</div>
 					</a>
+					-->
 				</xsl:for-each>
 			</div>
 		</div>
