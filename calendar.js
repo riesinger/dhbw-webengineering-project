@@ -81,7 +81,7 @@ function eventDateComparator(a, b) {
   }
 }
 
-exports.addEventToCalendar = (username, eventDetails) => {
+exports.addEventToCalendar = (username, eventDetails, response) => {
   return new Promise((resolve, reject) => {
     xml.parseString(getCalendarFile(username), (err, result) => {
         if (err != null) {
@@ -92,9 +92,10 @@ exports.addEventToCalendar = (username, eventDetails) => {
         result.calendar.nextEventID[0] =
             Number(result.calendar.nextEventID[0]) + 1;
 
-        if (eventDetails.endTimeHour > eventDetails.startTimeMinute ||
-            (eventDetails.endTimeHour == eventDetails.startTimeHour && eventDetails.endTimeMinute > eventDetails.startTimeMinute)||
-            eventDetails.name == null){
+        var startDate = new Date(eventDetails.startDateYear, eventDetails.startDateMonth, eventDetails.startDateDay, eventDetails.startTimeHour, eventDetails.startTimeMinute);
+        var endDate = new Date(eventDetails.endDateYear, eventDetails.endDateMonth, eventDetails.endDateDay, eventDetails.endTimeHour, eventDetails.endTimeMinute);
+
+        if (endDate.getTime() >= startDate.getTime() && endDate.getDay() == startDate.getDay() && eventDetails.name != null){
 
         let eventArray = result.calendar.events[0].event;
         eventArray.push({
@@ -131,7 +132,7 @@ exports.addEventToCalendar = (username, eventDetails) => {
 
         writeCalendarFile(username, result);
 
-        resolve();
+        resolve(response);
     } else {
             reject("Die Eingaben waren fehlerhaft! Bitte versuchen sie es erneut.");
         }

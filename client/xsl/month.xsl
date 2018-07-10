@@ -15,13 +15,62 @@
 			</div>
 			<div class="calendar__header__legend__padding"/>
 			<div class="calendar__header" style="padding-left: 10px; padding-right: 10px;">
-				<h3>Montag</h3>
-				<h3>Dienstag</h3>
-				<h3>Mittwoch</h3>
-				<h3>Donnerstag</h3>
-				<h3>Freitag</h3>
-				<h3>Samstag</h3>
-				<h3>Sonntag</h3>
+				<h3>
+					<xsl:if test="(currentDate/@dow)=1">
+						<xsl:attribute name="class">
+							current-day
+						</xsl:attribute>
+					</xsl:if>
+					Montag
+				</h3>
+				<h3>
+					<xsl:if test="(currentDate/@dow)=2">
+						<xsl:attribute name="class">
+							current-day
+						</xsl:attribute>
+					</xsl:if>
+					Dienstag
+				</h3>
+				<h3>
+					<xsl:if test="(currentDate/@dow)=3">
+						<xsl:attribute name="class">
+							current-day
+						</xsl:attribute>
+					</xsl:if>
+					Mittwoch
+				</h3>
+				<h3>
+					<xsl:if test="(currentDate/@dow)=4">
+						<xsl:attribute name="class">
+							current-day
+						</xsl:attribute>
+					</xsl:if>
+					Donnerstag
+				</h3>
+				<h3>
+					<xsl:if test="(currentDate/@dow)=5">
+						<xsl:attribute name="class">
+							current-day
+						</xsl:attribute>
+					</xsl:if>
+					Freitag
+				</h3>
+				<h3>
+					<xsl:if test="(currentDate/@dow)=6">
+						<xsl:attribute name="class">
+							current-day
+						</xsl:attribute>
+					</xsl:if>
+					Samstag
+				</h3>
+				<h3>
+					<xsl:if test="(currentDate/@dow)=7">
+						<xsl:attribute name="class">
+							current-day
+						</xsl:attribute>
+					</xsl:if>
+					Sonntag
+				</h3>
 			</div>
 			<div class="calendar__body month">
 
@@ -66,22 +115,24 @@
 			<div class="month-date">
 				<xsl:value-of select="$start"/>.<xsl:value-of select="firstDate/@month"/>.
 			</div>
-			<xsl:for-each select="events/event[startdate/@day=$start]">
-				<a class="month-anchor">
-					<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of
-						select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
-					</xsl:attribute>
-					<div class="month-event">
-						<xsl:value-of select="name"/>
-						<a>
-							<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of
-								select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
-							</xsl:attribute>
-							<img class="event-icon-month" src="/images/trash_white.svg" alt="Ereignis löschen"/>
-						</a>
-					</div>
-				</a>
-			</xsl:for-each>
+			<div class="event-container">
+				<xsl:for-each select="events/event[startdate/@day=$start]">
+					<a class="month-anchor">
+						<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of
+							select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
+						</xsl:attribute>
+						<div class="month-event">
+							<xsl:value-of select="name"/>
+							<a>
+								<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of
+									select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
+								</xsl:attribute>
+								<img class="event-icon-month" src="/images/trash_white.svg" alt="Ereignis löschen"/>
+							</a>
+						</div>
+					</a>
+				</xsl:for-each>
+			</div>
 		</div>
 		<xsl:if test="($start+1)&lt;($stop+1)">
 			<xsl:call-template name="loop_div_days">

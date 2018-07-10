@@ -28,7 +28,14 @@
 .month-date {
 	font-weight: bold;
 	position: relative;
-	top: .5rem;
+	top: 1vh;
+}
+
+.event-container {
+	overflow: auto;
+	position: relative;
+	top: 1vh;
+	height: 13vh;
 }
 
 .month-event {
