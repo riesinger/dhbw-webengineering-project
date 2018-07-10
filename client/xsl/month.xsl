@@ -8,7 +8,7 @@
 	<xsl:template match="month">
 		<div class="month-container">
 			<div class="header fixed">
-				<h1>Mein Kalender</h1>
+				<h1>Kalender 42</h1>
 				<h2>- <xsl:value-of select="firstDate/@day"/>.<xsl:value-of select="firstDate/@month"/>.
 					bis <xsl:value-of select="lastDate/@day"/>.<xsl:value-of
 						select="lastDate/@month"/>.
