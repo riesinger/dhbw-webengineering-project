@@ -5,6 +5,7 @@
 
 const utils = require("./utils");
 const fs = require("fs");
+const crypto = require('crypto');
 const xml = require("xml2js");
 const xmlBuilder = new xml.Builder();
 
@@ -58,14 +59,16 @@ exports.getUsers = function() {
 	return users;
 };
 
-exports.addUser = function(user) {
-	users.push(user);
+exports.addUser = function(username, password) {
+	const hash = crypto.createHash("md5").update(password).digest("hex");
+	users.push(new User(username, hash, ""));
 	writeUsers();
 };
 
 exports.checkCredentials = function(username, password) {
-	let user = users.find(el => el.username === username );
-	if (user !== undefined && user.password === password) {
+	const hash = crypto.createHash("md5").update(password).digest("hex");
+	let user = users.find(el => el.username === username);
+	if (user !== undefined && user.password === hash) {
 		let randString = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 		user.token = randString;
 		writeUsers();
