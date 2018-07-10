@@ -23,7 +23,7 @@
 							<xsl:when test="currentDate/@dow = 6">Samstag</xsl:when>
 							<xsl:when test="currentDate/@dow = 7">Sonntag</xsl:when>
 						</xsl:choose>
-						-
+						<xsl:text> </xsl:text>
 						<xsl:value-of select="currentDate/@day"/>.<xsl:value-of select="currentDate/@month"/>.</h3>
 				</div>
 				<div class="calendar__body">
