@@ -251,3 +251,6 @@ exports.getEvents = async (username, date) => {
 	}
 };
 
+exports.newCalendarForUser = (username) => {
+  fs.createReadStream("calendars/template.xml").pipe(fs.createWriteStream("calendars/" + username + ".xml"));
+};

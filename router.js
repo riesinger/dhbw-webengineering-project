@@ -14,10 +14,17 @@ const app = express();
 function sendCalendar(res, events, dispForm, injectTags) {
   res.setHeader("Content-Type", "text/xml");
   try {
-		let sendObject = { calendar: { meta: injectTags } };
-		sendObject.calendar[dispForm] = events;
+    let sendObject = { calendar: { meta: injectTags } };
+    sendObject.calendar[dispForm] = events;
     const s = xmlBuilder.buildObject(sendObject);
-    res.send(utils.injectXSLT_DTD(s, "index.xsl", "calendar", "generated_" + dispForm + ".dtd"));
+    res.send(
+      utils.injectXSLT_DTD(
+        s,
+        "index.xsl",
+        "calendar",
+        "generated_" + dispForm + ".dtd"
+      )
+    );
   } catch (err) {
     console.error(err);
     res.sendStatus(500);
@@ -36,13 +43,13 @@ function getSelectedDate(req) {
   }
 }
 
-async function sendErrorMessage(req, res, err){
-    const selectedDate = getSelectedDate(req);
-    const oEvents = await calendar.getEvents(req.user, selectedDate);
-    sendCalendar(res, oEvents, selectedDate.dispForm, {
-        errorWindow: { err },
-        ...selectedDate
-    });
+async function sendErrorMessage(req, res, err) {
+  const selectedDate = getSelectedDate(req);
+  const oEvents = await calendar.getEvents(req.user, selectedDate);
+  sendCalendar(res, oEvents, selectedDate.dispForm, {
+    errorWindow: { err },
+    ...selectedDate
+  });
 }
 
 exports.setup = function() {
@@ -51,7 +58,13 @@ exports.setup = function() {
   app.use(cookieParser());
 
   app.use((req, res, next) => {
-    if (req.path === "/login" || req.path.indexOf("css") > -1 || req.path.indexOf("dtd") > -1) return next();
+    if (
+      req.path === "/login" ||
+      req.path === "/addUser" ||
+      req.path.indexOf("css") > -1 ||
+      req.path.indexOf("dtd") > -1
+    )
+      return next();
 
     let cookie = req.cookies.token;
     if (cookie) {
@@ -101,7 +114,7 @@ exports.setup = function() {
     res.sendFile(path.join(__dirname, "client", "login.html"));
   });
 
-  app.get("/logout", async (req, res)=> {
+  app.get("/logout", async (req, res) => {
     res.cookie("token", "");
     res.redirect("/login");
   });
@@ -122,92 +135,121 @@ exports.setup = function() {
     }
   });
 
+  app.post("/addUser", async (req, res) => {
+    console.log("Add new user " + req.body.username);
+    users.addUser(req.body.username, req.body.password);
+    calendar.newCalendarForUser(req.body.username);
+
+    let token = users.checkCredentials(req.body.username, req.body.password);
+    if (token === "") {
+      console.error("Wrong credentials!");
+      res.cookie("token", "");
+      res.redirect("/login");
+    } else {
+      console.log("Successfull authentication: Set cookie and redirect to /");
+      res.cookie("token", token, {
+        expires: new Date(253402300000000),
+        httpOnly: true
+      });
+      res.redirect("/");
+    }
+  });
+
   app.post("/addEvent", (req, res) => {
     const startDate = req.body.eventStartDate.split("-");
     const endDate = req.body.eventEndDate.split("-");
     const startTime = req.body.eventStartTime.split(":");
-	  const endTime = req.body.eventEndTime.split(":");
+    const endTime = req.body.eventEndTime.split(":");
 
-	  let loc = req.body.eventLocation;
-	  if(loc == null) loc = "";
+    let loc = req.body.eventLocation;
+    if (loc == null) loc = "";
 
-	  let desc = req.body.eventDescription;
-	  if(desc == null) desc = "";
-
+    let desc = req.body.eventDescription;
+    if (desc == null) desc = "";
 
     calendar
-      .addEventToCalendar(req.user, {
-        name: req.body.eventName,
-        description: desc,
-        location: loc,
-        startDateDay: Number(startDate[2]),
-        startDateMonth: Number(startDate[1]),
-        startDateYear: Number(startDate[0]),
-        startTimeHour: Number(startTime[0]),
-        startTimeMinute: Number(startTime[1]),
-        endDateDay: Number(endDate[2]),
-        endDateMonth: Number(endDate[1]),
-        endDateYear: Number(endDate[0]),
-        endTimeHour: Number(endTime[0]),
-        endTimeMinute: Number(endTime[1])
-      }, res)
+      .addEventToCalendar(
+        req.user,
+        {
+          name: req.body.eventName,
+          description: desc,
+          location: loc,
+          startDateDay: Number(startDate[2]),
+          startDateMonth: Number(startDate[1]),
+          startDateYear: Number(startDate[0]),
+          startTimeHour: Number(startTime[0]),
+          startTimeMinute: Number(startTime[1]),
+          endDateDay: Number(endDate[2]),
+          endDateMonth: Number(endDate[1]),
+          endDateYear: Number(endDate[0]),
+          endTimeHour: Number(endTime[0]),
+          endTimeMinute: Number(endTime[1])
+        },
+        res
+      )
       .then(
         res => {
-            const date = getSelectedDate(req);
-            res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
+          const date = getSelectedDate(req);
+          res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
         },
         err => {
           console.error(err);
           sendErrorMessage(req, res, err);
         }
       );
-
   });
 
-  app.post("/editEvent",async (req,res) => {
+  app.post("/editEvent", async (req, res) => {
     console.log("Getting change on calender for user " + req.user);
-        let eventID = req.query.eventID;
-        console.log("Event ID: "  + eventID);
-        if (eventID) {
-            await calendar.removeEventFromCalendar(req.user, eventID);
+    let eventID = req.query.eventID;
+    console.log("Event ID: " + eventID);
+    if (eventID) {
+      await calendar.removeEventFromCalendar(req.user, eventID);
 
-            var startDate = req.body.eventStartDate.split('-');
-            var endDate = req.body.eventEndDate.split('-');
-            var startTime = req.body.eventStartTime.split(":");
-            var endTime = req.body.eventEndTime.split(":");
+      var startDate = req.body.eventStartDate.split("-");
+      var endDate = req.body.eventEndDate.split("-");
+      var startTime = req.body.eventStartTime.split(":");
+      var endTime = req.body.eventEndTime.split(":");
 
-            var loc = req.body.eventLocation;
-            if(loc == null) loc = "";
+      var loc = req.body.eventLocation;
+      if (loc == null) loc = "";
 
-            var desc = req.body.eventDescription;
-            if(desc == null) desc = "";
+      var desc = req.body.eventDescription;
+      if (desc == null) desc = "";
 
-            await calendar.addEventToCalendar(req.user, {
-                name: req.body.eventName,
-                description: desc,
-                location: loc,
-                startDateDay: Number(startDate[2]),
-                startDateMonth: Number(startDate[1]),
-                startDateYear: Number(startDate[0]),
-                startTimeHour: Number(startTime[0]),
-                startTimeMinute: Number(startTime[1]),
-                endDateDay: Number(endDate[2]),
-                endDateMonth: Number(endDate[1]),
-                endDateYear: Number(endDate[0]),
-                endTimeHour: Number(endTime[0]),
-                endTimeMinute: Number(endTime[1])
-            }, res)
-            .then(
-                (res) => {
-                const date = getSelectedDate(req);
-                res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
-            }, (err) => {
-                console.error(err);
-                sendErrorMessage(req, res, err);
-                return;
-            });
-        }
-	});
+      await calendar
+        .addEventToCalendar(
+          req.user,
+          {
+            name: req.body.eventName,
+            description: desc,
+            location: loc,
+            startDateDay: Number(startDate[2]),
+            startDateMonth: Number(startDate[1]),
+            startDateYear: Number(startDate[0]),
+            startTimeHour: Number(startTime[0]),
+            startTimeMinute: Number(startTime[1]),
+            endDateDay: Number(endDate[2]),
+            endDateMonth: Number(endDate[1]),
+            endDateYear: Number(endDate[0]),
+            endTimeHour: Number(endTime[0]),
+            endTimeMinute: Number(endTime[1])
+          },
+          res
+        )
+        .then(
+          res => {
+            const date = getSelectedDate(req);
+            res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
+          },
+          err => {
+            console.error(err);
+            sendErrorMessage(req, res, err);
+            return;
+          }
+        );
+    }
+  });
 
   app.get("/newEvent", async (req, res) => {
     try {
@@ -227,12 +269,12 @@ exports.setup = function() {
     let eventID = req.query.eventID;
     if (eventID) {
       try {
-				const selectedDate = getSelectedDate(req);
-				const oEvents = await calendar.getEvents(req.user, selectedDate);
-				sendCalendar(res, oEvents, selectedDate.dispForm, {
-					showEvent: { ID: eventID },
-					...selectedDate
-				});
+        const selectedDate = getSelectedDate(req);
+        const oEvents = await calendar.getEvents(req.user, selectedDate);
+        sendCalendar(res, oEvents, selectedDate.dispForm, {
+          showEvent: { ID: eventID },
+          ...selectedDate
+        });
       } catch (err) {
         console.error(err);
         res.statusCode(500);
@@ -253,24 +295,24 @@ exports.setup = function() {
     res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
   });
 
-    app.get("/editEvent", async (req, res) => {
-        try {
-            let eventID = req.query.eventID;
-            if(eventID) {
-                const selectedDate = getSelectedDate(req);
-                const oEvents = await calendar.getEvents(req.user, selectedDate);
-                sendCalendar(res, oEvents, selectedDate.dispForm, {
-                    editEvent: { ID: eventID },
-                    ...selectedDate
-                });
-            } else {
-                res.redirect("/");
-            }
-        } catch (err) {
-            console.error(err);
-            res.statusCode(500);
-        }
-    });
+  app.get("/editEvent", async (req, res) => {
+    try {
+      let eventID = req.query.eventID;
+      if (eventID) {
+        const selectedDate = getSelectedDate(req);
+        const oEvents = await calendar.getEvents(req.user, selectedDate);
+        sendCalendar(res, oEvents, selectedDate.dispForm, {
+          editEvent: { ID: eventID },
+          ...selectedDate
+        });
+      } else {
+        res.redirect("/");
+      }
+    } catch (err) {
+      console.error(err);
+      res.statusCode(500);
+    }
+  });
 };
 
 exports.start = function() {
