@@ -46,10 +46,10 @@ Falls dies noch nicht geschehen ist, wird man automatisch auf die Anmeldeseite w
 Für Testzwecke werden mit der Installation zwei Benutzerkonten mitgeliefert, welche die folgenden
 Zugangsdaten haben:
 
-Nutzername | Passwort
-:---------:| :------:
-test1      | 123456
-test2      | 123456
+Nutzername | Passwort | Hash
+:---------:| :------: | :-------------------------------:
+test1      | 123456   | e10adc3949ba59abbe56e057f20f883e
+test2      | 123456   | e10adc3949ba59abbe56e057f20f883e
 
 ## Erläuterungen zum Backend
 
