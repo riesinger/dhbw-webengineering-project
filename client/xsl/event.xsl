@@ -21,17 +21,32 @@
 					<xsl:when test="contains(description, 'farbe:rot')">background-color: #E83151; </xsl:when>
 				</xsl:choose></xsl:attribute>
 				<div class="calendar__event__title">
-					<xsl:choose>
-						<xsl:when test="contains(name, 'Einkaufen') or contains(name, 'einkaufen')">
-							<img class="event-icon" src="/images/cart_white.svg" alt="Bild eines Einkaufswagens"/>
-						</xsl:when>
-						<xsl:when test="contains(name, 'Kino') or contains(name, 'kino')">
-							<img class="event-icon" src="/images/popcorn_inverted.svg" alt="Bild eines Popcorneimers"/>
-						</xsl:when>
-						<xsl:when test="contains(name, 'Essen') or contains(name, 'essen')">
-							<img class="event-icon" src="/images/food_white.svg" alt="Bild von Essen"/>
-						</xsl:when>
-					</xsl:choose>
+					<xsl:if test="contains(description, 'icon:')">
+						<xsl:choose>
+							<xsl:when test="contains(description, 'icon:einkaufen')">
+								<img class="event-icon" src="/images/cart_white.svg" alt="Bild eines Einkaufswagens"/>
+							</xsl:when>
+							<xsl:when test="contains(description, 'icon:kino')">
+								<img class="event-icon" src="/images/popcorn_inverted.svg" alt="Bild eines Popcorneimers"/>
+							</xsl:when>
+							<xsl:when test="contains(description, 'icon:essen')">
+								<img class="event-icon" src="/images/food_white.svg" alt="Bild von Essen"/>
+							</xsl:when>
+						</xsl:choose>
+					</xsl:if>
+					<xsl:if test="contains(description, 'icon:') = false()">
+						<xsl:choose>
+							<xsl:when test="contains(name, 'Einkaufen') or contains(name, 'einkaufen')">
+								<img class="event-icon" src="/images/cart_white.svg" alt="Bild eines Einkaufswagens"/>
+							</xsl:when>
+							<xsl:when test="contains(name, 'Kino') or contains(name, 'kino')">
+								<img class="event-icon" src="/images/popcorn_inverted.svg" alt="Bild eines Popcorneimers"/>
+							</xsl:when>
+							<xsl:when test="contains(name, 'Essen') or contains(name, 'essen')">
+								<img class="event-icon" src="/images/food_white.svg" alt="Bild von Essen"/>
+							</xsl:when>
+						</xsl:choose>
+					</xsl:if>
 					<xsl:value-of select="name"/>
 					<a>
 						<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
