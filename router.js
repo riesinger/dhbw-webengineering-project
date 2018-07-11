@@ -60,6 +60,7 @@ exports.setup = function() {
   app.use((req, res, next) => {
     if (
       req.path === "/login" ||
+      req.path === "/register" ||
       req.path === "/addUser" ||
       req.path.indexOf("css") > -1 ||
       req.path.indexOf("dtd") > -1
@@ -112,6 +113,10 @@ exports.setup = function() {
 
   app.get("/login", async (req, res) => {
     res.sendFile(path.join(__dirname, "client", "login.html"));
+  });
+
+  app.get("/register", async (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "register.html"));
   });
 
   app.get("/logout", async (req, res) => {
