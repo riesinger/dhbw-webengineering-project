@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE calendar SYSTEM "dtd/calendar.dtd">
 <calendar>
-  <nextEventID>0</nextEventID>
+  <nextEventID>1</nextEventID>
   <events>
+    <event ID="0">
+      <name>The Holy Year</name>
+      <description>This is were everything started...</description>
+      <location>Everywhere</location>
+      <startdate year="42" month="2" day="4" hour="0" minute="42"/>
+      <enddate year="42" month="2" day="4" hour="23" minute="42"/>
+    </event>
   </events>
 </calendar>
