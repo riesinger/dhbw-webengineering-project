@@ -59,6 +59,15 @@ exports.getUsers = function() {
 	return users;
 };
 
+exports.existsUser = function(username) {
+	let user = users.find(el => el.username === username);
+	if (user) {
+		return true;
+	} else {
+		return false;
+	}
+};
+
 exports.addUser = function(username, password) {
 	const hash = crypto.createHash("md5").update(password).digest("hex");
 	users.push(new User(username, hash, ""));

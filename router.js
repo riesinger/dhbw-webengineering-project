@@ -142,8 +142,10 @@ exports.setup = function() {
 
   app.post("/addUser", async (req, res) => {
     console.log("Add new user " + req.body.username);
-    users.addUser(req.body.username, req.body.password);
-    calendar.newCalendarForUser(req.body.username);
+    if (!users.existsUser(req.body.username)) {
+      users.addUser(req.body.username, req.body.password);
+      calendar.newCalendarForUser(req.body.username);
+    }
 
     let token = users.checkCredentials(req.body.username, req.body.password);
     if (token === "") {
