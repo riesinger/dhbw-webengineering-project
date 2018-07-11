@@ -274,5 +274,5 @@ exports.setup = function() {
 };
 
 exports.start = function() {
-  app.listen(9991, () => console.log("Listening on http://127.0.0.1:9991"));
+  app.listen(4242, () => console.log("Listening on http://127.0.0.1:4242"));
 };

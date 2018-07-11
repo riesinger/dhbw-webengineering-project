@@ -2,13 +2,24 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
 	<xsl:output method="xml" doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
 	<xsl:template match="event" mode="calendar__event">
+		<xsl:param name="isMonthEvent" select="false()"/>
 		<xsl:variable name="evtLengthMinutes" select="number(startdate/@minute) - number(enddate/@minute)"/>
 		<xsl:variable name="evtLengthHour" select="number(enddate/@hour) - number(startdate/@hour)"/>
 		<a>
-			<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
+			<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of
+			select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
 			<div class="calendar__event">
-				<xsl:attribute name="style">top: <xsl:value-of select="(startdate/@hour * 4) + (startdate/@minute * 0.0666666)"/>rem; height: <xsl:value-of
-					select="string(($evtLengthHour * 4) + ((($evtLengthMinutes * ($evtLengthMinutes >= 0) - $evtLengthMinutes * ($evtLengthMinutes &lt; 0))) * 0.0666666))"/>rem;</xsl:attribute>
+				<xsl:attribute name="style">
+					<xsl:if test="$isMonthEvent = false()">top: <xsl:value-of
+					select="(startdate/@hour * 4) + (startdate/@minute * 0.0666666)"/>rem; height: <xsl:value-of
+					select="string(($evtLengthHour * 4) + ((($evtLengthMinutes * ($evtLengthMinutes >= 0) -
+						$evtLengthMinutes * ($evtLengthMinutes &lt; 0))) * 0.0666666))"/>rem;</xsl:if>
+					<xsl:if test="$isMonthEvent = true()">position:relative;</xsl:if>
+					<xsl:choose>
+					<xsl:when test="contains(description, 'farbe:grün')">background-color: #2CEAA3; color: #000;</xsl:when>
+					<xsl:when test="contains(description, 'farbe:blau')">background-color: #7CFEF0; color: #000;</xsl:when>
+					<xsl:when test="contains(description, 'farbe:rot')">background-color: #E83151; </xsl:when>
+				</xsl:choose></xsl:attribute>
 				<div class="calendar__event__title">
 					<xsl:if test="contains(description, 'icon:')">
 						<xsl:choose>

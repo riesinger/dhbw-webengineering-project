@@ -4,7 +4,7 @@
 	<xsl:template match="day">
 		<div>
 			<div class="header fixed">
-				<h1>Mein Kalender</h1>
+				<h1>Kalender 42</h1>
 				<h2>- <xsl:value-of select="firstDate/@day"/>.<xsl:value-of select="firstDate/@month"/>.
 				bis <xsl:value-of select="lastDate/@day"/>.<xsl:value-of
 					select="lastDate/@month"/>.</h2>
@@ -23,7 +23,7 @@
 							<xsl:when test="currentDate/@dow = 6">Samstag</xsl:when>
 							<xsl:when test="currentDate/@dow = 7">Sonntag</xsl:when>
 						</xsl:choose>
-						-
+						<xsl:text> </xsl:text>
 						<xsl:value-of select="currentDate/@day"/>.<xsl:value-of select="currentDate/@month"/>.</h3>
 				</div>
 				<div class="calendar__body">
