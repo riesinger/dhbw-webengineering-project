@@ -16,16 +16,16 @@
                             <tr>
                                 <td>Von</td>
                                 <td><input type="date" name="eventStartDate" required="required">
-                                    <xsl:attribute name="value"><xsl:value-of select="//week/currentDate/@year"/>-<xsl:if test="//week/currentDate/@month &gt; 9"><xsl:value-of select="//week/currentDate/@month"/></xsl:if><xsl:if test="//week/currentDate/@month &lt; 10">0<xsl:value-of select="//week/currentDate/@month"/></xsl:if>-<xsl:if test="//week/currentDate/@day &gt; 9"><xsl:value-of select="//week/currentDate/@day"/></xsl:if><xsl:if test="//week/currentDate/@day &lt; 10">0<xsl:value-of select="//week/currentDate/@day"/></xsl:if></xsl:attribute>
+                                    <xsl:attribute name="value"><xsl:value-of select="//*/currentDate/@year"/>-<xsl:if test="//*/currentDate/@month &gt; 9"><xsl:value-of select="//*/currentDate/@month"/></xsl:if><xsl:if test="//*/currentDate/@month &lt; 10">0<xsl:value-of select="//*/currentDate/@month"/></xsl:if>-<xsl:if test="//*/currentDate/@day &gt; 9"><xsl:value-of select="//*/currentDate/@day"/></xsl:if><xsl:if test="//*/currentDate/@day &lt; 10">0<xsl:value-of select="//*/currentDate/@day"/></xsl:if></xsl:attribute>
                                 </input></td>
                                 <td> um </td>
                                 <td>
                                     <input type="time" name="eventStartTime" required="required">
-                                        <xsl:attribute name="value"><xsl:if test="//week/currentDate/@hour &lt; 10">0<xsl:value-of
-                                                select="//week/currentDate/@hour"/></xsl:if><xsl:if test="//week/currentDate/@hour &gt; 9"><xsl:value-of
-                                                select="//week/currentDate/@hour"/></xsl:if>:<xsl:if test="//week/currentDate/@minute &lt; 10">0<xsl:value-of
-                                                select="//week/currentDate/@minute"/></xsl:if><xsl:if test="//week/currentDate/@minute &gt; 9"><xsl:value-of
-                                                select="//week/currentDate/@minute"/></xsl:if></xsl:attribute>
+                                        <xsl:attribute name="value"><xsl:if test="//*/currentDate/@hour &lt; 10">0<xsl:value-of
+                                                select="//*/currentDate/@hour"/></xsl:if><xsl:if test="//*/currentDate/@hour &gt; 9"><xsl:value-of
+                                                select="//*/currentDate/@hour"/></xsl:if>:<xsl:if test="//*/currentDate/@minute &lt; 10">0<xsl:value-of
+                                                select="//*/currentDate/@minute"/></xsl:if><xsl:if test="//*/currentDate/@minute &gt; 9"><xsl:value-of
+                                                select="//*/currentDate/@minute"/></xsl:if></xsl:attribute>
                                     </input>
                                 </td>
                                 <td>Uhr</td>
@@ -33,7 +33,7 @@
                             <tr>
                                 <td>Bis</td>
                                 <td><input type="date" name="eventEndDate" required="required">
-                                    <xsl:attribute name="value"><xsl:value-of select="//week/currentDate/@year"/>-<xsl:if test="//week/currentDate/@month &gt; 9"><xsl:value-of select="//week/currentDate/@month"/></xsl:if><xsl:if test="//week/currentDate/@month &lt; 10">0<xsl:value-of select="//week/currentDate/@month"/></xsl:if>-<xsl:if test="//week/currentDate/@day &gt; 9"><xsl:value-of select="//week/currentDate/@day"/></xsl:if><xsl:if test="//week/currentDate/@day &lt; 10">0<xsl:value-of select="//week/currentDate/@day"/></xsl:if></xsl:attribute>
+                                    <xsl:attribute name="value"><xsl:value-of select="//*/currentDate/@year"/>-<xsl:if test="//*/currentDate/@month &gt; 9"><xsl:value-of select="//*/currentDate/@month"/></xsl:if><xsl:if test="//*/currentDate/@month &lt; 10">0<xsl:value-of select="//*/currentDate/@month"/></xsl:if>-<xsl:if test="//*/currentDate/@day &gt; 9"><xsl:value-of select="//*/currentDate/@day"/></xsl:if><xsl:if test="//*/currentDate/@day &lt; 10">0<xsl:value-of select="//*/currentDate/@day"/></xsl:if></xsl:attribute>
                                 </input></td>
                                 <td> um </td>
                                 <td>
