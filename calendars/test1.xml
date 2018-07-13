@@ -101,6 +101,13 @@
       <startdate year="2018" month="7" day="11" hour="10" minute="15"/>
       <enddate year="2018" month="7" day="11" hour="13" minute="0"/>
     </event>
+    <event ID="110">
+      <name>Test fix</name>
+      <description>as</description>
+      <location>asd</location>
+      <startdate year="2018" month="7" day="15" hour="14" minute="0"/>
+      <enddate year="2018" month="7" day="15" hour="14" minute="59"/>
+    </event>
     <event ID="107">
       <name>Test Rot</name>
       <description>Test für farbe:rot</description>
