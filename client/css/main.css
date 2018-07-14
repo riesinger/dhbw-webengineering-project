@@ -142,7 +142,12 @@ button {
 	height: 40px;
 }
 
-.header .buttons .logoutButton img{
+.header .buttons .logoutButton img {
+	margin-left: 15px;
+	height: 30px;
+}
+
+.header .buttons .howtoButton img {
 	margin-left: 48px;
 	height: 30px;
 }
