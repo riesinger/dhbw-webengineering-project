@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
-	<xsl:output method="xml" doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
+	<xsl:output method="xml" doctype-public="-//W3C//DTD XHTML 1.1//EN"
+	            doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
+
+	<xsl:strip-space elements="*"/>
+
 	<xsl:template match="day">
 		<div>
 			<div class="header fixed">
 				<h1>Kalender 42</h1>
-				<h2>- <xsl:value-of select="firstDate/@day"/>.<xsl:value-of select="firstDate/@month"/>.
-				bis <xsl:value-of select="lastDate/@day"/>.<xsl:value-of
-					select="lastDate/@month"/>.</h2>
+				<h2>
+					<xsl:text> - </xsl:text>
+					<xsl:value-of select="firstDate/@day"/>
+					<xsl:text>.</xsl:text>
+					<xsl:value-of select="firstDate/@month"/>
+					<xsl:text>. bis </xsl:text>
+					<xsl:value-of select="lastDate/@day"/>
+					<xsl:text>.</xsl:text>
+					<xsl:value-of select="lastDate/@month"/>
+					<xsl:text>.</xsl:text>
+				</h2>
 				<xsl:call-template name="navButtons"/>
 			</div>
 			<div class="calendar">
@@ -24,12 +36,15 @@
 							<xsl:when test="currentDate/@dow = 7">Sonntag</xsl:when>
 						</xsl:choose>
 						<xsl:text> </xsl:text>
-						<xsl:value-of select="currentDate/@day"/>.<xsl:value-of select="currentDate/@month"/>.</h3>
+						<xsl:value-of select="currentDate/@day"/>.<xsl:value-of select="currentDate/@month"/>.
+					</h3>
 				</div>
 				<div class="calendar__body">
 					<xsl:if test="//meta/dateOffset = 0">
 						<div class="current_time_line">
-							<xsl:attribute name="style">top: <xsl:value-of select="(currentDate/@hour * 4) + (currentDate/@minute * 0.0666666)"/>rem;</xsl:attribute>
+							<xsl:attribute name="style">top: <xsl:value-of
+								select="(currentDate/@hour * 4) + (currentDate/@minute * 0.0666666)"/>rem;
+							</xsl:attribute>
 						</div>
 					</xsl:if>
 					<div class="calendar__legend">
@@ -67,7 +82,7 @@
 			</div>
 
 			<script type="text/javascript">
-					window.onload = function () { window.location.hash = "h<xsl:value-of select="currentDate/@hour - 4"/>"; };
+				window.onload = function () { window.location.hash = "h<xsl:value-of select="currentDate/@hour - 4"/>"; };
 			</script>
 		</div>
 	</xsl:template>

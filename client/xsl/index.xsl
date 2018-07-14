@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xsl:stylesheet version="1.0"
-								xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-								xmlns="http://www.w3.org/1999/xhtml">
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns="http://www.w3.org/1999/xhtml">
 
 	<xsl:output method="xml" doctype-public="-//W3C//DTD XHTML 1.1//EN"
-							doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
+	            doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
+	<xsl:strip-space elements="*"/>
 
 	<xsl:include href="newEvent.xsl"/>
-	<xsl:include href="details.xsl"/>
-	<xsl:include href="editEvent.xsl"/>
+	<xsl:include href="details_edit.xsl"/>
 	<xsl:include href="month.xsl"/>
 	<xsl:include href="week.xsl"/>
 	<xsl:include href="day.xsl"/>
@@ -35,19 +35,31 @@
 				<link rel="alternate stylesheet" type="text/css" href="/css/blue.css" title="Blau"/>
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
 				<link rel="shortcut icon" type="image/png" href="/images/icon.png"/>
-				<title>Kalender vom <xsl:value-of select="//firstDate/@day"/>.<xsl:value-of select="//firstDate/@month"/>.
-					bis <xsl:value-of select="//lastDate/@day"/>.<xsl:value-of
-						select="//lastDate/@month"/>.
+				<title>
+					<xsl:text>Kalender vom </xsl:text>
+					<xsl:value-of select="//firstDate/@day"/>
+					<xsl:text>.</xsl:text>
+					<xsl:value-of select="//firstDate/@month"/>
+					<xsl:text>. bis </xsl:text>
+					<xsl:value-of select="//lastDate/@day"/>
+					<xsl:text>.</xsl:text>
+					<xsl:value-of select="//lastDate/@month"/>
+					<xsl:text>.</xsl:text>
 				</title>
 
 			</head>
 			<body>
-				
+
 				<xsl:apply-templates select="/calendar"/>
 
 				<div>
 					<a>
-						<xsl:attribute name="href">\newEvent?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
+						<xsl:attribute name="href">
+							<xsl:text>\newEvent?</xsl:text>
+							<xsl:value-of select="//meta/dispForm"/>
+							<xsl:text>=</xsl:text>
+							<xsl:value-of select="//meta/dateOffset"/>
+						</xsl:attribute>
 						<img src="images/plus_white.svg" class="addButton" alt="Event hinzufügen"/>
 					</a>
 				</div>
