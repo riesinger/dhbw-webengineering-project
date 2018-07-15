@@ -1,7 +1,7 @@
 exports.getFirstDayInWeek = (date, weekOffset) => {
   const d = new Date(date);
   const firstDate = new Date(
-    d.setDate(d.getDate() - d.getDay() + 1 + weekOffset * 7)
+    d.setDate(d.getDate() - d.getDay() + (d.getDay() == 0 ? -6:1) + weekOffset * 7)
   );
   firstDate.setUTCHours(0, 0, 0, 1);
   console.debug("FirstDate is", firstDate.toISOString());
