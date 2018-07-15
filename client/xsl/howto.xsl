@@ -7,7 +7,7 @@
 					<h3>Events einfärben</h3>
 					<p>Sie können einzelne Events mit vordefinierten Farben einfärben.
 						Dazu müssen sie irgendwo in der Beschreibung des Events folgende Syntax verwenden:
-						<i>farbe:grün</i>
+						<em>farbe:grün</em>
 					</p>
 					<p>Folgende Farben sind möglich:
 						<ul>
@@ -20,7 +20,7 @@
 					<p>
 						Sie können statt automatisch zugewiesenen Icons auch von Hand ein Icon angeben. Das angegebene Icon überschreibt das automatisch zugewiesene.
 						Dazu müssen sie irgendwo in der Beschreibung des Events folgende Syntax verwenden:
-						<i>icon:einkaufen</i>
+						<em>icon:einkaufen</em>
 					</p>
 					<p>Folgende Icons sind möglich:
 						<ul>
