@@ -29,6 +29,13 @@
 							<li>essen</li>
 						</ul>
 					</p>
+					<a>
+						<xsl:attribute name="href">/?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
+						</xsl:attribute>
+						<button class="closePopupButton">
+							<img src="/images/x_black.svg" alt="Schließen"/>
+						</button>
+					</a>
 				</div>
     </xsl:template>
 </xsl:stylesheet>
