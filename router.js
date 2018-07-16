@@ -163,10 +163,12 @@ exports.setup = function() {
   });
 
   app.post("/addEvent", (req, res) => {
-    const startDate = req.body.eventStartDate.split("-");
+    let startDate = new Date(req.body.eventStartDate);
     let startTime = req.body.eventStartTime.split(":");
     let endTime = req.body.eventEndTime.split(":");
     const allDayEvent = (req.body.allDayEvent == "on" ? true:false);
+    const reoccuringTimes = req.body.reoccuringTimes;
+    const reoccuringType = req.body.reoccuringType;
 
     if(allDayEvent == true){
       startTime = [0,1];
@@ -179,36 +181,55 @@ exports.setup = function() {
     let desc = req.body.eventDescription;
     if (desc == null) desc = "";
 
-    calendar
-      .addEventToCalendar(
-        req.user,
-        {
-          name: req.body.eventName,
-          description: desc,
-          location: loc,
-          startDateDay: Number(startDate[2]),
-          startDateMonth: Number(startDate[1]),
-          startDateYear: Number(startDate[0]),
-          startTimeHour: Number(startTime[0]),
-          startTimeMinute: Number(startTime[1]),
-          endDateDay: Number(startDate[2]),
-          endDateMonth: Number(startDate[1]),
-          endDateYear: Number(startDate[0]),
-          endTimeHour: Number(endTime[0]),
-          endTimeMinute: Number(endTime[1])
-        },
-        res
-      )
-      .then(
-        res => {
-          const date = getSelectedDate(req);
-          res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
-        },
-        err => {
-          console.error(err);
-          sendErrorMessage(req, res, err);
-        }
-      );
+    let tempAdd;
+
+    switch(reoccuringType){
+          case "week":
+              tempAdd = 7;
+              break;
+
+            default:
+              tempAdd = 1;
+              break;
+      }
+
+    for(let i = 0; i <= reoccuringTimes; i++) {
+      console.log("I: " + i);
+
+      if(i != 0) startDate.setDate(startDate.getDate() + tempAdd);
+
+        calendar
+            .addEventToCalendar(
+                req.user,
+                {
+                    name: req.body.eventName,
+                    description: desc,
+                    location: loc,
+                    startDateDay: Number(startDate.getDate()),
+                    startDateMonth: Number(startDate.getMonth() + 1),
+                    startDateYear: Number(startDate.getFullYear()),
+                    startTimeHour: Number(startTime[0]),
+                    startTimeMinute: Number(startTime[1]),
+                    endDateDay: Number(startDate.getDate()),
+                    endDateMonth: Number(startDate.getMonth() + 1),
+                    endDateYear: Number(startDate.getFullYear()),
+                    endTimeHour: Number(endTime[0]),
+                    endTimeMinute: Number(endTime[1])
+                },
+                res
+            )
+            .then(
+                res => {
+                    const date = getSelectedDate(req);
+                    res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
+                },
+                err => {
+                    console.error(err);
+                    sendErrorMessage(req, res, err);
+                }
+            );
+    }
+
   });
 
   app.post("/editEvent", async (req, res) => {

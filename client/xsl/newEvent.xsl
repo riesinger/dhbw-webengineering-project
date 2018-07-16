@@ -43,6 +43,17 @@
                                 <td>Uhr</td>
                             </tr>
                         </table>
+                        <br/>
+                        <table>
+                            <tr>
+                                <td>Wiederhole</td>
+                                <td><input type="number" name="reoccuringTimes" value="0"></input></td>
+                                <td><select name="reoccuringType">
+                                    <option value="day">Tage</option>
+                                    <option value="week">Wochen</option>
+                                </select></td>
+                            </tr>
+                        </table>
                     </div>
                     <hr/>
                     <div class="newEventFormDiv">
