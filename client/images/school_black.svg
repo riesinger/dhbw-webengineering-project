@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="700" height="700">
+	<title>School</title>
+	<desc>School icon in black</desc>
+
+	<g transform="rotate(45) translate(160 -330)">
+		<rect x="250" y="150" width="150" height="350"/>
+		<rect x="250" y="20" width="150" height="110"/>
+		<polygon points="250,520 400,520 325,660"/>
+	</g>
+</svg>

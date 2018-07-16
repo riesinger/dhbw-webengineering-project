@@ -36,25 +36,25 @@
 								<img class="event-icon" src="/images/birthday_white.svg" alt="Bild eines Geburtstagskuchen"/>
 							</xsl:when>
 							<xsl:when test="contains(description, 'icon:schule')">
-								<img class="event-icon" src="/images/school.svg" alt="Bild eines Stiftes"/>
+								<img class="event-icon" src="/images/school_white.svg" alt="Bild eines Stiftes"/>
 							</xsl:when>
 							<xsl:when test="contains(description, 'icon:universität')">
-								<img class="event-icon" src="/images/school.svg" alt="Bild eines Stiftes"/>
+								<img class="event-icon" src="/images/school_white.svg" alt="Bild eines Stiftes"/>
 							</xsl:when>
 							<xsl:when test="contains(description, 'icon:dhbw')">
-								<img class="event-icon" src="/images/school.svg" alt="Bild eines Stiftes"/>
+								<img class="event-icon" src="/images/school_white.svg" alt="Bild eines Stiftes"/>
 							</xsl:when>
 							<xsl:when test="contains(description, 'icon:vorlesung')">
-								<img class="event-icon" src="/images/school.svg" alt="Bild eines Stiftes"/>
+								<img class="event-icon" src="/images/school_white.svg" alt="Bild eines Stiftes"/>
 							</xsl:when>
 							<xsl:when test="contains(description, 'icon:musik')">
-								<img class="event-icon" src="/images/music.svg" alt="Bild von Kopfhörern"/>
+								<img class="event-icon" src="/images/music_white.svg" alt="Bild von Kopfhörern"/>
 							</xsl:when>
 							<xsl:when test="contains(description, 'icon:film')">
-								<img class="event-icon" src="/images/popcorn.svg" alt="Bild von Popcorn"/>
+								<img class="event-icon" src="/images/popcorn_inverted.svg" alt="Bild von Popcorn"/>
 							</xsl:when>
 							<xsl:when test="contains(description, 'icon:sport')">
-								<img class="event-icon" src="/images/sport.svg" alt="Bild von einer Hantel"/>
+								<img class="event-icon" src="/images/sport_white.svg" alt="Bild von einer Hantel"/>
 							</xsl:when>
 							<xsl:when test="contains(description, 'icon:friseur')">
 								<img class="event-icon" src="/images/comb_white.svg" alt="Bild eines Kamms"/>
@@ -79,25 +79,25 @@
 								<img class="event-icon" src="/images/birthday_white.svg" alt="Bild eines Geburtstagskuchen"/>
 							</xsl:when>
 							<xsl:when test="contains(name, 'Schule') or contains(name, 'schule')">
-								<img class="event-icon" src="/images/school.svg" alt="Bild eines Stiftes"/>
+								<img class="event-icon" src="/images/school_white.svg" alt="Bild eines Stiftes"/>
 							</xsl:when>
 							<xsl:when test="contains(name, 'Universität') or contains(name, 'universität')">
-								<img class="event-icon" src="/images/school.svg" alt="Bild eines Stiftes"/>
+								<img class="event-icon" src="/images/school_white.svg" alt="Bild eines Stiftes"/>
 							</xsl:when>
 							<xsl:when test="contains(name, 'DHBW') or contains(name, 'dhbw')">
-								<img class="event-icon" src="/images/school.svg" alt="Bild eines Stiftes"/>
+								<img class="event-icon" src="/images/school_white.svg" alt="Bild eines Stiftes"/>
 							</xsl:when>
 							<xsl:when test="contains(name, 'Vorlesung') or contains(name, 'vorlesung')">
-								<img class="event-icon" src="/images/school.svg" alt="Bild eines Stiftes"/>
+								<img class="event-icon" src="/images/school_white.svg" alt="Bild eines Stiftes"/>
 							</xsl:when>
 							<xsl:when test="contains(name, 'Musik') or contains(name, 'musik')">
-								<img class="event-icon" src="/images/music.svg" alt="Bild von Kopfhörern"/>
+								<img class="event-icon" src="/images/music_white.svg" alt="Bild von Kopfhörern"/>
 							</xsl:when>
 							<xsl:when test="contains(name, 'Film') or contains(name, 'film')">
-								<img class="event-icon" src="/images/popcorn.svg" alt="Bild von Popcorn"/>
+								<img class="event-icon" src="/images/popcorn_white.svg" alt="Bild von Popcorn"/>
 							</xsl:when>
 							<xsl:when test="contains(name, 'Sport') or contains(name, 'sport')">
-								<img class="event-icon" src="/images/sport.svg" alt="Bild von einer Hantel"/>
+								<img class="event-icon" src="/images/sport_white.svg" alt="Bild von einer Hantel"/>
 							</xsl:when>
 							<xsl:when test="contains(name, 'Friseur') or contains(name, 'friseur')">
 								<img class="event-icon" src="/images/comb_white.svg" alt="Bild eines Kamms"/>
