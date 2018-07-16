@@ -9,26 +9,31 @@
 						Dazu müssen sie irgendwo in der Beschreibung des Events folgende Syntax verwenden:
 						<em>farbe:grün</em>
 					</p>
-					<p>Folgende Farben sind möglich:
-						<ul>
-							<li>grün</li>
-							<li>blau</li>
-							<li>rot</li>
-						</ul>
-					</p>
+					<p>Folgende Farben sind möglich:</p>
+					<ul>
+						<li>grün</li>
+						<li>blau</li>
+						<li>rot</li>
+					</ul>
 					<h3>Icon angeben</h3>
 					<p>
 						Sie können statt automatisch zugewiesenen Icons auch von Hand ein Icon angeben. Das angegebene Icon überschreibt das automatisch zugewiesene.
 						Dazu müssen sie irgendwo in der Beschreibung des Events folgende Syntax verwenden:
 						<em>icon:einkaufen</em>
 					</p>
-					<p>Folgende Icons sind möglich:
-						<ul>
-							<li>einkaufen</li>
-							<li>kino</li>
-							<li>essen</li>
-						</ul>
-					</p>
+					<p>Folgende Icons sind möglich:</p>
+					<ul>
+						<li>einkaufen</li>
+						<li>kino</li>
+						<li>essen</li>
+						<li>geburtstag</li>
+						<li>schule / universität / dhbw</li>
+						<li>programmieren</li>
+						<li>musik</li>
+						<li>film</li>
+						<li>sport</li>
+						<li>friseur / frisör</li>
+					</ul>
 					<a>
 						<xsl:attribute name="href">/?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>
 						</xsl:attribute>
