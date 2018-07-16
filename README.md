@@ -71,7 +71,7 @@ Deshalt wird das akutelle Datum und Uhrzeit in das genertierte XML auch eingefü
 Je nachdem, welche Darstellungsform angefordert wurde, wird ein entsprechendes XML Tag verwendet. Dadurch kann im XSLT auf den Namen der Darstellungsform gematcht werden.
 
 Verschiedene URLs werden über verschiedene Handler abgearbeitet. Dadurch kann in den `meta` Tag des generierten XML (neben dem angeforderten Kalender) unterschiedliche Daten geschrieben werden.
-Zum Beispiel bei der relativen URL `/newEvent` wird dem XML der Tag `newEventWindow` hinzugefügt. Im Frontend wird auf dieses Tag gematcht und das entsprechende Popup angezeigt.
+Zum Beispiel bei der relativen URL `/newEvent` wird dem XML der Tag `newEvent` hinzugefügt. Im Frontend wird auf dieses Tag gematcht und das entsprechende Popup angezeigt.
 Verwendet wird diese Technik, damit mit relativ geringem Aufwand immer das selbe XSLT Template verwendet werden kann.
 Dies gestaltet die Programmierung relativ dynamisch.
 
