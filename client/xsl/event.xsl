@@ -97,7 +97,7 @@
 								<img class="event-icon" src="/images/music_white.svg" alt="Bild von Kopfhörern"/>
 							</xsl:when>
 							<xsl:when test="contains(name, 'Film') or contains(name, 'film')">
-								<img class="event-icon" src="/images/popcorn_white.svg" alt="Bild von Popcorn"/>
+								<img class="event-icon" src="/images/popcorn_inverted.svg" alt="Bild von Popcorn"/>
 							</xsl:when>
 							<xsl:when test="contains(name, 'Sport') or contains(name, 'sport')">
 								<img class="event-icon" src="/images/sport_white.svg" alt="Bild von einer Hantel"/>

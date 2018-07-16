@@ -32,6 +32,11 @@
 	left: 10%;
 }
 
+.newEventFormDiv img {
+	height: 40px;
+	margin-right: 10px;
+}
+
 .closePopupButton {
 	position: absolute;
 	top: 1%;
