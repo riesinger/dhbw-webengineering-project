@@ -5,7 +5,7 @@
     <title>Laptop</title>
     <desc>Laptop icon</desc>
     
-    <path d="M10 340, L690 340"
+    <path d="M10,340 L690,340"
         stroke="black"
         stroke-width="25"
         stroke-linecap="round"/>
