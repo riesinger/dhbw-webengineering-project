@@ -324,6 +324,20 @@ exports.setup = function() {
       res.statusCode(500);
     }
   });
+
+  app.get("/howto", async (req, res) => {
+    try {
+      const selectedDate = getSelectedDate(req);
+      const oEvents = await calendar.getEvents(req.user, selectedDate);
+      sendCalendar(res, oEvents, selectedDate.dispForm, {
+        howto: {},
+        ...selectedDate
+      });
+    } catch (err) {
+      console.error(err);
+      res.statusCode(500);
+    }
+  });
 };
 
 exports.start = function() {
