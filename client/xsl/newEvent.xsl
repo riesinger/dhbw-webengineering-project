@@ -12,15 +12,18 @@
                         <input type="text" name="eventName" required="required"/> <br/>
                     </div>
                     <div class="newEventFormDiv">
+                        <input type="checkbox" id="allDayEvent" name="allDayEvent"/>Ganztägiges Event
+                    </div>
+                    <div class="newEventFormDiv">
                         <table>
                             <tr>
-                                <td>Von</td>
+                                <td>Am</td>
                                 <td><input type="date" name="eventStartDate" required="required">
                                     <xsl:attribute name="value"><xsl:value-of select="//*/currentDate/@year"/>-<xsl:if test="//*/currentDate/@month &gt; 9"><xsl:value-of select="//*/currentDate/@month"/></xsl:if><xsl:if test="//*/currentDate/@month &lt; 10">0<xsl:value-of select="//*/currentDate/@month"/></xsl:if>-<xsl:if test="//*/currentDate/@day &gt; 9"><xsl:value-of select="//*/currentDate/@day"/></xsl:if><xsl:if test="//*/currentDate/@day &lt; 10">0<xsl:value-of select="//*/currentDate/@day"/></xsl:if></xsl:attribute>
                                 </input></td>
-                                <td> um </td>
+                                <td>von</td>
                                 <td>
-                                    <input type="time" name="eventStartTime" required="required">
+                                    <input type="time" name="eventStartTime">
                                         <xsl:attribute name="value"><xsl:if test="//*/currentDate/@hour &lt; 10">0<xsl:value-of
                                                 select="//*/currentDate/@hour"/></xsl:if><xsl:if test="//*/currentDate/@hour &gt; 9"><xsl:value-of
                                                 select="//*/currentDate/@hour"/></xsl:if>:<xsl:if test="//*/currentDate/@minute &lt; 10">0<xsl:value-of
@@ -31,13 +34,11 @@
                                 <td>Uhr</td>
                             </tr>
                             <tr>
-                                <td>Bis</td>
-                                <td><input type="date" name="eventEndDate" required="required">
-                                    <xsl:attribute name="value"><xsl:value-of select="//*/currentDate/@year"/>-<xsl:if test="//*/currentDate/@month &gt; 9"><xsl:value-of select="//*/currentDate/@month"/></xsl:if><xsl:if test="//*/currentDate/@month &lt; 10">0<xsl:value-of select="//*/currentDate/@month"/></xsl:if>-<xsl:if test="//*/currentDate/@day &gt; 9"><xsl:value-of select="//*/currentDate/@day"/></xsl:if><xsl:if test="//*/currentDate/@day &lt; 10">0<xsl:value-of select="//*/currentDate/@day"/></xsl:if></xsl:attribute>
-                                </input></td>
-                                <td> um </td>
+                                <td></td>
+                                <td></td>
+                                <td>bis</td>
                                 <td>
-                                    <input type="time" name="eventEndTime" required="required"/>
+                                    <input type="time" name="eventEndTime"/>
                                 </td>
                                 <td>Uhr</td>
                             </tr>
@@ -48,7 +49,7 @@
                         Ort:<br/>
                         <input type="text" name="eventLocation"/> <br/>
                         Details:<br/>
-                        <textarea id="eventDescription" name="eventDescription" rows="5"/>
+                        <textarea id="eventDescription" name="eventDescription"/>
                         <br/>
                     </div>
                     <div class="newEventButtonsDiv">

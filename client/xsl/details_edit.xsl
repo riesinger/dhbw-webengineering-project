@@ -110,7 +110,7 @@
 					<div class="newEventFormDiv">
 						<table>
 							<tr>
-								<td>Von</td>
+								<td>Am</td>
 								<td>
 									<xsl:call-template name="dateInput">
 										<xsl:with-param name="inputName">
@@ -120,7 +120,7 @@
 										<xsl:with-param name="disabled" select="//meta/showEvent"/>
 									</xsl:call-template>
 								</td>
-								<td>um</td>
+								<td>von</td>
 								<td>
 									<xsl:call-template name="timeInput">
 										<xsl:with-param name="inputName">
@@ -133,17 +133,9 @@
 								<td>Uhr</td>
 							</tr>
 							<tr>
-								<td>Bis</td>
-								<td>
-									<xsl:call-template name="dateInput">
-										<xsl:with-param name="inputName">
-											<xsl:text>eventEndDate</xsl:text>
-										</xsl:with-param>
-										<xsl:with-param name="date" select="//events/event[ @ID = //meta/*/ID]/enddate"/>
-										<xsl:with-param name="disabled" select="//meta/showEvent"/>
-									</xsl:call-template>
-								</td>
-								<td>um</td>
+								<td></td>
+								<td></td>
+								<td>bis</td>
 								<td>
 									<xsl:call-template name="timeInput">
 										<xsl:with-param name="inputName">
@@ -172,7 +164,7 @@
 						<br/>
 						Details:
 						<br/>
-						<textarea name="eventDescription" style="min-height: 50px">
+						<textarea name="eventDescription">
 							<xsl:if test="//meta/showEvent">
 								<xsl:attribute name="disabled">disabled</xsl:attribute>
 							</xsl:if>
