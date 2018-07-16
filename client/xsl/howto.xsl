@@ -14,6 +14,9 @@
 						<li>grün</li>
 						<li>blau</li>
 						<li>rot</li>
+						<li>gelb</li>
+						<li>pink</li>
+						<li>grau</li>
 					</ul>
 					<h3>Icon angeben</h3>
 					<p>
@@ -27,7 +30,7 @@
 						<li>kino</li>
 						<li>essen</li>
 						<li>geburtstag</li>
-						<li>schule / universität / dhbw</li>
+						<li>schule / universität / dhbw / vorlesung</li>
 						<li>programmieren</li>
 						<li>musik</li>
 						<li>film</li>
