@@ -8,7 +8,7 @@
 		<a>
 			<xsl:attribute name="href">/showEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of
 			select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
-			<div class="calendar__event">
+			<span class="calendar__event">
 				<xsl:attribute name="style">
 					<xsl:if test="$isMonthEvent = false()">top: <xsl:value-of
 					select="(startdate/@hour * 4) + (startdate/@minute * 0.0666666)"/>rem; height: <xsl:value-of
@@ -16,11 +16,14 @@
 						$evtLengthMinutes * ($evtLengthMinutes &lt; 0))) * 0.0666666))"/>rem;</xsl:if>
 					<xsl:if test="$isMonthEvent = true()">position:relative;</xsl:if>
 					<xsl:choose>
-					<xsl:when test="contains(description, 'farbe:grün')">background-color: #2CEAA3; color: #000;</xsl:when>
-					<xsl:when test="contains(description, 'farbe:blau')">background-color: #7CFEF0; color: #000;</xsl:when>
-					<xsl:when test="contains(description, 'farbe:rot')">background-color: #E83151; </xsl:when>
+						<xsl:when test="contains(description, 'farbe:grün')">background-color: #2CEAA3; color: #000;</xsl:when>
+						<xsl:when test="contains(description, 'farbe:blau')">background-color: #7CFEF0; color: #000;</xsl:when>
+						<xsl:when test="contains(description, 'farbe:rot')">background-color: #E83151; color: #fff;</xsl:when>
+						<xsl:when test="contains(description, 'farbe:gelb')">background-color: #ffe74c; color: #000;</xsl:when>
+						<xsl:when test="contains(description, 'farbe:pink')">background-color: #f62dae; color: #fff;</xsl:when>
+						<xsl:when test="contains(description, 'farbe:grau')">background-color: #3d405b; color: #fff;</xsl:when>
 				</xsl:choose></xsl:attribute>
-				<div class="calendar__event__title">
+				<span class="calendar__event__title">
 					<xsl:if test="contains(description, 'icon:')">
 						<xsl:choose>
 							<xsl:when test="contains(description, 'icon:einkaufen')">
@@ -115,8 +118,8 @@
 						<xsl:attribute name="href">/deleteEvent?eventID=<xsl:value-of select="@ID"/>&amp;<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/></xsl:attribute>
 						<img class="eventIcon" src="/images/trash_white.svg" alt="Ereignis löschen"/>
 					</a>
-				</div>
-			</div>
+				</span>
+			</span>
 		</a>
 	</xsl:template>
 </xsl:stylesheet>
