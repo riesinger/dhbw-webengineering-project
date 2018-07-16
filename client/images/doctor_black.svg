@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="700" height="550">
+    <title>Doctor icon</title>
+    <desc>Doctor icon in black</desc>
+    
+    <rect x="50" y="200" width="600" rx="25" ry="25" height="300"/>
+    <path d="M280,180 L280,120 L420,120 L420,180" fill="none" stroke="black" stroke-width="35"/>
+    <polyline points="350,350 420,350 350,350 350,420 350,280 350,350 280,350"
+      fill="transparent"
+      stroke="white"
+      stroke-width="40"
+      stroke-linejoin="round"
+      stroke-linecap="round"/>
+</svg>

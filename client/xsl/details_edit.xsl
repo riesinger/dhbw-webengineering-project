@@ -4,6 +4,8 @@
 	            doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" encoding="UTF-8"/>
 	<xsl:strip-space elements="*"/>
 
+	<xsl:variable name="evt" select="//events/event[ @ID = //meta/showEvent/ID or @ID = //meta/editEvent/ID ]"/>
+
 	<!-- dateInput ist ein Template, welches ein Eingabefeld für ein Datum erstellt.
 		Es präfixt das Eingabedatum automatisch mit führenden Nullen.
 		-->
@@ -83,6 +85,7 @@
 				<xsl:if test="//meta/editEvent">Termin bearbeiten</xsl:if>
 			</h3>
 			<div id="showEvent">
+
 				<form id="showEventForm" method="post">
 					<xsl:if test="//meta/editEvent">
 						<xsl:attribute name="action">
@@ -97,18 +100,109 @@
 					<div class="newEventFormDiv">
 						Name:
 						<br/>
-						<input type="text" name="eventName" required="required">
-							<xsl:if test="//meta/showEvent">
-								<xsl:attribute name="disabled">disabled</xsl:attribute>
+						<div style="display: flex; align-items: center;">
+							<xsl:if test="contains($evt/description, 'icon:')">
+								<xsl:choose>
+									<xsl:when test="contains($evt/description, 'icon:einkaufen')">
+										<img class="event-icon" src="/images/cart_black.svg" alt="Bild eines Einkaufswagens"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/description, 'icon:kino')">
+										<img class="event-icon" src="/images/camera_black.svg" alt="Bild einer Filmkamera"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/description, 'icon:essen')">
+										<img class="event-icon" src="/images/food_black.svg" alt="Bild von Essen"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/description, 'icon:geburtstag')">
+										<img class="event-icon" src="/images/birthday_black.svg" alt="Bild eines Geburtstagskuchen"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/description, 'icon:schule')">
+										<img class="event-icon" src="/images/school_black.svg" alt="Bild eines Stiftes"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/description, 'icon:universität')">
+										<img class="event-icon" src="/images/school_black.svg" alt="Bild eines Stiftes"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/description, 'icon:dhbw')">
+										<img class="event-icon" src="/images/school_black.svg" alt="Bild eines Stiftes"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/description, 'icon:vorlesung')">
+										<img class="event-icon" src="/images/school_black.svg" alt="Bild eines Stiftes"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/description, 'icon:musik')">
+										<img class="event-icon" src="/images/music_black.svg" alt="Bild von Kopfhörern"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/description, 'icon:film')">
+										<img class="event-icon" src="/images/popcorn_inverted.svg" alt="Bild von Popcorn"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/description, 'icon:sport')">
+										<img class="event-icon" src="/images/sport_black.svg" alt="Bild von einer Hantel"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/description, 'icon:friseur')">
+										<img class="event-icon" src="/images/comb_black.svg" alt="Bild eines Kamms"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/description, 'icon:frisör')">
+										<img class="event-icon" src="/images/comb_black.svg" alt="Bild eines Kamms"/>
+									</xsl:when>
+								</xsl:choose>
 							</xsl:if>
-							<xsl:attribute name="value">
-								<xsl:value-of select="//events/event[ @ID = //meta/showEvent/ID or @ID = //meta/editEvent/ID ]/name"/>
-							</xsl:attribute>
-						</input>
+							<xsl:if test="contains($evt/description, 'icon:') = false()">
+								<xsl:choose>
+									<xsl:when test="contains($evt/name, 'Einkaufen') or contains($evt/name, 'einkaufen')">
+										<img class="event-icon" src="/images/cart_black.svg" alt="Bild eines Einkaufswagens"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/name, 'Kino') or contains($evt/name, 'kino')">
+										<img class="event-icon" src="/images/camera_black.svg" alt="Bild einer Filmkamera"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/name, 'Essen') or contains($evt/name, 'essen')">
+										<img class="event-icon" src="/images/food_black.svg" alt="Bild von Essen"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/name, 'Geburtstag') or contains($evt/name, 'geburtstag')">
+										<img class="event-icon" src="/images/birthday_black.svg" alt="Bild eines Geburtstagskuchen"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/name, 'Schule') or contains($evt/name, 'schule')">
+										<img class="event-icon" src="/images/school_black.svg" alt="Bild eines Stiftes"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/name, 'Universität') or contains($evt/name, 'universität')">
+										<img class="event-icon" src="/images/school_black.svg" alt="Bild eines Stiftes"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/name, 'DHBW') or contains($evt/name, 'dhbw')">
+										<img class="event-icon" src="/images/school_black.svg" alt="Bild eines Stiftes"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/name, 'Vorlesung') or contains($evt/name, 'vorlesung')">
+										<img class="event-icon" src="/images/school_black.svg" alt="Bild eines Stiftes"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/name, 'Musik') or contains($evt/name, 'musik')">
+										<img class="event-icon" src="/images/music_black.svg" alt="Bild von Kopfhörern"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/name, 'Film') or contains($evt/name, 'film')">
+										<img class="event-icon" src="/images/popcorn_inverted.svg" alt="Bild von Popcorn"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/name, 'Sport') or contains($evt/name, 'sport')">
+										<img class="event-icon" src="/images/sport_black.svg" alt="Bild von einer Hantel"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/name, 'Friseur') or contains($evt/name, 'friseur')">
+										<img class="event-icon" src="/images/comb_black.svg" alt="Bild eines Kamms"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/name, 'Frisör') or contains($evt/name, 'frisör')">
+										<img class="event-icon" src="/images/comb_black.svg" alt="Bild eines Kamms"/>
+									</xsl:when>
+								</xsl:choose>
+							</xsl:if>
+
+							<input type="text" name="eventName" required="required">
+								<xsl:if test="//meta/showEvent">
+									<xsl:attribute name="disabled">disabled</xsl:attribute>
+								</xsl:if>
+								<xsl:attribute name="value">
+									<xsl:value-of select="//events/event[ @ID = //meta/showEvent/ID or @ID = //meta/editEvent/ID ]/name"/>
+								</xsl:attribute>
+							</input>
+
+						</div>
+
 						<br/>
 					</div>
-					<div class="newEventFormDiv">
-						<table>
+					<div class="newEventFormDiv" style="display: flex;">
+						<table style="max-width: 90%; margin-right: 24px;">
 							<tr>
 								<td>Am</td>
 								<td>
@@ -148,6 +242,8 @@
 								<td>Uhr</td>
 							</tr>
 						</table>
+
+
 					</div>
 					<hr/>
 					<div class="newEventFormDiv">
