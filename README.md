@@ -47,9 +47,10 @@ Für Testzwecke werden mit der Installation zwei Benutzerkonten mitgeliefert, we
 Zugangsdaten haben:
 
 Nutzername | Passwort | Hash
-:---------:| :------: | :-------------------------------:
-test1      | 123456   | e10adc3949ba59abbe56e057f20f883e
-test2      | 123456   | e10adc3949ba59abbe56e057f20f883e
+:-------------:| :------: | :-------------------------------:
+Max Mustermann | 123456   | e10adc3949ba59abbe56e057f20f883e
+test1          | 123456   | e10adc3949ba59abbe56e057f20f883e
+test2          | 123456   | e10adc3949ba59abbe56e057f20f883e
 
 ## Erläuterungen zum Backend
 

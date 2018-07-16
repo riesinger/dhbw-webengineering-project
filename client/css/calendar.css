@@ -141,6 +141,7 @@
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 	padding: 4px 16px;
 	box-sizing: border-box;
+	display: block;
 }
 
 .calendar__event .eventIcon {
