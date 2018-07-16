@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE calendar SYSTEM "dtd/calendar.dtd">
+<calendar>
+  <nextEventID>60</nextEventID>
+  <events>
+    <event ID="0">
+      <name>The Holy Year</name>
+      <description>This is were everything started...</description>
+      <location>Everywhere</location>
+      <startdate year="42" month="2" day="4" hour="0" minute="42"/>
+      <enddate year="42" month="2" day="4" hour="23" minute="42"/>
+    </event>
+    <event ID="22">
+      <name>Vorlesung</name>
+      <description>farbe:rot</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="9" hour="8" minute="0"/>
+      <enddate year="2018" month="7" day="9" hour="11" minute="0"/>
+    </event>
+    <event ID="25">
+      <name>Mittagessen</name>
+      <description>farbe:gelb</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="9" hour="12" minute="0"/>
+      <enddate year="2018" month="7" day="9" hour="13" minute="0"/>
+    </event>
+    <event ID="24">
+      <name>Vorlesung</name>
+      <description>farbe:rot</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="9" hour="13" minute="0"/>
+      <enddate year="2018" month="7" day="9" hour="15" minute="30"/>
+    </event>
+    <event ID="26">
+      <name>Musikunterricht</name>
+      <description>Klavier farbe:rosa</description>
+      <location>Karlsruhe</location>
+      <startdate year="2018" month="7" day="10" hour="10" minute="0"/>
+      <enddate year="2018" month="7" day="10" hour="11" minute="30"/>
+    </event>
+    <event ID="38">
+      <name>Sport</name>
+      <description>farbe:grau</description>
+      <location>Park</location>
+      <startdate year="2018" month="7" day="10" hour="15" minute="0"/>
+      <enddate year="2018" month="7" day="10" hour="16" minute="30"/>
+    </event>
+    <event ID="29">
+      <name>Vorlesung</name>
+      <description>farbe:rot</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="11" hour="13" minute="0"/>
+      <enddate year="2018" month="7" day="11" hour="15" minute="45"/>
+    </event>
+    <event ID="28">
+      <name>Abendessen</name>
+      <description>farbe:gelb</description>
+      <location>Zuhause</location>
+      <startdate year="2018" month="7" day="11" hour="18" minute="30"/>
+      <enddate year="2018" month="7" day="11" hour="20" minute="0"/>
+    </event>
+    <event ID="30">
+      <name>Vorlesung</name>
+      <description>farbe:grün</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="12" hour="7" minute="0"/>
+      <enddate year="2018" month="7" day="12" hour="12" minute="0"/>
+    </event>
+    <event ID="37">
+      <name>Mittagessen</name>
+      <description>Mensa</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="12" hour="12" minute="0"/>
+      <enddate year="2018" month="7" day="12" hour="13" minute="0"/>
+    </event>
+    <event ID="33">
+      <name>Vorlesung</name>
+      <description>farbe:rot</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="12" hour="13" minute="0"/>
+      <enddate year="2018" month="7" day="12" hour="15" minute="0"/>
+    </event>
+    <event ID="34">
+      <name>Vorlesung</name>
+      <description>farbe:rot</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="13" hour="10" minute="0"/>
+      <enddate year="2018" month="7" day="13" hour="12" minute="0"/>
+    </event>
+    <event ID="36">
+      <name>Mittagessen</name>
+      <description>Mensa</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="13" hour="12" minute="0"/>
+      <enddate year="2018" month="7" day="13" hour="13" minute="0"/>
+    </event>
+    <event ID="39">
+      <name>Kino</name>
+      <description/>
+      <location>Karlsruhe</location>
+      <startdate year="2018" month="7" day="14" hour="19" minute="30"/>
+      <enddate year="2018" month="7" day="14" hour="22" minute="0"/>
+    </event>
+    <event ID="40">
+      <name>Ausschlafen</name>
+      <description>farbe:grün</description>
+      <location>Zuhause</location>
+      <startdate year="2018" month="7" day="15" hour="0" minute="0"/>
+      <enddate year="2018" month="7" day="15" hour="11" minute="30"/>
+    </event>
+    <event ID="10">
+      <name>Programmieren</name>
+      <description>XHTML &amp; XSLT farbe:blau</description>
+      <location>Zuhause</location>
+      <startdate year="2018" month="7" day="16" hour="12" minute="0"/>
+      <enddate year="2018" month="7" day="16" hour="15" minute="0"/>
+    </event>
+    <event ID="3">
+      <name>Kino</name>
+      <description/>
+      <location>Karlsruhe</location>
+      <startdate year="2018" month="7" day="16" hour="20" minute="0"/>
+      <enddate year="2018" month="7" day="16" hour="22" minute="0"/>
+    </event>
+    <event ID="7">
+      <name>Vorlesung</name>
+      <description>farbe:rot</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="17" hour="8" minute="0"/>
+      <enddate year="2018" month="7" day="17" hour="12" minute="0"/>
+    </event>
+    <event ID="8">
+      <name>Mittagessen</name>
+      <description>Mensa</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="17" hour="12" minute="0"/>
+      <enddate year="2018" month="7" day="17" hour="13" minute="0"/>
+    </event>
+    <event ID="9">
+      <name>Vorlesung</name>
+      <description>farbe:rot</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="17" hour="13" minute="0"/>
+      <enddate year="2018" month="7" day="17" hour="15" minute="0"/>
+    </event>
+    <event ID="5">
+      <name>Einkaufen</name>
+      <description/>
+      <location>Penny</location>
+      <startdate year="2018" month="7" day="17" hour="16" minute="0"/>
+      <enddate year="2018" month="7" day="17" hour="17" minute="0"/>
+    </event>
+    <event ID="11">
+      <name>Vorlesung</name>
+      <description>farbe:rot</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="18" hour="9" minute="0"/>
+      <enddate year="2018" month="7" day="18" hour="13" minute="0"/>
+    </event>
+    <event ID="12">
+      <name>Mittagessen</name>
+      <description/>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="18" hour="13" minute="0"/>
+      <enddate year="2018" month="7" day="18" hour="13" minute="45"/>
+    </event>
+    <event ID="14">
+      <name>Vorlesung</name>
+      <description>farbe:rot</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="18" hour="13" minute="45"/>
+      <enddate year="2018" month="7" day="18" hour="16" minute="30"/>
+    </event>
+    <event ID="16">
+      <name>Vorlesung</name>
+      <description>farbe:rot</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="19" hour="8" minute="30"/>
+      <enddate year="2018" month="7" day="19" hour="11" minute="30"/>
+    </event>
+    <event ID="17">
+      <name>Mittagessen</name>
+      <description>Mensa farbe:grün</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="19" hour="11" minute="30"/>
+      <enddate year="2018" month="7" day="19" hour="12" minute="15"/>
+    </event>
+    <event ID="18">
+      <name>Musikunterricht</name>
+      <description>Klavier farbe:pink</description>
+      <location>Karlsruhe</location>
+      <startdate year="2018" month="7" day="19" hour="17" minute="0"/>
+      <enddate year="2018" month="7" day="19" hour="19" minute="0"/>
+    </event>
+    <event ID="21">
+      <name>Friseur</name>
+      <description>farbe:grau</description>
+      <location>Karlsruhe</location>
+      <startdate year="2018" month="7" day="20" hour="10" minute="0"/>
+      <enddate year="2018" month="7" day="20" hour="11" minute="0"/>
+    </event>
+    <event ID="49">
+      <name>Radfahren</name>
+      <description>farbe:gelb icon:sport</description>
+      <location>Park</location>
+      <startdate year="2018" month="7" day="21" hour="12" minute="30"/>
+      <enddate year="2018" month="7" day="21" hour="15" minute="0"/>
+    </event>
+    <event ID="19">
+      <name>Film schauen</name>
+      <description/>
+      <location>Zuhause</location>
+      <startdate year="2018" month="7" day="21" hour="20" minute="0"/>
+      <enddate year="2018" month="7" day="21" hour="23" minute="30"/>
+    </event>
+    <event ID="50">
+      <name>Geburtstag</name>
+      <description>farbe:grün</description>
+      <location>Zuhause</location>
+      <startdate year="2018" month="7" day="22" hour="0" minute="1"/>
+      <enddate year="2018" month="7" day="22" hour="23" minute="59"/>
+    </event>
+    <event ID="41">
+      <name>Vorlesung</name>
+      <description/>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="23" hour="7" minute="0"/>
+      <enddate year="2018" month="7" day="23" hour="13" minute="0"/>
+    </event>
+    <event ID="43">
+      <name>Mittagessen</name>
+      <description>Mensa farbe:grau</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="23" hour="13" minute="0"/>
+      <enddate year="2018" month="7" day="23" hour="13" minute="45"/>
+    </event>
+    <event ID="44">
+      <name>Vorlesung</name>
+      <description/>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="23" hour="13" minute="45"/>
+      <enddate year="2018" month="7" day="23" hour="16" minute="15"/>
+    </event>
+    <event ID="47">
+      <name>Sport</name>
+      <description/>
+      <location>Park</location>
+      <startdate year="2018" month="7" day="24" hour="9" minute="0"/>
+      <enddate year="2018" month="7" day="24" hour="11" minute="0"/>
+    </event>
+    <event ID="46">
+      <name>Programmieren</name>
+      <description>XSLT farbe:grün</description>
+      <location>Zuhause</location>
+      <startdate year="2018" month="7" day="24" hour="12" minute="0"/>
+      <enddate year="2018" month="7" day="24" hour="15" minute="30"/>
+    </event>
+    <event ID="52">
+      <name>Vorlesung</name>
+      <description>farbe:rot</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="25" hour="8" minute="0"/>
+      <enddate year="2018" month="7" day="25" hour="13" minute="30"/>
+    </event>
+    <event ID="53">
+      <name>Essen</name>
+      <description/>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="25" hour="13" minute="30"/>
+      <enddate year="2018" month="7" day="25" hour="14" minute="30"/>
+    </event>
+    <event ID="54">
+      <name>Vorlesung</name>
+      <description/>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="25" hour="15" minute="0"/>
+      <enddate year="2018" month="7" day="25" hour="16" minute="30"/>
+    </event>
+    <event ID="56">
+      <name>Vorlesung</name>
+      <description/>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="26" hour="7" minute="0"/>
+      <enddate year="2018" month="7" day="26" hour="14" minute="0"/>
+    </event>
+    <event ID="57">
+      <name>Vorlesung</name>
+      <description/>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="27" hour="9" minute="0"/>
+      <enddate year="2018" month="7" day="27" hour="11" minute="0"/>
+    </event>
+    <event ID="58">
+      <name>Vorlesung</name>
+      <description>farbe:rot</description>
+      <location>DHBW Karlsruhe</location>
+      <startdate year="2018" month="7" day="27" hour="16" minute="0"/>
+      <enddate year="2018" month="7" day="27" hour="18" minute="0"/>
+    </event>
+    <event ID="59">
+      <name>Sport</name>
+      <description>farbe:blau</description>
+      <location>Park</location>
+      <startdate year="2018" month="7" day="29" hour="11" minute="0"/>
+      <enddate year="2018" month="7" day="29" hour="13" minute="30"/>
+    </event>
+  </events>
+</calendar>
