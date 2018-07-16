@@ -36,6 +36,7 @@
 						<li>film</li>
 						<li>sport</li>
 						<li>friseur / frisör</li>
+						<li>schlafen</li>
 					</ul>
 					<a>
 						<xsl:attribute name="href">/?<xsl:value-of select="//meta/dispForm"/>=<xsl:value-of select="//meta/dateOffset"/>

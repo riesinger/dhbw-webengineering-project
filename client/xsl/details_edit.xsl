@@ -142,6 +142,12 @@
 									<xsl:when test="contains($evt/description, 'icon:frisör')">
 										<img class="event-icon" src="/images/comb_black.svg" alt="Bild eines Kamms"/>
 									</xsl:when>
+									<xsl:when test="contains($evt/description, 'icon:programmieren')">
+										<img class="event-icon" src="/images/laptop_black.svg" alt="Bild eines Laptops"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/description, 'icon:schlafen')">
+										<img class="event-icon" src="/images/sleep_black.svg" alt="Bild eines Bettes"/>
+									</xsl:when>
 								</xsl:choose>
 							</xsl:if>
 							<xsl:if test="contains($evt/description, 'icon:') = false()">
@@ -184,6 +190,12 @@
 									</xsl:when>
 									<xsl:when test="contains($evt/name, 'Frisör') or contains($evt/name, 'frisör')">
 										<img class="event-icon" src="/images/comb_black.svg" alt="Bild eines Kamms"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/name, 'Programmieren') or contains($evt/name, 'programmieren')">
+										<img class="event-icon" src="/images/laptop_black.svg" alt="Bild eines Laptops"/>
+									</xsl:when>
+									<xsl:when test="contains($evt/name, 'Schlafen') or contains($evt/name, 'schlafen')">
+										<img class="event-icon" src="/images/sleep_black.svg" alt="Bild eines Bettes"/>
 									</xsl:when>
 								</xsl:choose>
 							</xsl:if>
