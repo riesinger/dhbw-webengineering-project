@@ -293,7 +293,7 @@ exports.setup = function() {
       const selectedDate = getSelectedDate(req);
       const oEvents = await calendar.getEvents(req.user, selectedDate);
       sendCalendar(res, oEvents, selectedDate.dispForm, {
-        newEventWindow: {},
+        newEvent: {},
         ...selectedDate
       });
     } catch (err) {
