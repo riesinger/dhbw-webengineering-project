@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800" height="550">
+    <title>Sleep icon</title>
+    <desc>Sleep icon in black</desc>
+    
+    <defs>
+      <path id="z" d="M250,130 L200,130 L250,80 L200,80" 
+        fill="none" 
+        stroke="black"
+        stroke-width="8"/>
+    </defs>
+
+    <path d="M20,150 L20,530 L70,530 L70,430 L730,430 L730,530 L780,530 L780,330 L70,330 L70,150 Z" 
+      fill="black"
+      stroke="black" 
+      stroke-width="10"/>
+    <circle cx="150" cy="240" r="55"
+      fill="black"/>
+    <rect x="220" y="200" width="500" height="100" rx="50" ry="50" 
+      fill="black"/>
+    <path d="M220,200 L220,300 L720,300 L720,250 L500,200 Z" 
+      fill="black"/>
+    <use x="0" y="20" href="#z"/>
+    <use x="100" y="-20" href="#z"/>
+</svg>
