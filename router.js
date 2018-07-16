@@ -182,6 +182,7 @@ exports.setup = function() {
     if (desc == null) desc = "";
 
     let tempAdd;
+    let errorReceieved = false;
 
     switch(reoccuringType){
           case "week":
@@ -193,8 +194,9 @@ exports.setup = function() {
               break;
       }
 
+
+
     for(let i = 0; i <= reoccuringTimes; i++) {
-      console.log("I: " + i);
 
       if(i != 0) startDate.setDate(startDate.getDate() + tempAdd);
 
@@ -224,8 +226,11 @@ exports.setup = function() {
                     res.redirect("/?" + date.dispForm + "=" + date.dateOffset);
                 },
                 err => {
-                    console.error(err);
-                    sendErrorMessage(req, res, err);
+                  if(!errorReceieved) {
+                      errorReceieved = true;
+                      console.error(err);
+                      sendErrorMessage(req, res, err);
+                  }
                 }
             );
     }
