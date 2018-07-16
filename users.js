@@ -3,7 +3,9 @@
  * It synchronizes users to the './users.xml' file.
  */
 
+const utils = require("./utils");
 const fs = require("fs");
+const crypto = require('crypto');
 const xml = require("xml2js");
 const xmlBuilder = new xml.Builder();
 
@@ -23,7 +25,8 @@ exports.User = User;
 
 function writeUsers() {
 	try {
-		const u = xmlBuilder.buildObject({ "users": { "user": users } });
+		let u = xmlBuilder.buildObject({ "users": { "user": users } });
+		u = utils.injectDTD(u, "users", "users.dtd");
 		fs.writeFileSync(USERS_FILE, u, null);
 	} catch (e) {
 		console.error(e);
@@ -56,14 +59,25 @@ exports.getUsers = function() {
 	return users;
 };
 
-exports.addUser = function(user) {
-	users.push(user);
+exports.existsUser = function(username) {
+	let user = users.find(el => el.username === username);
+	if (user) {
+		return true;
+	} else {
+		return false;
+	}
+};
+
+exports.addUser = function(username, password) {
+	const hash = crypto.createHash("md5").update(password).digest("hex");
+	users.push(new User(username, hash, ""));
 	writeUsers();
 };
 
 exports.checkCredentials = function(username, password) {
-	let user = users.find(el => el.username === username );
-	if (user !== undefined && user.password === password) {
+	const hash = crypto.createHash("md5").update(password).digest("hex");
+	let user = users.find(el => el.username === username);
+	if (user !== undefined && user.password === hash) {
 		let randString = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 		user.token = randString;
 		writeUsers();

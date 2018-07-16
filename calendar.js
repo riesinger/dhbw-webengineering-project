@@ -50,8 +50,9 @@ const parseCalendarFile = async username => {
 
 function writeCalendarFile(username, calendar) {
   try {
-    const u = xmlBuilder.buildObject(calendar);
-    fs.writeFileSync(getPath(username), u, null);
+    let c = xmlBuilder.buildObject(calendar);
+    c = utils.injectDTD(c, "calendar", "calendar.dtd");
+    fs.writeFileSync(getPath(username), c, null);
   } catch (e) {
     console.error(e);
   }
@@ -80,53 +81,61 @@ function eventDateComparator(a, b) {
   }
 }
 
-exports.addEventToCalendar = (username, eventDetails) => {
+exports.addEventToCalendar = (username, eventDetails, response) => {
   return new Promise((resolve, reject) => {
     xml.parseString(getCalendarFile(username), (err, result) => {
-      if (err != null) {
-        reject("Error parsing calendar file: " + err);
-      }
+        if (err != null) {
+            reject("Error parsing calendar file: " + err);
+        }
 
-      let eventID = result.calendar.nextEventID[0];
-      result.calendar.nextEventID[0] =
-        Number(result.calendar.nextEventID[0]) + 1;
+        let eventID = result.calendar.nextEventID[0];
+        result.calendar.nextEventID[0] =
+            Number(result.calendar.nextEventID[0]) + 1;
 
-      let eventArray = result.calendar.events[0].event;
-      eventArray.push({
-	      "$": {
-		      ID: eventID,
-        },
-        name: [eventDetails["name"]],
-        description: [eventDetails["description"]],
-        location: [eventDetails["location"]],
-        startdate: [
-          {
+        var startDate = new Date(eventDetails.startDateYear, eventDetails.startDateMonth, eventDetails.startDateDay, eventDetails.startTimeHour, eventDetails.startTimeMinute);
+        var endDate = new Date(eventDetails.endDateYear, eventDetails.endDateMonth, eventDetails.endDateDay, eventDetails.endTimeHour, eventDetails.endTimeMinute);
+
+        if (endDate.getTime() >= startDate.getTime() && endDate.getDay() == startDate.getDay() && eventDetails.name != null){
+
+        let eventArray = result.calendar.events[0].event;
+        eventArray.push({
             "$": {
-              year: eventDetails.startDateYear,
-	            month: eventDetails.startDateMonth,
-	            day: eventDetails.startDateDay,
-	            hour: eventDetails.startTimeHour,
-	            minute: eventDetails.startTimeMinute,
-            }
-          }
-        ],
-	      enddate: [
-		      {
-		      	"$": {
-							year: eventDetails.endDateYear,
-	            month: eventDetails.endDateMonth,
-	            day: eventDetails.endDateDay,
-	            hour: eventDetails.endTimeHour,
-	            minute: eventDetails.endTimeMinute,
-			      }
-		      }
-	      ],
-      });
-      eventArray.sort(eventDateComparator);
+                ID: eventID,
+            },
+            name: [eventDetails["name"]],
+            description: [eventDetails["description"]],
+            location: [eventDetails["location"]],
+            startdate: [
+                {
+                    "$": {
+                        year: eventDetails.startDateYear,
+                        month: eventDetails.startDateMonth,
+                        day: eventDetails.startDateDay,
+                        hour: eventDetails.startTimeHour,
+                        minute: eventDetails.startTimeMinute,
+                    }
+                }
+            ],
+            enddate: [
+                {
+                    "$": {
+                        year: eventDetails.endDateYear,
+                        month: eventDetails.endDateMonth,
+                        day: eventDetails.endDateDay,
+                        hour: eventDetails.endTimeHour,
+                        minute: eventDetails.endTimeMinute,
+                    }
+                }
+            ],
+        });
+        eventArray.sort(eventDateComparator);
 
-      writeCalendarFile(username, result);
+        writeCalendarFile(username, result);
 
-      resolve();
+        resolve(response);
+    } else {
+            reject("Die Eingaben waren fehlerhaft! Bitte versuchen sie es erneut.");
+        }
     });
   });
 };
@@ -242,3 +251,6 @@ exports.getEvents = async (username, date) => {
 	}
 };
 
+exports.newCalendarForUser = (username) => {
+  fs.createReadStream("calendars/template.xml").pipe(fs.createWriteStream("calendars/" + username + ".xml"));
+};
