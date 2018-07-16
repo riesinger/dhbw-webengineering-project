@@ -16,9 +16,12 @@
 						$evtLengthMinutes * ($evtLengthMinutes &lt; 0))) * 0.0666666))"/>rem;</xsl:if>
 					<xsl:if test="$isMonthEvent = true()">position:relative;</xsl:if>
 					<xsl:choose>
-					<xsl:when test="contains(description, 'farbe:grün')">background-color: #2CEAA3; color: #000;</xsl:when>
-					<xsl:when test="contains(description, 'farbe:blau')">background-color: #7CFEF0; color: #000;</xsl:when>
-					<xsl:when test="contains(description, 'farbe:rot')">background-color: #E83151; </xsl:when>
+						<xsl:when test="contains(description, 'farbe:grün')">background-color: #2CEAA3; color: #000;</xsl:when>
+						<xsl:when test="contains(description, 'farbe:blau')">background-color: #7CFEF0; color: #000;</xsl:when>
+						<xsl:when test="contains(description, 'farbe:rot')">background-color: #E83151; color: #fff;</xsl:when>
+						<xsl:when test="contains(description, 'farbe:gelb')">background-color: #ffe74c; color: #000;</xsl:when>
+						<xsl:when test="contains(description, 'farbe:pink')">background-color: #f62dae; color: #fff;</xsl:when>
+						<xsl:when test="contains(description, 'farbe:grau')">background-color: #3d405b; color: #fff;</xsl:when>
 				</xsl:choose></xsl:attribute>
 				<span class="calendar__event__title">
 					<xsl:if test="contains(description, 'icon:')">
