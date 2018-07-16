@@ -14,6 +14,7 @@ body {
 	height: 80%;
 	width: 40%;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	overflow-y: auto;
 
 	position: absolute;
 	top: 15%;
@@ -141,7 +142,12 @@ button {
 	height: 40px;
 }
 
-.header .buttons .logoutButton img{
+.header .buttons .logoutButton img {
+	margin-left: 15px;
+	height: 30px;
+}
+
+.header .buttons .howtoButton img {
 	margin-left: 48px;
 	height: 30px;
 }
