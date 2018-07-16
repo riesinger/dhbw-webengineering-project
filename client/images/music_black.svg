@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="700" height="700">
+	<title>Music</title>
+	<desc>Music icon in black</desc>
+
+	<rect x="100" y="350" width="140" height="300" rx="60"/>
+	<rect x="450" y="350" width="140" height="300" rx="60"/>
+	<path d="M70,400 C80,0 610,0 620,400"
+		fill="none"
+		stroke="black"
+		stroke-width="40"/>
+	<line x1="70" y1="400" x2="70" y2="550"
+		stroke="black"
+		stroke-width="40"
+		stroke-linecap="round"/>
+	<line x1="620" y1="400" x2="620" y2="550"
+		stroke="black"
+		stroke-width="40"
+		stroke-linecap="round"/>
+</svg>

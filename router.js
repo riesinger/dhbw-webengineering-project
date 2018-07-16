@@ -164,9 +164,14 @@ exports.setup = function() {
 
   app.post("/addEvent", (req, res) => {
     const startDate = req.body.eventStartDate.split("-");
-    const endDate = req.body.eventEndDate.split("-");
-    const startTime = req.body.eventStartTime.split(":");
-    const endTime = req.body.eventEndTime.split(":");
+    let startTime = req.body.eventStartTime.split(":");
+    let endTime = req.body.eventEndTime.split(":");
+    const allDayEvent = (req.body.allDayEvent == "on" ? true:false);
+
+    if(allDayEvent == true){
+      startTime = [0,1];
+      endTime = [23,59];
+    }
 
     let loc = req.body.eventLocation;
     if (loc == null) loc = "";
@@ -186,9 +191,9 @@ exports.setup = function() {
           startDateYear: Number(startDate[0]),
           startTimeHour: Number(startTime[0]),
           startTimeMinute: Number(startTime[1]),
-          endDateDay: Number(endDate[2]),
-          endDateMonth: Number(endDate[1]),
-          endDateYear: Number(endDate[0]),
+          endDateDay: Number(startDate[2]),
+          endDateMonth: Number(startDate[1]),
+          endDateYear: Number(startDate[0]),
           endTimeHour: Number(endTime[0]),
           endTimeMinute: Number(endTime[1])
         },
@@ -214,7 +219,6 @@ exports.setup = function() {
       await calendar.removeEventFromCalendar(req.user, eventID);
 
       var startDate = req.body.eventStartDate.split("-");
-      var endDate = req.body.eventEndDate.split("-");
       var startTime = req.body.eventStartTime.split(":");
       var endTime = req.body.eventEndTime.split(":");
 
@@ -236,9 +240,9 @@ exports.setup = function() {
             startDateYear: Number(startDate[0]),
             startTimeHour: Number(startTime[0]),
             startTimeMinute: Number(startTime[1]),
-            endDateDay: Number(endDate[2]),
-            endDateMonth: Number(endDate[1]),
-            endDateYear: Number(endDate[0]),
+            endDateDay: Number(startDate[2]),
+            endDateMonth: Number(startDate[1]),
+            endDateYear: Number(startDate[0]),
             endTimeHour: Number(endTime[0]),
             endTimeMinute: Number(endTime[1])
           },
@@ -315,6 +319,20 @@ exports.setup = function() {
       } else {
         res.redirect("/");
       }
+    } catch (err) {
+      console.error(err);
+      res.statusCode(500);
+    }
+  });
+
+  app.get("/howto", async (req, res) => {
+    try {
+      const selectedDate = getSelectedDate(req);
+      const oEvents = await calendar.getEvents(req.user, selectedDate);
+      sendCalendar(res, oEvents, selectedDate.dispForm, {
+        howto: {},
+        ...selectedDate
+      });
     } catch (err) {
       console.error(err);
       res.statusCode(500);
