@@ -28,7 +28,7 @@
       fill="black" />
   
   <!-- Camera front -->
-  <path d="M370 200, L370 280, L430 325, L430 145"
+  <path d="M370,200 L370,280 L430,325 L430,145"
       fill="black"
       stroke="black"
       stroke-linecap="round"

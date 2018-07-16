@@ -9,7 +9,7 @@
         fill="transparent"
         stroke="black"
         stroke-width="25"/>
-    <path d="M10 650, L690 650"
+    <path d="M10,650 L690,650"
         stroke="black"
         stroke-width="25"
         stroke-linecap="round"/>
@@ -28,17 +28,17 @@
         stroke="black"
         stroke-width="15"/>
 
-    <path d="M175 190, C125 290, 225 290, 175 190" 
+    <path d="M175,190 C125,290 225,290 175,190" 
         fill="none"
         stroke="black"
         stroke-width="9"
         stroke-linecap="round"/>
-    <path d="M350 150, C300 250, 400 250, 350 150"
+    <path d="M350,150 C300,250 400,250 350,150"
         fill="none"
         stroke="black"
         stroke-width="9"
         stroke-linecap="round"/>
-    <path d="M525 190, C475 290, 575 290, 525 190"
+    <path d="M525,190 C475,290 575,290 525,190"
         fill="none"
         stroke="black"
         stroke-width="9"
