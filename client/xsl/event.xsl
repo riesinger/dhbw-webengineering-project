@@ -65,6 +65,12 @@
 							<xsl:when test="contains(description, 'icon:frisör')">
 								<img class="event-icon" src="/images/comb_white.svg" alt="Bild eines Kamms"/>
 							</xsl:when>
+							<xsl:when test="contains(description, 'icon:programmieren')">
+								<img class="event-icon" src="/images/laptop_white.svg" alt="Bild eines Laptops"/>
+							</xsl:when>
+							<xsl:when test="contains(description, 'icon:schlafen')">
+								<img class="event-icon" src="/images/sleep_white.svg" alt="Bild eines Bettes"/>
+							</xsl:when>
 						</xsl:choose>
 					</xsl:if>
 					<xsl:if test="contains(description, 'icon:') = false()">
@@ -107,6 +113,12 @@
 							</xsl:when>
 							<xsl:when test="contains(name, 'Frisör') or contains(name, 'frisör')">
 								<img class="event-icon" src="/images/comb_white.svg" alt="Bild eines Kamms"/>
+							</xsl:when>
+							<xsl:when test="contains(name, 'Programmieren') or contains(name, 'programmieren')">
+								<img class="event-icon" src="/images/laptop_white.svg" alt="Bild eines Laptops"/>
+							</xsl:when>
+							<xsl:when test="contains(name, 'Schlafen') or contains(name, 'schlafen')">
+								<img class="event-icon" src="/images/sleep_white.svg" alt="Bild eines Bettes"/>
 							</xsl:when>
 						</xsl:choose>
 					</xsl:if>
