@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="350">
+  <title>Question mark</title>
+  <desc>Question mark in white</desc>
+  <path d="M120,290 L120,250 M120,230 L120,220 Q120,200 140,190 T160,180 C260,130 120,-20 60,130" 
+    fill="none"
+    stroke="white"
+    stroke-width="40"/>
+</svg>

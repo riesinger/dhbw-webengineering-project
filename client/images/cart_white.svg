@@ -6,7 +6,7 @@
   <desc>White shopping cart</desc>
 
   <!-- Chassis -->  
-  <path d="M680 20, L600 40, L470 350, L530 460, L35 460, M470 350, L60 320, L30 140, L555 140" 
+  <path d="M680,20 L600,40 L470,350 L530,460 L35,460 M470,350 L60,320 L30,140 L555,140" 
       fill="transparent" 
       stroke="white" 
       stroke-width="30" 
@@ -14,7 +14,7 @@
       stroke-linejoin="round"/>
   
   <!-- Grid -->
-  <path d="M40 205, L530 205, M40 265, L500 265, M120 140, L120 320, M200 140, L200 320, M280 140, L280 320, M360 140, L360 340, M440 140, L440 340" 
+  <path d="M40,205 L530,205 M40,265 L500,265 M120,140 L120,320 M200,140 L200,320 M280,140 L280,320 M360,140 L360,340 M440,140 L440,340" 
       fill="transparent"
       stroke="white" 
       stroke-width="7"/>
