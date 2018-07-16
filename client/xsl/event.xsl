@@ -109,9 +109,6 @@
 								<img class="event-icon" src="/images/comb_white.svg" alt="Bild eines Kamms"/>
 							</xsl:when>
 						</xsl:choose>
-						</xsl:choose>
-						</xsl:choose>
-						</xsl:choose>
 					</xsl:if>
 					<xsl:value-of select="name"/>
 					<a>
