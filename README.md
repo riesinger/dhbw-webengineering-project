@@ -49,8 +49,7 @@ Zugangsdaten haben:
 Nutzername | Passwort | Hash
 :-------------:| :------: | :-------------------------------:
 Max Mustermann | 123456   | e10adc3949ba59abbe56e057f20f883e
-test1          | 123456   | e10adc3949ba59abbe56e057f20f883e
-test2          | 123456   | e10adc3949ba59abbe56e057f20f883e
+test           | 123456   | e10adc3949ba59abbe56e057f20f883e
 
 ## Erläuterungen zum Backend
 

@@ -2,14 +2,9 @@
 <!DOCTYPE users SYSTEM "dtd/users.dtd">
 <users>
   <user>
-    <username>test1</username>
+    <username>test</username>
     <password>e10adc3949ba59abbe56e057f20f883e</password>
-    <token>i9xkndt924pwq8itdb0pyq</token>
-  </user>
-  <user>
-    <username>test2</username>
-    <password>e10adc3949ba59abbe56e057f20f883e</password>
-    <token>p0pzes4nit70otqytrizl</token>
+    <token>s8h2u3ozbvig2k90vxe5ym</token>
   </user>
   <user>
     <username>Max Mustermann</username>
