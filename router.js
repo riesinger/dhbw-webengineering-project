@@ -47,7 +47,7 @@ async function sendErrorMessage(req, res, err) {
   const selectedDate = getSelectedDate(req);
   const oEvents = await calendar.getEvents(req.user, selectedDate);
   sendCalendar(res, oEvents, selectedDate.dispForm, {
-    errorWindow: { err },
+    error: { err },
     ...selectedDate
   });
 }
